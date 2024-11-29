@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer style={footerStyle}>
       <div style={iconContainerStyle}>
-        <p style={followTextStyle}>Follow me on:</p>
+        <p style={followTextStyle}>Follow Us:</p>
 
         {/* LinkedIn Icon */}
         <a href="https://www.linkedin.com/company/codeharmonylab/" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#0077B5' }}>
@@ -57,7 +57,7 @@ const iconStyle = {
 
 const followTextStyle = {
   fontSize: '1rem',
-  marginRight: '0.5rem', // Adds spacing between text and icons
+  // marginRight: '0.5rem', // Adds spacing between text and icons
 };
 
 const textStyle = {

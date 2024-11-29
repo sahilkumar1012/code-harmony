@@ -8,7 +8,7 @@ const Header = () => {
         <img src={logo} alt="Code Harmony Logo" style={logoStyle} />
       </div>
       <nav style={navStyle}>
-        <a href="#home" style={linkStyle}>
+        <a href="/" style={linkStyle}>
           Home
         </a>
         <a href="#about" style={linkStyle}>
@@ -25,14 +25,15 @@ const Header = () => {
   );
 };
 
-// Styles for Header
+// Base Styles for Header
 const headerStyle = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   backgroundColor: '#000000',
-  padding: '0.1rem 2rem',
-  color: '#00000',
+  padding: '0.5rem 1rem',
+  color: '#fff',
+  flexWrap: 'wrap',
 };
 
 const logoContainerStyle = {
@@ -41,12 +42,13 @@ const logoContainerStyle = {
 };
 
 const logoStyle = {
-  height: '70px', // Adjust as needed
+  height: '50px', // Adjust as needed for mobile
 };
 
 const navStyle = {
   display: 'flex',
-  gap: '1.5rem',
+  gap: '1rem',
+  flexWrap: 'wrap',
 };
 
 const linkStyle = {
@@ -59,5 +61,25 @@ const linkStyle = {
 linkStyle[':hover'] = {
   color: '#61dafb',
 };
+
+// Responsive Design with Media Query
+const mediaQuery = `@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    width: 100%;
+    justify-content: center;
+  }
+  a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+}`;
+
+// Inject the styles dynamically
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(mediaQuery, styleSheet.cssRules.length);
 
 export default Header;

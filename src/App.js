@@ -8,20 +8,37 @@ import Home from './pages/Home';
 function App() {
   return (
     <Router>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Header /> {/* Add Header here */}
-        
-        <div style={{ flex: '1' }}>
+      {/* Full-page layout */}
+      <div style={appStyle}>
+        <Header /> {/* Header */}
+
+        {/* Content Area */}
+        <main style={mainStyle}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/landing" element={<LandingPage />} />
           </Routes>
-        </div>
-        
-        <Footer /> {/* Add Footer here */}
+        </main>
+
+        <Footer /> {/* Footer */}
       </div>
     </Router>
   );
 }
+
+// Styles
+const appStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh',
+};
+
+const mainStyle = {
+  flex: '1', // Fills the available vertical space
+  maxWidth: '1200px', // Maximum width for content
+  margin: '0 auto', // Centers the content
+  width: '100%', // Ensures content spans the full width on smaller screens
+  // padding: '1rem', // Adds padding for smaller devices
+};
 
 export default App;

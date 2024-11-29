@@ -7,7 +7,9 @@ const About = () => {
   return (
     <div className="about">
         <section className="introSectionStyle">
-            <h1 style={titleStyle}>Welcome to Code Harmony</h1>
+            <h1 style={titleStyle}>
+              Welcome to <span style={{ color: 'red' }}>Code</span> <span style={{ color: 'black' }}>Harmony</span>
+              </h1>
             <h2 style={descriptionStyle}>
             Learn, Grow, and Succeed with the best coding resources and expert mentorship.
             </h2>
@@ -22,7 +24,7 @@ export default About;
 // Styles for Home 
 
   const titleStyle = {
-    fontSize: '3rem',
+    fontSize: '4rem',
     marginBottom: '0.5rem',
   };
   
