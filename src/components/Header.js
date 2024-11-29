@@ -8,7 +8,7 @@ const Header = () => {
         <img src={logo} alt="Code Harmony Logo" style={logoStyle} />
       </div>
       <nav style={navStyle}>
-        <a href="#home" style={linkStyle}>
+        <a href="/" style={linkStyle}>
           Home
         </a>
         <a href="#about" style={linkStyle}>

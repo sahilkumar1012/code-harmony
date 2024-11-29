@@ -10,8 +10,8 @@ const Videos = () => {
 
   return (
     <section style={videoSectionStyle}>
-      <h2 style={videoSectionTitleStyle}>My Educational Videos</h2>
-      <p style={videoDescriptionStyle}>Here are some educational videos that I have created on various topics:</p>
+      <h2 style={videoSectionTitleStyle}>Educational Resources</h2>
+      <p style={videoDescriptionStyle}>Here are some educational videos that we have created on various topics:</p>
       
       <div className="videos-container" style={videosContainerStyle}>
         {videoIds.map((videoId, index) => (
