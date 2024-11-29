@@ -11,30 +11,6 @@ const Home = () => {
       <About />
 
       <Services />
-      {/* <section style={introSectionStyle}>
-        <h1 style={titleStyle}>Welcome to Code Harmony</h1>
-        <h2 style={descriptionStyle}>
-          Learn, Grow, and Succeed with the best coding resources and expert mentorship.
-        </h2>
-      </section> */}
-
-      {/* <section style={featuredSectionStyle}>
-        <h2 style={featuredTitleStyle}>Featured Services</h2>
-        <div style={servicesContainerStyle}>
-          <div style={serviceCardStyle}>
-            <h3>DSA Preparation</h3>
-            <p>Prepare for interviews with our curated DSA content.</p>
-          </div>
-          <div style={serviceCardStyle}>
-            <h3>Mock Interviews</h3>
-            <p>Get ready for your dream job with mock interviews.</p>
-          </div>
-          <div style={serviceCardStyle}>
-            <h3>Mentorship</h3>
-            <p>Personalized guidance to help you advance your career.</p>
-          </div>
-        </div>
-      </section> */}
 
       <Videos />
 

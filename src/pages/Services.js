@@ -29,7 +29,7 @@ const Services = () => {
 const servicesContainerStyle = {
   textAlign: 'center',
   padding: '2rem',
-  backgroundColor: '#f8f9fa',
+  backgroundColor: '#ffffff',
 };
 
 const titleStyle = {

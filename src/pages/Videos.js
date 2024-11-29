@@ -38,9 +38,9 @@ const Videos = () => {
 // Updated Styles for Videos Section
 const videoSectionStyle = {
   padding: '4rem 0',
-  backgroundColor: '#f8f9fa',
+  backgroundColor: '#f7f7f7',
   textAlign: 'center',
-  color: '#333',
+  color: '#fff',
 };
 
 const videoSectionTitleStyle = {
