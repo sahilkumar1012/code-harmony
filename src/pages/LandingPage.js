@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingPage.css'; // We'll create this CSS file next
+import './LandingPage.css';
 
 const LandingPage = () => {
   return (
@@ -47,10 +47,6 @@ const LandingPage = () => {
         <a href="/contact" className="cta-btn">Contact Me</a>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <p>Follow me on <a href="https://www.youtube.com/@codeharmonylab">YouTube</a> | <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></p>
-      </footer>
     </div>
   );
 };
