@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa'; // Import icons
+import { FaTwitter, FaLinkedin, FaYoutube, FaDiscord } from 'react-icons/fa'; // Import Discord icon
 
 const Footer = () => {
   return (
@@ -20,6 +20,11 @@ const Footer = () => {
         {/* YouTube Icon */}
         <a href="https://youtube.com/@codeharmonylab" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#FF0000' }}>
           <FaYoutube />
+        </a>
+
+        {/* Discord Icon */}
+        <a href="https://discord.gg/p3vtnzFbn5" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#7289DA' }}>
+          <FaDiscord />
         </a>
       </div>
       <p style={textStyle}>© 2024 Code Harmony. All rights reserved.</p>
