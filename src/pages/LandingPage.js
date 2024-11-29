@@ -37,14 +37,7 @@ const LandingPage = () => {
       {/* Video Section */}
       <section className="videos">
         <h2>Watch Latest Tutorials</h2>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/YOUR_LATEST_VIDEO_ID"
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+              <iframe width="600" height="238" src="https://www.youtube.com/embed/PdWeMeyH9RA" title="How My Friend Coded Consistently for 500 Days on LeetCode? 🔥" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </section>
 
       {/* Contact Section */}
