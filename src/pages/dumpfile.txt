@@ -1,0 +1,8 @@
+<a href="https://topmate.io/hisahil/1316955" style={linkStyle}>
+<div style={cardStyle}>
+  <h3 style={cardTitleStyle}>DSA Preparation Link</h3>
+  <p style={cardTextStyle}>Prepare for interviews with our curated DSA content.</p>
+  <span style={{ fontSize: '1.5rem', marginTop: '0.5rem', display: 'block' }}>🚀</span> {/* Icon */}
+
+</div>
+</a>
