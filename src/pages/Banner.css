@@ -1,62 +1,90 @@
+/* Banner CSS */
 .banner {
-    height: 100vh;
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    position: relative;
-  }
-  
-  .banner-content {
-    animation: fadeIn 2s ease-in-out;
-  }
-  
-  .banner-title {
-    font-size: 4rem;
-    font-weight: bold;
-  }
-  
-  .banner-subtitle {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-  }
-  
-  .cta-button {
-    padding: 0.8rem 2rem;
-    background: white;
-    color: #ff7e5f;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .cta-button:hover {
-    transform: scale(1.1);
-    background-color: #000000;
-    color: white;
-  }
-  
-  /* Fade-in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+  height: 100vh;
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  padding: 0 1rem; /* Adds padding on mobile screens */
+}
 
-  .highlight-red {
-    color: red;
+.banner-content {
+  animation: fadeIn 2s ease-in-out;
+  width: 100%; /* Ensures the content takes up full width */
+  max-width: 1000px; /* Restricts the max width for large screens */
+  box-sizing: border-box;
+}
+
+.banner-title {
+  font-size: 3rem; /* Adjusted size for better readability */
+  font-weight: bold;
+}
+
+.banner-subtitle {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.cta-button {
+  padding: 0.8rem 2rem;
+  background: white;
+  color: #ff7e5f;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+  background-color: #000000;
+  color: white;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  .highlight-black{
-    color: black;;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* Responsive Design for Mobile Screens */
+@media (max-width: 768px) {
+  .banner-title {
+    font-size: 2.5rem; /* Reduce title size for mobile screens */
+  }
+
+  .banner-subtitle {
+    font-size: 1rem; /* Smaller subtitle for mobile */
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem; /* Smaller button padding */
+    font-size: 0.9rem; /* Adjust font size of the button */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-title {
+    font-size: 2rem; /* Even smaller title for very small screens */
+  }
+
+  .banner-subtitle {
+    font-size: 0.9rem; /* Adjust subtitle size */
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.2rem; /* Even smaller button padding */
+    font-size: 0.8rem; /* Adjust font size of the button */
+  }
+}
