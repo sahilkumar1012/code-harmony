@@ -28,16 +28,20 @@
     padding: 1.5rem;
     width: 300px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; */
+    transition: transform 0.3s ease;
     color: #333;
   }
   
   .service-card:hover {
     transform: scale(1.05);
-    background-color: red;
+    background-color: #D3D3D3;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    color: #fff;
+    transition: transform 0.3s ease;
+    /* color: #fff; */
+    transform: translateY(-10px);
   }
+
   
   .service-card h3 {
     font-size: 1.5rem;
@@ -52,6 +56,6 @@
   
   .service-card:hover p {
     font-size: 1rem;
-    color: #fff;
+    /* color: #fff; */
   }
   

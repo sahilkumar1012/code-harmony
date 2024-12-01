@@ -1,15 +1,11 @@
 import React from 'react';
 import Videos from './Videos';
-import About from './About';
 import Services from './Services';
-
 
 const Home = () => {
   return (
     <div style={homeStyle}>
       
-      <About />
-
       <Services />
 
       <Videos />
@@ -24,6 +20,8 @@ const homeStyle = {
   backgroundColor: '#f5f5f5',
   color: '#333',
   minHeight: '100vh',
+  maxWidth: '1200px', // Maximum width for content
+  margin: '0 auto',
   // padding: '2rem',
 };
 
