@@ -1,0 +1,62 @@
+.banner {
+    height: 100vh;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+  }
+  
+  .banner-content {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .banner-title {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  .banner-subtitle {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 2rem;
+    background: white;
+    color: #ff7e5f;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+    color: white;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  .highlight-red {
+    color: red;
+  }
+  .highlight-black{
+    color: black;;
+  }
