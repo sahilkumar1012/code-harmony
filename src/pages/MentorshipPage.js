@@ -1,6 +1,6 @@
 import React from 'react';
 import { mentors } from '../mentorship/MentorData';  // Import the mentor data
-import MentorCards from '../mentorship/MentorCards';  // Import the MentorCard component
+// import MentorCards from '../mentorship/MentorCards';  // Import the MentorCard component
 
 const MentorshipPage = () => {
   return (
