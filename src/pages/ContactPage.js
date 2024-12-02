@@ -1,21 +1,21 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import './ContactPage.css';
 
 const ContactPage = () => {
   // Animation Variants
-  const pageVariants = {
-    hidden: { opacity: 0, y: -30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
+  // const pageVariants = {
+  //   hidden: { opacity: 0, y: -30 },
+  //   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  // };
 
   return (
-    <motion.div
-      className="contact-page bg-light text-dark py-5"
-      initial="hidden"
-      animate="visible"
-      variants={pageVariants}
-    >
+    // <motion.div
+    //   className="contact-page bg-light text-dark py-5"
+    //   initial="hidden"
+    //   animate="visible"
+    //   variants={pageVariants}
+    // >
       <div className="container">
         {/* Email Contact Section */}
         <div className="text-center mb-5">
@@ -103,7 +103,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    // </motion.div>
   );
 };
 
