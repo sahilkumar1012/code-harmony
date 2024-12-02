@@ -31,7 +31,7 @@ const headerStyle = {
   alignItems: 'center',
   justifyContent: 'space-between',
   backgroundColor: '#000000',
-  padding: '0.5rem 1rem',
+  padding: '0rem 1rem',
   color: '#fff',
   flexWrap: 'wrap',
 };
