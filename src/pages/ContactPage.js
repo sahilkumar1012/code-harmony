@@ -1,8 +1,21 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import './ContactPage.css';
 
 const ContactPage = () => {
+  // Animation Variants
+  const pageVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
-    <div className="contact-page bg-light text-dark py-5">
+    <motion.div
+      className="contact-page bg-light text-dark py-5"
+      initial="hidden"
+      animate="visible"
+      variants={pageVariants}
+    >
       <div className="container">
         {/* Email Contact Section */}
         <div className="text-center mb-5">
@@ -12,13 +25,13 @@ const ContactPage = () => {
           </p>
           <h3>
             <a href="mailto:codeharmonyofficial@gmail.com" className="text-decoration-none text-primary">
-            codeharmonyofficial@gmail.com
+              codeharmonyofficial@gmail.com
             </a>
           </h3>
         </div>
 
         {/* Contact Form */}
-        <div className="row hidden">
+        <div className="row">
           <div className="col-md-8 mx-auto">
             <h2 className="text-center mb-4">Send Us a Message</h2>
             <form className="p-4 rounded shadow-sm bg-white">
@@ -50,7 +63,7 @@ const ContactPage = () => {
                 ></textarea>
               </div>
               <div className="text-center">
-                <button type="submit" disabled="true" className="btn btn-primary px-4 btn-disabled">
+                <button type="submit" disabled={true} className="btn btn-primary px-4 btn-disabled">
                   Send Message
                 </button>
               </div>
@@ -72,10 +85,11 @@ const ContactPage = () => {
             <h5>Follow Us</h5>
             <p>
               <a href="https://x.com/codeharmonyHQ" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary me-2">
-                X</a>
-                <span>|</span>
+                X
+              </a>
+              <span>|</span>
               <a href="https://www.linkedin.com/company/99000515/" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary ms-2">
-                 LinkedIn
+                LinkedIn
               </a>
             </p>
           </div>
@@ -89,11 +103,8 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-    </div>
-    
+    </motion.div>
   );
-  
 };
-
 
 export default ContactPage;

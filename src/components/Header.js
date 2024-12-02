@@ -1,12 +1,12 @@
 import React from 'react';
 import { FaHome, FaInfoCircle, FaBriefcase, FaPhoneAlt } from 'react-icons/fa'; // Importing icons
 
-import logo from '../assets/code-harmony-logo-header.png'; // Adjust the path to match your logo file
+import logo from '../assets/navbrandlogo.png'; // Adjust the path to match your logo file
 import './Header.css';
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black px-2 py-0" id="narbar">
+    <nav className="navbar navbar-expand-lg  bg-white light px-2 py-0" id="narbar">
       <a className="navbar-brand p-0" href="/">
         <img src={logo} alt="Code Harmony Logo" style={{ height: '70px' }} />
       </a>
@@ -18,16 +18,16 @@ const Header = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto align-items-center ">
           <li className="nav-item">
-            <a className="nav-link text-white px-3" href="/home"><FaHome className="me-2" /> Home</a>
+            <a className="nav-link text-black px-3" href="/home"><FaHome className="me-2" /> Home</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white px-3" href="#about"><FaInfoCircle className="me-2" /> About</a>
+            <a className="nav-link text-black px-3" href="#about"><FaInfoCircle className="me-2" /> About</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white px-3" href="/home"><FaBriefcase className="me-2" /> Services</a>
+            <a className="nav-link text-black px-3" href="/home"><FaBriefcase className="me-2" /> Services</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white px-3" href="/contact"><FaPhoneAlt className="me-2" />  Contact</a>
+            <a className="nav-link text-black px-3" href="/contact"><FaPhoneAlt className="me-2" />  Contact</a>
           </li>
         </ul>
       </div>

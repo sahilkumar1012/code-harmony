@@ -34,7 +34,7 @@ const Footer = () => {
 
 // Styles for Footer
 const footerStyle = {
-  backgroundColor: '#000000',
+  backgroundColor: 'white',
   color: '#fff',
   textAlign: 'center',
   padding: '1rem 0',
@@ -62,6 +62,7 @@ const followTextStyle = {
 
 const footerTextStyle = {
   fontSize: '0.8rem',
+  color: 'black',
 };
 
 export default Footer;
