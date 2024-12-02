@@ -4,9 +4,9 @@ import logo from '../assets/code-harmony-logo-header.png'; // Adjust the path to
 const Header = () => {
   return (
     <header style={headerStyle}>
-      <div style={logoContainerStyle}>
+      <a href="/" style={logoContainerStyle}>
         <img src={logo} alt="Code Harmony Logo" style={logoStyle} />
-      </div>
+      </a>
       <nav style={navStyle}>
         <a href="/" style={linkStyle}>
           Home
@@ -39,10 +39,11 @@ const headerStyle = {
 const logoContainerStyle = {
   display: 'flex',
   alignItems: 'center',
+  cursor: 'pointer', // Ensures the cursor indicates a clickable area
 };
 
 const logoStyle = {
-  height: '50px', // Adjust as needed for mobile
+  height: '70px', // Increased size of the logo
 };
 
 const navStyle = {

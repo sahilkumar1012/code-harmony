@@ -1,0 +1,24 @@
+/* Home.css */
+
+.home {
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    margin: 0 auto;
+  }
+  
+
+/* CSS for the fade-in animation */
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Keyframes for the fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

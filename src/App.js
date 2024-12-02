@@ -1,59 +1,41 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import Footer from './components/Footer'; // Import the Footer component
-import Header from './components/Header'; // Import the Header component
+import Footer from './components/Footer';
+import Header from './components/Header';
 import Home from './pages/Home';
 import Banner from './pages/Banner';
+import MentorshipPage from './pages/MentorshipPage';
+import NotFound from './components/NotFound';
+import './App.css';
 
-function App() {
+function AppContent() {
+  const location = useLocation(); // Get the current route
+  const mainClassName = location.pathname === '/' ? 'main-content-full' : 'main-content';
+
   return (
-    <Router>
-      {/* Full-page layout */}
-      <div style={appStyle}>
-        <Header /> {/* Header */}
+    <div className="app-container">
+      <Header />
 
+      {/* Main Content Area */}
+      <main className={mainClassName}>
         <Routes>
-          {/* <Route path="/" element={} */}
+          <Route path="/" element={<Banner />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/mentorship" element={<MentorshipPage />} />
+          <Route path="/landing" element={<LandingPage />} />
+          
+          <Route path="*" element={<NotFound />} />
         </Routes>
+      </main>
 
-        {/* Content Area */}
-        <main style={mainStyle}>
-          <Routes>
-            <Route path="/" element={<Banner />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/landing" element={<LandingPage />} />
-          </Routes>
-        </main>
-
-        <Footer /> {/* Footer */}
-      </div>
-    </Router>
+      <Footer />
+    </div>
   );
 }
 
-// Styles
-const appStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  minHeight: '100vh',
-};
-
-// const mainStyle = {
-//   flex: '1', // Fills the available vertical space
-//   maxWidth: '1200px', // Maximum width for content
-//   margin: '0 auto', // Centers the content
-//   width: '100%', // Ensures content spans the full width on smaller screens
-//   // padding: '1rem', // Adds padding for smaller devices
-// };
-
-const mainStyle = {
-  flex: '1', // Fills the available vertical space
-  maxWidth: '1600px', // Maximum width for content
-  margin: '0 auto', // Centers the content
-  width: '100%', // Ensures content spans the full width on smaller screens
-  // padding: '1rem', // Adds padding for smaller devices, optional
-  boxSizing: 'border-box', // Prevents overflow by including padding in the width
-};
+function App() {
+  return <AppContent />;
+}
 
 export default App;

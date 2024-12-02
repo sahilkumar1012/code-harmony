@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer style={footerStyle}>
       <div style={iconContainerStyle}>
-        <p style={followTextStyle}>Follow Us:</p>
+        {/* <p style={followTextStyle}>Follow Us:</p> */}
 
         {/* LinkedIn Icon */}
         <a href="https://www.linkedin.com/company/codeharmonylab/" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#0077B5' }}>
@@ -27,7 +27,7 @@ const Footer = () => {
           <FaDiscord />
         </a>
       </div>
-      <p style={textStyle}>© 2024 Code Harmony. All rights reserved.</p>
+      <p style={footerTextStyle}>© 2024 Code Harmony. All rights reserved.</p>
     </footer>
   );
 };
@@ -50,7 +50,7 @@ const iconContainerStyle = {
 };
 
 const iconStyle = {
-  fontSize: '1.5rem',
+  fontSize: '2rem',
   textDecoration: 'none',
   transition: 'color 0.3s', // Smooth transition for hover effect
 };
@@ -60,8 +60,8 @@ const followTextStyle = {
   // marginRight: '0.5rem', // Adds spacing between text and icons
 };
 
-const textStyle = {
-  fontSize: '0.9rem',
+const footerTextStyle = {
+  fontSize: '0.8rem',
 };
 
 export default Footer;

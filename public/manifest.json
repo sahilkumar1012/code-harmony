@@ -1,15 +1,18 @@
 {
   "short_name": "Code Harmony",
-  "name": "Code Harmony - Learn, Grow, and Succeed with the best coding resources and expert mentorship.",
+  "name": "Code Harmony - Expert mentorship. Simplified learning.",
+  "description": "Code Harmony offers the best coding tutorials, resources, and expert mentorship to help developers excel in their careers.",
   "icons": [
     {
-      "src": "public/Code-Harmony-Image.png",
+      "src": "Code-Harmony-Image.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/index.html",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "orientation": "portrait"
 }

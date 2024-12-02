@@ -1,0 +1,74 @@
+/* MentorCards.css */
+.mentor-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.mentor-card {
+  width: 300px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out; /* Animation for cards */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Hover animation */
+}
+
+.mentor-card img {
+  width: 100%;
+  border-radius: 50%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.mentor-card h3 {
+  margin: 10px 0;
+  font-size: 1.25rem;
+}
+
+.mentor-card p {
+  margin: 5px 0;
+  color: gray;
+}
+
+.mentor-card-cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff7e5f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.mentor-card-cta-button:hover {
+  background-color: #feb47b;
+}
+
+/* Hover animation for card */
+.mentor-card:hover {
+  transform: translateY(-10px); /* Move the card up slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
