@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/code-harmony-logo-header.png'; // Adjust the path to match your logo file
+import './Header.css';
 
 const Header = () => {
   return (
@@ -14,17 +15,17 @@ const Header = () => {
 
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto align-items-center">
-          <li className="nav-item">
-            <a className="nav-link" href="/home"> Home</a>
+        <li className="nav-item">
+            <a className="nav-link text-white px-3" href="/home">Home</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#about"> About</a>
+            <a className="nav-link text-white px-3" href="#about">About</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#services"> Services</a>
+            <a className="nav-link text-white px-3" href="#services">Services</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#contact"> Contact</a>
+            <a className="nav-link text-white px-3" href="#contact">Contact</a>
           </li>
         </ul>
       </div>
