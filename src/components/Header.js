@@ -7,7 +7,7 @@ import './Header.css';
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-black px-2 py-0" id="narbar">
-      <a className="navbar-brand" href="/">
+      <a className="navbar-brand p-0" href="/">
         <img src={logo} alt="Code Harmony Logo" style={{ height: '70px' }} />
       </a>
       
@@ -24,10 +24,10 @@ const Header = () => {
             <a className="nav-link text-white px-3" href="#about"><FaInfoCircle className="me-2" /> About</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white px-3" href="#services"><FaBriefcase className="me-2" /> Services</a>
+            <a className="nav-link text-white px-3" href="/home"><FaBriefcase className="me-2" /> Services</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white px-3" href="#contact"><FaPhoneAlt className="me-2" />  Contact</a>
+            <a className="nav-link text-white px-3" href="/contact"><FaPhoneAlt className="me-2" />  Contact</a>
           </li>
         </ul>
       </div>

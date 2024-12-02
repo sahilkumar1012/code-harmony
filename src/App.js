@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Banner from './pages/Banner';
 import MentorshipPage from './pages/MentorshipPage';
 import NotFound from './components/NotFound';
+import ContactPage from './pages/ContactPage';
+
 import './App.css';
 
 function AppContent() {
@@ -24,6 +26,7 @@ function AppContent() {
           <Route path="/home" element={<Home />} />
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/landing" element={<LandingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
