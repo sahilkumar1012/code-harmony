@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Videos from './Videos';
-import Services from './Services';
-import './Home.css';  // Make sure to import the CSS file that contains the animation
+import Services from './Services'; // Adjust path if needed
+import Videos from './Videos'; // Adjust path if needed
+import './Home.css'; // Ensure you have a CSS file for custom styling
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // This will trigger the animation when the page is loaded
-    setIsLoaded(true);
+    setIsLoaded(true); // Trigger any animations on load
   }, []);
 
   return (

@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom/client';  // Import from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import './index.css';
+// Import Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Import Bootstrap JS (with Popper)
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 
 // Create a root for React 18
