@@ -1,7 +1,8 @@
 .services-container {
     text-align: center;
     padding: 2rem;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
+    background: linear-gradient(to top, #f9f9f9, white); /* Gradient Background */
   }
   
   .services-title {

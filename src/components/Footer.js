@@ -1,30 +1,65 @@
 import React from 'react';
-import { FaTwitter, FaLinkedin, FaYoutube, FaDiscord } from 'react-icons/fa'; // Import Discord icon
+import { FaTwitter, FaLinkedin, FaYoutube, FaDiscord, FaInstagram } from 'react-icons/fa'; // Import Instagram icon
+import "./Footer.css";
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
     <footer style={footerStyle}>
       <div style={iconContainerStyle}>
-        {/* <p style={followTextStyle}>Follow Us:</p> */}
-
         {/* LinkedIn Icon */}
-        <a href="https://www.linkedin.com/company/codeharmonylab/" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#0077B5' }}>
+        <a
+          href="https://www.linkedin.com/company/codeharmonydev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon"
+          style={{ ...iconStyle, color: '#0077B5' }}
+        >
           <FaLinkedin />
         </a>
 
         {/* Twitter Icon */}
-        <a href="https://x.com/codeharmonyHQ" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#1DA1F2' }}>
-          <FaTwitter />
+        <a
+          href="https://x.com/codeharmonyHQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon xicon"
+          style={{ ...iconStyle}}
+        >
+          <FaXTwitter />
         </a>
 
         {/* YouTube Icon */}
-        <a href="https://youtube.com/@codeharmonylab" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#FF0000' }}>
+        <a
+          href="https://youtube.com/@CodeHarmonydev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon"
+          style={{ ...iconStyle, color: '#FF0000' }}
+        >
           <FaYoutube />
         </a>
 
         {/* Discord Icon */}
-        <a href="https://discord.gg/p3vtnzFbn5" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#7289DA' }}>
+        <a
+          href="https://discord.gg/p3vtnzFbn5"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon"
+          style={{ ...iconStyle, color: '#7289DA' }}
+        >
           <FaDiscord />
+        </a>
+
+        {/* Instagram Icon */}
+        <a
+          href="https://instagram.com/codeharmony.dev"
+          target="_blank"
+          className="icon"
+          rel="noopener noreferrer"
+          style={{ ...iconStyle, ...instagramStyle }}
+        >
+          <FaInstagram />
         </a>
       </div>
       <p style={footerTextStyle}>© 2024 Code Harmony. All rights reserved.</p>
@@ -34,7 +69,7 @@ const Footer = () => {
 
 // Styles for Footer
 const footerStyle = {
-  backgroundColor: '#000000',
+  backgroundColor: 'white',
   color: '#fff',
   textAlign: 'center',
   padding: '1rem 0',
@@ -50,18 +85,33 @@ const iconContainerStyle = {
 };
 
 const iconStyle = {
-  fontSize: '2rem',
+  fontSize: '2rem', // Adjusted size
+  width: '2.5rem', // Uniform size for icons
+  height: '2.5rem',
   textDecoration: 'none',
-  transition: 'color 0.3s', // Smooth transition for hover effect
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'transform 0.3s ease-in-out', // Smooth hover effect
+  
 };
 
-const followTextStyle = {
-  fontSize: '1rem',
-  // marginRight: '0.5rem', // Adds spacing between text and icons
+const instagramStyle = {
+  color: '#E4405F',
+  borderRadius: '35%', // Rounded corners instead of a full circle
 };
 
 const footerTextStyle = {
   fontSize: '0.8rem',
+  color: 'black',
 };
+
+// Add the CSS styles for hover effect
+const styles = `
+  .icon:hover {
+    transform: translateY(-5px) scale(1.2); /* Slight upward movement and increase in size */
+  }
+`;
+
 
 export default Footer;
