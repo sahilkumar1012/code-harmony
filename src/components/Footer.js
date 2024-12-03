@@ -27,7 +27,7 @@ const Footer = () => {
         </a>
 
         {/* Instagram Icon */}
-        <a href="https://instagram.com/codeharmony.dev" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, ...instagramStyle }}>
+        <a href="https://instagram.com/codeharmony.dev" target="_blank" class ="" rel="noopener noreferrer" style={{ ...iconStyle, ...instagramStyle }}>
           <FaInstagram />
           {/* <RiInstagramFill /> */}
         </a>
@@ -66,11 +66,11 @@ const iconStyle = {
 };
 
 const instagramStyle = {
-  background: 'linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4)', // Instagram gradient
-  color: '#fff',
+  // background: 'linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4)', // Instagram gradient
+  color: '#E4405F',
   // padding: '0.5rem', // Ensures consistent inner spacing
   borderRadius: '35%', // Rounded corners instead of a full circle
-  border:'3px solid',
+  // border:'3px solid/',
 };
 
 const footerTextStyle = {
