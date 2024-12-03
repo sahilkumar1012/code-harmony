@@ -1,12 +1,11 @@
 import React from 'react';
-import { FaTwitter, FaLinkedin, FaYoutube, FaDiscord } from 'react-icons/fa'; // Import Discord icon
+import { FaTwitter, FaLinkedin, FaYoutube, FaDiscord, FaInstagram} from 'react-icons/fa'; // Import Instagram icon
+import { RiInstagramFill } from 'react-icons/ri';
 
 const Footer = () => {
   return (
     <footer style={footerStyle}>
       <div style={iconContainerStyle}>
-        {/* <p style={followTextStyle}>Follow Us:</p> */}
-
         {/* LinkedIn Icon */}
         <a href="https://www.linkedin.com/company/codeharmonylab/" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#0077B5' }}>
           <FaLinkedin />
@@ -18,13 +17,19 @@ const Footer = () => {
         </a>
 
         {/* YouTube Icon */}
-        <a href="https://youtube.com/@codeharmonylab" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#FF0000' }}>
+        <a href="https://youtube.com/@CodeHarmonydev" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#FF0000' }}>
           <FaYoutube />
         </a>
 
         {/* Discord Icon */}
         <a href="https://discord.gg/p3vtnzFbn5" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, color: '#7289DA' }}>
           <FaDiscord />
+        </a>
+
+        {/* Instagram Icon */}
+        <a href="https://instagram.com/codeharmony.dev" target="_blank" rel="noopener noreferrer" style={{ ...iconStyle, ...instagramStyle }}>
+          <FaInstagram />
+          {/* <RiInstagramFill /> */}
         </a>
       </div>
       <p style={footerTextStyle}>© 2024 Code Harmony. All rights reserved.</p>
@@ -50,14 +55,22 @@ const iconContainerStyle = {
 };
 
 const iconStyle = {
-  fontSize: '2rem',
+  fontSize: '2rem', // Adjusted size
+  width: '2.5rem', // Uniform size for icons
+  height: '2.5rem',
   textDecoration: 'none',
-  transition: 'color 0.3s', // Smooth transition for hover effect
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'transform 0.3s', // Add hover effect
 };
 
-const followTextStyle = {
-  fontSize: '1rem',
-  // marginRight: '0.5rem', // Adds spacing between text and icons
+const instagramStyle = {
+  background: 'linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4)', // Instagram gradient
+  color: '#fff',
+  // padding: '0.5rem', // Ensures consistent inner spacing
+  borderRadius: '35%', // Rounded corners instead of a full circle
+  border:'3px solid',
 };
 
 const footerTextStyle = {
