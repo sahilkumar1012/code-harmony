@@ -1,9 +1,10 @@
 .contact-page{
     background: linear-gradient(to top, #f9f9f9, white);
 }
-.phoneNumber{
-    display: none;
-}
-.companyAddress{
-    display: none;
-}
+
+
+/* // below css not working.  */
+.link-hover :hover {
+    text-decoration: underline;
+    color: #0056b3; /* A darker blue on hover for a nice effect */
+  }
