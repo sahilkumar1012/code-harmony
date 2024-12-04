@@ -33,7 +33,7 @@ const ContactPage = () => {
             <h5>Follow Us</h5>
             <p>
               <a href="https://youtube.com/@codeharmonydev" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary ms-2 me-2">
-                YoutTube
+                YouTube
               </a>    
               <span>|</span>       
               <a href="https://x.com/codeharmonyHQ" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary me-2 ms-2">
