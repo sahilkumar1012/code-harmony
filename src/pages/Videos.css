@@ -1,0 +1,14 @@
+.video-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.612);
+  }
+  
+.visitYoutubeButton{
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}

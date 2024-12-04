@@ -13,55 +13,15 @@ const ContactPage = () => {
           </p>
           <h3>
             <a href="mailto:codeharmonyofficial@gmail.com" className="text-decoration-none text-primary">
-            codeharmonyofficial@gmail.com
+              codeharmonyofficial@gmail.com
             </a>
           </h3>
         </div>
 
-        {/* Contact Form */}
-        <div className="row hidden">
-          <div className="col-md-8 mx-auto">
-            <h2 className="text-center mb-4">Send Us a Message</h2>
-            <form className="p-4 rounded shadow-sm bg-white">
-              <div className="mb-3">
-                <label htmlFor="name" className="form-label">Your Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  placeholder="Enter your name"
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">Your Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="message" className="form-label">Your Message</label>
-                <textarea
-                  className="form-control"
-                  id="message"
-                  rows="5"
-                  placeholder="Enter your message"
-                ></textarea>
-              </div>
-              <div className="text-center">
-                <button type="submit" disabled="true" className="btn btn-primary px-4 btn-disabled">
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
 
         {/* Additional Contact Details */}
         <div className="row text-center mt-5">
-          <div className="col-md-4">
+          <div className="col-md-4 phoneNumber">
             <h5>Phone</h5>
             <p>
               <a href="tel:+1234567890" className="text-decoration-none text-primary">
@@ -72,15 +32,25 @@ const ContactPage = () => {
           <div className="col-md-4">
             <h5>Follow Us</h5>
             <p>
-              <a href="https://x.com/codeharmonyHQ" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary me-2">
-                X</a>
-                <span>|</span>
-              <a href="https://www.linkedin.com/company/99000515/" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary ms-2">
-                 LinkedIn
+              <a href="https://youtube.com/@codeharmonydev" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary ms-2 me-2">
+                YoutTube
+              </a>    
+              <span>|</span>       
+              <a href="https://x.com/codeharmonyHQ" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary me-2 ms-2">
+                X
               </a>
+              <span>|</span>
+              <a href="https://www.linkedin.com/company/99000515/" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary ms-2 me-2">
+                LinkedIn
+              </a>
+              <span>|</span>
+              <a href="https://www.instagram.com/codeharmony.dev/" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary ms-2 me-2">
+                Instagram
+              </a>
+
             </p>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 companyAddress">
             <h5>Address</h5>
             <p>
               Code Harmony, <br />
@@ -91,10 +61,11 @@ const ContactPage = () => {
         </div>
       </div>
     </div>
-    
   );
-  
 };
 
+const contactForm = {
+  display: 'none', // Modify this to 'block' or conditional logic to show form
+};
 
 export default ContactPage;
