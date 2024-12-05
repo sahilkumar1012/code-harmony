@@ -21,7 +21,7 @@ const Header = () => {
             <a className="nav-link text-black px-3" href="/home"><FaHome className="me-2" /> Home</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-black px-3" href="#about"><FaInfoCircle className="me-2" /> About</a>
+            <a className="nav-link text-black px-3" href="/about"><FaInfoCircle className="me-2" /> About</a>
           </li>
           <li className="nav-item">
             <a className="nav-link text-black px-3" href="/home"><FaBriefcase className="me-2" /> Services</a>
