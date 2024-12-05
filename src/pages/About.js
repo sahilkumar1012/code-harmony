@@ -1,19 +1,30 @@
-import React from 'react';
-// import './About.css';
+import React, { useEffect, useState } from 'react';
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation when the component mounts
+    setTimeout(() => setIsVisible(true), 100);
+  }, []);
+
   return (
     <section style={aboutSectionStyle}>
-      <div style={aboutContainerStyle}>
+      <div
+        style={{
+          ...aboutContainerStyle,
+          animation: isVisible ? 'fadeInUp 1s ease-out forwards' : 'none',
+        }}
+      >
         <h1 style={aboutTitleStyle}>About CodeHarmony</h1>
         <p style={aboutTextStyle}>
           Welcome to <strong>CodeHarmony</strong>, your ultimate destination for mastering <strong>Data Structures and Algorithms (DSA)</strong> and staying updated with the latest <strong>tech insights</strong>!
         </p>
         <p style={aboutTextStyle}>
-          Our mission is to simplify complex coding problems, empower developers with the right tools, and help you crack the toughest coding interviews. With years of experience working at top tech companies like <strong>Google</strong>, <strong>Amazon</strong>, <strong>Microsoft</strong> and <strong>Adobe</strong>, we bring real-world expertise to every video.
+          Our mission is to simplify complex coding problems, empower developers with the right tools, and help you crack the toughest coding interviews. With years of experience working at top tech companies like <strong>Google</strong>, <strong>Amazon</strong>, <strong>Microsoft</strong>, and <strong>Adobe</strong>, we bring real-world expertise to every video.
         </p>
         <p style={aboutTextStyle}>
-          Join our vibrant community of coders as we embark on daily problem-solving challenges, explore advanced DSA concepts, and discuss emerging tech trends. Let’s turn your coding aspirations into achievements. 
+          Join our vibrant community of coders as we embark on daily problem-solving challenges, explore advanced DSA concepts, and discuss emerging tech trends. Let’s turn your coding aspirations into achievements.
         </p>
 
         {/* CTA Buttons */}
@@ -38,6 +49,24 @@ const About = () => {
   );
 };
 
+// CSS Keyframes (to be added in your global CSS file)
+const keyframes = `
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+`;
+
+// Dynamically inject keyframes into the page
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
 // Styles
 const aboutSectionStyle = {
   padding: '3rem 1rem',
@@ -53,6 +82,7 @@ const aboutContainerStyle = {
   borderRadius: '10px',
   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
   backgroundColor: '#fff',
+  opacity: 0, // Start as invisible
 };
 
 const aboutTitleStyle = {
