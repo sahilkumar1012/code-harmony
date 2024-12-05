@@ -1,2 +1,2 @@
 # code-harmony
-Code Haromony Website
+Code Haromony Website.
