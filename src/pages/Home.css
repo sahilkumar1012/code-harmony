@@ -8,17 +8,19 @@
   }
   
 
-/* CSS for the fade-in animation */
-.fade-in {
-  animation: fadeIn 2s ease-in-out;
+/* In Home.css */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Keyframes for the fade-in effect */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+/* Apply this class to the page container */
+.fade-in {
+  animation: fadeInUp 1s ease-out forwards;
 }
