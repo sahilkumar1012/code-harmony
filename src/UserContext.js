@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
 
   // Function to log in
   const login = (userData) => {
+    console.log(userData);
     setUser(userData);
   };
 
