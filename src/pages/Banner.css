@@ -8,24 +8,28 @@
   color: white;
   text-align: center;
   position: relative;
-  padding: 0 1rem; /* Adds padding on mobile screens */
+  padding: 0 1rem;
+  overflow: hidden;
+  animation: parallax 15s infinite linear;
 }
 
 .banner-content {
   animation: fadeIn 2s ease-in-out;
-  width: 100%; /* Ensures the content takes up full width */
-  max-width: 1000px; /* Restricts the max width for large screens */
+  width: 100%;
+  max-width: 1000px;
   box-sizing: border-box;
 }
 
 .banner-title {
-  font-size: 3rem; /* Adjusted size for better readability */
+  font-size: 3rem;
   font-weight: bold;
+  animation: fadeInTitle 1s ease-in-out forwards;
 }
 
 .banner-subtitle {
   font-size: 1.2rem;
   margin: 1rem 0;
+  animation: fadeInSubtitle 1.5s ease-in-out forwards;
 }
 
 .cta-button {
@@ -38,6 +42,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: fadeInButton 2s ease-in-out forwards;
 }
 
 .cta-button:hover {
@@ -58,33 +63,76 @@
   }
 }
 
-/* Responsive Design for Mobile Screens */
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSubtitle {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInButton {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Parallax background animation */
+@keyframes parallax {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .banner-title {
-    font-size: 2.5rem; /* Reduce title size for mobile screens */
+    font-size: 2.5rem;
   }
 
   .banner-subtitle {
-    font-size: 1rem; /* Smaller subtitle for mobile */
+    font-size: 1rem;
   }
 
   .cta-button {
-    padding: 0.8rem 1.5rem; /* Smaller button padding */
-    font-size: 0.9rem; /* Adjust font size of the button */
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .banner-title {
-    font-size: 2rem; /* Even smaller title for very small screens */
+    font-size: 2rem;
   }
 
   .banner-subtitle {
-    font-size: 0.9rem; /* Adjust subtitle size */
+    font-size: 0.9rem;
   }
 
   .cta-button {
-    padding: 0.8rem 1.2rem; /* Even smaller button padding */
-    font-size: 0.8rem; /* Adjust font size of the button */
+    padding: 0.8rem 1.2rem;
+    font-size: 0.8rem;
   }
 }
