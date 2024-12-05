@@ -10,6 +10,7 @@ import NotFound from './components/NotFound';
 import ContactPage from './pages/ContactPage';
 
 import './App.css';
+import About from './pages/About';
 
 function AppContent() {
   const location = useLocation(); // Get the current route
@@ -27,6 +28,7 @@ function AppContent() {
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about" element={<About />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
