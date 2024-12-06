@@ -7,6 +7,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Import Bootstrap JS (with Popper)
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { UserProvider } from './UserContext'; // Import UserProvider
 
 
 
@@ -17,7 +18,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router> {/* Wrap the App in Router */}
-      <App />
+      <UserProvider>
+        <App />
+      </UserProvider>
     </Router>
   </React.StrictMode>
 );

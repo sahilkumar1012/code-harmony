@@ -11,3 +11,11 @@
 .nav-link{
   /* font-weight: bold; */
 }
+
+.profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover; /* This will ensure the image fits the circle shape */
+  margin-right: 8px;
+}
