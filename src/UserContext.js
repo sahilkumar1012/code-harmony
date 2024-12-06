@@ -1,23 +1,28 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Create UserContext
-const UserContext = createContext();
+// Create the context
+export const UserContext = createContext();
 
-// UserContext Provider
+// UserProvider to wrap around the app and provide user state
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // User state
+  const [user, setUser] = useState(null);
 
-  // Function to log in
+  useEffect(() => {
+    // Check if there's a user stored in localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   const login = (userData) => {
-    console.log(userData);
     setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData)); // Save user data to localStorage
   };
 
-  // Function to log out
   const logout = () => {
-    console.log('Before logout:', user); // Log current user before logout
-    setUser(null); // Clear user state
-    console.log('After logout:', user);
+    setUser(null);
+    localStorage.removeItem('user'); // Remove user data from localStorage
   };
 
   return (
@@ -27,5 +32,7 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use UserContext
-export const useUser = () => useContext(UserContext);
+// Custom hook to access the user context
+export const useUser = () => {
+  return useContext(UserContext); // This is the custom hook that can be used in other components
+};
