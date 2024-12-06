@@ -1,21 +1,72 @@
+.navbar {
+  padding: 0rem 1rem; /* Reduce padding to decrease height */
+  font-size: 1rem; /* Adjust font size for better proportions */
+  box-shadow: none;
+}
+
+.navbar-brand img {
+  height: 50px; /* Reduce logo size */
+}
+
+.navbar-toggler {
+  padding: 0.3rem; /* Slightly smaller toggle button */
+}
+
+.navbar-nav {
+  font-size: 1.2rem; /* Adjust font size for links */
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 0.8rem; /* Reduce padding for a compact look */
+}
+
 .navbar-nav .nav-link:hover {
   color: #316bf4 !important;
-  /* text-decoration: underline; */
-}
-
-.navbar-nav{
-  /* font-weight: bold; */
-  font-size: 1.2rem;
-}
-
-.nav-link{
-  /* font-weight: bold; */
 }
 
 .profile-img {
-  width: 30px;
-  height: 30px;
+  width: 25px; /* Slightly smaller profile image */
+  height: 25px;
   border-radius: 50%;
-  object-fit: cover; /* This will ensure the image fits the circle shape */
-  margin-right: 8px;
+  object-fit: cover;
+  margin-right: 6px;
+}
+
+/* Mobile View Improvements */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.3rem 0.8rem; /* Reduce padding further for mobile */
+  }
+
+  .navbar-brand img {
+    height: 40px; /* Smaller logo on mobile */
+  }
+
+  .navbar-nav .login-btn{
+    padding-bottom: 0.5em;
+  }
+  .nav-login{
+    padding : 0.5em 0;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.6rem 0.6rem; /* Compact padding for smaller screens */
+  }
+}
+
+
+/* Navbar Login Button Styling */
+.navbar-nav .login-btn {
+  color: #316bf4; /* Use a primary color */
+  font-weight: bold; /* Make it stand out */
+  /* border: 2px solid #316bf4;  */
+  border-radius: 20px; /* Rounded button */
+  padding: 0.3rem 0.8rem; /* Adjust padding for a button-like look */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+.navbar-nav .login-btn:hover {
+  /* background-color: #316bf4; */
+  /* color: #fff;  */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

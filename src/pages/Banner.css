@@ -109,11 +109,11 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .banner-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .banner-subtitle {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .cta-button {
@@ -124,11 +124,11 @@
 
 @media (max-width: 480px) {
   .banner-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .banner-subtitle {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
   }
 
   .cta-button {

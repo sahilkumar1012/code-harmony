@@ -34,6 +34,13 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           
           <Route
+            path="/login"
+            element={
+              user ? <Home /> : <GoogleLogin onLogin={login} />
+            }
+          />
+
+          <Route
             path="/dsasheet"
             element={
               user ? <p>User is logged in </p> : <GoogleLogin onLogin={login} />
