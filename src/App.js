@@ -17,7 +17,7 @@ import './App.css';
 function AppContent() {
   const location = useLocation();
   const mainClassName = location.pathname === '/' ? 'main-content-full' : 'main-content';
-  const { user, login, logout } = useUser();
+  const { user, login } = useUser();
 
 
   return (
@@ -36,7 +36,7 @@ function AppContent() {
           <Route
             path="/dsasheet"
             element={
-              user ? <About /> : <GoogleLogin onLogin={login} />
+              user ? <p>User is logged in </p> : <GoogleLogin onLogin={login} />
             }
           />
 

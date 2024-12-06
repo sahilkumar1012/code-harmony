@@ -54,20 +54,20 @@ const Header = () => {
           {/* Conditionally Render Login/Logout */}
           {user ? (
             <li className="nav-item dropdown">
-              <a
+              <div
                 className="nav-link dropdown-toggle text-dark px-3"
-                href="#"
+                
                 id="userDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <img src={user.profilePicture} alt="Profile" className="profile-img" />
+                <img src={user.profilePicture} alt=''  className="profile-img" />
                 Welcome, {user.name}
-              </a>
+              </div>
               <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                 <li>
-                  <a className="dropdown-item" href="#" onClick={logout}>
+                  <a className="dropdown-item" href="/" onClick={logout}>
                     Logout
                   </a>
                 </li>
