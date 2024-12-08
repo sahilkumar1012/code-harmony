@@ -6,18 +6,11 @@ import { FaGoogle } from 'react-icons/fa'; // Google icon
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore'; // Firestore functions
 import './GoogleLogin.css';
 
-async function isNewUserTemp(db, userId) {
+async function checkIfNewUser(db, userId) {
   const userInfo = await getDoc(doc(db, "users", userId));
   return !userInfo.exists();
 }
-// Function to check if the user is new by querying Firestore
-const checkIfNewUser = async (db, userId) => {
-  const userDocRef = doc(db, 'users', userId); // Reference to the user's document in Firestore
-  const docSnapshot = await getDoc(userDocRef);
 
-  // If the document does not exist, the user is new
-  return !docSnapshot.exists();
-};
 
 function GoogleLogin({ onLogin }) {
   const handleLogin = async () => {
@@ -30,11 +23,7 @@ function GoogleLogin({ onLogin }) {
       const user = result.user;
       console.log(user);
       // const isNewUser = result.additionalUserInfo.isNewUser;
-      const isNewUser = await isNewUserTemp(db, user.uid);
-
-
-      // Check if user is new by querying Firestore
-      // const isNewUser = await checkIfNewUser(db, user.uid);
+      const isNewUser = await checkIfNewUser(db, user.uid);
 
       // Extract user details from Firebase user object
       const loggedInUser = {

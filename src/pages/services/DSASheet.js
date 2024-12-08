@@ -4,11 +4,14 @@ import { FaVideo } from "react-icons/fa";
 import problemsData from "../../data/problemsData"; // Adjust path as needed
 import { useUser } from "../../UserContext";
 import { app } from '../../firebaseConfig'; // Import Firebase app
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for redirection
+
 
 import { getFirestore, doc, setDoc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
 
 const DSASheet = () => {
   const { user, logout } = useUser(); // Access user state and logout function
+  const navigate = useNavigate(); 
 
   const [problems, setProblems] = useState(problemsData);
   const [selectedTopic, setSelectedTopic] = useState("All");
@@ -36,8 +39,14 @@ const DSASheet = () => {
 
 // Toggle completion status
 const handleToggleCompletion = async (problemId) => {
-  console.log("current logged in user " + user.id);
-  console.log(user);
+// Initialize the navigate function
+
+  // Check if the user is logged in
+  if (user == null || user.id == null) {
+    // If not logged in, redirect to the login page
+    navigate('/login'); // Adjust the path to your login page as needed
+    return; // Exit the function if the user is not logged in
+  }
 
   const userDoc = doc(db, 'users', user.id);
 
