@@ -21,7 +21,7 @@
 }
 
 .banner-title {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: bold;
   animation: fadeInTitle 1s ease-in-out forwards;
 }
@@ -43,11 +43,42 @@
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
   animation: fadeInButton 2s ease-in-out forwards;
+  margin-bottom: 1rem; /* Add spacing between buttons */
 }
 
-.cta-button:hover {
+/* Make sure the hover effect is targeting the button specifically */
+.cta-button.get-started-btn:hover {
+  transform: scale(1.02);
+  background-color: #000000; /* Dark red on hover */
+  color: white;
+}
+
+.cta-button.dsa-btn:hover {
   transform: scale(1.1);
-  background-color: #000000;
+  background-color: #000000; /* Darker blue on hover */
+  color: white;
+}
+
+
+/* DSA Essentials Button Styles */
+.dsa-btn {
+  padding: 0.8rem 2rem;
+  background: #007bff; /* Bright blue background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: fadeInButton 2s ease-in-out forwards;
+  margin-top: 1rem; /* Ensure a gap between the two buttons */
+  margin-left: 1rem;
+}
+
+.dsa-btn:hover {
+  transform: scale(1.1);
+  background-color: black; /* Darker blue on hover */
   color: white;
 }
 

@@ -1,0 +1,43 @@
+/* ResourcesPage.css */
+.resources-page {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .resources-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .resources-page p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 2rem;
+    background: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin: 1rem; /* Spacing between buttons */
+  }
+  
+  .cta-button:hover {
+    transform: scale(1.1);
+    background-color: #000000; /* Dark red on hover */
+    color: white;
+  }
+  
+  .dsa-btn {
+    background-color: #007bff; /* Blue color */
+  }
+  
+  .videos-btn {
+    background-color: #28a745; /* Green color */
+  }
+  
