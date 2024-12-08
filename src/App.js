@@ -13,6 +13,8 @@ import GoogleLogin from './components/auth/GoogleLogin';
 import About from './pages/About';
 
 import './App.css';
+import DSASheet from './pages/services/DSASheet';
+import AddDataPage from './pages/admin/AddDataPage';
 
 function AppContent() {
   const location = useLocation();
@@ -32,6 +34,10 @@ function AppContent() {
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
+          <Route path="sheet" element={<DSASheet />} />
+
+          <Route path="add" element={<AddDataPage />} />
+          {/* <Route path="sheet" element={<DSASheet />} /> */}
           
           <Route
             path="/login"

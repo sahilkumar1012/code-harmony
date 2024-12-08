@@ -1,17 +1,40 @@
 // GoogleLogin.js
 import React from 'react';
-import { app } from '../../firebaseConfig'; // Import Firebase auth
+import { app } from '../../firebaseConfig'; // Import Firebase app
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { FaGoogle } from 'react-icons/fa'; // Google icon
+import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore'; // Firestore functions
 import './GoogleLogin.css';
+
+async function isNewUserTemp(db, userId) {
+  const userInfo = await getDoc(doc(db, "users", userId));
+  return !userInfo.exists();
+}
+// Function to check if the user is new by querying Firestore
+const checkIfNewUser = async (db, userId) => {
+  const userDocRef = doc(db, 'users', userId); // Reference to the user's document in Firestore
+  const docSnapshot = await getDoc(userDocRef);
+
+  // If the document does not exist, the user is new
+  return !docSnapshot.exists();
+};
 
 function GoogleLogin({ onLogin }) {
   const handleLogin = async () => {
     const provider = new GoogleAuthProvider();
+    const auth = getAuth(app); // Get Firebase Auth instance
+    const db = getFirestore(app); // Get Firestore instance
 
     try {
-      const result = await signInWithPopup(getAuth(app), provider);
+      const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      console.log(user);
+      // const isNewUser = result.additionalUserInfo.isNewUser;
+      const isNewUser = await isNewUserTemp(db, user.uid);
+
+
+      // Check if user is new by querying Firestore
+      // const isNewUser = await checkIfNewUser(db, user.uid);
 
       // Extract user details from Firebase user object
       const loggedInUser = {
@@ -19,7 +42,15 @@ function GoogleLogin({ onLogin }) {
         name: user.displayName,
         email: user.email,
         profilePicture: user.photoURL,
+        completedProblems: [], // New user will have an empty completedProblems array
       };
+
+      // If user is new, add user data to Firestore
+      if (isNewUser) {
+        // Add the user data to the "users" collection in Firestore
+        await setDoc(doc(db, 'users', user.uid), loggedInUser);
+        console.log('New user added to Firestore');
+      }
 
       // Call onLogin (passed as prop) to set the user state in the context
       onLogin(loggedInUser);

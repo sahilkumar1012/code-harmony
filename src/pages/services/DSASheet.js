@@ -1,0 +1,166 @@
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { FaVideo } from "react-icons/fa";
+import problemsData from "../../data/problemsData"; // Adjust path as needed
+
+const DSASheet = () => {
+  const [problems, setProblems] = useState(problemsData);
+  const [selectedTopic, setSelectedTopic] = useState("All");
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+
+  // Toggle completion status
+  const handleToggleCompletion = (problemId) => {
+    const updatedProblems = problems.map((problem) =>
+      problem.id === problemId
+        ? { ...problem, completed: !problem.completed }
+        : problem
+    );
+    setProblems(updatedProblems);
+  };
+
+  // Get CSS class for difficulty
+  const getDifficultyClass = (difficulty) => {
+    switch (difficulty) {
+      case "Easy":
+        return "text-success";
+      case "Medium":
+        return "text-warning";
+      case "Hard":
+        return "text-danger";
+      default:
+        return "";
+    }
+  };
+
+  // Sorting handler
+  const handleSort = (key) => {
+    const direction =
+      sortConfig.key === key && sortConfig.direction === "asc" ? "desc" : "asc";
+    setSortConfig({ key, direction });
+
+    const sortedProblems = [...problems].sort((a, b) => {
+      if (key === "difficulty") {
+        const order = { Easy: 1, Medium: 2, Hard: 3 };
+        return direction === "asc"
+          ? order[a.difficulty] - order[b.difficulty]
+          : order[b.difficulty] - order[a.difficulty];
+      }
+      if (key === "completed") {
+        return direction === "asc"
+          ? Number(a.completed) - Number(b.completed)
+          : Number(b.completed) - Number(a.completed);
+      }
+      return 0; // Default: No sorting for other columns
+    });
+
+    setProblems(sortedProblems);
+  };
+
+  // Filter problems by topic
+  const filterProblemsByTopic = () => {
+    return selectedTopic === "All"
+      ? problems
+      : problems.filter((problem) => problem.topics.includes(selectedTopic));
+  };
+
+  // Unique topics list
+  const uniqueTopics = [
+    "All",
+    ...new Set(problems.flatMap((problem) => problem.topics)),
+  ];
+
+  // Render problems in a table
+  const renderTable = (filteredProblems) => (
+    <table className="table table-striped">
+      <thead>
+        <tr>
+          <th>LeetCode ID</th>
+          <th>Problem Title</th>
+          <th
+            onClick={() => handleSort("difficulty")}
+            style={{ cursor: "pointer" }}
+          >
+            Difficulty
+          </th>
+          <th>Solution Video</th>
+          <th
+            onClick={() => handleSort("completed")}
+            style={{ cursor: "pointer" }}
+          >
+            Completed
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {filteredProblems.map((problem) => (
+          <tr key={problem.leetcodeId}>
+            <td>
+              <a
+                href={problem.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {problem.leetcodeId}
+              </a>
+            </td>
+            <td>
+              <a
+                href={problem.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {problem.title}
+              </a>
+            </td>
+            <td className={getDifficultyClass(problem.difficulty)}>
+              {problem.difficulty}
+            </td>
+            <td>
+              <a
+                href={problem.youtubeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaVideo />
+              </a>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                checked={problem.completed}
+                onChange={() => handleToggleCompletion(problem.id)}
+              />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+
+  return (
+    <div className="container mt-5">
+      {/* Header Section */}
+      <div className="d-flex flex-column align-items-center mb-4">
+        <h1 className="text-center">DSA Essentials Sheet</h1>
+        <div className="mb-3">
+          <select
+            className="form-select"
+            value={selectedTopic}
+            onChange={(e) => setSelectedTopic(e.target.value)}
+          >
+            {uniqueTopics.map((topic) => (
+              <option key={topic} value={topic}>
+                {topic}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* Content Section */}
+      {renderTable(filterProblemsByTopic())}
+    </div>
+  );
+};
+
+export default DSASheet;
