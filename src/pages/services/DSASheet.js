@@ -1,22 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaVideo } from "react-icons/fa";
 import problemsData from "../../data/problemsData"; // Adjust path as needed
+import { useUser } from "../../UserContext";
+import { app } from '../../firebaseConfig'; // Import Firebase app
+
+import { getFirestore, doc, setDoc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
 
 const DSASheet = () => {
+  const { user, logout } = useUser(); // Access user state and logout function
+
   const [problems, setProblems] = useState(problemsData);
   const [selectedTopic, setSelectedTopic] = useState("All");
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+  const [completedProblemsSet, setCompletedProblemsSet] = useState(new Set()); // State to store completed problems
 
-  // Toggle completion status
-  const handleToggleCompletion = (problemId) => {
-    const updatedProblems = problems.map((problem) =>
-      problem.id === problemId
-        ? { ...problem, completed: !problem.completed }
-        : problem
-    );
-    setProblems(updatedProblems);
-  };
+  const db = getFirestore(app); // Get Firestore instance
+  const completedProblemsKey = "completedProblems";
+
+  // Fetch completed problems from Firestore and update the state
+  useEffect(() => {
+    const fetchCompletedProblems = async () => {
+      const userDoc = doc(db, 'users', user.id);
+      const userData = await getDoc(userDoc);
+      if (userData.exists()) {
+        const completedProblems = userData.data()[completedProblemsKey] || [];
+        setCompletedProblemsSet(new Set(completedProblems)); // Update the state with the completed problems set
+      }
+    };
+
+    if (user) {
+      fetchCompletedProblems();
+    }
+  }, [user, db]);
+
+// Toggle completion status
+const handleToggleCompletion = async (problemId) => {
+  console.log("current logged in user " + user.id);
+  console.log(user);
+
+  const userDoc = doc(db, 'users', user.id);
+
+  // Check if the problem is already marked as completed
+  if (completedProblemsSet.has(problemId)) {
+    // If the problem is checked, we need to remove it from the completedProblems array
+    await updateDoc(userDoc, {
+      [completedProblemsKey]: arrayRemove(problemId),
+    });
+
+    // Update the completed problems set locally after removing from the database
+    setCompletedProblemsSet((prevSet) => {
+      const updatedSet = new Set(prevSet);
+      updatedSet.delete(problemId); // Remove the problemId from the set
+      return updatedSet;
+    });
+  } else {
+    // If the problem is not checked, we need to add it to the completedProblems array
+    await updateDoc(userDoc, {
+      [completedProblemsKey]: arrayUnion(problemId),
+    });
+
+    // Update the completed problems set locally after adding to the database
+    setCompletedProblemsSet((prevSet) => new Set(prevSet.add(problemId)));
+  }
+};
+
 
   // Get CSS class for difficulty
   const getDifficultyClass = (difficulty) => {
@@ -127,8 +175,8 @@ const DSASheet = () => {
             <td>
               <input
                 type="checkbox"
-                checked={problem.completed}
-                onChange={() => handleToggleCompletion(problem.id)}
+                checked={completedProblemsSet.has(problem.leetcodeId)}
+                onChange={(e) => handleToggleCompletion(problem.leetcodeId)}
               />
             </td>
           </tr>
