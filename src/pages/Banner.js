@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Banner.css';
+import Home from './Home';
 
 const Banner = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Banner = () => {
   };
 
   return (
+    <div>
     <div className="banner">
       <div className="banner-content">
         <h1 className="banner-title">
@@ -22,15 +24,17 @@ const Banner = () => {
         </h1>
         <p className="banner-subtitle">Expert mentorship. Simplified learning.</p>
 
-<button onClick={handleGetStarted} className="cta-button get-started-btn">
-  Get Started
-</button>
-<button onClick={handleDSAButtonClick} className="cta-button dsa-btn">
-  DSA Essentials Sheet
-</button>
+        <button onClick={handleGetStarted} className="cta-button get-started-btn">
+          Get Started
+        </button>
+        <button onClick={handleDSAButtonClick} className="cta-button dsa-btn">
+          DSA Essentials Sheet
+        </button>
 
 
       </div>
+    </div>
+    <Home />
     </div>
   );
 };
