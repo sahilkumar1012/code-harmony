@@ -24,7 +24,7 @@
       "link": "https://leetcode.com/problems/trapping-rain-water/",
       "difficulty": "Hard",
       "youtubeLink": "https://youtu.be/qsxiV7DGzEo",
-      "topics": ["Array"]
+      "topics": ["Dynamic Programming"]
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "link": "https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/",
       "difficulty": "Easy",
       "youtubeLink": "https://youtu.be/cnKFWF3mOXk",
-      "topics": ["Array", "BinarySearch"]       
+      "topics": ["Array", "Binary Search"]       
     },
     {
       "id": 5,
@@ -51,7 +51,7 @@
       "link": "https://leetcode.com/problems/koko-eating-bananas/",
       "difficulty": "Medium",
       "youtubeLink": "https://youtu.be/WBm6xyAZHdo",
-      "topics": ["Array", "BinarySearch"]       
+      "topics": ["Array", "Binary Search"]       
     },
     {
       "id": 6,
@@ -60,7 +60,61 @@
       "link": "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/",
       "difficulty": "Medium",
       "youtubeLink": "https://youtu.be/mUWhmEwYCWI",
-      "topics": ["Array", "BinarySearch"]      
+      "topics": ["Array", "Binary Search"]      
+    },
+
+    {
+      "leetcodeId": "2337",
+      "title": "Move Pieces to Obtain a String",
+      "link": "https://leetcode.com/problems/move-pieces-to-obtain-a-string/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/7_i0_o_BUZw",
+      "topics": ["String", "Two Pointers"]      
+    },
+
+
+    {
+      "leetcodeId": "70",
+      "title": "Climbing Stairs",
+      "link": "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/",
+      "difficulty": "Easy",
+      "youtubeLink": "https://youtu.be/q5-qjY_JF04",
+      "topics": ["Dynamic Programming"]      
+    },
+    {
+      "leetcodeId": "198",
+      "title": "House Robber",
+      "link": "https://leetcode.com/problems/house-robber/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/2vfOAhbVjjY",
+      "topics": ["Dynamic Programming"]      
+    },
+    {
+      "leetcodeId": "63",
+      "title": "Unique Paths II",
+      "link": "https://leetcode.com/problems/unique-paths-ii/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Dynamic Programming"]      
+    },
+    {
+      "leetcodeId": "300",
+      "title": "Longest Increasing Subsequence",
+      "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/E17tsQZJUTg",
+      "topics": ["Dynamic Programming"]      
+    },
+    {
+      "leetcodeId": "96",
+      "title": "Unique Binary Search Trees",
+      "link": "https://leetcode.com/problems/unique-binary-search-trees/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Dynamic Programming"]      
     }
+
+
+
   ]
   
