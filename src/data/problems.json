@@ -46,11 +46,11 @@
     },
     {
       "id": 5,
-      "leetcodeId": "1287",
+      "leetcodeId": "875",
       "title": "Koko Eating Bananas",
       "link": "https://leetcode.com/problems/koko-eating-bananas/",
       "difficulty": "Medium",
-      "youtubeLink": "https://youtu.be/sGAGbvw5DJw",
+      "youtubeLink": "https://youtu.be/WBm6xyAZHdo",
       "topics": ["Array", "Binary Search"]       
     }
   ]
