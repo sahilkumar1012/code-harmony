@@ -1,11 +1,12 @@
 [
     {
+      "id":1,
       "leetcodeId": "53",
       "title": "Maximum Subarray",
       "link": "https://leetcode.com/problems/maximum-subarray/",
       "difficulty": "Medium",
       "youtubeLink": "https://youtu.be/BDe0bMrDMEs",
-      "topics": ["Array", "Dynamic Programming"]
+      "topics": ["Array"]
     },
     {
       "id": 2,
@@ -14,8 +15,7 @@
       "link": "https://leetcode.com/problems/merge-intervals/",
       "difficulty": "Easy",
       "youtubeLink": "https://youtu.be/Ju8-_9nvH6w",
-      "completed": false,
-      "topics": ["Array", "HashMap"]
+      "topics": ["Array"]
     },
     {
       "id": 3,
@@ -24,38 +24,34 @@
       "link": "https://leetcode.com/problems/trapping-rain-water/",
       "difficulty": "Hard",
       "youtubeLink": "https://youtu.be/qsxiV7DGzEo",
-      "completed": false,
-      "topics": ["Array", "Two Pointers"]
+      "topics": ["Array"]
     },
     {
       "id": 4,
-      "leetcodeId": "3",
-      "title": "Longest Substring Without Repeating Characters",
-      "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
-      "difficulty": "Medium",
-      "youtubeLink": "https://youtube.com/your-solution-video-4",
-      "completed": false,
-      "topics": ["Strings", "Sliding Window"]
+      "leetcodeId": "1351",
+      "title": "Count Negative Numbers in a Sorted Matrix",
+      "link": "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/",
+      "difficulty": "Easy",
+      "youtubeLink": "",
+      "topics": ["Array"]      
+    },
+    {
+      "id": 4,
+      "leetcodeId": "1287",
+      "title": "Element Appearing More Than 25% In Sorted Array",
+      "link": "https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/",
+      "difficulty": "Easy",
+      "youtubeLink": "https://youtu.be/cnKFWF3mOXk",
+      "topics": ["Array", "Binary Search"]       
     },
     {
       "id": 5,
-      "leetcodeId": "5",
-      "title": "Longest Palindromic Substring",
-      "link": "https://leetcode.com/problems/longest-palindromic-substring/",
+      "leetcodeId": "1287",
+      "title": "Koko Eating Bananas",
+      "link": "https://leetcode.com/problems/koko-eating-bananas/",
       "difficulty": "Medium",
-      "youtubeLink": "https://youtube.com/your-solution-video-5",
-      "completed": false,
-      "topics": ["String", "Dynamic Programming"]
-    },
-    {
-      "id": 6,
-      "leetcodeId": "76",
-      "title": "Minimum Window Substring",
-      "link": "https://leetcode.com/problems/minimum-window-substring/",
-      "difficulty": "Hard",
-      "youtubeLink": "https://youtube.com/your-solution-video-6",
-      "completed": false,
-      "topics": ["String", "Sliding Window"]
+      "youtubeLink": "https://youtu.be/sGAGbvw5DJw",
+      "topics": ["Array", "Binary Search"]       
     }
   ]
   

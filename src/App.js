@@ -30,25 +30,14 @@ function AppContent() {
           <Route path="/" element={<Banner />} />
           <Route path="/home" element={<Home />} />
           <Route path="/mentorship" element={<MentorshipPage />} />
-          <Route path="/landing" element={<LandingPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
-          <Route path="sheet" element={<DSASheet />} />
+          <Route path="/sheet" element={<DSASheet />} />
 
-          <Route path="add" element={<AddDataPage />} />
-          {/* <Route path="sheet" element={<DSASheet />} /> */}
-          
           <Route
             path="/login"
             element={
               user ? <Home /> : <GoogleLogin onLogin={login} />
-            }
-          />
-
-          <Route
-            path="/dsasheet"
-            element={
-              user ? <p>User is logged in </p> : <GoogleLogin onLogin={login} />
             }
           />
 

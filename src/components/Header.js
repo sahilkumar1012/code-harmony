@@ -72,8 +72,8 @@ const Header = () => {
                 <img src={user.profilePicture} alt="" className="profile-img" />
                 Welcome, {user.name}
               </div>
-              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                <li>
+              <ul className="dropdown-menu dropdown-menu-end mb-2" aria-labelledby="userDropdown">
+                <li className="logout-button">
                   <a className="dropdown-item" href="/" onClick={logout}>
                     Logout
                   </a>
