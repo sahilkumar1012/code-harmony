@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Videos.css';
+import { useNavigate } from 'react-router-dom';
 
 const Videos = () => {
+  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => setHovered(true);
@@ -19,6 +21,10 @@ const Videos = () => {
       window.gapi.ytsubscribe.go();
     }
   }, []);
+
+  const handleDSAButtonClick = () => {
+    navigate('/sheet'); // Redirect to DSA Essentials sheet page
+  };
 
   return (
     <section style={videoSectionStyle}>

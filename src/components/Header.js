@@ -48,11 +48,11 @@ const Header = () => {
               <FaInfoCircle className="me-2" /> About
             </a>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link text-dark px-3" href="/home">
               <FaBriefcase className="me-2" /> Services
             </a>
-          </li>
+          </li> */}
           <li className="nav-item">
             <a className="nav-link text-dark px-3" href="/contact">
               <FaPhoneAlt className="me-2" /> Contact

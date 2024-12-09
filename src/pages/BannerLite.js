@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Banner.css';
 import Home from './Home';
 
-const Banner = () => {
+const BannerLite = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
@@ -16,7 +16,7 @@ const Banner = () => {
 
   return (
     <div>
-    <div className="banner">
+    <div className="bannerLite" >
       <div className="banner-content">
         <h1 className="banner-title">
           <span className="highlight-red">Code </span>
@@ -38,4 +38,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default BannerLite;

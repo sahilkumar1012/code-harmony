@@ -28,7 +28,7 @@ function AppContent() {
       <main className={mainClassName}>
         <Routes>
           <Route path="/" element={<Banner />} />
-          <Route path="/home" element={<Banner />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/contact" element={<ContactPage />} />
