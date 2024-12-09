@@ -13,7 +13,7 @@ import { app } from '../../firebaseConfig'; // Import Firebase app
 
 const DSASheet = () => {
   const { user, storeRedirectUrl } = useUser(); // Access user state and logout function
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [problems, setProblems] = useState(problemsData);
   const [selectedTopic, setSelectedTopic] = useState("All");
@@ -41,7 +41,7 @@ const DSASheet = () => {
 
   // Toggle completion status
   const handleToggleCompletion = async (problemId) => {
-  // Initialize the navigate function
+    // Initialize the navigate function
     console.log(user);
     if (user == null || user.id == null) {
       // Store the current URL as the redirect URL before navigating to login page
@@ -95,7 +95,7 @@ const DSASheet = () => {
     const direction =
       sortConfig.key === key && sortConfig.direction === "asc" ? "desc" : "asc";
     setSortConfig({ key, direction });
-  
+
     const sortedProblems = [...problems].sort((a, b) => {
       if (key === "difficulty") {
         const order = { Easy: 1, Medium: 2, Hard: 3 };
@@ -107,17 +107,17 @@ const DSASheet = () => {
         // Compare based on whether the problem is completed or not
         const isACompleted = completedProblemsSet.has(a.leetcodeId);
         const isBCompleted = completedProblemsSet.has(b.leetcodeId);
-        
+
         return direction === "asc"
           ? Number(isACompleted) - Number(isBCompleted)
           : Number(isBCompleted) - Number(isACompleted);
       }
       return 0; // Default: No sorting for other columns
     });
-  
+
     setProblems(sortedProblems);
   };
-  
+
 
   // Filter problems by topic
   const filterProblemsByTopic = () => {
@@ -179,13 +179,15 @@ const DSASheet = () => {
               {problem.difficulty}
             </td>
             <td>
-              <a
-                href={problem.youtubeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaVideo />
-              </a>
+              {problem.youtubeLink && (
+                <a
+                  href={problem.youtubeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaVideo />
+                </a>
+              )}
             </td>
             <td>
               <input
