@@ -15,7 +15,8 @@
 
 /* Banner CSS */
 .bannerLite {
-  height: 30vh;
+  /* height: 30vh; */
+  min-height: 35vh;
   background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
   display: flex;
   justify-content: center;

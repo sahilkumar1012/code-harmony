@@ -11,7 +11,7 @@ const Banner = () => {
   };
 
   const handleDSAButtonClick = () => {
-    navigate('/sheet'); // Redirect to DSA Essentials sheet page
+    navigate('/dsasheet'); // Redirect to DSA Essentials sheet page
   };
 
   return (

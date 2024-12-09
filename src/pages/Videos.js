@@ -22,10 +22,6 @@ const Videos = () => {
     }
   }, []);
 
-  const handleDSAButtonClick = () => {
-    navigate('/sheet'); // Redirect to DSA Essentials sheet page
-  };
-
   return (
     <section style={videoSectionStyle}>
       <h2 style={videoSectionTitleStyle}>Educational Resources</h2>

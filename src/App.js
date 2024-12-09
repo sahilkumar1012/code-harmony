@@ -32,7 +32,7 @@ function AppContent() {
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/sheet" element={<DSASheet />} />
+          <Route path="/dsasheet" element={<DSASheet />} />
 
           <Route
             path="/login"
