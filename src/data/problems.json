@@ -42,7 +42,7 @@
       "link": "https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/",
       "difficulty": "Easy",
       "youtubeLink": "https://youtu.be/cnKFWF3mOXk",
-      "topics": ["Array", "Binary Search"]       
+      "topics": ["Array", "BinarySearch"]       
     },
     {
       "id": 5,
@@ -51,7 +51,16 @@
       "link": "https://leetcode.com/problems/koko-eating-bananas/",
       "difficulty": "Medium",
       "youtubeLink": "https://youtu.be/WBm6xyAZHdo",
-      "topics": ["Array", "Binary Search"]       
+      "topics": ["Array", "BinarySearch"]       
+    },
+    {
+      "id": 6,
+      "leetcodeId": "1760",
+      "title": "Minimum Limit of Balls in a Bag",
+      "link": "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/mUWhmEwYCWI",
+      "topics": ["Array", "BinarySearch"]      
     }
   ]
   
