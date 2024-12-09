@@ -11,10 +11,9 @@ import NotFound from './components/NotFound';
 import ContactPage from './pages/ContactPage';
 import GoogleLogin from './components/auth/GoogleLogin';
 import About from './pages/About';
-
-import './App.css';
 import DSASheet from './pages/services/DSASheet';
 import AddDataPage from './pages/admin/AddDataPage';
+import './App.css';
 
 function AppContent() {
   const location = useLocation();
@@ -29,7 +28,7 @@ function AppContent() {
       <main className={mainClassName}>
         <Routes>
           <Route path="/" element={<Banner />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Banner />} />
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/contact" element={<ContactPage />} />

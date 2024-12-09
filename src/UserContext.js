@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 
 // Create the context
 export const UserContext = createContext();
@@ -6,6 +7,7 @@ export const UserContext = createContext();
 // UserProvider to wrap around the app and provide user state
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if there's a user stored in localStorage
@@ -18,6 +20,11 @@ export const UserProvider = ({ children }) => {
   const login = (userData) => {
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData)); // Save user data to localStorage
+
+    // After login, navigate to the return URL or home page
+    const redirectUrl = localStorage.getItem('redirectUrl') || '/'; // Default to home if no redirect URL is found
+    localStorage.removeItem('redirectUrl'); // Clear the redirect URL after redirecting
+    navigate(redirectUrl);
   };
 
   const logout = () => {
@@ -25,8 +32,12 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem('user'); // Remove user data from localStorage
   };
 
+  const storeRedirectUrl = (url) => {
+    localStorage.setItem('redirectUrl', url); // Store the URL to redirect after login
+  };
+
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, login, logout, storeRedirectUrl }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,16 +1,18 @@
+// External dependencies
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaVideo } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for redirection
+import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
+
+// Internal application modules
 import problemsData from "../../data/problemsData"; // Adjust path as needed
 import { useUser } from "../../UserContext";
 import { app } from '../../firebaseConfig'; // Import Firebase app
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for redirection
 
-
-import { getFirestore, doc, setDoc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
 
 const DSASheet = () => {
-  const { user, logout } = useUser(); // Access user state and logout function
+  const { user, storeRedirectUrl } = useUser(); // Access user state and logout function
   const navigate = useNavigate(); 
 
   const [problems, setProblems] = useState(problemsData);
@@ -37,42 +39,42 @@ const DSASheet = () => {
     }
   }, [user, db]);
 
-// Toggle completion status
-const handleToggleCompletion = async (problemId) => {
-// Initialize the navigate function
+  // Toggle completion status
+  const handleToggleCompletion = async (problemId) => {
+  // Initialize the navigate function
+    console.log(user);
+    if (user == null || user.id == null) {
+      // Store the current URL as the redirect URL before navigating to login page
+      storeRedirectUrl(window.location.pathname);
+      navigate('/login'); // Redirect to login if the user is not logged in
+      return;
+    }
 
-  // Check if the user is logged in
-  if (user == null || user.id == null) {
-    // If not logged in, redirect to the login page
-    navigate('/login'); // Adjust the path to your login page as needed
-    return; // Exit the function if the user is not logged in
-  }
+    const userDoc = doc(db, 'users', user.id);
 
-  const userDoc = doc(db, 'users', user.id);
+    // Check if the problem is already marked as completed
+    if (completedProblemsSet.has(problemId)) {
+      // If the problem is checked, we need to remove it from the completedProblems array
+      await updateDoc(userDoc, {
+        [completedProblemsKey]: arrayRemove(problemId),
+      });
 
-  // Check if the problem is already marked as completed
-  if (completedProblemsSet.has(problemId)) {
-    // If the problem is checked, we need to remove it from the completedProblems array
-    await updateDoc(userDoc, {
-      [completedProblemsKey]: arrayRemove(problemId),
-    });
+      // Update the completed problems set locally after removing from the database
+      setCompletedProblemsSet((prevSet) => {
+        const updatedSet = new Set(prevSet);
+        updatedSet.delete(problemId); // Remove the problemId from the set
+        return updatedSet;
+      });
+    } else {
+      // If the problem is not checked, we need to add it to the completedProblems array
+      await updateDoc(userDoc, {
+        [completedProblemsKey]: arrayUnion(problemId),
+      });
 
-    // Update the completed problems set locally after removing from the database
-    setCompletedProblemsSet((prevSet) => {
-      const updatedSet = new Set(prevSet);
-      updatedSet.delete(problemId); // Remove the problemId from the set
-      return updatedSet;
-    });
-  } else {
-    // If the problem is not checked, we need to add it to the completedProblems array
-    await updateDoc(userDoc, {
-      [completedProblemsKey]: arrayUnion(problemId),
-    });
-
-    // Update the completed problems set locally after adding to the database
-    setCompletedProblemsSet((prevSet) => new Set(prevSet.add(problemId)));
-  }
-};
+      // Update the completed problems set locally after adding to the database
+      setCompletedProblemsSet((prevSet) => new Set(prevSet.add(problemId)));
+    }
+  };
 
 
   // Get CSS class for difficulty
@@ -89,12 +91,11 @@ const handleToggleCompletion = async (problemId) => {
     }
   };
 
-  // Sorting handler
   const handleSort = (key) => {
     const direction =
       sortConfig.key === key && sortConfig.direction === "asc" ? "desc" : "asc";
     setSortConfig({ key, direction });
-
+  
     const sortedProblems = [...problems].sort((a, b) => {
       if (key === "difficulty") {
         const order = { Easy: 1, Medium: 2, Hard: 3 };
@@ -103,15 +104,20 @@ const handleToggleCompletion = async (problemId) => {
           : order[b.difficulty] - order[a.difficulty];
       }
       if (key === "completed") {
+        // Compare based on whether the problem is completed or not
+        const isACompleted = completedProblemsSet.has(a.leetcodeId);
+        const isBCompleted = completedProblemsSet.has(b.leetcodeId);
+        
         return direction === "asc"
-          ? Number(a.completed) - Number(b.completed)
-          : Number(b.completed) - Number(a.completed);
+          ? Number(isACompleted) - Number(isBCompleted)
+          : Number(isBCompleted) - Number(isACompleted);
       }
       return 0; // Default: No sorting for other columns
     });
-
+  
     setProblems(sortedProblems);
   };
+  
 
   // Filter problems by topic
   const filterProblemsByTopic = () => {

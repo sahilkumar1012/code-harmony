@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Services from './Services'; // Adjust path if needed
 import Videos from './Videos'; // Adjust path if needed
+import Banner from './Banner';
+
 import './Home.css'; // Ensure you have a CSS file for custom styling
 
 const Home = () => {

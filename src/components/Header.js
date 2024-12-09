@@ -2,10 +2,18 @@ import React from 'react';
 import { FaHome, FaInfoCircle, FaBriefcase, FaPhoneAlt, FaUserCircle } from 'react-icons/fa'; // Importing icons
 import { useUser } from '../UserContext'; // Import UserContext to manage user state
 import logo from '../assets/navbrandlogo.png'; // Adjust the path to match your logo file
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
-  const { user, logout } = useUser(); // Access user state and logout function
+  const { user, logout, storeRedirectUrl } = useUser(); // Access user state and logout function
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const handleLogin = () => {
+    storeRedirectUrl(window.location.pathname);
+    navigate('/login');
+    return;
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white py-0 px-4" id="navbar">
@@ -74,7 +82,7 @@ const Header = () => {
             </li>
           ) : (
             <li className="nav-item nav-login">
-              <a className="nav-link text-dark px-3 login-btn" href="/login">
+              <a className="nav-link text-dark px-3 login-btn" href="/login" onClick={handleLogin}>
                 <FaUserCircle className="me-2" /> Login
               </a>
             </li>
