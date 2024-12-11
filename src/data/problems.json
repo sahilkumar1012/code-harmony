@@ -112,6 +112,45 @@
       "difficulty": "Medium",
       "youtubeLink": "",
       "topics": ["Dynamic Programming"]      
+    },
+
+
+
+    {
+      "leetcodeId": "200",
+      "title": "Number of Islands",
+      "link": "https://leetcode.com/problems/number-of-islands",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/3yZFYBNQU7A",
+      "topics": ["Graph"],      
+      "tags": ["DFS", "Graph", "Union Find", "BFS"]
+    },
+    {
+      "leetcodeId": "2290",
+      "title": "Minimum Obstacle Removal to Reach Corner",
+      "link": "https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner/",
+      "difficulty": "Hard",
+      "youtubeLink": "https://youtu.be/OguEhqlhcYU",
+      "topics": ["Graph"],      
+      "tags": ["Dijkstra's Algorithm", "Graph"]
+    },
+    {
+      "leetcodeId": "2577",
+      "title": "Minimum Time to Visit a Cell In a Grid",
+      "link": "https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/",
+      "difficulty": "Hard",
+      "youtubeLink": "https://youtu.be/u72HaTxPg0Q",
+      "topics": ["Graph"],      
+      "tags": ["Dijkstra's Algorithm", "Graph"]
+    },
+    {
+      "leetcodeId": "2097",
+      "title": "Valid Arrangement of Pairs",
+      "link": "https://leetcode.com/problems/valid-arrangement-of-pairs/",
+      "difficulty": "Hard",
+      "youtubeLink": "https://youtu.be/280LNDYnX-M",
+      "topics": ["Graph"],      
+      "tags": ["Eulerian path", "Graph"]
     }
 
 

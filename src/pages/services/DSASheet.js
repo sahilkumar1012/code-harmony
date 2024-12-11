@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for r
 import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
 
 // Internal application modules
-import problemsData from "../../data/problemsData"; // Adjust path as needed
+// import problemsData from "../../data/problemsData"; // Adjust path as needed
+import problemsData from '../../data/problems.json';
 import { useUser } from "../../UserContext";
 import { app } from '../../firebaseConfig'; // Import Firebase app
 

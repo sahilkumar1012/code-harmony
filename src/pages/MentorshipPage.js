@@ -6,11 +6,12 @@ const MentorshipPage = () => {
   return (
     <div className="mentoship-page">
       <h1>Our Mentors</h1>
-      {/* <div className="mentor-cards-container">
+      <div className="mentor-cards-container">
         {mentors.map(mentor => (
-          <MentorCards key={mentor.id} mentor={mentor} />
+          // <MentorCards key={mentor.id} mentor={mentor} />
+          <p>{mentor.name}</p>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
