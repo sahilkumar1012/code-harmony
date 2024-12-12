@@ -18,14 +18,16 @@ const Banner = () => {
     <div>
     <div className="banner">
       <div className="banner-content">
-        <h1 className="banner-title">
+        {/* <h1 className="banner-title">
           <span className="highlight-red">Code </span>
           <span className="highlight-black">Harmony</span>
+        </h1> */}
+        <h1 className="banner-title">
+          Land Your Dream Job And Excel In Software Development
         </h1>
-        <p className="banner-subtitle">Expert mentorship. Simplified learning.</p>
 
         <button onClick={handleGetStarted} className="cta-button get-started-btn">
-          Get Started
+          Start Your Journey
         </button>
         <button onClick={handleDSAButtonClick} className="cta-button dsa-btn">
           DSA Essentials Sheet

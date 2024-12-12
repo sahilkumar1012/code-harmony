@@ -7,7 +7,7 @@ const BannerLite = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate('/home'); // Redirect to Home page
+    navigate('/mentorship'); // Redirect to Home page
   };
 
   const handleDSAButtonClick = () => {
@@ -22,14 +22,20 @@ const BannerLite = () => {
           <span className="highlight-red">Code </span>
           <span className="highlight-black">Harmony</span>
         </h1>
-        <p className="banner-subtitle">Expert mentorship. Simplified learning.</p>
+        <p className="banner-subtitle">
+
+        Get expert mentorship to land your dream job and excel in software development.
+
+        </p>
 
         <button onClick={handleGetStarted} className="cta-button get-started-btn">
-          Get Started
+          Our Mentors
         </button>
+        
         <button onClick={handleDSAButtonClick} className="cta-button dsa-btn">
           DSA Essentials Sheet
         </button>
+
 
 
       </div>

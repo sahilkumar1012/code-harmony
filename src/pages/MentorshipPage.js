@@ -107,7 +107,7 @@ const MentorCard = ({ mentor }) => {
                   color: "white",
                   gap: "0.5rem",
                   flex: "1",
-                  minWidth: "140px",
+                  minWidth: "120px",
                   maxWidth: "48%",
                 }}
               >
@@ -116,7 +116,7 @@ const MentorCard = ({ mentor }) => {
                   alt="Topmate icon"
                   style={{ width: "20px", height: "20px" }}
                 />
-                Get Mentorship
+                Guidance
               </a>
             ) : (
               <button className="btn btn-secondary" disabled>
