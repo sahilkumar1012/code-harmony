@@ -19,7 +19,7 @@ const Services = () => {
           <p>Get ready for your dream job with mock interviews.</p>
         </a>
 
-        <a href="https://preplaced.in/profile/sahil-kumar" className="service-card">
+        <a href="/mentorship" className="service-card">
           <h3>👨‍🏫</h3>
           <h3>Mentorship</h3>
           <p>Personalized guidance to help you advance your career.</p>
