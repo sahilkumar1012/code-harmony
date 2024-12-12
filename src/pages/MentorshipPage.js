@@ -19,7 +19,7 @@ const mentors = [
       "https://media.licdn.com/dms/image/v2/D5603AQGSdzeqD9ULXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714304534219?e=1739404800&v=beta&t=hzzXinUg7axiNp3x_1AiyZ--6b_9q95uEPUSwSCkIVc",
     company: "Microsoft",
     linkedIn: "https://www.linkedin.com/in/piyushgi/",
-    topmate: "",
+    topmate: "https://topmate.io/piyush_giri",
     expertise: ["Backend", "DSA"],
   },
   {

@@ -7,6 +7,14 @@ const Services = () => {
       <h2 className="services-title">Featured Services</h2>
 
       <div className="services-cards-container">
+
+
+        <a href="/mentorship" className="service-card">
+          <h3>👨‍🏫</h3>
+          <h3>Mentorship</h3>
+          <p>Personalized guidance to help you advance your career.</p>
+        </a>
+
         <a href="https://topmate.io/hisahil/1316955" className="service-card">
           <h3>🧩</h3>
           <h3>DSA Preparation</h3>
@@ -19,11 +27,6 @@ const Services = () => {
           <p>Get ready for your dream job with mock interviews.</p>
         </a>
 
-        <a href="/mentorship" className="service-card">
-          <h3>👨‍🏫</h3>
-          <h3>Mentorship</h3>
-          <p>Personalized guidance to help you advance your career.</p>
-        </a>
       </div>
     </div>
   );
