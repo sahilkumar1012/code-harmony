@@ -21,28 +21,27 @@ const mentors = [
     topmate: "https://topmate.io/hisahil",
   },
   {
-    name: "Rahul Verma",
-    profilePicture:
-      "https://media.licdn.com/dms/image/v2/D5603AQGSdzeqD9ULXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714304534219?e=1739404800&v=beta&t=hzzXinUg7axiNp3x_1AiyZ--6b_9q95uEPUSwSCkIVc",
-    company: "Microsoft",
-    linkedIn: "https://linkedin.com/in/rahul-verma",
-    topmate: "https://topmate.io/rahul-verma",
+    name: "Mohit Kumar Verma",
+    profilePicture:"https://media.licdn.com/dms/image/v2/C5603AQG8CLM2BRV-Lw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1618136615281?e=1739404800&v=beta&t=Uk_B7myRV37I3C5cosTc0Ovls06mx9o1yEsycYweywU",
+    company: "Amazon",
+    linkedIn: "",
+    topmate: "",
   },
   {
     name: "Priya Singh",
     profilePicture:
       "https://media.licdn.com/dms/image/v2/D5603AQGSdzeqD9ULXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714304534219?e=1739404800&v=beta&t=hzzXinUg7axiNp3x_1AiyZ--6b_9q95uEPUSwSCkIVc",
     company: "Meta",
-    linkedIn: "https://linkedin.com/in/priya-singh",
-    topmate: "https://topmate.io/priya-singh",
+    linkedIn: "https://www.linkedin.com/in/mohit-k-verma/",
+    topmate: "",
   },
   {
     name: "Arjun Patel",
     profilePicture:
       "https://media.licdn.com/dms/image/v2/D5603AQGSdzeqD9ULXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714304534219?e=1739404800&v=beta&t=hzzXinUg7axiNp3x_1AiyZ--6b_9q95uEPUSwSCkIVc",
     company: "Adobe",
-    linkedIn: "https://linkedin.com/in/arjun-patel",
-    topmate: "https://topmate.io/arjun-patel",
+    linkedIn: "",
+    topmate: "",
   },
 ];
 
@@ -50,10 +49,10 @@ const MentorshipPage = () => {
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Mentorship</h1>
-      <div className="row d-flex justify-content-left">
+      <div className="row">
         {mentors.map((mentor, index) => (
           <div
-            className="col-12 col-sm-6 col-lg-3 mb-4 d-flex"
+            className="col-12 col-sm-6 col-lg-4 mb-4 d-flex justify-content-center"
             key={index}
             style={{ minWidth: "250px" }}
           >
@@ -70,48 +69,47 @@ const MentorshipPage = () => {
               <div className="card-body text-center">
                 <h5 className="card-title">{mentor.name}</h5>
                 <p className="card-text text-muted">{mentor.company}</p>
-                <div className="d-flex flex-column flex-sm-row justify-content-center">
-                 
+                <div className="d-flex flex-wrap justify-content-center gap-2">
                   <a
                     href={mentor.linkedIn}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary me-2 mb-2 mb-sm-0 btn-block"
+                    className="btn btn-primary d-flex align-items-center"
                     style={{
-                      display: "flex",
-                      alignItems: "center",
                       gap: "0.5rem",
+                      flex: "1",
+                      minWidth: "120px",
+                      maxWidth: "48%",
                     }}
                   >
                     <img
-                      src={linkedinlogo} // Replace with LinkedIn icon URL
+                      src={linkedinlogo}
                       alt="LinkedIn icon"
                       style={{ width: "20px", height: "20px" }}
                     />
                     LinkedIn
                   </a>
-                  
                   <a
                     href={mentor.topmate}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-block"
+                    className="btn d-flex align-items-center"
                     style={{
                       backgroundColor: "#D9534F",
                       color: "white",
-                      display: "flex",
-                      alignItems: "center",
                       gap: "0.5rem",
+                      flex: "1",
+                      minWidth: "120px",
+                      maxWidth: "48%",
                     }}
                   >
                     <img
-                      src={topmatelogo} // Replace with Topmate icon URL
+                      src={topmatelogo}
                       alt="Topmate icon"
                       style={{ width: "20px", height: "20px" }}
                     />
                     Get Mentorship
                   </a>
-                  
                 </div>
               </div>
             </div>
@@ -121,5 +119,6 @@ const MentorshipPage = () => {
     </div>
   );
 };
+
 
 export default MentorshipPage;
