@@ -1,5 +1,5 @@
 /* Banner CSS */
-.banner {
+.bannerlite {
   height: 90vh;
   background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
   display: flex;
@@ -10,7 +10,7 @@
   position: relative;
   padding: 0 1rem;
   overflow: hidden;
-  animation: parallax 15s infinite linear;
+  /* animation: parallax 15s infinite linear; */
   /* padding-top: ; */
 }
 
@@ -27,27 +27,27 @@
   position: relative;
   padding: 0 1rem;
   overflow: hidden;
-  animation: parallax 15s infinite linear;
+  /* animation: parallax 15s infinite linear; */
 }
 
-.banner-content {
-  animation: fadeInTop 2s ease-in-out;
+.bannerlite-content {
+  /* animation: fadeInTop 2s ease-in-out; */
   width: 100%;
   max-width: 700px;
   box-sizing: border-box;
   padding: 2rem 0rem;
 }
 
-.banner-title {
+.bannerlite-title {
   font-size: 4rem;
   /* font-weight: bold; */
-  animation: fadeInTitle 1s ease-in-out forwards;
+  /* animation: fadeInTitle 1s ease-in-out forwards; */
 }
 
-.banner-subtitle {
+.bannerlite-subtitle {
   font-size: 1.5rem;
   margin: 1rem 0;
-  animation: fadeInSubtitle 1.5s ease-in-out forwards;
+  /* animation: fadeInSubtitle 1.5s ease-in-out forwards; */
 }
 
 .cta-button {
@@ -60,13 +60,13 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  animation: fadeInButton 2s ease-in-out forwards;
+  /* animation: fadeInButton 2s ease-in-out forwards; */
   margin-bottom: 1rem; /* Add spacing between buttons */
 
 }
 
 /* Make sure the hover effect is targeting the button specifically */
-.cta-button.get-started-btn:hover {
+.cta-button.our-mentors-btn:hover {
   transform: scale(1.02);
   background-color: #000000; /* Dark red on hover */
   color: white;
@@ -90,7 +90,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  animation: fadeInButton 2s ease-in-out forwards;
+  /* animation: fadeInButton 2s ease-in-out forwards; */
   margin-top: 1rem; /* Ensure a gap between the two buttons */
   margin-left: 1rem;
 }
@@ -102,7 +102,7 @@
 }
 
 /* Fade-in animation from top */
-@keyframes fadeInTop {
+/* @keyframes fadeInTop {
   from {
     opacity: 0;
     transform: translateY(-30px);
@@ -144,17 +144,17 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+}  */
 
 /* Parallax background animation */
-@keyframes parallax {
+/* @keyframes parallax {
   0% {
     background-position: 0 0;
   }
   100% {
     background-position: 100% 0;
   }
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {

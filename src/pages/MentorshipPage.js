@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import linkedinlogo from "../../src/assets/linkedinlogo.png";
 import topmatelogo from "../../src/assets/topmatelogo.png";
@@ -31,15 +31,26 @@ const mentors = [
     topmate: "https://topmate.io/mohitkumarverma/",
     expertise: ["System Design", "Leadership"],
   }
-
-
 ];
 
 const MentorCard = ({ mentor }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation when component is mounted
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100); // Delay to ensure smoothness
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div
       className="col-12 col-sm-6 col-lg-4 mb-4 d-flex justify-content-center"
-      style={{ minWidth: "250px" }}
+      style={{
+        // maxWidth:"250px",
+        animation: isVisible ? 'fadeInUp 1s ease-out forwards' : 'none',
+      }}
     >
       <div className="card shadow-sm w-100" style={{ borderRadius: "10px" }}>
         <img
@@ -150,5 +161,25 @@ const MentorshipPage = () => {
     </div>
   );
 };
+
+
+// CSS Keyframes for fade-in and slide-up animation
+const keyframes = `
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+`;
+
+// Dynamically inject keyframes into the page
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
 
 export default MentorshipPage;

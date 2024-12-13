@@ -3,8 +3,12 @@
 }
 
 
-/* // below css not working.  */
-.link-hover :hover {
-    text-decoration: underline;
-    color: #0056b3; /* A darker blue on hover for a nice effect */
-  }
+.link-hover {
+    text-decoration: none; /* Default state */
+    color: #0d6efd; /* Same as Bootstrap's "text-primary" for consistency */
+}
+
+.link-hover:hover {
+    text-decoration: underline !important; /* Override any Bootstrap rules */
+    color: #0056b3 !important; /* Your custom hover color */
+}

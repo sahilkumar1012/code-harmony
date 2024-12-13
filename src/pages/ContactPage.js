@@ -27,7 +27,7 @@ const ContactPage = () => {
               <p className="card-text" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
                 Prefer to email us directly? Reach out at:
               </p>
-              <h3>
+              <h3 className='link-hover'>
                 <a
                   href="mailto:codeharmonyofficial@gmail.com"
                   className="text-decoration-none text-primary link-hover"

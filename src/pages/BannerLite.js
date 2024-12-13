@@ -16,18 +16,18 @@ const BannerLite = () => {
   return (
     <div>
     <div className="bannerLite" >
-      <div className="banner-content">
-        <h1 className="banner-title">
+      <div className="bannerlite-content">
+        <h1 className="bannerlite-title">
           <span className="highlight-red">Code </span>
           <span className="highlight-black">Harmony</span>
         </h1>
-        <p className="banner-subtitle">
+        <p className="bannerlite-subtitle">
 
         Get expert mentorship to land your dream job and excel in software development
 
         </p>
 
-        <button onClick={handleGetStarted} className="cta-button get-started-btn">
+        <button onClick={handleGetStarted} className="cta-button our-mentors-btn">
           Our Mentors
         </button>
         

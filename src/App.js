@@ -14,6 +14,7 @@ import About from './pages/About';
 import DSASheet from './pages/services/DSASheet';
 import AddDataPage from './pages/admin/AddDataPage';
 import './App.css';
+// import 'animate.css';
 
 function AppContent() {
   const location = useLocation();
