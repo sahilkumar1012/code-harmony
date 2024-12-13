@@ -4,13 +4,14 @@
   background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   color: white;
   text-align: center;
   position: relative;
   padding: 0 1rem;
   overflow: hidden;
   animation: parallax 15s infinite linear;
+  padding-top: 10%;
 }
 
 /* Banner CSS */

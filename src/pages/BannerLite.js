@@ -24,7 +24,7 @@ const BannerLite = () => {
         </h1>
         <p className="banner-subtitle">
 
-        Get expert mentorship to land your dream job and excel in software development.
+        Get expert mentorship to land your dream job and excel in software development
 
         </p>
 

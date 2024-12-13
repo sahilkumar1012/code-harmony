@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Banner.css';
-import Home from './Home';
+
 
 const Banner = () => {
   const navigate = useNavigate();
