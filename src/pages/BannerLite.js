@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Banner.css';
-import Home from './Home';
+import './BannerLite.css';
 
 const BannerLite = () => {
   const navigate = useNavigate();
