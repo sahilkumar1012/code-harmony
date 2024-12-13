@@ -31,7 +31,7 @@ const BannerLite = () => {
           Our Mentors
         </button>
         
-        <button onClick={handleDSAButtonClick} className="cta-button dsa-btn">
+        <button onClick={handleDSAButtonClick} className="cta-button dsa-btn-home">
           DSA Essentials Sheet
         </button>
 

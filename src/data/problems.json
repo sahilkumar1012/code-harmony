@@ -63,6 +63,16 @@
       "topics": ["Array", "Binary Search"]      
     },
 
+
+    
+    {
+      "leetcodeId": "2825",
+      "title": "Make String a Subsequence Using Cyclic Increments",
+      "link": "https://leetcode.com/problems/make-string-a-subsequence-using-cyclic-increments/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/w1MFRC_Wc7s",
+      "topics": ["String", "Two Pointers"]      
+    },  
     {
       "leetcodeId": "2337",
       "title": "Move Pieces to Obtain a String",
@@ -72,6 +82,26 @@
       "topics": ["String", "Two Pointers"]      
     },
 
+
+
+    {
+      "leetcodeId": "1233",
+      "title": "Remvoe Sub-Folders from the Filesystem",
+      "link": "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Trie"]          
+    },
+    {
+      "leetcodeId": "212",
+      "title": "Word Search II",
+      "link": "https://leetcode.com/problems/word-search-ii/",
+      "difficulty": "Hard",
+      "youtubeLink": "",
+      "topics": ["Trie"]          
+    },
+
+    
 
     {
       "leetcodeId": "70",

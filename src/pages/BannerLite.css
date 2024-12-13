@@ -50,7 +50,7 @@
   /* animation: fadeInSubtitle 1.5s ease-in-out forwards; */
 }
 
-.cta-button {
+/* .cta-button {
   padding: 0.8rem 2rem;
   background: white;
   color: #ff7e5f;
@@ -60,27 +60,25 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  /* animation: fadeInButton 2s ease-in-out forwards; */
-  margin-bottom: 1rem; /* Add spacing between buttons */
-
-}
+  margin-bottom: 1rem; 
+} */
 
 /* Make sure the hover effect is targeting the button specifically */
 .cta-button.our-mentors-btn:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
   background-color: #000000; /* Dark red on hover */
   color: white;
 }
 
-.cta-button.dsa-btn:hover {
-  transform: scale(1.1);
+.cta-button.dsa-btn-home:hover {
+  transform: scale(1.05);
   background-color: #000000; /* Darker blue on hover */
   color: white;
 }
 
 
 /* DSA Essentials Button Styles */
-.dsa-btn {
+.dsa-btn-home {
   padding: 0.8rem 2rem;
   background: #d9481c; /* Bright blue background */
   color: white;
@@ -95,7 +93,7 @@
   margin-left: 1rem;
 }
 
-.dsa-btn:hover {
+.dsa-btn-home:hover {
   transform: scale(1.1);
   background-color: black; /* Darker blue on hover */
   color: white;
