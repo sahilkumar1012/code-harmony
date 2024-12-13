@@ -28,27 +28,11 @@ const mentors = [
       "https://media.licdn.com/dms/image/v2/C5603AQG8CLM2BRV-Lw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1618136615281?e=1739404800&v=beta&t=Uk_B7myRV37I3C5cosTc0Ovls06mx9o1yEsycYweywU",
     company: "Amazon",
     linkedIn: "https://www.linkedin.com/in/mohit-k-verma/",
-    topmate: "",
+    topmate: "https://topmate.io/mohitkumarverma/",
     expertise: ["System Design", "Leadership"],
-  },
-  {
-    name: "Priya Singh",
-    profilePicture:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019",
-    company: "Meta",
-    linkedIn: "",
-    topmate: "",
-    expertise: ["AI", "DSA"],
-  },
-  {
-    name: "Arjun Patel",
-    profilePicture:
-"https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019",
-    company: "Adobe",
-    linkedIn: "",
-    topmate: "",
-    expertise: ["Design Systems", "Frontend"],
-  },
+  }
+
+
 ];
 
 const MentorCard = ({ mentor }) => {
