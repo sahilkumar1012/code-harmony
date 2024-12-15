@@ -1,69 +1,149 @@
-.reviews-panel-container {
-    background-color: #f9f9f9;
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
-  .reviews-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .reviews-panel {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 20px 10px;
-  }
-  
-  .review-card {
-    flex: 0 0 auto;
-    width: 300px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .review-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .review-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 20px auto 10px;
-  }
-  
-  .mentee-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .review-text {
-    font-size: 1rem;
-    color: #666;
-    padding: 0 15px;
-  }
-  
+/* ReviewsPanel.css */
 
-  .reviews-panel {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 20px 10px;
-    scroll-snap-type: x mandatory;
-  }
-  
+/* Base Styles (unchanged) */
+.reviews-panel-container {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.reviews-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reviews-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.reviews-panel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: none; /* Hide scrollbar on Firefox */
+}
+
+.reviews-panel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on Webkit browsers */
+}
+
+.review-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.review-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 20px auto 10px;
+}
+
+.mentee-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.review-text {
+  font-size: 1rem;
+  color: #666;
+  padding: 0 15px;
+}
+
+/* Navigation Buttons */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #333;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: -40px;
+}
+
+.arrow.right {
+  right: -40px;
+}
+
+.arrow:hover {
+  /* transform: scale(1.05); */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
   .review-card {
-    scroll-snap-align: center;
+    width: 250px; /* Reduce card size for smaller screens */
   }
+
+  .arrow {
+    font-size: 20px; /* Reduce button size */
+    padding: 8px 12px;
+  }
+
+  .arrow.left {
+    left: -30px; /* Adjust position */
+  }
+
+  .arrow.right {
+    right: -30px; /* Adjust position */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .review-card {
+    width: 200px; /* Further reduce card size */
+  }
+
+  .review-text {
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+
+  .arrow {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+
+  .arrow.left {
+    left: -20px;
+  }
+
+  .arrow.right {
+    right: -20px;
+  }
+}
