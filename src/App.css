@@ -27,3 +27,18 @@
   --animate-duration: 400ms;
   --animate-delay: 0.9s;
 } */
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0.7;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
