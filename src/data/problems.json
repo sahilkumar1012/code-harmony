@@ -83,6 +83,27 @@
     },
 
 
+    {
+      "leetcodeId": "2762",
+      "title": "Continuous Subarrays",
+      "link": "https://leetcode.com/problems/continuous-subarrays/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/qjkWxIy0Drg",
+      "topics": ["Array", "Sliding Window"]
+    },
+
+
+
+    {
+      "leetcodeId": "1792",
+      "title": "Maximum Average Pass Ratio",
+      "link": "https://leetcode.com/problems/maximum-average-pass-ratio/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/rQZSm61A4N4",
+      "topics": ["Greedy", "Heap"]
+    },
+
+
 
     {
       "leetcodeId": "1233",
@@ -109,7 +130,7 @@
       "link": "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/",
       "difficulty": "Easy",
       "youtubeLink": "https://youtu.be/q5-qjY_JF04",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
     {
       "leetcodeId": "198",
@@ -117,7 +138,7 @@
       "link": "https://leetcode.com/problems/house-robber/",
       "difficulty": "Medium",
       "youtubeLink": "https://youtu.be/2vfOAhbVjjY",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
     {
       "leetcodeId": "63",
@@ -125,7 +146,7 @@
       "link": "https://leetcode.com/problems/unique-paths-ii/",
       "difficulty": "Medium",
       "youtubeLink": "",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
     {
       "leetcodeId": "300",
@@ -133,7 +154,7 @@
       "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
       "difficulty": "Medium",
       "youtubeLink": "https://youtu.be/E17tsQZJUTg",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
     {
       "leetcodeId": "96",
@@ -141,7 +162,7 @@
       "link": "https://leetcode.com/problems/unique-binary-search-trees/",
       "difficulty": "Medium",
       "youtubeLink": "",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
 
 
