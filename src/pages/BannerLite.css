@@ -156,11 +156,11 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .banner-title {
+  .bannerlite-title {
     font-size: 3rem;
   }
 
-  .banner-subtitle {
+  .bannerlite-subtitle {
     font-size: 1.5rem;
   }
 
@@ -171,13 +171,13 @@
 }
 
 @media (max-width: 480px) {
-  .banner-title {
-    font-size: 2.2rem;
+  .bannerlite-title {
+    font-size: 2rem;
   }
 
-  /* .banner-subtitle {
-    font-size: 1.2rem;
-  } */
+  .bannerlite-subtitle {
+    font-size: 1.1rem;
+  }
 
   .cta-button {
     padding: 0.8rem 1rem;

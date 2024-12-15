@@ -76,6 +76,7 @@ const MentorCard = ({ mentor }) => {
                   flex: "1",
                   minWidth: "120px",
                   maxWidth: "48%",
+                  backgroundColor: "#2867B2",
                 }}
               >
                 <img
