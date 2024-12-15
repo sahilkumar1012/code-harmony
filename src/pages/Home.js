@@ -5,6 +5,7 @@ import Banner from './Banner';
 
 import './Home.css'; // Ensure you have a CSS file for custom styling
 import BannerLite from './BannerLite';
+import ReviewsPanel from './ReviewsPanel';
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,6 +19,7 @@ const Home = () => {
       <BannerLite />
       <Services />
       <Videos />
+      <ReviewsPanel />
     </div>
   );
 };

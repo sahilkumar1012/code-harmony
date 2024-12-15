@@ -1,0 +1,69 @@
+.reviews-panel-container {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .reviews-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .reviews-panel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+  }
+  
+  .review-card {
+    flex: 0 0 auto;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .review-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .review-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 20px auto 10px;
+  }
+  
+  .mentee-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .review-text {
+    font-size: 1rem;
+    color: #666;
+    padding: 0 15px;
+  }
+  
+
+  .reviews-panel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .review-card {
+    scroll-snap-align: center;
+  }
