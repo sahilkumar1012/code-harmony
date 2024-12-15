@@ -59,20 +59,26 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  animation: fadeInButton 2s ease-in-out forwards;
   margin-bottom: 1rem; /* Add spacing between buttons */
 
+}
+.banner-button{
+  animation: fadeInButton 2s ease-in-out forwards;
+}
+.banner-button:hover{
+  transform: scale(1.05)  !important;
+  animation: fadeInButton 2s ease-in-out forwards;
 }
 
 /* Make sure the hover effect is targeting the button specifically */
 .cta-button.get-started-btn:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
   background-color: #000000; /* Dark red on hover */
   color: white;
 }
 
 .cta-button.dsa-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background-color: #000000; /* Darker blue on hover */
   color: white;
 }

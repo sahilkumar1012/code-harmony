@@ -26,10 +26,10 @@ const Banner = () => {
           Land Your Dream Job And Excel In Software Development
         </h1>
 
-        <button onClick={handleGetStarted} className="cta-button get-started-btn">
+        <button onClick={handleGetStarted} className="cta-button get-started-btn banner-button">
           Start Your Journey
         </button>
-        <button onClick={handleDSAButtonClick} className="cta-button dsa-btn">
+        <button onClick={handleDSAButtonClick} className="cta-button dsa-btn banner-button">
           DSA Essentials Sheet
         </button>
 

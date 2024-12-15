@@ -63,6 +63,16 @@
       "topics": ["Array", "Binary Search"]      
     },
 
+
+    
+    {
+      "leetcodeId": "2825",
+      "title": "Make String a Subsequence Using Cyclic Increments",
+      "link": "https://leetcode.com/problems/make-string-a-subsequence-using-cyclic-increments/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/w1MFRC_Wc7s",
+      "topics": ["String", "Two Pointers"]      
+    },  
     {
       "leetcodeId": "2337",
       "title": "Move Pieces to Obtain a String",
@@ -74,12 +84,53 @@
 
 
     {
+      "leetcodeId": "2762",
+      "title": "Continuous Subarrays",
+      "link": "https://leetcode.com/problems/continuous-subarrays/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/qjkWxIy0Drg",
+      "topics": ["Array", "Sliding Window"]
+    },
+
+
+
+    {
+      "leetcodeId": "1792",
+      "title": "Maximum Average Pass Ratio",
+      "link": "https://leetcode.com/problems/maximum-average-pass-ratio/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/rQZSm61A4N4",
+      "topics": ["Greedy", "Heap"]
+    },
+
+
+
+    {
+      "leetcodeId": "1233",
+      "title": "Remvoe Sub-Folders from the Filesystem",
+      "link": "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Trie"]          
+    },
+    {
+      "leetcodeId": "212",
+      "title": "Word Search II",
+      "link": "https://leetcode.com/problems/word-search-ii/",
+      "difficulty": "Hard",
+      "youtubeLink": "",
+      "topics": ["Trie"]          
+    },
+
+    
+
+    {
       "leetcodeId": "70",
       "title": "Climbing Stairs",
       "link": "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/",
       "difficulty": "Easy",
       "youtubeLink": "https://youtu.be/q5-qjY_JF04",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
     {
       "leetcodeId": "198",
@@ -87,7 +138,7 @@
       "link": "https://leetcode.com/problems/house-robber/",
       "difficulty": "Medium",
       "youtubeLink": "https://youtu.be/2vfOAhbVjjY",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
     {
       "leetcodeId": "63",
@@ -95,7 +146,7 @@
       "link": "https://leetcode.com/problems/unique-paths-ii/",
       "difficulty": "Medium",
       "youtubeLink": "",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
     {
       "leetcodeId": "300",
@@ -103,7 +154,7 @@
       "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
       "difficulty": "Medium",
       "youtubeLink": "https://youtu.be/E17tsQZJUTg",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
     {
       "leetcodeId": "96",
@@ -111,7 +162,7 @@
       "link": "https://leetcode.com/problems/unique-binary-search-trees/",
       "difficulty": "Medium",
       "youtubeLink": "",
-      "topics": ["Dynamic Programming"]      
+      "topics": ["Dynamic Programming", "Recursion"]      
     },
 
 
