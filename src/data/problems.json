@@ -9,6 +9,14 @@
       "topics": ["Array"]
     },
     {
+      "leetcodeId": "1749",
+      "title": "Maximum Absolute Sum of Any Subarray",
+      "link": "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/9eswigiGTUQ",
+      "topics": ["Array"]
+    },
+    {
       "id": 2,
       "leetcodeId": "169",
       "title": "Majority Element",
