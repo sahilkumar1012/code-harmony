@@ -76,7 +76,7 @@ const MentorCard = ({ mentor }) => {
                   flex: "1",
                   minWidth: "120px",
                   maxWidth: "48%",
-                  backgroundColor: "#2867B2",
+                  backgroundColor: "#0A66C2",
                 }}
               >
                 <img
@@ -149,7 +149,7 @@ const MentorshipPage = () => {
           <option value="Frontend">Frontend</option>
           <option value="Backend">Backend</option>
           <option value="DSA">DSA</option>
-          <option value="AI">AI</option>
+          {/* <option value="AI">AI</option> */}
           <option value="System Design">System Design</option>
         </select>
       </div>
