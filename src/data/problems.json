@@ -111,7 +111,23 @@
       "topics": ["Greedy", "Heap"]
     },
 
+    {
+      "leetcodeId": "206",
+      "title": "Reverse Linked List",
+      "link": "https://leetcode.com/problems/reverse-linked-list/",
+      "difficulty": "Easy",
+      "youtubeLink": "",
+      "topics": ["Linked List"]
+    },
 
+    {
+      "leetcodeId": "150",
+      "title": "Evaluate Reverse Polish Notation",
+      "link": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/5IJDyeyw5FE",
+      "topics": ["Stack"]
+    },
 
     {
       "leetcodeId": "1233",
@@ -131,6 +147,15 @@
     },
 
     
+
+    {
+      "leetcodeId": "50",
+      "title": "Pow(x, n)",
+      "link": "https://leetcode.com/problems/powx-n/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Recursion"]          
+    },
 
     {
       "leetcodeId": "70",
