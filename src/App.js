@@ -18,7 +18,9 @@ import './App.css';
 
 function AppContent() {
   const location = useLocation();
-  const mainClassName = location.pathname === '/' ? 'main-content-full' : 'main-content';
+  const mainClassName = 
+    location.pathname === '/' || location.pathname === '/index.html' 
+      ? 'main-content-full' : 'main-content';
   const { user, login } = useUser();
 
 

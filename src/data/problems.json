@@ -156,6 +156,22 @@
       "youtubeLink": "",
       "topics": ["Recursion"]          
     },
+    {
+      "leetcodeId": "1239",
+      "title": "Maximum Length of a Concatenated String with Unique Characters",
+      "link": "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/LD9A7sBIn4A",
+      "topics": ["Recursion", "Backtracking"]          
+    },
+    {
+      "leetcodeId": "473",
+      "title": "Matchsticks to Square",
+      "link": "https://leetcode.com/problems/matchsticks-to-square/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/fse9Krsi80A",
+      "topics": ["Recursion", "Backtracking"]          
+    },
 
     {
       "leetcodeId": "70",
