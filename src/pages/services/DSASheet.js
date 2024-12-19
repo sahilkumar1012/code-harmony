@@ -1,7 +1,7 @@
 // External dependencies
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaVideo } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for redirection
 import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
 
@@ -43,7 +43,7 @@ const DSASheet = () => {
   // Toggle completion status
   const handleToggleCompletion = async (problemId) => {
     // Initialize the navigate function
-    console.log(user);
+    // console.log(user);
     if (user == null || user.id == null) {
       // Store the current URL as the redirect URL before navigating to login page
       storeRedirectUrl(window.location.pathname);
@@ -146,10 +146,11 @@ const DSASheet = () => {
           >
             Difficulty
           </th>
-          <th>Solution Video</th>
+          <th className="text-center">Explanation</th>
           <th
             onClick={() => handleSort("completed")}
             style={{ cursor: "pointer" }}
+            className="text-center"
           >
             Completed
           </th>
@@ -179,18 +180,19 @@ const DSASheet = () => {
             <td className={getDifficultyClass(problem.difficulty)}>
               {problem.difficulty}
             </td>
-            <td>
+            <td className="text-center">
               {problem.youtubeLink && (
                 <a
                   href={problem.youtubeLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ color: '#FF0000' }}
                 >
-                  <FaVideo />
+                  <FaYoutube />
                 </a>
               )}
             </td>
-            <td>
+            <td className="text-center">
               <input
                 type="checkbox"
                 checked={completedProblemsSet.has(problem.leetcodeId)}
