@@ -121,11 +121,12 @@ const DSASheet = () => {
 
   // Render problems in a table
   const renderTable = (filteredProblems) => (
+    <div className="table-container">
     <table className="table table-striped">
       <thead>
         <tr>
-          <th>LeetCode ID</th>
-          <th>Problem Title</th>
+          <th className="problem-id">LeetCode ID</th>
+          <th className="problem-title">Problem Title</th>
           <th
             onClick={() => handleSort("difficulty")}
             style={{ cursor: "pointer" }}
@@ -189,6 +190,7 @@ const DSASheet = () => {
         ))}
       </tbody>
     </table>
+    </div>
   );
 
   return (
