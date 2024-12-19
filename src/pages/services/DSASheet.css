@@ -1,0 +1,12 @@
+.youtube-icon {
+  color: #FF0000; /* Default color */
+  /* font-size: 24px; */
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block; /* Allow transform to work */
+}
+
+.youtube-icon:hover {
+    transform: translateY(-3px) scale(1.2) !important; /* Makes the icon grow on hover */
+    color: #cd0000; /* Changes the color on hover */
+}
+  

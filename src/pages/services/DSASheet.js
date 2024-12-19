@@ -6,11 +6,10 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for r
 import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
 
 // Internal application modules
-// import problemsData from "../../data/problemsData"; // Adjust path as needed
 import problemsData from '../../data/problems.json';
 import { useUser } from "../../UserContext";
 import { app } from '../../firebaseConfig'; // Import Firebase app
-
+import './DSASheet.css';
 
 const DSASheet = () => {
   const { user, storeRedirectUrl } = useUser(); // Access user state and logout function
@@ -42,10 +41,7 @@ const DSASheet = () => {
 
   // Toggle completion status
   const handleToggleCompletion = async (problemId) => {
-    // Initialize the navigate function
-    // console.log(user);
     if (user == null || user.id == null) {
-      // Store the current URL as the redirect URL before navigating to login page
       storeRedirectUrl(window.location.pathname);
       navigate('/login'); // Redirect to login if the user is not logged in
       return;
@@ -53,30 +49,22 @@ const DSASheet = () => {
 
     const userDoc = doc(db, 'users', user.id);
 
-    // Check if the problem is already marked as completed
     if (completedProblemsSet.has(problemId)) {
-      // If the problem is checked, we need to remove it from the completedProblems array
       await updateDoc(userDoc, {
         [completedProblemsKey]: arrayRemove(problemId),
       });
-
-      // Update the completed problems set locally after removing from the database
       setCompletedProblemsSet((prevSet) => {
         const updatedSet = new Set(prevSet);
         updatedSet.delete(problemId); // Remove the problemId from the set
         return updatedSet;
       });
     } else {
-      // If the problem is not checked, we need to add it to the completedProblems array
       await updateDoc(userDoc, {
         [completedProblemsKey]: arrayUnion(problemId),
       });
-
-      // Update the completed problems set locally after adding to the database
       setCompletedProblemsSet((prevSet) => new Set(prevSet.add(problemId)));
     }
   };
-
 
   // Get CSS class for difficulty
   const getDifficultyClass = (difficulty) => {
@@ -105,7 +93,6 @@ const DSASheet = () => {
           : order[b.difficulty] - order[a.difficulty];
       }
       if (key === "completed") {
-        // Compare based on whether the problem is completed or not
         const isACompleted = completedProblemsSet.has(a.leetcodeId);
         const isBCompleted = completedProblemsSet.has(b.leetcodeId);
 
@@ -113,12 +100,11 @@ const DSASheet = () => {
           ? Number(isACompleted) - Number(isBCompleted)
           : Number(isBCompleted) - Number(isACompleted);
       }
-      return 0; // Default: No sorting for other columns
+      return 0;
     });
 
     setProblems(sortedProblems);
   };
-
 
   // Filter problems by topic
   const filterProblemsByTopic = () => {
@@ -186,7 +172,7 @@ const DSASheet = () => {
                   href={problem.youtubeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#FF0000' }}
+                  className="youtube-icon"
                 >
                   <FaYoutube />
                 </a>
@@ -207,7 +193,6 @@ const DSASheet = () => {
 
   return (
     <div className="container mt-5">
-      {/* Header Section */}
       <div className="d-flex flex-column align-items-center mb-4">
         <h1 className="text-center">DSA Essentials Sheet</h1>
         <div className="mb-3">
@@ -225,7 +210,6 @@ const DSASheet = () => {
         </div>
       </div>
 
-      {/* Content Section */}
       {renderTable(filterProblemsByTopic())}
     </div>
   );
