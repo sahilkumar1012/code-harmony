@@ -1,7 +1,7 @@
 // External dependencies
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaYoutube } from "react-icons/fa";
+import { FaYoutube, FaSort } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for redirection
 import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
 
@@ -131,15 +131,15 @@ const DSASheet = () => {
             onClick={() => handleSort("difficulty")}
             style={{ cursor: "pointer" }}
           >
-            Difficulty
+            Difficulty<FaSort />
           </th>
-          <th className="text-center">Explanation</th>
+          <th className="text-center explanation-column">Explanation</th>
           <th
             onClick={() => handleSort("completed")}
             style={{ cursor: "pointer" }}
             className="text-center"
           >
-            Completed
+            Completed<FaSort />
           </th>
         </tr>
       </thead>

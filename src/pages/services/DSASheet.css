@@ -2,20 +2,23 @@
   color: #FF0000; /* Default color */
   /* font-size: 24px; */
   transition: transform 0.3s ease, color 0.3s ease;
-  display: inline-block; /* Allow transform to work */
+  display: block; /* Allow transform to work */
 }
 
 .youtube-icon:hover {
     transform: translateY(-3px) scale(1.2) !important; /* Makes the icon grow on hover */
-    color: #cd0000; /* Changes the color on hover */
+    color: #cd0000 !important; /* Changes the color on hover */
 }
   
 
 table th, table td {
   padding: 10px;
 }
-.problem-title {
-  min-width: 200px;
+problem-title{
+  min-width: 200px !important;
+}
+
+table th {
   white-space: nowrap; /* Prevent wrapping */
 }
 .problem-id {
@@ -23,20 +26,29 @@ table th, table td {
   white-space: nowrap; /* Prevent wrapping */
 }
 
+.table-container{
+  padding: 0;
+}
+/* Make sure the problem title gets enough space */
+.table .problem-title {
+  width: 50%; /* Allow the problem title to take up more space */
+}
 
 @media (max-width: 768px) {
   .table-container {
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+      -webkit-overflow-scrolling: touch; 
   }
-
+  .table .problem-title {
+    width: 40%; /* On smaller screens, reduce the space for title */
+  }
+  problem-title{
+    min-width: 200px !important;
+  }
   table {
-      /* width: 100%; */
-      min-width: 600px; /* Ensure the table doesn't shrink too much */
-      table-layout: fixed; /* Prevent columns from becoming too small */
-  }
-  table-container{
-    padding: 0;
+      width: 100%;
+      min-width: 700px; 
+      table-layout: fixed; 
   }
 }
 
@@ -47,11 +59,8 @@ table th, table td {
   }
 }
 
-table tr:hover {
-  background-color: black !important;
-}
 
-th {
+table th {
   position: sticky;
   top: 0;
   background-color: #fff;
@@ -69,4 +78,33 @@ table {
 }
 th, td {
   border: 0.1px solid #e1e1e1aa;
+}
+
+
+.table-container {
+  overflow-x: auto; 
+}
+
+.table th, .table td {
+  padding: 0.5rem; 
+}
+
+.table th {
+  text-align: left;
+}
+
+.table td {
+  word-wrap: break-word; 
+}
+
+
+table tr:hover a {
+  /* color: black ;  */
+  /* font-weight: bold; */
+  text-decoration: underline;
+}
+
+table td a {
+  display: block; /* Make the link take up the full width of the table cell */
+  text-decoration: none; /* Optional: Remove underline */
 }
