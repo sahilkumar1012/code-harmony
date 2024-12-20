@@ -13,7 +13,8 @@
 
 .youtube-link{
   padding: 0 !important;
-  vertical-align: middle;
+  /* vertical-align: middle; */
+  margin: auto;
   font-size: 1.4em;
 }
 
@@ -117,8 +118,9 @@ table td a {
   display: inline-block;
   cursor: pointer;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 18px;
   user-select: none;
+  vertical-align: middle;
 }
 
 .fancy-checkbox input {
