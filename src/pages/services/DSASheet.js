@@ -179,7 +179,7 @@ const DSASheet = () => {
                 </a>
               )}
             </td>
-            
+
             <td className="text-center">
               <label className="fancy-checkbox">
                 <input
@@ -199,7 +199,7 @@ const DSASheet = () => {
   );
 
   return (
-    <div className="container mt-5">
+    <div className="container-fluid mt-5">
       <div className="d-flex flex-column align-items-center mb-4">
         <h1 className="text-center">DSA Essentials Sheet</h1>
         <div className="mb-3">

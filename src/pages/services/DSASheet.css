@@ -8,6 +8,7 @@
 .youtube-icon:hover {
     transform: translateY(-3px) scale(1.2) !important; /* Makes the icon grow on hover */
     color: #cd0000 !important; /* Changes the color on hover */
+    cursor: pointer;
 }
 
 .youtube-link{
@@ -57,12 +58,6 @@ table th {
   }
 }
 
-@media (max-width: 350px) {
-  table th, table td {
-      display: block;
-      width: 100%;
-  }
-}
 
 
 table th {
