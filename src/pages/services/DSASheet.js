@@ -139,7 +139,7 @@ const DSASheet = () => {
             style={{ cursor: "pointer" }}
             className="text-center"
           >
-            Completed<FaSort />
+            Done<FaSort />
           </th>
         </tr>
       </thead>

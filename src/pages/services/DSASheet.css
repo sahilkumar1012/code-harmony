@@ -15,7 +15,7 @@
   padding: 0 !important;
   /* vertical-align: middle; */
   margin: auto;
-  font-size: 1.4em;
+  font-size: 1.5em;
 }
 
 table th, table td {
@@ -34,7 +34,7 @@ table th {
 }
 
 .table-container{
-  padding: 0;
+  padding: 0 5px 5px 5px;
 }
 /* Make sure the problem title gets enough space */
 .table .problem-title {
@@ -77,9 +77,9 @@ table {
   border-collapse: collapse;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-th, td {
+/* th, td {
   border: 0.1px solid #e1e1e1aa;
-}
+} */
 
 
 .table-container {
