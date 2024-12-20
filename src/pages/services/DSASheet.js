@@ -167,7 +167,7 @@ const DSASheet = () => {
             <td className={getDifficultyClass(problem.difficulty)}>
               {problem.difficulty}
             </td>
-            <td className="text-center">
+            <td className="text-center youtube-link">
               {problem.youtubeLink && (
                 <a
                   href={problem.youtubeLink}

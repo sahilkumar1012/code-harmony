@@ -9,7 +9,12 @@
     transform: translateY(-3px) scale(1.2) !important; /* Makes the icon grow on hover */
     color: #cd0000 !important; /* Changes the color on hover */
 }
-  
+
+.youtube-link{
+  padding: 0 !important;
+  vertical-align: middle;
+  font-size: 1.4em;
+}
 
 table th, table td {
   padding: 10px;
