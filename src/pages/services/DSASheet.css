@@ -113,3 +113,56 @@ table td a {
   display: block; /* Make the link take up the full width of the table cell */
   text-decoration: none; /* Optional: Remove underline */
 }
+
+
+
+/* style css for checkbox  */
+.fancy-checkbox {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 22px;
+  user-select: none;
+}
+
+.fancy-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.fancy-checkbox:hover .checkmark {
+  background-color: #cfcfcf;
+}
+
+.fancy-checkbox input:checked ~ .checkmark {
+  background-color: #4caf50;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.fancy-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}

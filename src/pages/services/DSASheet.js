@@ -179,13 +179,18 @@ const DSASheet = () => {
                 </a>
               )}
             </td>
+            
             <td className="text-center">
-              <input
-                type="checkbox"
-                checked={completedProblemsSet.has(problem.leetcodeId)}
-                onChange={(e) => handleToggleCompletion(problem.leetcodeId)}
-              />
+              <label className="fancy-checkbox">
+                <input
+                  type="checkbox"
+                  checked={completedProblemsSet.has(problem.leetcodeId)}
+                  onChange={(e) => handleToggleCompletion(problem.leetcodeId)}
+                />
+                <span className="checkmark"></span>
+              </label>
             </td>
+
           </tr>
         ))}
       </tbody>
