@@ -20,7 +20,7 @@
       "id": 2,
       "leetcodeId": "169",
       "title": "Majority Element",
-      "link": "https://leetcode.com/problems/merge-intervals/",
+      "link": "https://leetcode.com/problems/majority-element/",
       "difficulty": "Easy",
       "youtubeLink": "https://youtu.be/Ju8-_9nvH6w",
       "topics": ["Array"]
