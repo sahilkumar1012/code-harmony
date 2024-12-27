@@ -26,13 +26,21 @@
       "topics": ["Array"]
     },
     {
+      "leetcodeId": "1014",
+      "title": "Best Sightseeing Pair",
+      "link": "https://leetcode.com/problems/best-sightseeing-pair/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/icOKLdBEtFM",
+      "topics": ["Array"]
+    },
+    {
       "id": 3,
       "leetcodeId": "42",
       "title": "Trapping Rain Water",
       "link": "https://leetcode.com/problems/trapping-rain-water/",
       "difficulty": "Hard",
       "youtubeLink": "https://youtu.be/qsxiV7DGzEo",
-      "topics": ["Dynamic Programming"]
+      "topics": ["Array", "Dynamic Programming"]
     },
     {
       "id": 4,
