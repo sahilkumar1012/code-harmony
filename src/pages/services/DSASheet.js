@@ -1,8 +1,11 @@
+// Import necessary React hooks
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaYoutube, FaSort } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { FaSearch, FaTimes } from "react-icons/fa";
+
 import problemsData from '../../data/problems.json';
 import { useUser } from "../../UserContext";
 import { app } from '../../firebaseConfig';
@@ -13,16 +16,17 @@ const DSASheet = () => {
   const navigate = useNavigate();
 
   const [problems, setProblems] = useState(problemsData);
+  const [searchQuery, setSearchQuery] = useState(""); // State for the search query
   const [selectedTopic, setSelectedTopic] = useState("All");
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [completedProblemsSet, setCompletedProblemsSet] = useState(new Set());
-  const [searchQuery, setSearchQuery] = useState(""); // State for search query
 
   const db = getFirestore(app);
   const completedProblemsKey = "completedProblems";
 
   useEffect(() => {
     const fetchCompletedProblems = async () => {
+      if (!user) return;
       const userDoc = doc(db, 'users', user.id);
       const userData = await getDoc(userDoc);
       if (userData.exists()) {
@@ -30,21 +34,17 @@ const DSASheet = () => {
         setCompletedProblemsSet(new Set(completedProblems));
       }
     };
-
-    if (user) {
-      fetchCompletedProblems();
-    }
+    fetchCompletedProblems();
   }, [user, db]);
 
   const handleToggleCompletion = async (problemId) => {
-    if (user == null || user.id == null) {
+    if (!user || !user.id) {
       storeRedirectUrl(window.location.pathname);
       navigate('/login');
       return;
     }
 
     const userDoc = doc(db, 'users', user.id);
-
     if (completedProblemsSet.has(problemId)) {
       await updateDoc(userDoc, {
         [completedProblemsKey]: arrayRemove(problemId),
@@ -102,13 +102,14 @@ const DSASheet = () => {
   };
 
   const filterProblems = () => {
-    const filteredByTopic = selectedTopic === "All"
-      ? problems
-      : problems.filter((problem) => problem.topics.includes(selectedTopic));
-
-    return filteredByTopic.filter((problem) =>
-      problem.title.toLowerCase().includes(searchQuery.toLowerCase())
+    return problems.filter((problem) =>
+      (selectedTopic === "All" || problem.topics.includes(selectedTopic)) &&
+      (problem.title.toLowerCase().includes(searchQuery.toLowerCase()))
     );
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
   };
 
   const uniqueTopics = [
@@ -123,10 +124,7 @@ const DSASheet = () => {
           <tr>
             <th className="problem-id">LeetCode ID</th>
             <th className="problem-title">Problem Title</th>
-            <th
-              onClick={() => handleSort("difficulty")}
-              style={{ cursor: "pointer" }}
-            >
+            <th onClick={() => handleSort("difficulty")} style={{ cursor: "pointer" }}>
               Difficulty<FaSort />
             </th>
             <th className="text-center explanation-column">Explanation</th>
@@ -143,20 +141,12 @@ const DSASheet = () => {
           {filteredProblems.map((problem) => (
             <tr key={problem.leetcodeId}>
               <td>
-                <a
-                  href={problem.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={problem.link} target="_blank" rel="noopener noreferrer">
                   {problem.leetcodeId}
                 </a>
               </td>
               <td>
-                <a
-                  href={problem.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={problem.link} target="_blank" rel="noopener noreferrer">
                   {problem.title}
                 </a>
               </td>
@@ -195,28 +185,55 @@ const DSASheet = () => {
 
   return (
     <div className="container-fluid mt-5">
-      <div className="d-flex flex-column align-items-center mb-4">
-        <h1 className="text-center">DSA Essentials Sheet</h1>
-        <div className="mb-3 d-flex gap-3">
-          <select
-            className="form-select"
-            value={selectedTopic}
-            onChange={(e) => setSelectedTopic(e.target.value)}
-          >
-            {uniqueTopics.map((topic) => (
-              <option key={topic} value={topic}>
-                {topic}
-              </option>
-            ))}
-          </select>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by title..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+      <div className="d-flex flex-wrap justify-content-center flex-column mb-1 align-items-center">
+        
+        <h1 className="text-center mb-4">DSA Essentials Sheet</h1>
+
+        <div className="row justify-content-center align-items-center">
+          {/* Dropdown */}
+          <div className="col-auto mb-3">
+            <select
+              className="form-select"
+              value={selectedTopic}
+              onChange={(e) => setSelectedTopic(e.target.value)}
+              style={{ minWidth: "200px" }} // Ensure dropdown is not too narrow
+            >
+              {uniqueTopics.map((topic) => (
+                <option key={topic} value={topic}>
+                  {topic}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Search Bar */}
+          <div className="col-auto mb-3">
+            <div className="input-group">
+              <span className="input-group-text bg-light">
+                <FaSearch />
+              </span>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search problems by title..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{ width: "250px", color: "#212529" }}
+              />
+              {searchQuery && (
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={clearSearch}
+                >
+                  <FaTimes />
+                </button>
+              )}
+            </div>
+          </div>
         </div>
+
+
       </div>
 
       {renderTable(filterProblems())}
