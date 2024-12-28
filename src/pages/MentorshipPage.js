@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import linkedinlogo from "../../src/assets/linkedinlogo.png";
 import topmatelogo from "../../src/assets/topmatelogo.png";
+import googleLogo from "../../src/assets/google.png"; // Add company logos
+import microsoftLogo from "../../src/assets/microsoft.png";
+import amazonLogo from "../../src/assets/amazon.png";
 
 const mentors = [
   {
@@ -9,6 +12,7 @@ const mentors = [
     profilePicture:
       "https://media.licdn.com/dms/image/v2/D5603AQHYc1QmtyYb5Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724942821286?e=1739404800&v=beta&t=fwwr1tt1whzDtocEteReoreg-n1SZOBeQ3LFDlI-MFs",
     company: "Google",
+    companyLogo: googleLogo,
     linkedIn: "https://www.linkedin.com/in/sahil1012/",
     topmate: "https://topmate.io/hisahil",
     expertise: ["DSA", "Backend", "Frontend"],
@@ -18,6 +22,7 @@ const mentors = [
     profilePicture:
       "https://media.licdn.com/dms/image/v2/D5603AQGSdzeqD9ULXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714304534219?e=1739404800&v=beta&t=hzzXinUg7axiNp3x_1AiyZ--6b_9q95uEPUSwSCkIVc",
     company: "Microsoft",
+    companyLogo: microsoftLogo,
     linkedIn: "https://www.linkedin.com/in/piyushgi/",
     topmate: "https://topmate.io/piyush_giri",
     expertise: ["Backend", "DSA"],
@@ -27,20 +32,20 @@ const mentors = [
     profilePicture:
       "https://media.licdn.com/dms/image/v2/C5603AQG8CLM2BRV-Lw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1618136615281?e=1739404800&v=beta&t=Uk_B7myRV37I3C5cosTc0Ovls06mx9o1yEsycYweywU",
     company: "Amazon",
+    companyLogo: amazonLogo,
     linkedIn: "https://www.linkedin.com/in/mohit-k-verma/",
     topmate: "https://topmate.io/mohitkumarverma/",
     expertise: ["System Design", "Leadership"],
-  }
+  },
 ];
 
 const MentorCard = ({ mentor }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   React.useEffect(() => {
-    // Trigger animation when component is mounted
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 100); // Delay to ensure smoothness
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
@@ -60,7 +65,13 @@ const MentorCard = ({ mentor }) => {
         />
         <div className="card-body text-center">
           <h5 className="card-title">{mentor.name}</h5>
-          <p className="card-text text-muted">{mentor.company}</p>
+          <div className="mb-2">
+            <img
+              src={mentor.companyLogo}
+              alt={`${mentor.company} logo`}
+              style={{ maxWidth: "80px", height: "auto" }}
+            />
+          </div>
           <p className="card-text text-muted">
             Expertise: {mentor.expertise.join(", ")}
           </p>
@@ -149,7 +160,6 @@ const MentorshipPage = () => {
           <option value="Frontend">Frontend</option>
           <option value="Backend">Backend</option>
           <option value="DSA">DSA</option>
-          {/* <option value="AI">AI</option> */}
           <option value="System Design">System Design</option>
         </select>
       </div>
