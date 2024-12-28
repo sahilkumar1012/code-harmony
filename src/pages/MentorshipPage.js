@@ -14,6 +14,8 @@ const mentors = [
       "https://media.licdn.com/dms/image/v2/D5603AQHYc1QmtyYb5Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724942821286?e=1739404800&v=beta&t=fwwr1tt1whzDtocEteReoreg-n1SZOBeQ3LFDlI-MFs",
     companies: [
       { name: "Google", logo: googleLogo },
+      { name: "Amazon", logo: amazonLogo },
+      { name: "Adobe", logo: adobeLogo },
     ],
     linkedIn: "https://www.linkedin.com/in/sahil1012/",
     topmate: "https://topmate.io/hisahil",
@@ -25,6 +27,7 @@ const mentors = [
       "https://media.licdn.com/dms/image/v2/D5603AQGSdzeqD9ULXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714304534219?e=1739404800&v=beta&t=hzzXinUg7axiNp3x_1AiyZ--6b_9q95uEPUSwSCkIVc",
     companies: [
       { name: "Microsoft", logo: microsoftLogo },
+      { name: "Adobe", logo: adobeLogo },
     ],
     linkedIn: "https://www.linkedin.com/in/piyushgi/",
     topmate: "https://topmate.io/piyush_giri",
@@ -69,16 +72,18 @@ const MentorCard = ({ mentor }) => {
         />
         <div className="card-body text-center">
           <h5 className="card-title">{mentor.name}</h5>
+          
           <div className="mb-2 d-flex justify-content-center gap-2 flex-wrap">
             {mentor.companies.map((company, index) => (
               <img
                 key={index}
                 src={company.logo}
                 alt={`${company.name} logo`}
-                style={{ maxWidth: "80px", height: "auto" }}
+                style={{ width: "100px", height: "50px", objectFit: "contain" }}
               />
             ))}
           </div>
+
           <p className="card-text text-muted">
             Expertise: {mentor.expertise.join(", ")}
           </p>
