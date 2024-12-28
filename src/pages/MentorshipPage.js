@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import linkedinlogo from "../../src/assets/linkedinlogo.png";
 import topmatelogo from "../../src/assets/topmatelogo.png";
-import googleLogo from "../../src/assets/google.png"; // Add company logos
+import googleLogo from "../../src/assets/google.png"; // Company logos
 import microsoftLogo from "../../src/assets/microsoft.png";
 import amazonLogo from "../../src/assets/amazon.png";
+import adobeLogo from "../../src/assets/adobe.png";
 
 const mentors = [
   {
     name: "Sahil Kumar",
     profilePicture:
       "https://media.licdn.com/dms/image/v2/D5603AQHYc1QmtyYb5Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724942821286?e=1739404800&v=beta&t=fwwr1tt1whzDtocEteReoreg-n1SZOBeQ3LFDlI-MFs",
-    company: "Google",
-    companyLogo: googleLogo,
+    companies: [
+      { name: "Google", logo: googleLogo },
+    ],
     linkedIn: "https://www.linkedin.com/in/sahil1012/",
     topmate: "https://topmate.io/hisahil",
     expertise: ["DSA", "Backend", "Frontend"],
@@ -21,8 +23,9 @@ const mentors = [
     name: "Piyush Giri",
     profilePicture:
       "https://media.licdn.com/dms/image/v2/D5603AQGSdzeqD9ULXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714304534219?e=1739404800&v=beta&t=hzzXinUg7axiNp3x_1AiyZ--6b_9q95uEPUSwSCkIVc",
-    company: "Microsoft",
-    companyLogo: microsoftLogo,
+    companies: [
+      { name: "Microsoft", logo: microsoftLogo },
+    ],
     linkedIn: "https://www.linkedin.com/in/piyushgi/",
     topmate: "https://topmate.io/piyush_giri",
     expertise: ["Backend", "DSA"],
@@ -31,8 +34,9 @@ const mentors = [
     name: "Mohit Kumar Verma",
     profilePicture:
       "https://media.licdn.com/dms/image/v2/C5603AQG8CLM2BRV-Lw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1618136615281?e=1739404800&v=beta&t=Uk_B7myRV37I3C5cosTc0Ovls06mx9o1yEsycYweywU",
-    company: "Amazon",
-    companyLogo: amazonLogo,
+    companies: [
+      { name: "Amazon", logo: amazonLogo },
+    ],
     linkedIn: "https://www.linkedin.com/in/mohit-k-verma/",
     topmate: "https://topmate.io/mohitkumarverma/",
     expertise: ["System Design", "Leadership"],
@@ -65,12 +69,15 @@ const MentorCard = ({ mentor }) => {
         />
         <div className="card-body text-center">
           <h5 className="card-title">{mentor.name}</h5>
-          <div className="mb-2">
-            <img
-              src={mentor.companyLogo}
-              alt={`${mentor.company} logo`}
-              style={{ maxWidth: "80px", height: "auto" }}
-            />
+          <div className="mb-2 d-flex justify-content-center gap-2 flex-wrap">
+            {mentor.companies.map((company, index) => (
+              <img
+                key={index}
+                src={company.logo}
+                alt={`${company.name} logo`}
+                style={{ maxWidth: "80px", height: "auto" }}
+              />
+            ))}
           </div>
           <p className="card-text text-muted">
             Expertise: {mentor.expertise.join(", ")}
