@@ -1,36 +1,33 @@
-// External dependencies
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaYoutube, FaSort } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for redirection
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'; // Firestore functions
-
-// Internal application modules
+import { useNavigate } from 'react-router-dom';
+import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import problemsData from '../../data/problems.json';
 import { useUser } from "../../UserContext";
-import { app } from '../../firebaseConfig'; // Import Firebase app
+import { app } from '../../firebaseConfig';
 import './DSASheet.css';
 
 const DSASheet = () => {
-  const { user, storeRedirectUrl } = useUser(); // Access user state and logout function
+  const { user, storeRedirectUrl } = useUser();
   const navigate = useNavigate();
 
   const [problems, setProblems] = useState(problemsData);
   const [selectedTopic, setSelectedTopic] = useState("All");
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
-  const [completedProblemsSet, setCompletedProblemsSet] = useState(new Set()); // State to store completed problems
+  const [completedProblemsSet, setCompletedProblemsSet] = useState(new Set());
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
 
-  const db = getFirestore(app); // Get Firestore instance
+  const db = getFirestore(app);
   const completedProblemsKey = "completedProblems";
 
-  // Fetch completed problems from Firestore and update the state
   useEffect(() => {
     const fetchCompletedProblems = async () => {
       const userDoc = doc(db, 'users', user.id);
       const userData = await getDoc(userDoc);
       if (userData.exists()) {
         const completedProblems = userData.data()[completedProblemsKey] || [];
-        setCompletedProblemsSet(new Set(completedProblems)); // Update the state with the completed problems set
+        setCompletedProblemsSet(new Set(completedProblems));
       }
     };
 
@@ -39,11 +36,10 @@ const DSASheet = () => {
     }
   }, [user, db]);
 
-  // Toggle completion status
   const handleToggleCompletion = async (problemId) => {
     if (user == null || user.id == null) {
       storeRedirectUrl(window.location.pathname);
-      navigate('/login'); // Redirect to login if the user is not logged in
+      navigate('/login');
       return;
     }
 
@@ -55,7 +51,7 @@ const DSASheet = () => {
       });
       setCompletedProblemsSet((prevSet) => {
         const updatedSet = new Set(prevSet);
-        updatedSet.delete(problemId); // Remove the problemId from the set
+        updatedSet.delete(problemId);
         return updatedSet;
       });
     } else {
@@ -66,7 +62,6 @@ const DSASheet = () => {
     }
   };
 
-  // Get CSS class for difficulty
   const getDifficultyClass = (difficulty) => {
     switch (difficulty) {
       case "Easy":
@@ -106,95 +101,95 @@ const DSASheet = () => {
     setProblems(sortedProblems);
   };
 
-  // Filter problems by topic
-  const filterProblemsByTopic = () => {
-    return selectedTopic === "All"
+  const filterProblems = () => {
+    const filteredByTopic = selectedTopic === "All"
       ? problems
       : problems.filter((problem) => problem.topics.includes(selectedTopic));
+
+    return filteredByTopic.filter((problem) =>
+      problem.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
   };
 
-  // Unique topics list
   const uniqueTopics = [
     "All",
     ...new Set(problems.flatMap((problem) => problem.topics)),
   ];
 
-  // Render problems in a table
   const renderTable = (filteredProblems) => (
     <div className="table-container">
-    <table className="table table-striped">
-      <thead>
-        <tr>
-          <th className="problem-id">LeetCode ID</th>
-          <th className="problem-title">Problem Title</th>
-          <th
-            onClick={() => handleSort("difficulty")}
-            style={{ cursor: "pointer" }}
-          >
-            Difficulty<FaSort />
-          </th>
-          <th className="text-center explanation-column">Explanation</th>
-          <th
-            onClick={() => handleSort("completed")}
-            style={{ cursor: "pointer" }}
-            className="text-center"
-          >
-            Done<FaSort />
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {filteredProblems.map((problem) => (
-          <tr key={problem.leetcodeId}>
-            <td>
-              <a
-                href={problem.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {problem.leetcodeId}
-              </a>
-            </td>
-            <td>
-              <a
-                href={problem.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {problem.title}
-              </a>
-            </td>
-            <td className={getDifficultyClass(problem.difficulty)}>
-              {problem.difficulty}
-            </td>
-            <td className="text-center youtube-link">
-              {problem.youtubeLink && (
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th className="problem-id">LeetCode ID</th>
+            <th className="problem-title">Problem Title</th>
+            <th
+              onClick={() => handleSort("difficulty")}
+              style={{ cursor: "pointer" }}
+            >
+              Difficulty<FaSort />
+            </th>
+            <th className="text-center explanation-column">Explanation</th>
+            <th
+              onClick={() => handleSort("completed")}
+              style={{ cursor: "pointer" }}
+              className="text-center"
+            >
+              Done<FaSort />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredProblems.map((problem) => (
+            <tr key={problem.leetcodeId}>
+              <td>
                 <a
-                  href={problem.youtubeLink}
+                  href={problem.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="youtube-icon"
                 >
-                  <FaYoutube />
+                  {problem.leetcodeId}
                 </a>
-              )}
-            </td>
+              </td>
+              <td>
+                <a
+                  href={problem.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {problem.title}
+                </a>
+              </td>
+              <td className={getDifficultyClass(problem.difficulty)}>
+                {problem.difficulty}
+              </td>
+              <td className="text-center youtube-link">
+                {problem.youtubeLink && (
+                  <a
+                    href={problem.youtubeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="youtube-icon"
+                  >
+                    <FaYoutube />
+                  </a>
+                )}
+              </td>
 
-            <td className="text-center">
-              <label className="fancy-checkbox">
-                <input
-                  type="checkbox"
-                  checked={completedProblemsSet.has(problem.leetcodeId)}
-                  onChange={(e) => handleToggleCompletion(problem.leetcodeId)}
-                />
-                <span className="checkmark"></span>
-              </label>
-            </td>
-
-          </tr>
-        ))}
-      </tbody>
-    </table>
+              <td className="text-center">
+                <label className="fancy-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={completedProblemsSet.has(problem.leetcodeId)}
+                    onChange={(e) => handleToggleCompletion(problem.leetcodeId)}
+                  />
+                  <span className="checkmark"></span>
+                </label>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 
@@ -202,7 +197,7 @@ const DSASheet = () => {
     <div className="container-fluid mt-5">
       <div className="d-flex flex-column align-items-center mb-4">
         <h1 className="text-center">DSA Essentials Sheet</h1>
-        <div className="mb-3">
+        <div className="mb-3 d-flex gap-3">
           <select
             className="form-select"
             value={selectedTopic}
@@ -214,10 +209,17 @@ const DSASheet = () => {
               </option>
             ))}
           </select>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search by title..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
       </div>
 
-      {renderTable(filterProblemsByTopic())}
+      {renderTable(filterProblems())}
     </div>
   );
 };
