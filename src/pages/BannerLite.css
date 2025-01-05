@@ -39,7 +39,7 @@
 }
 
 .bannerlite-title {
-  font-size: 4rem;
+  font-size: 3rem;
   /* font-weight: bold; */
   /* animation: fadeInTitle 1s ease-in-out forwards; */
 }
@@ -157,7 +157,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .bannerlite-title {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .bannerlite-subtitle {
@@ -172,7 +172,7 @@
 
 @media (max-width: 480px) {
   .bannerlite-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .bannerlite-subtitle {
