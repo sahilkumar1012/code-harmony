@@ -39,7 +39,7 @@ const Header = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto align-items-center">
           <li className="nav-item">
-            <a className="nav-link text-dark px-3" href="/home">
+            <a className="nav-link text-dark px-3" href="/">
               <FaHome className="me-2" /> Home
             </a>
           </li>

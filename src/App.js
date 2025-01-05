@@ -18,9 +18,9 @@ import './App.css';
 
 function AppContent() {
   const location = useLocation();
-  const mainClassName = 
-    location.pathname === '/' || location.pathname === '/index.html' 
-      ? 'main-content-full' : 'main-content';
+  const mainClassName = 'main-content';
+    // location.pathname === '/' || location.pathname === '/index.html' 
+    //   ? 'main-content-full' : 'main-content';
   const { user, login } = useUser();
 
 
@@ -30,9 +30,8 @@ function AppContent() {
 
       <main className={mainClassName}>
         <Routes>
-          <Route path="/" element={<Banner />} />
-          <Route path="/index.html" element={<Banner />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/index.html" element={<Home />} />
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
