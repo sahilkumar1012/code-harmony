@@ -44,6 +44,17 @@ const mentors = [
     topmate: "https://topmate.io/mohitkumarverma/",
     expertise: ["System Design", "Leadership"],
   },
+  {
+    name: "Chirag Garg",
+    profilePicture:
+    "https://media.licdn.com/dms/image/v2/C5603AQE3fd21hMn_9A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1662290355466?e=1741824000&v=beta&t=soa3wkwx3iXz2WrrMGWs2b4t4SxsYm8gK-Cl8pyly98",
+    companies: [
+      { name: "Google", logo: googleLogo },
+    ],
+    linkedIn: "https://www.linkedin.com/in/gargchirag96/",
+    topmate: "https://topmate.io/chirag_garg10",
+    expertise: ["Backend", "DSA"],
+  },
 ];
 
 const MentorCard = ({ mentor }) => {
