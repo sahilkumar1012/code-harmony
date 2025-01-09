@@ -109,6 +109,34 @@
     },
 
 
+    {
+      "leetcodeId": "1408",
+      "title": "String Matching in an Array",
+      "link": "https://leetcode.com/problems/string-matching-in-an-array/",
+      "difficulty": "Easy",
+      "youtubeLink": "https://youtu.be/mSr4itcQsyg",
+      "topics": ["String", "String Matching"],
+      "tags":["String", "String Matching"]
+    },
+    {
+      "leetcodeId": "28",
+      "title": "Find the Index of the First Occurrence in a String",
+      "link": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",
+      "difficulty": "Easy",
+      "youtubeLink": "",
+      "topics": ["String", "String Matching"],
+      "tags":["String", "String Matching"]
+    },
+    {
+      "leetcodeId": "459",
+      "title": "Repeated Substring Pattern",
+      "link": "https://leetcode.com/problems/repeated-substring-pattern/",
+      "difficulty": "Easy",
+      "youtubeLink": "",
+      "topics": ["String", "String Matching"],
+      "tags":["String", "String Matching"]
+    },
+
 
     {
       "leetcodeId": "1792",
