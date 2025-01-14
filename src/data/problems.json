@@ -164,6 +164,15 @@
       "youtubeLink": "https://youtu.be/5IJDyeyw5FE",
       "topics": ["Stack"]
     },
+    {
+      "leetcodeId": "739",
+      "title": "Daily Temperatures",
+      "link": "https://leetcode.com/problems/daily-temperatures/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/tjHldRvn9Fw",
+      "topics": ["Stack"]
+    },
+
 
     {
       "leetcodeId": "1233",
