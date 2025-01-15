@@ -175,6 +175,17 @@
 
 
     {
+      "leetcodeId": "2429",
+      "title": "Minimize XOR",
+      "link": "https://leetcode.com/problems/minimize-xor/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/4luftcH6isY",
+      "topics": ["Bit Manipulation"]
+    },
+
+
+
+    {
       "leetcodeId": "1233",
       "title": "Remvoe Sub-Folders from the Filesystem",
       "link": "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/",

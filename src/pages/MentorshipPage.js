@@ -46,8 +46,7 @@ const mentors = [
   },
   {
     name: "Chirag Garg",
-    profilePicture:
-    "https://media.licdn.com/dms/image/v2/C5603AQE3fd21hMn_9A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1662290355466?e=1741824000&v=beta&t=soa3wkwx3iXz2WrrMGWs2b4t4SxsYm8gK-Cl8pyly98",
+    profilePicture: "https://media.licdn.com/dms/image/v2/C5603AQE3fd21hMn_9A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1662290355466?e=1742428800&v=beta&t=GR0AYeAr5Zl18TGu_0m3NRVmG2YyChQ9E1HjEv1JIgY",
     companies: [
       { name: "Google", logo: googleLogo },
     ],
