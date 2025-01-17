@@ -175,6 +175,14 @@
 
 
     {
+      "leetcodeId": "191",
+      "title": "Number of 1 Bits",
+      "link": "https://leetcode.com/problems/number-of-1-bits/",
+      "difficulty": "Easy",
+      "youtubeLink": "https://youtu.be/uhJ1zWblYF4",
+      "topics": ["Bit Manipulation"]
+    },
+    {
       "leetcodeId": "2429",
       "title": "Minimize XOR",
       "link": "https://leetcode.com/problems/minimize-xor/",
