@@ -82,6 +82,14 @@
 
     
     {
+      "leetcodeId": "88",
+      "title": "Merge Sorted Array",
+      "link": "https://leetcode.com/problems/merge-sorted-array/",
+      "difficulty": "Easy",
+      "youtubeLink": "https://www.youtube.com/shorts/gU3RVu5RWQI",
+      "topics": ["Array", "Two Pointers"]      
+    },  
+    {
       "leetcodeId": "2825",
       "title": "Make String a Subsequence Using Cyclic Increments",
       "link": "https://leetcode.com/problems/make-string-a-subsequence-using-cyclic-increments/",
