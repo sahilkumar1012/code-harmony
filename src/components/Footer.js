@@ -76,7 +76,7 @@ const Footer = () => {
         </span>
       </div>
 
-      <p style={footerTextStyle}>© 2024 Code Harmony. All rights reserved.</p>
+      <p style={footerTextStyle}>© 2025 Code Harmony. All rights reserved.</p>
     </footer>
   );
 };
