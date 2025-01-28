@@ -20,7 +20,8 @@
   font-weight: bold;
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
-  margin-left: 1.5rem; /* Ensure equal gap */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .mentor-btn:hover {
@@ -36,7 +37,6 @@
 
 .navbar-nav .nav-link {
   padding: 0.5rem 1rem;
-  margin-right: 1rem; /* Equal spacing between links */
   font-weight: bold;
 }
 
@@ -53,7 +53,10 @@
   padding: 0.3rem 1rem;
   background: none; /* Transparent background */
   transition: all 0.3s ease-in-out;
-  margin-left: 1rem; /* Equal gap */
+}
+.login-btn{
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .navbar-nav .login-btn:hover {
@@ -90,14 +93,12 @@
   }
   .navbar-nav .nav-link {
     padding: 0.4rem 0.6rem;
-    margin-right: 0.8rem; /* Adjusted for smaller screens */
   }
   .nav-link{
     color: black;
   }
 
   .login-btn {
-    margin-left: 0.8rem; /* Adjusted for smaller screens */
   }
 
   .nav-login{

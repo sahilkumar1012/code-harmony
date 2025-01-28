@@ -50,7 +50,7 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <button
-              className="btn btn-dark text-white ms-2 mentor-btn"
+              className="btn btn-dark text-white mentor-btn"
               onClick={() => window.location.href = "/mentorship"}
             >
               Find My Mentor →
