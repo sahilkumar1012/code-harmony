@@ -10,9 +10,10 @@ const Header = () => {
   const navigate = useNavigate(); // Initialize navigate function
 
   const handleLogin = () => {
-    storeRedirectUrl(window.location.pathname);
-    navigate('/login');
-    return;
+    window.location.href = "/login";
+    // storeRedirectUrl(window.location.pathname);
+    // navigate('/login');
+    // return;
   }
 
 

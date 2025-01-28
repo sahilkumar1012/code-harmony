@@ -37,6 +37,7 @@
 .navbar-nav .nav-link {
   padding: 0.5rem 1rem;
   margin-right: 1rem; /* Equal spacing between links */
+  font-weight: bold !important;
 }
 
 .navbar-nav .nav-link:hover {
@@ -92,4 +93,10 @@
   .login-btn {
     margin-left: 0.8rem; /* Adjusted for smaller screens */
   }
+
+  .nav-login{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+  }
 }
+
