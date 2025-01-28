@@ -1,78 +1,95 @@
+/* General Navbar Styling */
 .navbar {
-  padding: 0rem 1rem; /* Reduce padding to decrease height */
-  font-size: 1rem; /* Adjust font size for better proportions */
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   box-shadow: none;
+  background-color: #fff;
 }
 
 .navbar-brand img {
-  height: 50px; /* Reduce logo size */
+  height: 50px;
 }
 
+/* Toggle Button Styling */
 .navbar-toggler {
-  padding: 0.3rem; /* Slightly smaller toggle button */
+  padding: 0.4rem;
 }
 
+/* Mentor Button for All Screens */
+.mentor-btn {
+  font-weight: bold;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  margin-left: 1.5rem; /* Ensure equal gap */
+}
+
+.mentor-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+
+/* Navbar Links */
 .navbar-nav {
-  font-size: 1.2rem; /* Adjust font size for links */
+  font-size: 1.1rem;
 }
 
 .navbar-nav .nav-link {
-  padding: 0.5rem 0.8rem; /* Reduce padding for a compact look */
+  padding: 0.5rem 1rem;
+  margin-right: 1rem; /* Equal spacing between links */
 }
 
 .navbar-nav .nav-link:hover {
-  color: #316bf4 !important;
+  color: #ff3b3b !important;
 }
 
+/* Login Button Styling */
+.navbar-nav .login-btn {
+  color: #ff3b3b; /* Red text color */
+  font-weight: bold;
+  border: 2px solid #ff3b3b; /* Red border */
+  border-radius: 8px;
+  padding: 0.3rem 1rem;
+  background: none; /* Transparent background */
+  transition: all 0.3s ease-in-out;
+  margin-left: 1rem; /* Equal gap */
+}
+
+.navbar-nav .login-btn:hover {
+  color: #ff1a1a; /* Slightly darker red on hover */
+  border-color: #ff1a1a; /* Match border color on hover */
+}
+
+/* Profile Image */
 .profile-img {
-  width: 25px; /* Slightly smaller profile image */
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 6px;
+  margin-right: 0.5rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu-end {
+  margin-bottom: 10px;
 }
 
 /* Mobile View Improvements */
 @media (max-width: 992px) {
   .navbar {
-    padding: 0.3rem 0.8rem; /* Reduce padding further for mobile */
+    padding: 0.3rem 1rem;
   }
 
   .navbar-brand img {
-    height: 40px; /* Smaller logo on mobile */
-  }
-
-  .navbar-nav .login-btn{
-    padding-bottom: 0.5em;
-  }
-  .nav-login{
-    padding : 0.5em 0;
+    height: 40px;
   }
 
   .navbar-nav .nav-link {
-    padding: 0.6rem 0.6rem; /* Compact padding for smaller screens */
+    padding: 0.4rem 0.6rem;
+    margin-right: 0.8rem; /* Adjusted for smaller screens */
   }
-}
 
-
-/* Navbar Login Button Styling */
-.navbar-nav .login-btn {
-  color: #316bf4; /* Use a primary color */
-  font-weight: bold; /* Make it stand out */
-  /* border: 2px solid #316bf4;  */
-  border-radius: 20px; /* Rounded button */
-  padding: 0.3rem 0.8rem; /* Adjust padding for a button-like look */
-  transition: all 0.3s ease-in-out; /* Smooth transition */
-}
-
-.navbar-nav .login-btn:hover {
-  /* background-color: #316bf4; */
-  /* color: #fff;  */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-
-.dropdown-menu-end{
-  /* padding-bottom: 1rem; */
-  margin-bottom: 10px;
+  .login-btn {
+    margin-left: 0.8rem; /* Adjusted for smaller screens */
+  }
 }

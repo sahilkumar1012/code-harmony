@@ -15,6 +15,7 @@ const Header = () => {
     return;
   }
 
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white py-0 px-4" id="navbar">
       {/* Brand Logo */}
@@ -39,28 +40,24 @@ const Header = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto align-items-center">
           <li className="nav-item">
-            <a className="nav-link text-dark px-3" href="/">
-              <FaHome className="me-2" /> Home
+          <a className="nav-link text-dark px-3 fw-normal" href="/">
+              Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-dark px-3" href="/about">
-              <FaInfoCircle className="me-2" /> About
+            <a className="nav-link text-dark px-3 fw-normal" href="/dsasheet">
+              DSA Sheet
             </a>
           </li>
-          {/* <li className="nav-item">
-            <a className="nav-link text-dark px-3" href="/home">
-              <FaBriefcase className="me-2" /> Services
-            </a>
-          </li> */}
           <li className="nav-item">
-            <a className="nav-link text-dark px-3" href="/contact">
-              <FaPhoneAlt className="me-2" /> Contact
-            </a>
+          <button className="btn btn-dark text-white ms-2 mentor-btn"
+            onClick={() => window.location.href = "/mentorship"}
+          >
+              Find Your Mentor→
+            </button>
           </li>
-
-          {/* Conditionally Render Login/Logout */}
-          {user ? (
+            {/* Conditional Rendering for Login/Logout */}
+            {user ? (
             <li className="nav-item dropdown">
               <div
                 className="nav-link dropdown-toggle text-dark px-3"
@@ -70,7 +67,7 @@ const Header = () => {
                 aria-expanded="false"
               >
                 <img src={user.profilePicture} alt="" className="profile-img" />
-                Welcome, {user.name}
+                {user.name}
               </div>
               <ul className="dropdown-menu dropdown-menu-end mb-2" aria-labelledby="userDropdown">
                 <li className="logout-button">
@@ -82,9 +79,9 @@ const Header = () => {
             </li>
           ) : (
             <li className="nav-item nav-login">
-              <a className="nav-link text-dark px-3 login-btn" href="/login" onClick={handleLogin}>
-                <FaUserCircle className="me-2" /> Login
-              </a>
+              <button className="nav-link text-dark px-3 login-btn" onClick={handleLogin}>
+                Login
+              </button>
             </li>
           )}
         </ul>
