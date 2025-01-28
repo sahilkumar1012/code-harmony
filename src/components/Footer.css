@@ -8,3 +8,24 @@
     color: black;
     padding : 0.35rem;
 }
+
+.contact-us-btn-footer {
+    padding: 0.8rem 2rem;
+    background: #d9481c !important; /* Bright blue background */
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* animation: fadeInButton 2s ease-in-out forwards; */
+    margin-top: 1rem; /* Ensure a gap between the two buttons */
+    margin-left: 1rem;
+}
+
+.contact-us-btn-footer:hover {
+    transform: scale(1.1);
+    background-color: black !important; /* Darker blue on hover */
+    color: white !important;
+  }
