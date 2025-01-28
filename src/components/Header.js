@@ -2,18 +2,18 @@ import React from 'react';
 import { FaHome, FaInfoCircle, FaBriefcase, FaPhoneAlt, FaUserCircle } from 'react-icons/fa'; // Importing icons
 import { useUser } from '../UserContext'; // Import UserContext to manage user state
 import logo from '../assets/navbrandlogo.png'; // Adjust the path to match your logo file
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
-  const { user, logout, storeRedirectUrl } = useUser(); // Access user state and logout function
-  const navigate = useNavigate(); // Initialize navigate function
+  const location = useLocation();
+  const { user, logout } = useUser();
 
   const handleLogin = () => {
-    storeRedirectUrl(window.location.pathname);
-    navigate('/login');
-    return;
-  }
+    window.location.href = "/login";
+  };
+
+  const isActive = (path) => window.location.pathname === path ? "active-tab" : "";
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white py-0 px-4" id="navbar">
@@ -39,18 +39,29 @@ const Header = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto align-items-center">
           <li className="nav-item">
-            <a className="nav-link text-dark px-3" href="/">
-              <FaHome className="me-2" /> Home
+            <a className={`nav-link px-3 ${isActive('/')}  text-dark` } href="/">
+              Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-dark px-3" href="/about">
-              <FaInfoCircle className="me-2" /> About
+            <a className={`nav-link px-3 ${isActive('/dsasheet')} text-dark`} href="/dsasheet">
+              DSA Sheet
             </a>
           </li>
-
-
-          {/* Conditionally Render Login/Logout */}
+          <li className="nav-item">
+            <a className={`nav-link px-3text-dark`} >
+              
+            </a>
+          </li>
+          <li className="nav-item">
+            <button
+              className="btn btn-dark text-white mentor-btn"
+              onClick={() => window.location.href = "/mentorship"}
+            >
+              Find My Mentor →
+            </button>
+          </li>
+          {/* Conditional Rendering for Login/Logout */}
           {user ? (
             <li className="nav-item dropdown">
               <div
@@ -61,7 +72,7 @@ const Header = () => {
                 aria-expanded="false"
               >
                 <img src={user.profilePicture} alt="" className="profile-img" />
-                Welcome, {user.name}
+                {user.name}
               </div>
               <ul className="dropdown-menu dropdown-menu-end mb-2" aria-labelledby="userDropdown">
                 <li className="logout-button">
@@ -73,9 +84,12 @@ const Header = () => {
             </li>
           ) : (
             <li className="nav-item nav-login">
-              <a className="nav-link text-dark px-3 login-btn" href="/login" onClick={handleLogin}>
-                <FaUserCircle className="me-2" /> Login
-              </a>
+              <button
+                className="nav-link text-dark px-3 login-btn"
+                onClick={handleLogin}
+              >
+                Login
+              </button>
             </li>
           )}
         </ul>
