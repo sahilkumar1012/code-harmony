@@ -37,7 +37,7 @@
 .navbar-nav .nav-link {
   padding: 0.5rem 1rem;
   margin-right: 1rem; /* Equal spacing between links */
-  font-weight: bold !important;
+  font-weight: bold;
 }
 
 .navbar-nav .nav-link:hover {
@@ -85,9 +85,15 @@
     height: 40px;
   }
 
+  .nav-item{
+    padding-bottom: 1vh;
+  }
   .navbar-nav .nav-link {
     padding: 0.4rem 0.6rem;
     margin-right: 0.8rem; /* Adjusted for smaller screens */
+  }
+  .nav-link{
+    color: black;
   }
 
   .login-btn {
@@ -98,5 +104,20 @@
     padding-top: 1vh;
     padding-bottom: 1vh;
   }
+
+  .navbar-nav .active-tab {
+    /* color: blue !important; */
+    border : none;
+    /* font-weight: bolder !important; */
+    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08) !important; */
+  }
+  
 }
 
+
+.navbar-nav .active-tab {
+  /* color: blue !important; */
+  border-bottom: 2px solid #000; /* Add a bottom border */
+  font-weight: bolder !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08) !important;
+}

@@ -2,20 +2,18 @@ import React from 'react';
 import { FaHome, FaInfoCircle, FaBriefcase, FaPhoneAlt, FaUserCircle } from 'react-icons/fa'; // Importing icons
 import { useUser } from '../UserContext'; // Import UserContext to manage user state
 import logo from '../assets/navbrandlogo.png'; // Adjust the path to match your logo file
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
-  const { user, logout, storeRedirectUrl } = useUser(); // Access user state and logout function
-  const navigate = useNavigate(); // Initialize navigate function
+  const location = useLocation();
+  const { user, logout } = useUser();
 
   const handleLogin = () => {
     window.location.href = "/login";
-    // storeRedirectUrl(window.location.pathname);
-    // navigate('/login');
-    // return;
-  }
+  };
 
+  const isActive = (path) => window.location.pathname === path ? "active-tab" : "";
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white py-0 px-4" id="navbar">
@@ -41,24 +39,25 @@ const Header = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto align-items-center">
           <li className="nav-item">
-          <a className="nav-link text-dark px-3 fw-normal" href="/">
+            <a className={`nav-link px-3 ${isActive('/')}  text-dark` } href="/">
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-dark px-3 fw-normal" href="/dsasheet">
+            <a className={`nav-link px-3 ${isActive('/dsasheet')} text-dark`} href="/dsasheet">
               DSA Sheet
             </a>
           </li>
           <li className="nav-item">
-          <button className="btn btn-dark text-white ms-2 mentor-btn"
-            onClick={() => window.location.href = "/mentorship"}
-          >
-              Find Your Mentor→
+            <button
+              className="btn btn-dark text-white ms-2 mentor-btn"
+              onClick={() => window.location.href = "/mentorship"}
+            >
+              Find My Mentor →
             </button>
           </li>
-            {/* Conditional Rendering for Login/Logout */}
-            {user ? (
+          {/* Conditional Rendering for Login/Logout */}
+          {user ? (
             <li className="nav-item dropdown">
               <div
                 className="nav-link dropdown-toggle text-dark px-3"
@@ -80,7 +79,10 @@ const Header = () => {
             </li>
           ) : (
             <li className="nav-item nav-login">
-              <button className="nav-link text-dark px-3 login-btn" onClick={handleLogin}>
+              <button
+                className="nav-link text-dark px-3 login-btn"
+                onClick={handleLogin}
+              >
                 Login
               </button>
             </li>
