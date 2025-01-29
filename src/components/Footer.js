@@ -8,10 +8,15 @@ import { FaXTwitter } from 'react-icons/fa6';
 const CustomTooltip = ({ children, text }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
+  const handleClick = () => {
+    setShowTooltip(false); // Hide tooltip on click
+  };
+
   return (
     <div className="custom-tooltip-container"
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
+      onClick={handleClick} // Ensure tooltip closes on click
     >
       {children}
       {showTooltip && (
@@ -30,6 +35,7 @@ const Footer = () => {
   // const [showTooltip, setShowTooltip] = useState(false);
 
   const handleContactUs = () => {
+    document.activeElement.blur();// Remove focus to reset hover/active state
     window.location.href = "mailto:codeharmonyofficial@gmail.com";
   };
 
