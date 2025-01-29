@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaTwitter, FaLinkedin, FaYoutube, FaDiscord, FaInstagram } from 'react-icons/fa'; // Import Instagram icon
 import "./Footer.css";
 import { FaXTwitter } from 'react-icons/fa6';
 
+
+// Custom Tooltip Component
+const CustomTooltip = ({ children, text }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleClick = () => {
+    setShowTooltip(false); // Hide tooltip on click
+  };
+
+  return (
+    <div className="custom-tooltip-container"
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+      onClick={handleClick} // Ensure tooltip closes on click
+    >
+      {children}
+      {showTooltip && (
+        <div className="custom-tooltip">
+          {text}
+          <div className="tooltip-arrow"></div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+
 const Footer = () => {
+
+  // const [showTooltip, setShowTooltip] = useState(false);
+
   const handleContactUs = () => {
+    document.activeElement.blur();// Remove focus to reset hover/active state
     window.location.href = "mailto:codeharmonyofficial@gmail.com";
   };
 
@@ -67,13 +98,16 @@ const Footer = () => {
         </a>
       </div>
 
-      {/* Contact Us Button */}
+        {/* Modified Contact Us Button with Custom Tooltip */}
       <div style={contactContainerStyle}>
-        <span data-toggle="tooltip" data-placement="top" title="tooltip">
-        <button onClick={handleContactUs} className="cta-button contact-us-btn-footer">
-          Contact Us
-        </button>
-        </span>
+        <CustomTooltip text="Email Us">
+          <button 
+            onClick={handleContactUs} 
+            className="cta-button contact-us-btn-footer"
+          >
+            Contact Us
+          </button>
+        </CustomTooltip>
       </div>
 
       <p style={footerTextStyle}>© 2025 Code Harmony. All rights reserved.</p>
@@ -118,14 +152,6 @@ const contactContainerStyle = {
   marginTop: '1rem',
 };
 
-const contactButtonStyle = {
-  textDecoration: 'none',
-  color: 'white',
-  backgroundColor: '#007bff',
-  padding: '0.5rem 1rem',
-  borderRadius: '5px',
-  fontWeight: 'bold',
-};
 
 const footerTextStyle = {
   fontSize: '0.8rem',
