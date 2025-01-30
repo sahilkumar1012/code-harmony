@@ -45,9 +45,9 @@ function GoogleLogin({ onLogin }) {
   return (
     <div className="google-login-container">
       <div className="google-login-card">
-        <h2 className="google-login-title">Sign In to Continue</h2>
+        <h2 className="google-login-title">Welcome!</h2>
         <p className="google-login-desc">
-          Access your account to track progress, save your work, and explore personalized features.
+          Sign in to start tracking your progress, saving your work, and unlocking personalized features.
         </p>
         <button className="google-login-btn" onClick={handleLogin}>
           <FaGoogle className="google-icon" /> Login with Google
