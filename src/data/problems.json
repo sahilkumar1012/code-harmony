@@ -26,6 +26,14 @@
       "topics": ["Array"]
     },
     {
+      "leetcodeId": "1752",
+      "title": "Check if Array Is Sorted and Rotated",
+      "link": "https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/",
+      "difficulty": "Easy",
+      "youtubeLink": "https://youtu.be/XwXNZMO7HlQ",
+      "topics": ["Array"]
+    },
+    {
       "leetcodeId": "1014",
       "title": "Best Sightseeing Pair",
       "link": "https://leetcode.com/problems/best-sightseeing-pair/",
