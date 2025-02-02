@@ -163,3 +163,46 @@ table td a {
 .fancy-checkbox input:checked ~ .checkmark:after {
   display: block;
 }
+
+
+/* css for tags  */
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-pill {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  color: #555;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+  font-size: 0.7rem;
+}
+
+.tag-pill:hover {
+  background-color: #ddd;
+  color: #333;
+  cursor: pointer;
+}
+
+.tags-toggle-icon {
+  cursor: pointer;
+  font-size: 14px;
+  color: #d9481c;
+  margin-left: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.tags-toggle-icon:hover {
+  color: #d9481c;
+  transform: scale(1.1);
+}
+
+
+/* css for tags end */

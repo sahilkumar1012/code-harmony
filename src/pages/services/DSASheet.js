@@ -1,5 +1,7 @@
 // Import necessary React hooks
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaYoutube, FaSort } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +12,7 @@ import problemsData from '../../data/problems.json';
 import { useUser } from "../../UserContext";
 import { app } from '../../firebaseConfig';
 import './DSASheet.css';
+import RenderTags from "./RenderTags";
 
 const DSASheet = () => {
   const { user, storeRedirectUrl } = useUser();
@@ -116,7 +119,6 @@ const DSASheet = () => {
     "All",
     ...new Set(problems.flatMap((problem) => problem.topics)),
   ];
-
   const renderTable = (filteredProblems) => (
     <div className="table-container">
       <table className="table table-striped">
@@ -128,6 +130,7 @@ const DSASheet = () => {
               Difficulty<FaSort />
             </th>
             <th className="text-center explanation-column">Explanation</th>
+            <th className="text-center tags-column">Tags</th>
             <th
               onClick={() => handleSort("completed")}
               style={{ cursor: "pointer" }}
@@ -165,13 +168,15 @@ const DSASheet = () => {
                   </a>
                 )}
               </td>
-
+              <td>
+                <RenderTags problem={problem}/>
+              </td>
               <td className="text-center">
                 <label className="fancy-checkbox">
                   <input
                     type="checkbox"
                     checked={completedProblemsSet.has(problem.leetcodeId)}
-                    onChange={(e) => handleToggleCompletion(problem.leetcodeId)}
+                    onChange={() => handleToggleCompletion(problem.leetcodeId)}
                   />
                   <span className="checkmark"></span>
                 </label>
