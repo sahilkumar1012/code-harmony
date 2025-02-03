@@ -49,7 +49,7 @@ const OnboardMentorForm = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 mb-5">
       <div className="row justify-content-center">
         <div className="col-12 col-md-10 col-lg-8">
           <h2 className="text-center mb-4">Become a Mentor</h2>
@@ -122,8 +122,6 @@ const OnboardMentorForm = () => {
           </form>
         </div>
       </div>
-      <br></br>
-      <br></br>
     </div>
   );
 };
