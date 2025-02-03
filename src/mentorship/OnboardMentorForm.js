@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { app } from '../firebaseConfig';
+import { getFirestore, doc, getDoc, updateDoc, arrayUnion, setDoc } from 'firebase/firestore';
+
 const OnboardMentorForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -11,6 +14,8 @@ const OnboardMentorForm = () => {
     topmate: "",
   });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const db = getFirestore(app);
 
   const validateField = (name, value) => {
     if (!value && name !== "mobile") {
@@ -31,6 +36,42 @@ const OnboardMentorForm = () => {
     setErrors((prevErrors) => ({ ...prevErrors, [name]: validateField(name, value) }));
   };
 
+
+  // store mentor onboarding request in DB
+  const addMentorOnboardingRequest = async (formData) => {
+    const mentorOnboardingDoc = doc(db, "requests", "mentorOnboarding");
+  
+    try {
+      // Get the document snapshot to check if it exists
+      const docSnap = await getDoc(mentorOnboardingDoc);
+
+      // Add createdAt outside the array and handle accordingly
+      const mentorData = {
+        ...formData,
+        createdAt: new Date(), // Create timestamp here
+      };
+  
+      // If the document doesn't exist, create it with an empty array
+      if (!docSnap.exists()) {
+        await setDoc(mentorOnboardingDoc, {
+          mentorOnboarding: [
+            mentorData,
+          ],
+        });
+        console.log("Document created and request added.");
+      } else {
+        // If the document exists, update it with the new data
+        await updateDoc(mentorOnboardingDoc, {
+          mentorOnboarding: arrayUnion(mentorData), // Add the object with createdAt timestamp
+        });
+        console.log("Mentor onboarding request added successfully!");
+      }
+    } catch (error) {
+      console.error("Error adding mentor onboarding request:", error);
+    }
+  };
+    
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -48,8 +89,10 @@ const OnboardMentorForm = () => {
     if (!isConfirmed) return;
     
     // TODO save data in the database 
+    addMentorOnboardingRequest(formData);
 
     // TODO send an email to codeharmony mentor onboarding team. ( codeharmonyofficial@gmail.com )
+    // mentorOnboardingRequestEmail(formData);
 
     console.log("Form Data Submitted:", formData);
     alert("Mentor onboarding request sent.");
