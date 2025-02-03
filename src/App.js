@@ -14,6 +14,7 @@ import About from './pages/About';
 import DSASheet from './pages/services/DSASheet';
 import AddDataPage from './pages/admin/AddDataPage';
 import './App.css';
+import OnboardMentorForm from './mentorship/OnboardMentorForm';
 // import 'animate.css';
 
 function AppContent() {
@@ -33,6 +34,7 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/index.html" element={<Home />} />
           <Route path="/mentorship" element={<MentorshipPage />} />
+          <Route path="/mentorship/onboard" element={<OnboardMentorForm />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/dsasheet" element={<DSASheet />} />
