@@ -54,6 +54,17 @@ const mentors = [
     topmate: "https://topmate.io/chirag_garg10",
     expertise: ["Backend", "DSA"],
   },
+  {
+    name: "Manikya Sabharwal",
+    profilePicture: "https://media.licdn.com/dms/image/v2/D5603AQHmef_CIjJuzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707551933862?e=1744243200&v=beta&t=NA4W2GM2OaysMP5PEOAZ9zBboANhlNiVhMNI6gCeTAU",
+    companies: [
+      { name: "Microsoft", logo: microsoftLogo },
+      { name: "Amazon", logo: amazonLogo },
+    ],
+    linkedIn: "https://www.linkedin.com/in/manikya-sabharwal/",
+    topmate: "https://topmate.io/manikya",
+    expertise: ["DSA"],
+  },
 ];
 
 const MentorCard = ({ mentor }) => {
