@@ -2,29 +2,35 @@ import React, { useState, useEffect } from "react";
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { app } from '../firebaseConfig';
 
-const MentorOnboardingRequests = () => {
+const MentorOnboardingRequests = ({ user }) => {
   const [requests, setRequests] = useState([]);
   const db = getFirestore(app);
 
   useEffect(() => {
-    const fetchMentorRequests = async () => {
-      try {
-        const mentorOnboardingDoc = doc(db, "requests", "mentorOnboarding");
-        const docSnap = await getDoc(mentorOnboardingDoc);
+    if (user) {
+      const fetchMentorRequests = async () => {
+        try {
+          const mentorOnboardingDoc = doc(db, "requests", "mentorOnboarding");
+          const docSnap = await getDoc(mentorOnboardingDoc);
 
-        if (docSnap.exists()) {
-          const mentorRequests = docSnap.data().mentorOnboarding;
-          setRequests(mentorRequests);
-        } else {
-          console.log("No mentor onboarding requests found.");
+          if (docSnap.exists()) {
+            const mentorRequests = docSnap.data().mentorOnboarding;
+            setRequests(mentorRequests);
+          } else {
+            console.log("No mentor onboarding requests found.");
+          }
+        } catch (error) {
+          console.error("Error fetching mentor requests:", error);
         }
-      } catch (error) {
-        console.error("Error fetching mentor requests:", error);
-      }
-    };
+      };
 
-    fetchMentorRequests();
-  }, []);
+      fetchMentorRequests();
+    }
+  }, [user]);
+
+  if (!user) {
+    return <p>You need to be logged in to view mentor requests.</p>;
+  }
 
   return (
     <div className="container mt-5">
