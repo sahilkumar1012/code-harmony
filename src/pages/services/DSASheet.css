@@ -38,7 +38,7 @@ table th {
 }
 /* Make sure the problem title gets enough space */
 .table .problem-title {
-  width: 50%; /* Allow the problem title to take up more space */
+  width: 45%; /* Allow the problem title to take up more space */
 }
 
 @media (max-width: 768px) {
