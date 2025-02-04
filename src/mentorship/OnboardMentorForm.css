@@ -1,0 +1,17 @@
+.mentor-form-submit-btn {
+    background: #d9481c; /* Bright blue background */
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* animation: fadeInButton 2s ease-in-out forwards; */
+}
+
+.mentor-form-submit-btn:hover {
+    transform: scale(1.1);
+    background-color: black ; 
+    color: white ;
+}
+
+.mentor-form-cancel-btn{
+    font-weight: bold;
+}

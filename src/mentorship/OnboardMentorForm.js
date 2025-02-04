@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { app } from '../firebaseConfig';
 import { getFirestore, doc, getDoc, updateDoc, arrayUnion, setDoc } from 'firebase/firestore';
 
+import './OnboardMentorForm.css';
+
 const OnboardMentorForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -121,14 +123,17 @@ const OnboardMentorForm = () => {
                 {errors[key] && <small className="text-danger">{errors[key]}</small>}
               </div>
             ))}
+            <br></br>
+            
             <div className="d-flex justify-content-between">
-              <button type="button" className="btn btn-secondary" onClick={() => navigate("/mentorship")}>
+              <button type="button" className="btn btn-secondary mentor-form-cancel-btn" onClick={() => navigate("/mentorship")}>
                 Cancel
               </button>
-              <button type="submit" className="btn" style={{ backgroundColor: "#d9481c", color: "white" }}>
+              <button type="submit" className="btn mentor-form-submit-btn" >
                 Submit
               </button>
             </div>
+
           </form>
         </div>
       </div>
