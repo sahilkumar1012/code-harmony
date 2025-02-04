@@ -46,6 +46,8 @@ const MentorOnboardingRequests = ({ user }) => {
               <p><strong>Mobile:</strong> {request.mobile}</p>
               <p><strong>LinkedIn:</strong> <a href={request.linkedIn} target="_blank" rel="noopener noreferrer">{request.linkedIn}</a></p>
               <p><strong>Topmate:</strong> <a href={request.topmate} target="_blank" rel="noopener noreferrer">{request.topmate}</a></p>
+              <p><strong>Status:</strong> {request.status}</p>
+              <p><strong>createdAt:</strong> {request.createdAt.toDate().toString()}</p>
               <hr />
             </div>
           ))

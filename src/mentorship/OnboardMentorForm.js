@@ -48,6 +48,7 @@ const OnboardMentorForm = () => {
       // Add createdAt outside the array and handle accordingly
       const mentorData = {
         ...formData,
+        status:"new",
         createdAt: new Date(), // Create timestamp here
       };
   
