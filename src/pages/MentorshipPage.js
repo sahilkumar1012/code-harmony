@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react";  
 import "bootstrap/dist/css/bootstrap.min.css";
 import linkedinlogo from "../../src/assets/linkedinlogo.png";
 import topmatelogo from "../../src/assets/topmatelogo.png";
@@ -46,7 +46,8 @@ const mentors = [
   },
   {
     name: "Chirag Garg",
-    profilePicture: "https://media.licdn.com/dms/image/v2/C5603AQE3fd21hMn_9A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1662290355466?e=1742428800&v=beta&t=GR0AYeAr5Zl18TGu_0m3NRVmG2YyChQ9E1HjEv1JIgY",
+    profilePicture:
+      "https://media.licdn.com/dms/image/v2/C5603AQE3fd21hMn_9A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1662290355466?e=1742428800&v=beta&t=GR0AYeAr5Zl18TGu_0m3NRVmG2YyChQ9E1HjEv1JIgY",
     companies: [
       { name: "Google", logo: googleLogo },
     ],
@@ -56,7 +57,8 @@ const mentors = [
   },
   {
     name: "Manikya Sabharwal",
-    profilePicture: "https://media.licdn.com/dms/image/v2/D5603AQHmef_CIjJuzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707551933862?e=1744243200&v=beta&t=NA4W2GM2OaysMP5PEOAZ9zBboANhlNiVhMNI6gCeTAU",
+    profilePicture:
+      "https://media.licdn.com/dms/image/v2/D5603AQHmef_CIjJuzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707551933862?e=1744243200&v=beta&t=NA4W2GM2OaysMP5PEOAZ9zBboANhlNiVhMNI6gCeTAU",
     companies: [
       { name: "Microsoft", logo: microsoftLogo },
       { name: "Amazon", logo: amazonLogo },
@@ -93,7 +95,6 @@ const MentorCard = ({ mentor }) => {
         />
         <div className="card-body text-center">
           <h5 className="card-title">{mentor.name}</h5>
-          
           <div className="mb-2 d-flex justify-content-center gap-2 flex-wrap">
             {mentor.companies.map((company, index) => (
               <img
@@ -104,7 +105,6 @@ const MentorCard = ({ mentor }) => {
               />
             ))}
           </div>
-
           <p className="card-text text-muted">
             Expertise: {mentor.expertise.join(", ")}
           </p>
@@ -177,12 +177,17 @@ const MentorshipPage = () => {
   );
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Mentorship</h1>
-      <p className="text-center mb-4">
-        Connect with experienced mentors from top tech companies to accelerate
-        your career.
-      </p>
+    <div className="container mt-5 position-relative">
+      {/* Header Section */}
+      <div className="mb-4 text-center">
+        <h1 className="mb-3">Mentorship</h1>
+        <p>
+          Connect with experienced mentors from top tech companies to accelerate your career.
+        </p>
+      </div>
+
+
+      {/* Filter Dropdown */}
       <div className="d-flex justify-content-center mb-4">
         <select
           className="form-select w-50"
@@ -196,13 +201,129 @@ const MentorshipPage = () => {
           <option value="System Design">System Design</option>
         </select>
       </div>
+
+      {/* Mentor Cards */}
       <div className="row">
         {filteredMentors.map((mentor, index) => (
           <MentorCard mentor={mentor} key={index} />
         ))}
       </div>
+      
+      {/* Join as a Mentor Section */}
+      <div
+        className="join-mentor-section d-flex flex-wrap align-items-center justify-content-between p-4 mb-5 overflow-hidden"
+        style={{
+          backgroundColor: "#191919", // Lighter transparency
+          borderRadius: "10px",
+          color: "white",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Left-aligned text */}
+        <div className="text-section">
+          <h2 className="mb-2">Become a Mentor</h2>
+          <p className="mb-0">
+            Share your expertise and guide aspiring developers by joining our mentorship program.
+          </p>
+        </div>
+
+        {/* Right-aligned button */}
+        <a
+          href="/mentorship/onboard"
+          className="btn btn-danger join-mentor-btn px-4 py-2 d-flex align-items-center justify-content-center"
+          style={{
+            fontWeight: "bold",
+            borderRadius: "8px",
+            backgroundColor: "#d9481c",
+            flexShrink: 0, // Ensures the button doesn't shrink on smaller screens
+          }}
+        >
+          Join as a Mentor
+        </a>
+      </div>
+
+      {/* Inline CSS for advanced responsiveness & hover effects */}
+      <style> 
+        {`
+          .join-mentor-section {
+           position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease;
+  }
+
+  .join-mentor-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-25deg);
+    transition: all 0.5s ease;
+  }
+
+  .join-mentor-section:hover::before {
+    left: 100%;
+  }
+          
+          .text-section {
+            max-width: 70%;
+          }
+
+          .join-mentor-btn {
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.4s ease;
+          }
+          .join-mentor-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-25deg);
+            transition: all 0.5s ease;
+          }
+          .join-mentor-btn:hover {
+            background-color: #c82333;
+          }
+          .join-mentor-btn:hover::before {
+            left: 100%;
+          }
+
+          @media (max-width: 768px) {
+            .join-mentor-section {
+              padding: 16px;
+              text-align: center;
+              flex-direction: column;
+              text-align: center;
+            }
+            .text-section {
+              max-width: 100%;
+              margin-bottom: 10px;
+            }
+            .join-mentor-btn {
+              margin-top: 10px;
+              width: 100%;
+              max-width: 250px;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .join-mentor-btn {
+              font-size: 14px;
+              padding: 8px 14px;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
+
 
 export default MentorshipPage;
