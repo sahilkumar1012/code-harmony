@@ -6,6 +6,7 @@ import googleLogo from "../../src/assets/google.png"; // Company logos
 import microsoftLogo from "../../src/assets/microsoft.png";
 import amazonLogo from "../../src/assets/amazon.png";
 import adobeLogo from "../../src/assets/adobe.png";
+import "./MentorshipPage.css";
 
 const mentors = [
   {
@@ -114,7 +115,7 @@ const MentorCard = ({ mentor }) => {
                 href={mentor.linkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary d-flex align-items-center"
+                className="btn btn-primary d-flex align-items-center mentor-card-button"
                 style={{
                   gap: "0.5rem",
                   flex: "1",
@@ -140,7 +141,7 @@ const MentorCard = ({ mentor }) => {
                 href={mentor.topmate}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn d-flex align-items-center"
+                className="btn d-flex align-items-center mentor-card-button"
                 style={{
                   backgroundColor: "#D9534F",
                   color: "white",
