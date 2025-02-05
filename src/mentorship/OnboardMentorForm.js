@@ -14,6 +14,9 @@ const OnboardMentorForm = () => {
     mobile: "",
     linkedIn: "",
     topmate: "",
+    experience: "", // Added experience field
+    expertise: "",  // Added expertise field
+    motivation: "", // Added motivation field
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -39,33 +42,26 @@ const OnboardMentorForm = () => {
   };
 
 
-  // store mentor onboarding request in DB
   const addMentorOnboardingRequest = async (formData) => {
     const mentorOnboardingDoc = doc(db, "requests", "mentorOnboarding");
-  
+
     try {
-      // Get the document snapshot to check if it exists
       const docSnap = await getDoc(mentorOnboardingDoc);
 
-      // Add createdAt outside the array and handle accordingly
       const mentorData = {
         ...formData,
-        status:"new",
-        createdAt: new Date(), // Create timestamp here
+        status: "new",
+        createdAt: new Date(),
       };
-  
-      // If the document doesn't exist, create it with an empty array
+
       if (!docSnap.exists()) {
         await setDoc(mentorOnboardingDoc, {
-          mentorOnboarding: [
-            mentorData,
-          ],
+          mentorOnboarding: [mentorData],
         });
         console.log("Document created and request added.");
       } else {
-        // If the document exists, update it with the new data
         await updateDoc(mentorOnboardingDoc, {
-          mentorOnboarding: arrayUnion(mentorData), // Add the object with createdAt timestamp
+          mentorOnboarding: arrayUnion(mentorData),
         });
         console.log("Mentor onboarding request added successfully!");
       }
@@ -73,8 +69,7 @@ const OnboardMentorForm = () => {
       console.error("Error adding mentor onboarding request:", error);
     }
   };
-    
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -90,7 +85,7 @@ const OnboardMentorForm = () => {
 
     const isConfirmed = window.confirm("Are you ready to submit the mentor onboarding request?");
     if (!isConfirmed) return;
-    
+
     // TODO save data in the database 
     addMentorOnboardingRequest(formData);
 
@@ -108,28 +103,46 @@ const OnboardMentorForm = () => {
     <div className="container mt-5 mb-5">
       <div className="row justify-content-center">
         <div className="col-12 col-md-10 col-lg-8">
-          <h2 className="text-center mb-4">Become a Mentor</h2>
+          <h2 className="text-center mb-4">Become a Mentor at Code Harmony</h2>
+          <p className="text-center mb-4">
+            Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers. Share your expertise and help aspiring programmers grow!
+          </p>
           <form onSubmit={handleSubmit} className="shadow p-4 rounded bg-light">
             {Object.entries(formData).map(([key, value]) => (
               <div className="mb-3" key={key}>
                 <label className="form-label">{key.charAt(0).toUpperCase() + key.slice(1)} {key=="mobile" ? " (Optional)" : ""}</label>
-                <input
-                  type={key === "email" ? "email" : key === "linkedIn" || key === "topmate" ? "url" : "text"}
-                  name={key}
-                  className={`form-control ${errors[key] ? "border border-danger" : ""}`}
-                  value={value}
-                  onChange={handleChange}
-                />
+                {key === "experience" || key === "expertise" || key === "motivation" ? (
+                  <textarea
+                    name={key}
+                    className={`form-control ${errors[key] ? "border border-danger" : ""}`}
+                    value={value}
+                    onChange={handleChange}
+                    rows="2" 
+                    placeholder={
+                      key === "experience" ? "e.g., 5+ years in Software Development, experience leading teams" :
+                      key === "expertise" ? "e.g., DSA, Backend Development, React, Node.js, Agile methodologies" :
+                      key === "motivation" ? "e.g., Passionate about sharing knowledge, helping others grow, and contributing to the community" : ""
+                    } 
+                  />
+                ) : (
+                  <input
+                    type={key === "email" ? "email" : key === "linkedIn" || key === "topmate" ? "url" : "text"}
+                    name={key}
+                    className={`form-control ${errors[key] ? "border border-danger" : ""}`}
+                    value={value}
+                    onChange={handleChange}
+                  />
+                )}
                 {errors[key] && <small className="text-danger">{errors[key]}</small>}
               </div>
             ))}
             <br></br>
-            
+
             <div className="d-flex justify-content-between">
               <button type="button" className="btn btn-secondary mentor-form-cancel-btn" onClick={() => navigate("/mentorship")}>
                 Cancel
               </button>
-              <button type="submit" className="btn mentor-form-submit-btn" >
+              <button type="submit" className="btn mentor-form-submit-btn">
                 Submit
               </button>
             </div>

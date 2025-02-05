@@ -14,4 +14,8 @@
 
 .mentor-form-cancel-btn{
     font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.mentor-form-cancel-btn:hover{
+    transform: scale(1.1);
 }
