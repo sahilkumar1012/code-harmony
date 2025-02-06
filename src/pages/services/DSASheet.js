@@ -13,6 +13,7 @@ import { useUser } from "../../UserContext";
 import { app } from '../../firebaseConfig';
 import './DSASheet.css';
 import RenderTags from "./RenderTags";
+import leetcodeLogo from "../../../src/assets/leetcode-icon.png";
 
 const DSASheet = () => {
   const { user, storeRedirectUrl } = useUser();
@@ -124,7 +125,15 @@ const DSASheet = () => {
       <table className="table table-striped">
         <thead>
           <tr>
-            <th className="problem-id">LeetCode ID</th>
+            
+            <th className="problem-id">
+              <img 
+                src={leetcodeLogo} 
+                alt="LeetCode Logo" 
+                style={{ height: '25px', verticalAlign: 'middle' }} 
+              /> 
+            </th>
+
             <th className="problem-title">Problem Title</th>
             <th onClick={() => handleSort("difficulty")} style={{ cursor: "pointer" }}>
               Difficulty<FaSort />
