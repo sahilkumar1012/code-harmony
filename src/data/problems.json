@@ -227,6 +227,38 @@
     },
 
 
+
+
+    {
+      "leetcodeId": "242",
+      "title": "Valid Anagram",
+      "link": "https://leetcode.com/problems/valid-anagram/",
+      "difficulty": "Easy",
+      "youtubeLink": "https://youtu.be/h1hzMgrsYNA",
+      "topics": ["Hash Table"],
+      "tags": ["Hash Table", "String", "Sorting"]
+    },
+    {
+      "leetcodeId": "560",
+      "title": "Subarray Sum Equals K",
+      "link": "https://leetcode.com/problems/subarray-sum-equals-k/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/OQ4oyd3CV5I",
+      "topics": ["Hash Table"],
+      "tags": ["Hash Table", "Prefix Sum"]
+    },
+    {
+      "leetcodeId": "2364",
+      "title": "Count Number of Bad Pairs",
+      "link": "https://leetcode.com/problems/count-number-of-bad-pairs/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/H-1SWRTYsmg",
+      "topics": ["Hash Table"],
+      "tags": ["Hash Table", "Counting", "Math"]
+    },
+
+
+
     {
       "leetcodeId": "191",
       "title": "Number of 1 Bits",
