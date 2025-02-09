@@ -100,7 +100,14 @@
       "youtubeLink": "https://www.youtube.com/shorts/gU3RVu5RWQI",
       "topics": ["Array", "Two Pointers"]      
     },
-    
+    {
+      "leetcodeId": "2762",
+      "title": "Continuous Subarrays",
+      "link": "https://leetcode.com/problems/continuous-subarrays/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/qjkWxIy0Drg",
+      "topics": ["Array", "Sliding Window"]
+    },    
     
 
     {
@@ -130,14 +137,7 @@
     },
 
 
-    {
-      "leetcodeId": "2762",
-      "title": "Continuous Subarrays",
-      "link": "https://leetcode.com/problems/continuous-subarrays/",
-      "difficulty": "Medium",
-      "youtubeLink": "https://youtu.be/qjkWxIy0Drg",
-      "topics": ["Array", "Sliding Window"]
-    },
+
 
 
     {
@@ -169,6 +169,7 @@
     },
 
 
+
     {
       "leetcodeId": "1792",
       "title": "Maximum Average Pass Ratio",
@@ -178,6 +179,7 @@
       "topics": ["Greedy", "Heap"]
     },
 
+
     {
       "leetcodeId": "206",
       "title": "Reverse Linked List",
@@ -186,6 +188,26 @@
       "youtubeLink": "",
       "topics": ["Linked List"]
     },
+    {
+      "leetcodeId": "141",
+      "title": "Linked List Cycle",
+      "link": "https://leetcode.com/problems/linked-list-cycle/",
+      "difficulty": "Easy",
+      "youtubeLink": "",
+      "topics": ["Linked List"],
+      "tags": ["Linked List", "Two Pointers", "Hash Table", "Floyd's Cycle Finding Algorithm"]      
+    },    
+    {
+      "leetcodeId": "142",
+      "title": "Linked List Cycle II",
+      "link": "https://leetcode.com/problems/linked-list-cycle-ii/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Linked List"],
+      "tags": ["Linked List", "Two Pointers", "Hash Table"]
+    },
+
+
 
     {
       "leetcodeId": "150",
