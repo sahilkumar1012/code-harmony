@@ -428,7 +428,16 @@
       "youtubeLink": "https://youtu.be/280LNDYnX-M",
       "topics": ["Graph"],      
       "tags": ["Eulerian path", "Graph"]
-    }
+    },
+    {
+      "leetcodeId": "1462",
+      "title": "Course Schedule IV",
+      "link": "https://leetcode.com/problems/course-schedule-iv/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/2IoIbMvYGcQ",
+      "topics": ["Graph"],      
+      "tags": ["Floyd Warshall Algorithm", "Graph"]
+    }    
 
 
 
