@@ -123,6 +123,8 @@ const DSASheet = () => {
 
   const filteredProblems = filterProblems();
   const completedCount = filteredProblems.filter(problem => completedProblemsSet.has(problem.leetcodeId)).length;
+  const totalProblems = problems.length;
+  const completionPercentage = Math.round((completedProblemsSet.size / totalProblems) * 100);
 
 
   const renderTable = (filteredProblems) => (
@@ -207,6 +209,24 @@ const DSASheet = () => {
       <div className="d-flex flex-wrap justify-content-center flex-column mb-1 align-items-center">
         
         <h1 className="text-center mb-4">DSA Essentials Sheet</h1>
+
+        {/* Progress Bar */}
+        <div className="progress-container w-50 mb-4">
+          <div className="progress" style={{ height: "20px", borderRadius: "10px", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)" }}>
+            <div
+              className="progress-bar progress-bar-success progress-bar-animated"
+              role="progressbar"
+              style={{
+                width: `${completionPercentage}%`,
+                // background: "linear-gradient(90deg, #4caf50, #2196f3)",
+                transition: "width 0.6s ease-in-out",
+                borderRadius: "10px",
+              }}
+            >
+              {completionPercentage}%
+            </div>
+          </div>
+        </div>        
 
         <div className="row justify-content-center align-items-center">
           {/* Dropdown */}
