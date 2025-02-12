@@ -120,6 +120,11 @@ const DSASheet = () => {
     "All",
     ...new Set(problems.flatMap((problem) => problem.topics)),
   ];
+
+  const filteredProblems = filterProblems();
+  const completedCount = filteredProblems.filter(problem => completedProblemsSet.has(problem.leetcodeId)).length;
+
+
   const renderTable = (filteredProblems) => (
     <div className="table-container">
       <table className="table table-striped">
@@ -145,7 +150,7 @@ const DSASheet = () => {
               style={{ cursor: "pointer" }}
               className="text-center"
             >
-              Done<FaSort />
+              Done ({completedCount}/{filteredProblems.length}) <FaSort />
             </th>
           </tr>
         </thead>
