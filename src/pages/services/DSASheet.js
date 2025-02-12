@@ -211,7 +211,7 @@ const DSASheet = () => {
         <h1 className="text-center mb-4">DSA Essentials Sheet</h1>
 
         {/* Progress Bar */}
-        <div className="progress-container w-50 mb-4">
+        <div className="progress-container col-12 col-md-8 col-lg-6 mb-4">
           <div className="progress" style={{ height: "20px", borderRadius: "10px", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)" }}>
             <div
               className="progress-bar progress-bar-success progress-bar-animated"
@@ -221,6 +221,7 @@ const DSASheet = () => {
                 // background: "linear-gradient(90deg, #4caf50, #2196f3)",
                 transition: "width 0.6s ease-in-out",
                 borderRadius: "10px",
+                minWidth:"3ch"
               }}
             >
               {completionPercentage}%
