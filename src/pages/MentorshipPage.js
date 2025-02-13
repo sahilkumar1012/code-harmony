@@ -6,13 +6,19 @@ import googleLogo from "../../src/assets/google.png"; // Company logos
 import microsoftLogo from "../../src/assets/microsoft.png";
 import amazonLogo from "../../src/assets/amazon.png";
 import adobeLogo from "../../src/assets/adobe.png";
+
+import sahilPic from "../../src/assets/mentors/sahil.jpeg";
+import piyushGiriPic from "../../src/assets/mentors/piyushgiri.jpeg";
+import mkvPic from "../../src/assets/mentors/mkv.jpeg";
+import chiragPic from "../../src/assets/mentors/chirag.jpeg";
+import manikyaPic from "../../src/assets/mentors/manikya.jpeg";
+
 import "./MentorshipPage.css";
 
 const mentors = [
   {
     name: "Sahil Kumar",
-    profilePicture:
-      "https://media.licdn.com/dms/image/v2/D5603AQHYc1QmtyYb5Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724942821286?e=1739404800&v=beta&t=fwwr1tt1whzDtocEteReoreg-n1SZOBeQ3LFDlI-MFs",
+    profilePicture: sahilPic,
     companies: [
       { name: "Google", logo: googleLogo },
       { name: "Amazon", logo: amazonLogo },
@@ -24,8 +30,7 @@ const mentors = [
   },
   {
     name: "Piyush Giri",
-    profilePicture:
-      "https://media.licdn.com/dms/image/v2/D5603AQGSdzeqD9ULXg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714304534219?e=1739404800&v=beta&t=hzzXinUg7axiNp3x_1AiyZ--6b_9q95uEPUSwSCkIVc",
+    profilePicture: piyushGiriPic,
     companies: [
       { name: "Microsoft", logo: microsoftLogo },
       { name: "Adobe", logo: adobeLogo },
@@ -36,8 +41,7 @@ const mentors = [
   },
   {
     name: "Mohit Kumar Verma",
-    profilePicture:
-      "https://media.licdn.com/dms/image/v2/C5603AQG8CLM2BRV-Lw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1618136615281?e=1739404800&v=beta&t=Uk_B7myRV37I3C5cosTc0Ovls06mx9o1yEsycYweywU",
+    profilePicture: mkvPic,
     companies: [
       { name: "Amazon", logo: amazonLogo },
     ],
@@ -47,8 +51,7 @@ const mentors = [
   },
   {
     name: "Chirag Garg",
-    profilePicture:
-      "https://media.licdn.com/dms/image/v2/C5603AQE3fd21hMn_9A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1662290355466?e=1742428800&v=beta&t=GR0AYeAr5Zl18TGu_0m3NRVmG2YyChQ9E1HjEv1JIgY",
+    profilePicture: chiragPic,
     companies: [
       { name: "Google", logo: googleLogo },
     ],
@@ -58,8 +61,7 @@ const mentors = [
   },
   {
     name: "Manikya Sabharwal",
-    profilePicture:
-      "https://media.licdn.com/dms/image/v2/D5603AQHmef_CIjJuzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707551933862?e=1744243200&v=beta&t=NA4W2GM2OaysMP5PEOAZ9zBboANhlNiVhMNI6gCeTAU",
+    profilePicture: manikyaPic,
     companies: [
       { name: "Microsoft", logo: microsoftLogo },
       { name: "Amazon", logo: amazonLogo },
