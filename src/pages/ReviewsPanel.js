@@ -53,7 +53,7 @@ const ReviewsPanel = () => {
   };
 
   return (
-    <div className="reviews-panel-container">
+    <div className="container reviews-panel-container">
       <h2 className="reviews-title">What People Say About Us</h2>
       <div className="reviews-wrapper">
         <button

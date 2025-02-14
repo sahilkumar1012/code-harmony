@@ -1,76 +1,56 @@
-/* Banner CSS */
-.bannerlite {
-  height: 90vh;
-  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  position: relative;
-  padding: 0 1rem;
-  overflow: hidden;
-  /* animation: parallax 15s infinite linear; */
-  /* padding-top: ; */
+
+.main-content.baner{
+  width: 100% !important;  /* Override fixed width */
+  max-width: none !important; /* Remove inherited constraints */
+}
+.custom-img {
+  max-width: 300px;  /* Reduced size */
+  height: auto;
+  border-radius: 15px;  /* Rounded corners */
+  /* border: 3px solid orangered;  */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);  /* Soft shadow */
+  object-fit: cover;  /* Ensures proper scaling */
 }
 
-/* Banner CSS */
-.bannerLite {
-  /* height: 30vh; */
-  min-height: 35vh;
-  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  position: relative;
-  padding: 0 1rem;
-  overflow: hidden;
-  /* animation: parallax 15s infinite linear; */
-}
 
-.bannerlite-content {
+.banner-left {
   /* animation: fadeInTop 2s ease-in-out; */
   width: 100%;
-  max-width: 700px;
+  min-width: 322px;
+  /* border:2px solid green; */
   box-sizing: border-box;
   padding: 2rem 0rem;
 }
 
-.bannerlite-title {
-  font-size: 3rem;
-  /* font-weight: bold; */
-  /* animation: fadeInTitle 1s ease-in-out forwards; */
+.banner-right{
+  /* border:2px solid red; */
+  min-width: 250px;
+  width: 100%;
 }
 
-.bannerlite-subtitle {
-  font-size: 1.5rem;
-  margin: 1rem 0;
-  /* animation: fadeInSubtitle 1.5s ease-in-out forwards; */
-}
 
-/* .cta-button {
+/* buttons css  */
+
+.banner-button {
   padding: 0.8rem 2rem;
-  background: white;
-  color: #ff7e5f;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  margin-bottom: 1rem; 
-} */
+  background: #d9481c; /* Bright blue background */
+  color: white;
+}
 
 /* Make sure the hover effect is targeting the button specifically */
-.cta-button.our-mentors-btn:hover {
+.banner-button:hover {
   transform: scale(1.05);
   background-color: #000000; /* Dark red on hover */
   color: white;
 }
 
-.cta-button.dsa-btn-home:hover {
+.banner-button:hover {
   transform: scale(1.05);
   background-color: #000000; /* Darker blue on hover */
   color: white;
@@ -78,113 +58,66 @@
 
 
 /* DSA Essentials Button Styles */
-.dsa-btn-home {
-  padding: 0.8rem 2rem;
-  background: #d9481c; /* Bright blue background */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  /* animation: fadeInButton 2s ease-in-out forwards; */
-  margin-top: 1rem; /* Ensure a gap between the two buttons */
-  margin-left: 1rem;
-}
 
 .dsa-btn-home:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   background-color: black; /* Darker blue on hover */
   color: white;
 }
 
-/* Fade-in animation from top */
-/* @keyframes fadeInTop {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* button css end  */
+
+
+
+.banner .container {
+  background: linear-gradient(to right, white, #feb47b); /* Base gradient */
 }
 
-@keyframes fadeInTitle {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Left Section */
+.banner-left {
+  width: 100%;
+  min-width: 322px;
+  padding: 2rem 0rem;
 }
 
-@keyframes fadeInSubtitle {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Right Section with Background Image */
+.banner-right {
+  width: 40%;
+  min-height: 350px;
+  background-image: linear-gradient(to right, #feb47b00, rgba(255, 255, 255, 0)), 
+                    url('../assets/banner/bannerimg.jpeg'); /* Fading effect */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* border-radius: 10px; */
 }
-
-@keyframes fadeInButton {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}  */
-
-/* Parallax background animation */
-/* @keyframes parallax {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 0;
-  }
-} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .bannerlite-title {
-    font-size: 2rem;
-  }
-
-  .bannerlite-subtitle {
-    font-size: 1.5rem;
-  }
-
-  .cta-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
+  .banner-right {
+    width: 100%;
+    min-height: 250px; /* Adjust height for mobile */
   }
 }
 
+
+/* responsive design for banner buttons  */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  .banner-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+}
+
 @media (max-width: 480px) {
-  .bannerlite-title {
-    font-size: 1.6rem;
-  }
 
-  .bannerlite-subtitle {
-    font-size: 1.1rem;
-  }
-
-  .cta-button {
+  .banner-button {
     padding: 0.8rem 1rem;
     font-size: 0.8rem;
   }
 
-  .bannerlite-content {
-    padding: 0rem;
-  }
 }

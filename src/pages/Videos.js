@@ -23,58 +23,60 @@ const Videos = () => {
   }, []);
 
   return (
-    <section style={videoSectionStyle}>
-      <h2 style={videoSectionTitleStyle}>Educational Resources</h2>
-      <p style={videoDescriptionStyle}>
-        Here are some educational videos we have created on various topics:
-      </p>
+    <div class='container'>
+      <section style={videoSectionStyle}>
+        <h2 style={videoSectionTitleStyle}>Educational Resources</h2>
+        <p style={videoDescriptionStyle}>
+          Here are some educational videos we have created on various topics:
+        </p>
 
-      {/* Button to YouTube Channel */}
-      <a
-        href="https://www.youtube.com/@CodeHarmonydev"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          ...buttonStyle,
-          backgroundColor: hovered ? '#FF0000' : '#E60000', // Hover effect on color
-          transform: hovered ? 'scale(1.05)' : 'scale(1)', // Scale effect on hover
-        }}
-        className="visitYoutubeButton"
-        onMouseEnter={handleMouseEnter} // Handle hover
-        onMouseLeave={handleMouseLeave} // Handle hover
-      >
-        Visit Our YouTube Channel !
-      </a>
+        {/* Button to YouTube Channel */}
+        <a
+          href="https://www.youtube.com/@CodeHarmonydev"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            ...buttonStyle,
+            backgroundColor: hovered ? '#FF0000' : '#E60000', // Hover effect on color
+            transform: hovered ? 'scale(1.05)' : 'scale(1)', // Scale effect on hover
+          }}
+          className="visitYoutubeButton"
+          onMouseEnter={handleMouseEnter} // Handle hover
+          onMouseLeave={handleMouseLeave} // Handle hover
+        >
+          Visit Our YouTube Channel !
+        </a>
 
-      {/* Videos Grid */}
-      <div className="videos-container" style={videosContainerStyle}>
-        {videos.map((video, index) => (
-          <div key={index} className="video-item" style={videoItemStyle}>
-            <iframe
-              src={`https://www.youtube.com/embed/${video.id}`}
-              title={video.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={iframeStyle}
-            ></iframe>
-            <p style={{ marginTop: '0.5rem', color: '#333', fontSize: '1rem' }}>
-              {video.title}
-            </p>
-          </div>
-        ))}
-      </div>
+        {/* Videos Grid */}
+        <div className="videos-container" style={videosContainerStyle}>
+          {videos.map((video, index) => (
+            <div key={index} className="video-item" style={videoItemStyle}>
+              <iframe
+                src={`https://www.youtube.com/embed/${video.id}`}
+                title={video.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={iframeStyle}
+              ></iframe>
+              <p style={{ marginTop: '0.5rem', color: '#333', fontSize: '1rem' }}>
+                {video.title}
+              </p>
+            </div>
+          ))}
+        </div>
 
-      {/* Subscribe Button */}
-      <div id="subscribe-button" style={{ marginTop: '2rem', textAlign: 'center' }}>
-        <div
-          className="g-ytsubscribe"
-          data-channelid="UChEgF087xnjDtuA1spgFQRg"
-          data-layout="default"
-          data-count="default"
-        ></div>
-      </div>
-    </section>
+        {/* Subscribe Button */}
+        <div id="subscribe-button" style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <div
+            className="g-ytsubscribe"
+            data-channelid="UChEgF087xnjDtuA1spgFQRg"
+            data-layout="default"
+            data-count="default"
+          ></div>
+        </div>
+      </section>
+    </div>
   );
 };
 

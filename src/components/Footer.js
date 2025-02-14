@@ -109,7 +109,7 @@ const Footer = () => {
           </button>
         </CustomTooltip>
       </div>
-
+      <br></br>
       <p style={footerTextStyle}>© 2025 Code Harmony. All rights reserved.</p>
     </footer>
   );
