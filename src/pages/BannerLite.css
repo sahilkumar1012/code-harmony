@@ -1,7 +1,7 @@
 
-.banner{
-  background: linear-gradient(to right, #ffe0d8, #feb47b); /* Gradient Background */
-  padding: 2rem;
+.main-content.baner{
+  width: 100% !important;  /* Override fixed width */
+  max-width: none !important; /* Remove inherited constraints */
 }
 .custom-img {
   max-width: 300px;  /* Reduced size */
@@ -39,7 +39,6 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  margin-bottom: 1rem; /* Add spacing between buttons */
   background: #d9481c; /* Bright blue background */
   color: white;
 }
@@ -59,23 +58,66 @@
 
 
 /* DSA Essentials Button Styles */
-.dsa-btn-home {
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  /* animation: fadeInButton 2s ease-in-out forwards; */
-  margin-top: 1rem; /* Ensure a gap between the two buttons */
-  margin-left: 1rem;
-}
 
 .dsa-btn-home:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   background-color: black; /* Darker blue on hover */
   color: white;
 }
 
 /* button css end  */
+
+
+
+.banner .container {
+  background: linear-gradient(to right, white, #feb47b); /* Base gradient */
+}
+
+/* Left Section */
+.banner-left {
+  width: 100%;
+  min-width: 322px;
+  padding: 2rem 0rem;
+}
+
+/* Right Section with Background Image */
+.banner-right {
+  width: 40%;
+  min-height: 350px;
+  background-image: linear-gradient(to right, #feb47b00, rgba(255, 255, 255, 0)), 
+                    url('../assets/banner/bannerimg.jpeg'); /* Fading effect */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* border-radius: 10px; */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .banner-right {
+    width: 100%;
+    min-height: 250px; /* Adjust height for mobile */
+  }
+}
+
+
+/* responsive design for banner buttons  */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  .banner-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .banner-button {
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+  }
+
+}

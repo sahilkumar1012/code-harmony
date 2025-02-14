@@ -16,26 +16,32 @@ const BannerLite = () => {
   };
 
   return (
-    <div className="banner d-flex flex-wrap-reverse justify-content-around gap-2">
+    <div class="banner">
+      <div className="d-flex flex-wrap-reverse justify-content-between gap-2 container p-0">
       
-      <div className="col-6 banner-left">
-        <h1>Land Your Dream Job And Excel In Software Development</h1>
-        
-        <button onClick={handleGetStarted} className="banner-button our-mentors-btn">
-          Our Mentors
-        </button>
-        
-        <button onClick={handleDSAButtonClick} className="banner-button dsa-btn-home">
-          DSA Essentials Sheet
-        </button>
-      </div>
+        <div className="col-lg-6 col-md-8 col-8 banner-left mx-auto">
+          <h1 className='font-weight-bold banner-heading'>Land Your Dream Job And Excel In Software Development</h1>
+          <br></br>
+          <div className="d-flex flex-wrap gap-2 justify-content-md-start justify-content-center mx-auto">
+            <button onClick={handleGetStarted} className="banner-button our-mentors-btn">
+                Our Mentors
+            </button>
+              
+            <button onClick={handleDSAButtonClick} className="banner-button dsa-btn-home ml-md-3">
+              DSA Essentials Sheet
+            </button>
+          </div>
+        </div>
 
-      <div className="col-4 banner-right d-flex justify-content-center align-items-center">
-        <img 
-          src={bannerimg}
-          alt="banner-image"
-          className="custom-img"
-        />
+        {/* <div className="col-4 banner-right d-flex justify-content-center align-items-center">
+          <img 
+            src={bannerimg}
+            alt="banner-image"
+            className="custom-img"
+          />
+        </div> */}
+
+        <div className="col-lg-4 col-md-12 banner-right d-flex justify-content-right"></div>  {/* No img tag needed */}
       </div>
     </div>
 
