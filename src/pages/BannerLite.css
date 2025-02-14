@@ -1,10 +1,14 @@
 
+.banner{
+  background: linear-gradient(to right, #ffe0d8, #feb47b); /* Gradient Background */
+  padding: 2rem;
+}
 .custom-img {
-  width: 225px;  /* Reduced size */
-  height: 225px;
+  max-width: 300px;  /* Reduced size */
+  height: auto;
   border-radius: 15px;  /* Rounded corners */
   /* border: 3px solid orangered;  */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);  /* Soft shadow */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);  /* Soft shadow */
   object-fit: cover;  /* Ensures proper scaling */
 }
 

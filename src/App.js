@@ -1,18 +1,15 @@
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useUser } from './UserContext';
-import LandingPage from './pages/LandingPage';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './pages/Home';
-import Banner from './pages/Banner';
 import MentorshipPage from './pages/MentorshipPage';
 import NotFound from './components/NotFound';
 import ContactPage from './pages/ContactPage';
 import GoogleLogin from './components/auth/GoogleLogin';
 import About from './pages/About';
 import DSASheet from './pages/services/DSASheet';
-import AddDataPage from './pages/admin/AddDataPage';
 import './App.css';
 import OnboardMentorForm from './mentorship/OnboardMentorForm';
 import MentorOnboardingRequests from './mentorship/MentorOnboardingRequests';
