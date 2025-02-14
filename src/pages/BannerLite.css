@@ -8,7 +8,7 @@
   height: auto;
   border-radius: 15px;  /* Rounded corners */
   /* border: 3px solid orangered;  */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);  /* Soft shadow */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);  /* Soft shadow */
   object-fit: cover;  /* Ensures proper scaling */
 }
 
@@ -27,3 +27,55 @@
   min-width: 250px;
   width: 100%;
 }
+
+
+/* buttons css  */
+
+.banner-button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-bottom: 1rem; /* Add spacing between buttons */
+  background: #d9481c; /* Bright blue background */
+  color: white;
+}
+
+/* Make sure the hover effect is targeting the button specifically */
+.banner-button:hover {
+  transform: scale(1.05);
+  background-color: #000000; /* Dark red on hover */
+  color: white;
+}
+
+.banner-button:hover {
+  transform: scale(1.05);
+  background-color: #000000; /* Darker blue on hover */
+  color: white;
+}
+
+
+/* DSA Essentials Button Styles */
+.dsa-btn-home {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  /* animation: fadeInButton 2s ease-in-out forwards; */
+  margin-top: 1rem; /* Ensure a gap between the two buttons */
+  margin-left: 1rem;
+}
+
+.dsa-btn-home:hover {
+  transform: scale(1.1);
+  background-color: black; /* Darker blue on hover */
+  color: white;
+}
+
+/* button css end  */

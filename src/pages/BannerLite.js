@@ -16,11 +16,18 @@ const BannerLite = () => {
   };
 
   return (
-    <div className="banner d-flex flex-wrap-reverse justify-content-center gap-2">
+    <div className="banner d-flex flex-wrap-reverse justify-content-around gap-2">
       
       <div className="col-6 banner-left">
         <h1>Land Your Dream Job And Excel In Software Development</h1>
-        <button type="button" className="btn btn-primary btn-lg mt-3">Get Started</button>
+        
+        <button onClick={handleGetStarted} className="banner-button our-mentors-btn">
+          Our Mentors
+        </button>
+        
+        <button onClick={handleDSAButtonClick} className="banner-button dsa-btn-home">
+          DSA Essentials Sheet
+        </button>
       </div>
 
       <div className="col-4 banner-right d-flex justify-content-center align-items-center">
