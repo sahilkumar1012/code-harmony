@@ -23,7 +23,7 @@ const Videos = () => {
   }, []);
 
   return (
-    <div class='container'>
+    <div class='videos container'>
       <section style={videoSectionStyle}>
         <h2 style={videoSectionTitleStyle}>Educational Resources</h2>
         <p style={videoDescriptionStyle}>
@@ -83,7 +83,6 @@ const Videos = () => {
 // Styles (unchanged from the previous code)
 const videoSectionStyle = {
   padding: '2rem 1rem',
-  background: 'linear-gradient(135deg, #FAFAFA, #FFFFFF)', // Softer background gradient
   textAlign: 'center',
   color: '#333',
 };

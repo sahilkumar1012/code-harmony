@@ -42,3 +42,8 @@
 .carousel-control-next:hover {
   opacity: 1;
 }
+
+/* use it for debugging UI */
+/* .container{
+  border: 1px dotted red;
+} */

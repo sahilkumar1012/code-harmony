@@ -69,7 +69,7 @@
 
 
 
-.banner .container {
+.banner .container{
   background: linear-gradient(to right, white, #feb47b); /* Base gradient */
 }
 
@@ -82,14 +82,12 @@
 
 /* Right Section with Background Image */
 .banner-right {
-  width: 40%;
-  min-height: 350px;
-  background-image: linear-gradient(to right, #feb47b00, rgba(255, 255, 255, 0)), 
-                    url('../assets/banner/bannerimg.jpeg'); /* Fading effect */
+  min-width: 350px;
+  height: auto;
+
+  background-image: url('../assets/banner/setup2.png');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  /* border-radius: 10px; */
 }
 
 /* Responsive Design */
@@ -121,3 +119,4 @@
   }
 
 }
+
