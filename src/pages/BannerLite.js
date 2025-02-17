@@ -20,7 +20,7 @@ const BannerLite = () => {
       <div className="d-flex flex-wrap-reverse justify-content-between gap-2 container p-0">
       
         {/* banner heading and buttons  */}
-        <div className="col-lg-6 col-md-10 col-8 banner-left mx-auto">
+        <div className="col-lg-6 col-md-6 col-8 banner-left mx-auto">
           <h1 className='font-weight-bold banner-heading'>Land Your Dream Job And Excel In Software Development</h1>
           
           {/* banner buttons */}
@@ -37,7 +37,7 @@ const BannerLite = () => {
         </div>
 
         {/* image portion */}
-        <div className="col-lg-4 col-md-12 banner-right d-flex justify-content-right"></div> 
+        <div className="col-lg-4 col-md-4 banner-right d-flex justify-content-right"></div> 
       </div>
     </div>
 

@@ -99,7 +99,7 @@
 /* responsive design for banner buttons  */
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .banner-button {
     padding: 0.8rem 1rem;
     font-size: 0.9rem;
@@ -115,6 +115,6 @@
 /* For smaller screens, set the image as a background */
 @media (max-width: 768px) {
   .banner-right {
-    /* display: none; */
+    background-image: url('../assets/banner/setup.jpeg');
   }
 }
