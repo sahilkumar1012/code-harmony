@@ -20,12 +20,11 @@ const BannerLite = () => {
       <div className="d-flex flex-wrap-reverse justify-content-between gap-2 container p-0">
       
         {/* banner heading and buttons  */}
-        <div className="col-lg-6 col-md-8 col-8 banner-left mx-auto">
+        <div className="col-lg-6 col-md-10 col-8 banner-left mx-auto">
           <h1 className='font-weight-bold banner-heading'>Land Your Dream Job And Excel In Software Development</h1>
-          <br></br>
           
           {/* banner buttons */}
-          <div className="d-flex flex-wrap gap-2 justify-content-md-start justify-content-center mx-auto">
+          <div className="d-flex flex-wrap gap-2 justify-content-md-start justify-content-center mx-auto pt-4">
             <button onClick={handleGetStarted} className="banner-button our-mentors-btn">
                 Our Mentors
             </button>

@@ -44,11 +44,11 @@ const Videos = () => {
           onMouseEnter={handleMouseEnter} // Handle hover
           onMouseLeave={handleMouseLeave} // Handle hover
         >
-          Visit Our YouTube Channel !
+          Visit Our YouTube Channel
         </a>
 
         {/* Videos Grid */}
-        <div className="videos-container" style={videosContainerStyle}>
+        <div className="videos-container d-flex flex-wrap justify-content-center gap-4 pt-2" >
           {videos.map((video, index) => (
             <div key={index} className="video-item" style={videoItemStyle}>
               <iframe
@@ -112,14 +112,8 @@ const buttonStyle = {
   cursor: 'pointer',
   textDecoration: 'none',
   display: 'inline-block',
+  fontWeight:'bold',
   transition: 'background-color 0.3s ease, transform 0.2s ease', // Adding transition for background-color and scaling
-};
-
-const videosContainerStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-  gap: '1.5rem',
-  padding: '1rem',
 };
 
 const videoItemStyle = {
@@ -129,11 +123,6 @@ const videoItemStyle = {
   backgroundColor: '#fff',
   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-};
-
-const videoItemHoverStyle = {
-  transform: 'scale(1.02)',
-  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
 };
 
 const iframeStyle = {

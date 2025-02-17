@@ -68,16 +68,15 @@
 /* button css end  */
 
 
-
 .banner .container{
   background: linear-gradient(to right, white, #feb47b); /* Base gradient */
 }
 
 /* Left Section */
 .banner-left {
-  width: 100%;
-  min-width: 322px;
-  padding: 2rem 0rem;
+  /* width: 100%; */
+  /* min-width: 322px; */
+  /* padding: 2rem 0rem; */
 }
 
 /* Right Section with Background Image */
@@ -87,14 +86,12 @@
 
   background-image: url('../assets/banner/setup2.png');
   background-size: cover;
-  background-position: center;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .banner-right {
-    width: 100%;
-    min-height: 250px; /* Adjust height for mobile */
+    min-height: 250px; 
   }
 }
 
@@ -103,20 +100,21 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-
   .banner-button {
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1rem;
     font-size: 0.9rem;
   }
-
 }
-
 @media (max-width: 480px) {
-
   .banner-button {
     padding: 0.8rem 1rem;
     font-size: 0.8rem;
   }
-
 }
 
+/* For smaller screens, set the image as a background */
+@media (max-width: 768px) {
+  .banner-right {
+    /* display: none; */
+  }
+}
