@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <div class="container">
-      <nav className="navbar navbar-expand-lg navbar-light bg-white py-0 px-4" id="navbar">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white py-0" id="navbar">
         {/* Brand Logo */}
         <a className="navbar-brand p-0" href="/">
           <img src={logo} alt="Code Harmony Logo" style={{ height: '70px' }} />
