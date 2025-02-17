@@ -209,6 +209,11 @@ const DSASheet = () => {
       <div className="d-flex flex-wrap justify-content-center flex-column mb-1 align-items-center">
         
         <h1 className="text-center mb-4">DSA Essentials Sheet</h1>
+        <p className="text-center text-muted col-10 col-md-8">
+          This sheet is designed to help you strengthen your core DSA concepts while solving interview-friendly problems. 
+          These problems are frequently asked in top tech companies like <strong>Google, Amazon, Microsoft, and Meta</strong>, 
+          ensuring you build a strong foundation in problem-solving to crack their technical interviews.
+        </p>
 
         {/* Progress Bar */}
         <div className="progress-container col-10 col-md-8 col-lg-6 mb-4">
