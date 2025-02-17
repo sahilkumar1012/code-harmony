@@ -21,7 +21,7 @@ const DSASheet = () => {
 
   const [problems, setProblems] = useState(problemsData);
   const [searchQuery, setSearchQuery] = useState(""); // State for the search query
-  const [selectedTopic, setSelectedTopic] = useState("All");
+  const [selectedTopic, setSelectedTopic] = useState("All Topics");
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [completedProblemsSet, setCompletedProblemsSet] = useState(new Set());
 
@@ -107,7 +107,7 @@ const DSASheet = () => {
 
   const filterProblems = () => {
     return problems.filter((problem) =>
-      (selectedTopic === "All" || problem.topics.includes(selectedTopic)) &&
+      (selectedTopic === "All Topics" || problem.topics.includes(selectedTopic)) &&
       (problem.title.toLowerCase().includes(searchQuery.toLowerCase()))
     );
   };
@@ -117,7 +117,7 @@ const DSASheet = () => {
   };
 
   const uniqueTopics = [
-    "All",
+    "All Topics",
     ...new Set(problems.flatMap((problem) => problem.topics)),
   ];
 

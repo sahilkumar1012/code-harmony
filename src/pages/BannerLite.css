@@ -113,7 +113,7 @@
 }
 
 /* For smaller screens, set the image as a background */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .banner-right {
     background-image: url('../assets/banner/setup.jpeg');
   }
