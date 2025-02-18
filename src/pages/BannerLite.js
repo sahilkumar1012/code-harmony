@@ -4,7 +4,7 @@ import './BannerLite.css';
 import { PiX } from 'react-icons/pi';
 import bannerimg from '../assets/banner/bannerimg.jpeg';
 
-const BannerLite = () => {
+const BannerLite = ({theme}) => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
@@ -16,24 +16,24 @@ const BannerLite = () => {
   };
 
   return (
-    <div class="banner">
+    <div className={`banner ${theme === 'dark' ? 'banner-dark' : 'banner-light'} `}>
       <div className="d-flex flex-wrap-reverse justify-content-between gap-2 container p-0">
       
         {/* banner heading and buttons  */}
         <div className="col-lg-6 col-md-6 col-8 banner-left mx-auto">
-          <h1 className='font-weight-bold banner-heading'>Land Your Dream Job And Excel In Software Development</h1>
+          <h1 className={`font-weight-bold banner-heading ${theme ==='dark' ? 'text-white' : 'text-black'} `}>Land Your Dream Job And Excel In Software Development</h1>
           
           {/* banner buttons */}
           <div className="d-flex flex-wrap gap-2 justify-content-md-start justify-content-center mx-auto pt-4">
-            <button onClick={handleGetStarted} className="banner-button our-mentors-btn">
+            <button onClick={handleGetStarted} className={`${theme === 'dark' ? 'banner-button-dark' : 'banner-button'} our-mentors-btn`}>
                 Our Mentors
             </button>
               
-            <button onClick={handleDSAButtonClick} className="banner-button dsa-btn-home ml-md-3">
+            <button onClick={handleDSAButtonClick} className={`${theme === 'dark' ? 'banner-button-dark' : 'banner-button'}  dsa-btn-home ml-md-3`}>
               DSA Essentials Sheet
             </button>
           </div>
-
+    
         </div>
 
         {/* image portion */}

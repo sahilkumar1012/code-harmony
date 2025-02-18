@@ -1,4 +1,5 @@
-import React from 'react';
+// App.js
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useUser } from './UserContext';
 import Footer from './components/Footer';
@@ -10,46 +11,45 @@ import ContactPage from './pages/ContactPage';
 import GoogleLogin from './components/auth/GoogleLogin';
 import About from './pages/About';
 import DSASheet from './pages/services/DSASheet';
-import './App.css';
 import OnboardMentorForm from './mentorship/OnboardMentorForm';
 import MentorOnboardingRequests from './mentorship/MentorOnboardingRequests';
-// import 'animate.css';
+import './App.css';
 
 function AppContent() {
   const location = useLocation();
   const mainClassName = 'main-content';
-    // location.pathname === '/' || location.pathname === '/index.html' 
-    //   ? 'main-content-full' : 'main-content';
   const { user, login } = useUser();
 
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    document.body.classList.toggle('theme-dark', theme === 'dark');
+    document.body.classList.toggle('theme-light', theme === 'light');
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
   return (
-    <div className="app-container">
-      <Header />
+    <div className={`app-container ${theme}`}>
+      <Header theme={theme} toggleTheme={toggleTheme} />
 
       <main className={mainClassName}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/index.html" element={<Home />} />
+          <Route path="/" element={<Home theme={theme} />} />
+          <Route path="/index.html" element={<Home theme={theme} />} />
           
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/mentorship/onboard" element={<OnboardMentorForm />} />
           <Route path="/mentorship/onboard/requests" element={
-              user ? <MentorOnboardingRequests user={user} /> : <GoogleLogin onLogin={login} />
-            } 
-          />
-          
+            user ? <MentorOnboardingRequests user={user} /> : <GoogleLogin onLogin={login} />
+          } />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/dsasheet" element={<DSASheet />} />
-
-          <Route
-            path="/login"
-            element={
-              user ? <Home /> : <GoogleLogin onLogin={login} />
-            }
-          />
-
+          <Route path="/login" element={
+            user ? <Home /> : <GoogleLogin onLogin={login} />
+          } />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

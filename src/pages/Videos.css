@@ -12,3 +12,21 @@
     transform: scale(1.02);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
+
+
+.videos-light {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.videos-dark {
+  /* background-color: #181818; */
+  background-color: black;
+  color: white;
+}
+
+.videos-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}

@@ -3,32 +3,63 @@
   padding: 0.5rem 1rem;
   font-size: 1rem;
   box-shadow: none;
-  background-color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
-.navbar-brand img {
-  height: 50px;
+/* Light Theme */
+.theme-light .navbar {
+  background-color: #ffffff;
+  color: #000;
 }
+
+.theme-light .navbar-nav .nav-link {
+  color: #000 !important;
+}
+
+.theme-light .navbar-nav .nav-link:hover {
+  color: #d9481c !important;
+}
+
+.theme-light .mentor-btn {
+  background-color: #d9481c;
+  color: #fff;
+  border: 2px solid #d9481c;
+}
+
+.theme-light .mentor-btn:hover {
+  background-color: #d9481c;
+}
+
+/* Dark Theme */
+.theme-dark .navbar {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.theme-dark .navbar-nav .nav-link {
+  color: #fff !important;
+}
+
+.theme-dark .navbar-nav .nav-link:hover {
+  color: #d9481c !important;
+}
+
+.theme-dark .mentor-btn {
+  background-color: #d9481c;
+  color: #fff;
+  border: 2px solid #d9481c;
+}
+
+.theme-dark .mentor-btn:hover {
+  background-color: #d9481c;
+}
+
+
 
 /* Toggle Button Styling */
 .navbar-toggler {
   padding: 0.4rem;
 }
-
-/* Mentor Button for All Screens */
-.mentor-btn {
-  font-weight: bold;
-  border-radius: 20px;
-  transition: all 0.3s ease-in-out;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-.mentor-btn:hover {
-  background-color: #333;
-  color: #fff;
-}
-
 
 /* Navbar Links */
 .navbar-nav {
@@ -36,32 +67,61 @@
 }
 
 .navbar-nav .nav-link {
-  /* padding: 0.5rem; */
   font-weight: bold;
 }
 
-.navbar-nav .nav-link:hover {
-  color: #ff3b3b !important;
+/* Active Tab Styling */
+.navbar-nav .active-tab {
+  border-bottom: 2px solid #d9481c;
+  font-weight: bolder;
 }
 
-/* Login Button Styling */
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
+}
+
+.theme-light .theme-toggle-btn {
+  color: black;
+}
+
+.theme-dark .theme-toggle-btn {
+  color: white;
+}
+
+/* Mentor Button */
+.mentor-btn {
+  font-weight: bold;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1.2rem;
+}
+
+.mentor-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Login Button */
 .navbar-nav .login-btn {
-  color: #ff3b3b; /* Red text color */
+  color: #d9481c;
   font-weight: bold;
-  border: 2px solid #ff3b3b; /* Red border */
+  border: 2px solid #d9481c;
   border-radius: 8px;
   padding: 0.3rem 1rem;
-  background: none; /* Transparent background */
+  background: none;
   transition: all 0.3s ease-in-out;
-}
-.login-btn{
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .navbar-nav .login-btn:hover {
-  color: #ff1a1a; /* Slightly darker red on hover */
-  border-color: #ff1a1a; /* Match border color on hover */
+  color: #d9481c;
+  border-color: #d9481c;
 }
 
 /* Profile Image */
@@ -88,37 +148,16 @@
     height: 40px;
   }
 
-  .nav-item{
+  .nav-item {
     padding-bottom: 1vh;
   }
+
   .navbar-nav .nav-link {
     padding: 0.4rem 0.6rem;
   }
-  .nav-link{
-    color: black;
-  }
 
-  .login-btn {
-  }
-
-  .nav-login{
+  .nav-login {
     padding-top: 1vh;
     padding-bottom: 1vh;
   }
-
-  .navbar-nav .active-tab {
-    /* color: blue !important; */
-    border : none;
-    /* font-weight: bolder !important; */
-    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08) !important; */
-  }
-  
-}
-
-
-.navbar-nav .active-tab {
-  /* color: blue !important; */
-  border-bottom: 2px solid #000; /* Add a bottom border */
-  font-weight: bolder !important;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08) !important;
 }

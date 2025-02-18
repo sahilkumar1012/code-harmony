@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Videos.css';
 import { useNavigate } from 'react-router-dom';
 
-const Videos = () => {
+const Videos = ({theme}) => {
   const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
 
@@ -23,7 +23,7 @@ const Videos = () => {
   }, []);
 
   return (
-    <div class='videos container'>
+    <div className={`videos-container ${theme === 'dark' ? 'videos-dark' : 'videos-light'}`}>
       <section style={videoSectionStyle}>
         <h2 style={videoSectionTitleStyle}>Educational Resources</h2>
         <p style={videoDescriptionStyle}>
@@ -50,7 +50,7 @@ const Videos = () => {
         {/* Videos Grid */}
         <div className="videos-container d-flex flex-wrap justify-content-center gap-4 pt-2" >
           {videos.map((video, index) => (
-            <div key={index} className="video-item" style={videoItemStyle}>
+            <div key={index} className="video-item" style={ theme==='dark' ? videoItemStyleDark : videoItemStyle}>
               <iframe
                 src={`https://www.youtube.com/embed/${video.id}`}
                 title={video.title}
@@ -59,7 +59,7 @@ const Videos = () => {
                 allowFullScreen
                 style={iframeStyle}
               ></iframe>
-              <p style={{ marginTop: '0.5rem', color: '#333', fontSize: '1rem' }}>
+              <p style={{ marginTop: '0.5rem', fontSize: '1rem' }}>
                 {video.title}
               </p>
             </div>
@@ -84,21 +84,18 @@ const Videos = () => {
 const videoSectionStyle = {
   padding: '2rem 1rem',
   textAlign: 'center',
-  color: '#333',
 };
 
 const videoSectionTitleStyle = {
   fontSize: '2.5rem',
   fontWeight: 'bold',
   marginBottom: '1rem',
-  color: '#333', // Soft red
 };
 
 const videoDescriptionStyle = {
   fontSize: '1rem',
   maxWidth: '90%',
   margin: '0 auto 2rem',
-  color: '#555',
   lineHeight: '1.5',
 };
 
@@ -124,6 +121,16 @@ const videoItemStyle = {
   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
 };
+const videoItemStyleDark = {
+  position: 'relative',
+  overflow: 'hidden',
+  borderRadius: '10px',
+  backgroundColor: 'black',
+  color:'white',
+  boxShadow: '2px 6px 10px rgba(229, 226, 226, 0.253)',
+  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+}
+
 
 const iframeStyle = {
   width: '100%',

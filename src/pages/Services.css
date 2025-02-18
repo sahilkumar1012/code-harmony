@@ -1,62 +1,69 @@
+/* Default Light Theme Styles */
 .services-container {
-    text-align: center;
-    padding: 2rem;
-    /* background-color: #f9f9f9; */
-    background: linear-gradient(to top, #f9f9f9, white); /* Gradient Background */
-  }
-  
-  .services-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    color: #333;
-  }
-  
-  .services-cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-  
-  .service-card {
-    display: block;
-    text-decoration: none;
-    /* background-color: #7ecbff; */
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    width: 300px;
-    text-align: center;
-    /* transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; */
-    transition: transform 0.3s ease;
-    color: #333;
-  }
-  
-  .service-card:hover {
-    transform: scale(1.05);
-    /* background-color: #D3D3D3; */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    /* color: #fff; */
-    transform: translateY(-10px);
-  }
+  text-align: center;
+  padding: 2rem;
+}
+.services-light{
+  background: linear-gradient(to top, #f9f9f9, white);
+  transition: background-color 0.3s ease;
 
-  
-  .service-card h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.75rem;
-  }
-  
-  .service-card p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .service-card:hover p {
-    font-size: 1rem;
-    /* color: #fff; */
-  }
-  
+}
+
+.services-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.services-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Light Theme Card */
+.service-card {
+  display: block;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Light Mode */
+.card-light {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.card-light:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+}
+
+/* Dark Mode */
+.services-dark {
+  background: linear-gradient(to top, #222, black);
+}
+
+.services-dark > h2 {
+  color: white;
+}
+
+.card-dark {
+  background-color: black;
+  color: #fff;
+  box-shadow: 2px 6px 10px rgba(229, 226, 226, 0.253);
+}
+
+.card-dark:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 8px 16px rgba(243, 241, 241, 0.242);
+  transform: translateY(-10px);
+}
