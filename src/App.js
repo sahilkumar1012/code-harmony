@@ -42,13 +42,13 @@ function AppContent() {
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/mentorship/onboard" element={<OnboardMentorForm />} />
           <Route path="/mentorship/onboard/requests" element={
-            user ? <MentorOnboardingRequests user={user} /> : <GoogleLogin onLogin={login} />
+            user ? <MentorOnboardingRequests user={user} /> : <GoogleLogin onLogin={login} theme={theme}/>
           } />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/dsasheet" element={<DSASheet theme={theme} />} />
           <Route path="/login" element={
-            user ? <Home /> : <GoogleLogin onLogin={login} />
+            user ? <Home /> : <GoogleLogin onLogin={login} theme={theme}/>
           } />
           <Route path="*" element={<NotFound />} />
         </Routes>

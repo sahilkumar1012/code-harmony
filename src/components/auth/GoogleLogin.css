@@ -1,4 +1,6 @@
 /* GoogleLogin.css */
+
+/* Base styles (Light Theme) */
 .google-login-container {
   display: flex;
   justify-content: center;
@@ -6,7 +8,7 @@
   height: 80vh;
   background: linear-gradient(135deg, #f0d7c1, #ffffff, #fef9ea, #fae4e2);
   background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite; /* Gradient animation */
+  animation: gradientBG 15s ease infinite;
 }
 
 @keyframes gradientBG {
@@ -43,6 +45,20 @@
   }
 }
 
+.google-login-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.google-login-desc {
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: #666;
+  line-height: 1.5;
+}
+
 .google-login-btn {
   background-color: #4285f4; /* Google Blue */
   color: white;
@@ -61,8 +77,8 @@
 }
 
 .google-login-btn:hover {
-  background-color: #357ae8; /* Darker Google Blue */
-  transform: translateY(-3px); /* Subtle lift effect */
+  background-color: #357ae8;
+  transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -71,16 +87,38 @@
   font-size: 22px;
 }
 
-.google-login-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #333;
+
+
+/* Dark Theme Styles */
+.dark-theme {
+  background: linear-gradient(135deg, black, rgb(61, 61, 61), rgb(25, 25, 25), #272727);
+  color: #eee;
 }
 
-.google-login-desc {
-  font-size: 14px;
-  margin-bottom: 25px;
-  color: #666;
-  line-height: 1.5;
+.dark-theme-card {
+  background-color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.547);
+}
+
+.dark-theme-title {
+  color: #eee;
+}
+
+.dark-theme-description {
+  color: #ccc;
+}
+
+.dark-theme-button {
+  background-color: #3f51b5;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme-button:hover {
+  background-color: #303f9f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme-icon {
+    color: white;
 }
