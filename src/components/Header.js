@@ -21,7 +21,7 @@ const Header = ({ theme, toggleTheme }) => {
   return (
     <div className="container">
       <nav className={`navbar navbar-expand-lg py-0 ${theme === 'dark' ? 'navbar-dark bg-black' : 'navbar-light bg-white'}`} id="navbar">
-        
+
         {/* Brand Logo */}
         <a className="navbar-brand d-flex align-items-center" href="/" style={{ height:'70px', width: '160px', overflow: 'hidden' }}>
           <img 
@@ -30,6 +30,11 @@ const Header = ({ theme, toggleTheme }) => {
             style={{ maxWidth: '100%', height: 'auto', objectFit: 'cover' }} 
           />
         </a>
+
+        {/* Theme Toggle Button - Now always visible */}
+        <button className="theme-toggle-btn d-lg-none d-xl-none" onClick={toggleTheme} style={{ paddingRight: '1rem', marginLeft: 'auto', border: 'none', background: 'transparent' }}>
+          {theme === 'dark' ? <FaSun size={20} /> : <FaMoon size={20} />}
+        </button>
 
         {/* Toggle Button for Small Screens */}
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -51,7 +56,7 @@ const Header = ({ theme, toggleTheme }) => {
             </li>
 
             {/* Theme Toggle Button */}
-            <li className="nav-item">
+            <li className="nav-item d-none d-lg-block d-xl-block">
               <button className="theme-toggle-btn" onClick={toggleTheme}>
                 {theme === 'dark' ? <FaSun size={20} /> : <FaMoon size={20} />}
               </button>

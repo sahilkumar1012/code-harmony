@@ -131,7 +131,7 @@ const DSASheet = ({theme}) => {
     <div className="table-container container-fluid">
       <table className={`table table-striped ${theme==='dark' ? 'table-dark' : ''}`}>
         <thead>
-          <tr>
+          <tr className="bg-black">
             
           <th className="problem-id">
             {theme === 'dark' ? (
