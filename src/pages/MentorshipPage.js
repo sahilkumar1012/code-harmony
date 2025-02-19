@@ -180,7 +180,7 @@ const MentorshipPage = () => {
   );
 
   return (
-    <div className="container mt-5 position-relative">
+    <div className="container mt-5 position-relative bg-light">
       {/* Header Section */}
       <div className="mb-4 text-center">
         <h1 className="mb-3">Mentorship</h1>

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "./ReviewsPanel.css";
 import reviews from "../data/reviews.json";
 
-const ReviewsPanel = () => {
+const ReviewsPanel = ({theme}) => {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -53,11 +53,11 @@ const ReviewsPanel = () => {
   };
 
   return (
-    <div className="container reviews-panel-container">
+    <div className={`container ${theme === 'dark'? 'reviews-panel-container-dark': 'reviews-panel-container'}`}>
       <h2 className="reviews-title">What People Say About Us</h2>
       <div className="reviews-wrapper">
         <button
-          className={`arrow left ${!canScrollLeft ? "disabled" : ""}`}
+          className={`arrow left ${!canScrollLeft ? "disabled" : ""} ${theme}`}
           onClick={scrollLeft}
           disabled={!canScrollLeft}
         >
@@ -65,7 +65,7 @@ const ReviewsPanel = () => {
         </button>
         <div className="reviews-panel" ref={scrollRef}>
           {reviews.map((review, index) => (
-            <div key={index} className="review-card">
+            <div key={index} className={`review-card ${theme}`}>
               <img
                 src={review.image}
                 alt={`Photo of ${review.mentee}`}
@@ -77,7 +77,7 @@ const ReviewsPanel = () => {
           ))}
         </div>
         <button
-          className={`arrow right ${!canScrollRight ? "disabled" : ""}`}
+          className={`arrow right ${!canScrollRight ? "disabled" : ""} ${theme}`}
           onClick={scrollRight}
           disabled={!canScrollRight}
         >

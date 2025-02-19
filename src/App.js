@@ -46,7 +46,7 @@ function AppContent() {
           } />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/dsasheet" element={<DSASheet />} />
+          <Route path="/dsasheet" element={<DSASheet theme={theme} />} />
           <Route path="/login" element={
             user ? <Home /> : <GoogleLogin onLogin={login} />
           } />
@@ -54,7 +54,7 @@ function AppContent() {
         </Routes>
       </main>
 
-      <Footer />
+      <Footer theme={theme} />
     </div>
   );
 }

@@ -15,7 +15,7 @@ import './DSASheet.css';
 import RenderTags from "./RenderTags";
 import leetcodeLogo from "../../../src/assets/leetcode-icon.png";
 
-const DSASheet = () => {
+const DSASheet = ({theme}) => {
   const { user, storeRedirectUrl } = useUser();
   const navigate = useNavigate();
 
@@ -129,17 +129,21 @@ const DSASheet = () => {
 
   const renderTable = (filteredProblems) => (
     <div className="table-container">
-      <table className="table table-striped">
+      <table className={`table table-striped ${theme==='dark' ? 'table-dark' : ''}`}>
         <thead>
           <tr>
             
-            <th className="problem-id">
-              <img 
-                src={leetcodeLogo} 
-                alt="LeetCode Logo" 
-                style={{ height: '25px', verticalAlign: 'middle' }} 
-              /> 
-            </th>
+          <th className="problem-id">
+            {theme === 'dark' ? (
+              <span>#</span> // Display '#' in dark theme
+            ) : (
+              <img
+                src={leetcodeLogo}
+                alt="LeetCode Logo"
+                style={{ height: '25px', verticalAlign: 'middle' }}
+              />
+            )}
+          </th>
 
             <th className="problem-title">Problem Title</th>
             <th onClick={() => handleSort("difficulty")} style={{ cursor: "pointer" }}>
@@ -185,7 +189,7 @@ const DSASheet = () => {
                 )}
               </td>
               <td>
-                <RenderTags problem={problem}/>
+                <RenderTags theme={theme} problem={problem}/>
               </td>
               <td className="text-center">
                 <label className="fancy-checkbox">
@@ -205,11 +209,11 @@ const DSASheet = () => {
   );
 
   return (
-    <div className="container-fluid mt-5">
+    <div className={`container-fluid mt-5 ${theme === 'dark' ? 'dark-theme' : ''}`}>
       <div className="d-flex flex-wrap justify-content-center flex-column mb-1 align-items-center">
         
-        <h1 className="text-center mb-4">DSA Essentials Sheet</h1>
-        <p className="text-center text-muted col-10 col-md-8">
+        <h1 className={`text-center mb-4 ${theme==='dark' ? 'text-white' : 'table-black' }`}>DSA Essentials Sheet</h1>
+        <p className={`text-center col-10 col-md-8 ${theme==='dark' ? 'text-light' : 'table-muted' }`}>
           This sheet is designed to help you strengthen your core DSA concepts while solving interview-friendly problems. 
           These problems are frequently asked in top tech companies like <strong>Google, Amazon, Microsoft, and Meta</strong>, 
           ensuring you build a strong foundation in problem-solving to crack their technical interviews.
@@ -232,13 +236,13 @@ const DSASheet = () => {
               {completionPercentage}%
             </div>
           </div>
-        </div>        
+        </div>
 
         <div className="row justify-content-center align-items-center">
           {/* Dropdown */}
           <div className="col-auto mb-3">
             <select
-              className="form-select"
+              className={`form-select ${theme === 'dark' ? 'bg-dark text-light' : ''}`}
               value={selectedTopic}
               onChange={(e) => setSelectedTopic(e.target.value)}
               style={{ minWidth: "200px" }} // Ensure dropdown is not too narrow
@@ -254,12 +258,12 @@ const DSASheet = () => {
           {/* Search Bar */}
           <div className="col-auto mb-3">
             <div className="input-group">
-              <span className="input-group-text bg-light">
+              <span className={`input-group-text ${theme === 'dark' ? 'bg-dark text-light' : ''}`}>
                 <FaSearch />
               </span>
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${theme === 'dark' ? 'bg-dark text-light' : ''}`} 
                 placeholder="Search problems by title..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -267,7 +271,7 @@ const DSASheet = () => {
               />
               {searchQuery && (
                 <button
-                  className="btn btn-outline-secondary"
+                  className={`btn btn-outline-secondary ${theme === 'dark' ? 'btn-dark' : ''}`} 
                   type="button"
                   onClick={clearSearch}
                 >
