@@ -128,7 +128,7 @@ const DSASheet = ({theme}) => {
 
 
   const renderTable = (filteredProblems) => (
-    <div className="table-container">
+    <div className="table-container container-fluid">
       <table className={`table table-striped ${theme==='dark' ? 'table-dark' : ''}`}>
         <thead>
           <tr>
