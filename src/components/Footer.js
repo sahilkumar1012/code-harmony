@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaTwitter, FaLinkedin, FaYoutube, FaDiscord, FaInstagram } from 'react-icons/fa'; // Import Instagram icon
+import { FaLinkedin, FaYoutube, FaDiscord, FaInstagram } from 'react-icons/fa'; // Import Instagram icon
 import "./Footer.css";
 import { FaXTwitter } from 'react-icons/fa6';
 
@@ -30,7 +30,7 @@ const CustomTooltip = ({ children, text }) => {
 };
 
 
-const Footer = () => {
+const Footer = ({theme}) => {
 
   // const [showTooltip, setShowTooltip] = useState(false);
 
@@ -40,7 +40,7 @@ const Footer = () => {
   };
 
   return (
-    <footer style={footerStyle}>
+    <footer style={footerStyle} className={ theme == 'dark' ? 'footer-dark' : 'footer-light'}>
       <div style={iconContainerStyle}>
         {/* LinkedIn Icon */}
         <a
@@ -58,8 +58,8 @@ const Footer = () => {
           href="https://x.com/codeharmonyHQ"
           target="_blank"
           rel="noopener noreferrer"
-          className="icon xicon"
-          style={{ ...iconStyle }}
+          className={`icon ${theme==='dark' ? 'xicon' : 'xicon-dark'}`}
+          style={{ ...iconStyle ,  }}
         >
           <FaXTwitter />
         </a>
@@ -103,25 +103,24 @@ const Footer = () => {
         <CustomTooltip text="Email Us">
           <button 
             onClick={handleContactUs} 
-            className="cta-button contact-us-btn-footer"
+            className={`contact-us-btn-footer ${theme === 'dark' ? 'dark-mode' : 'light-mode'}`}
           >
             Contact Us
           </button>
         </CustomTooltip>
       </div>
       <br></br>
-      <p style={footerTextStyle}>© 2025 Code Harmony. All rights reserved.</p>
+      <p style={theme === 'dark' ? footerTextStyleDark : footerTextStyle}>© 2025 Code Harmony. All rights reserved.</p>
     </footer>
   );
 };
 
 // Styles for Footer
 const footerStyle = {
-  backgroundColor: 'white',
-  color: '#fff',
   textAlign: 'center',
   padding: '1rem 0',
 };
+
 
 const iconContainerStyle = {
   display: 'flex',
@@ -158,4 +157,8 @@ const footerTextStyle = {
   color: 'black',
 };
 
+const footerTextStyleDark = {
+  fontSize: '0.8rem',
+  color: 'white',
+};
 export default Footer;

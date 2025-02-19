@@ -22,12 +22,6 @@
 }
 
 
-/* This changes all the animations globally */
-/* :root {
-  --animate-duration: 400ms;
-  --animate-delay: 0.9s;
-} */
-
 .card:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -43,7 +37,6 @@
   opacity: 1;
 }
 
-/* use it for debugging UI */
-/* .container{
-  border: 1px dotted red;
-} */
+.dark{
+  background-color: black;
+}

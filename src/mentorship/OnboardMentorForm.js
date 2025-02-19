@@ -6,7 +6,7 @@ import { getFirestore, doc, getDoc, updateDoc, arrayUnion, setDoc } from 'fireba
 
 import './OnboardMentorForm.css';
 
-const OnboardMentorForm = () => {
+const OnboardMentorForm = ({theme}) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -100,9 +100,9 @@ const OnboardMentorForm = () => {
   };
 
   return (
-    <div className="container mt-5 mb-5">
+    <div className="container bg-white">
       <div className="row justify-content-center">
-        <div className="col-12 col-md-10 col-lg-8">
+        <div className="col-12 col-md-10 col-lg-8 p-4">
           <h2 className="text-center mb-4">Become a Mentor at Code Harmony</h2>
           <p className="text-center mb-4">
             Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers. Share your expertise and help aspiring programmers grow!

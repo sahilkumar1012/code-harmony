@@ -1,5 +1,5 @@
 .youtube-icon {
-  color: #FF0000; /* Default color */
+  color: #FF0000 !important; /* Default color */
   /* font-size: 24px; */
   transition: transform 0.3s ease, color 0.3s ease;
   display: block; /* Allow transform to work */
@@ -120,6 +120,9 @@ table td a {
   transition: all 0.3s ease;
   display: inline-block;
 }
+.dark-theme .checkmark{
+  background-color: rgb(96, 96, 96);
+}
 
 .fancy-checkbox:hover .checkmark {
   background-color: #cfcfcf;
@@ -147,41 +150,54 @@ table td a {
 }
 
 
-/* css for tags - starting */
-.tags-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+
+
+/* dark theme */
+
+/* DSASheet.css */
+
+.dark-theme .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05); /* Slightly darker background for striped rows */
 }
 
-.tag-pill {
-  display: inline-block;
-  padding: 0.2rem 0.5rem;
-  background-color: #f1f1f1;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  color: #555;
-  border: 1px solid #ddd;
-  transition: all 0.3s ease;
-  font-size: 0.7rem;
+.dark-theme .form-control,
+.dark-theme .form-select {
+  background-color: #3b3f45; /* Darker background for form elements */
+  border-color: #555; /* Darker border color */
+  color: #e0e0e0;
 }
 
-.tag-pill:hover {
-  background-color: #ddd;
-  color: #333;
-  cursor: pointer;
+.dark-theme .input-group-text{
+  background-color: #3b3f45;
+  border-color: #555;
+  color: #e0e0e0;
 }
 
-.tags-toggle-icon {
-  cursor: pointer;
-  font-size: 14px;
-  color: #d9481c;
-  margin-left: 5px;
-  transition: transform 0.2s ease-in-out;
+.dark-theme .btn-dark{
+  background-color: #3b3f45;
+  border-color: #555;
+  color: #e0e0e0;
 }
 
-.tags-toggle-icon:hover {
-  color: #d9481c;
-  transform: scale(1.1);
+.dark-theme .btn-outline-secondary.btn-dark {
+  color: #e0e0e0; /* White text for contrast */
+  border-color: #555; /* Slightly lighter border */
 }
-/* css for tags - end */
+
+.dark-theme .btn-outline-secondary.btn-dark:hover {
+  background-color: #444; /* Darker background on hover */
+  border-color: #666; /* Slightly darker border on hover */
+}
+
+.dark-theme .progress {
+  background-color: #444; /* Darker progress bar background */
+}
+
+.dark-theme a {
+  color: #61dafb; 
+}
+
+.dark-theme a:hover {
+  color: #2196f3; /* Example hover link color */
+}
+

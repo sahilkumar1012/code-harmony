@@ -172,7 +172,7 @@ const MentorCard = ({ mentor }) => {
   );
 };
 
-const MentorshipPage = () => {
+const MentorshipPage = ({theme}) => {
   const [filter, setFilter] = useState("");
 
   const filteredMentors = mentors.filter((mentor) =>
@@ -180,9 +180,9 @@ const MentorshipPage = () => {
   );
 
   return (
-    <div className="container mt-5 position-relative">
+    <div className={`container mt-5 position-relative ${theme === 'dark' ? 'dark bg-black' : ''} `}>
       {/* Header Section */}
-      <div className="mb-4 text-center">
+      <div className={`mb-4 text-center ${theme ==='dark' ? 'text-light' : ''}`}>
         <h1 className="mb-3">Mentorship</h1>
         <p>
           Connect with experienced mentors from top tech companies to accelerate your career.
@@ -193,7 +193,8 @@ const MentorshipPage = () => {
       {/* Filter Dropdown */}
       <div className="d-flex justify-content-center mb-4">
         <select
-          className="form-select w-50"
+          className={`form-select w-25 ${theme === 'dark' ? 'bg-dark text-light' : ''}`}
+          style={{borderColor:'#555'}}
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
@@ -208,7 +209,7 @@ const MentorshipPage = () => {
       {/* Mentor Cards */}
       <div className="row">
         {filteredMentors.map((mentor, index) => (
-          <MentorCard mentor={mentor} key={index} />
+          <MentorCard mentor={mentor} key={index} theme={theme} /> // Pass theme to MentorCard
         ))}
       </div>
       

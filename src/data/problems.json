@@ -280,7 +280,7 @@
 
     {
       "leetcodeId": "1233",
-      "title": "Remvoe Sub-Folders from the Filesystem",
+      "title": "Remove Sub-Folders from the Filesystem",
       "link": "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/",
       "difficulty": "Medium",
       "youtubeLink": "",
@@ -305,6 +305,16 @@
       "youtubeLink": "",
       "topics": ["Recursion"]          
     },
+
+
+    {
+      "leetcodeId": "78",
+      "title": "Subsets",
+      "link": "https://leetcode.com/problems/subsets/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Recursion", "Backtracking"]
+    },
     {
       "leetcodeId": "1239",
       "title": "Maximum Length of a Concatenated String with Unique Characters",
@@ -314,6 +324,14 @@
       "topics": ["Recursion", "Backtracking"]          
     },
     {
+      "leetcodeId": "77",
+      "title": "Combinations",
+      "link": "https://leetcode.com/problems/combinations/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Recursion", "Backtracking"]
+    },
+    {
       "leetcodeId": "473",
       "title": "Matchsticks to Square",
       "link": "https://leetcode.com/problems/matchsticks-to-square/",
@@ -321,6 +339,49 @@
       "youtubeLink": "https://youtu.be/fse9Krsi80A",
       "topics": ["Recursion", "Backtracking"]          
     },
+    {
+      "leetcodeId": "46",
+      "title": "Permutations",
+      "link": "https://leetcode.com/problems/permutations/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Recursion", "Backtracking"]
+    },
+    {
+      "leetcodeId": "47",
+      "title": "Permutations II",
+      "link": "https://leetcode.com/problems/permutations-ii/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Recursion", "Backtracking"]
+    },
+    {
+      "leetcodeId": "1079",
+      "title": "Letter Tile Possibilities",
+      "link": "https://leetcode.com/problems/letter-tile-possibilities/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/-tvgS6dLgFE",
+      "topics": ["Recursion", "Backtracking"],
+      "tags":["Hash Table", "Backtracking"]
+    },
+    {
+      "leetcodeId": "1718",
+      "title": "Construct the Lexicographically Largest Valid Sequence",
+      "link": "https://leetcode.com/problems/construct-the-lexicographically-largest-valid-sequence/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/UcKuSSrE33k",
+      "topics": ["Recursion", "Backtracking"]
+    },
+    {
+      "leetcodeId": "1415",
+      "title": "The k-th Lexicographical String of All Happy Strings of Length N",
+      "link": "https://leetcode.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/-zjPucyQFVk",
+      "topics": ["Recursion", "Backtracking"]
+    },
+
+
 
     {
       "leetcodeId": "2415",

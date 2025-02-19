@@ -7,6 +7,15 @@
   text-align: center;
   position: relative;
 }
+.reviews-panel-container-dark {
+  background-color: #111;
+  padding: 50px 20px;
+  text-align: center;
+  position: relative;
+}
+.reviews-panel-container-dark > h2{
+  color: white;
+}
 
 .reviews-title {
   font-size: 2rem;
@@ -50,6 +59,18 @@
   cursor: pointer;
   text-align: center;
 }
+.review-card.dark{
+  background-color: #333;
+  color: white !important;
+}
+.review-card.dark > p{
+  color:rgb(194, 194, 194);
+  /* color: whitesmoke */
+}
+.review-card.dark > h5{
+  color:white;
+}
+
 
 .review-card:hover {
   transform: scale(1.05);
@@ -90,6 +111,10 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   z-index: 10;
+}
+.arrow.dark{
+  color:white;
+  background-color: rgba(51, 50, 50, 0.444);
 }
 
 .arrow.left {

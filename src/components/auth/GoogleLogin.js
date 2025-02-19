@@ -11,7 +11,7 @@ async function checkIfNewUser(db, userId) {
   return !userInfo.exists();
 }
 
-function GoogleLogin({ onLogin }) {
+function GoogleLogin({ onLogin , theme}) {
   const handleLogin = async () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
@@ -42,15 +42,22 @@ function GoogleLogin({ onLogin }) {
     }
   };
 
+  const containerClass = `google-login-container ${theme === 'dark' ? 'dark-theme' : ''}`;
+  const cardClass = `google-login-card ${theme === 'dark' ? 'dark-theme-card' : ''}`;
+  const titleClass = `google-login-title ${theme === 'dark' ? 'dark-theme-title' : ''}`;
+  const descriptionClass = `google-login-desc ${theme === 'dark' ? 'dark-theme-description' : ''}`;
+  const buttonClass = `google-login-btn ${theme === 'dark' ? 'dark-theme-button' : ''}`;
+  const iconClass = `google-icon ${theme === 'dark' ? 'dark-theme-icon' : ''}`;
+
   return (
-    <div className="google-login-container">
-      <div className="google-login-card">
-        <h2 className="google-login-title">Welcome!</h2>
-        <p className="google-login-desc">
+    <div className={containerClass}>
+      <div className={cardClass}>
+        <h2 className={titleClass}>Welcome!</h2>
+        <p className={descriptionClass}>
           Sign in to start tracking your progress, saving your work, and unlocking personalized features.
         </p>
-        <button className="google-login-btn" onClick={handleLogin}>
-          <FaGoogle className="google-icon" /> Login with Google
+        <button className={buttonClass} onClick={handleLogin}>
+          <FaGoogle className={iconClass} /> Login with Google
         </button>
       </div>
     </div>

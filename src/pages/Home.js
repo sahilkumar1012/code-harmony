@@ -6,7 +6,7 @@ import './Home.css'; // Ensure you have a CSS file for custom styling
 import BannerLite from './BannerLite';
 import ReviewsPanel from './ReviewsPanel';
 
-const Home = () => {
+const Home = ({theme}) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -15,10 +15,10 @@ const Home = () => {
 
   return (
     <div className={`home-container ${isLoaded ? 'fade-in' : ''}`}>
-      <BannerLite />
-      <Services />
-      <Videos />
-      <ReviewsPanel />
+      <BannerLite theme={theme} />
+      <Services theme={theme}/>
+      <Videos theme={theme} />
+      <ReviewsPanel theme={theme} />
     </div>
   );
 };
