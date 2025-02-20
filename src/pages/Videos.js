@@ -125,7 +125,7 @@ const videoItemStyleDark = {
   position: 'relative',
   overflow: 'hidden',
   borderRadius: '10px',
-  backgroundColor: 'black',
+  backgroundColor: '#111',
   color:'white',
   boxShadow: '2px 6px 10px rgba(229, 226, 226, 0.253)',
   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
