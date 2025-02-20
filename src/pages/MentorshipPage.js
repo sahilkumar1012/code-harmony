@@ -192,7 +192,7 @@ const MentorshipPage = ({theme}) => {
 
       {/* Filter Dropdown */}
       <div className="align-items-center mb-4 col-12">
-        <div className="col-md-8 col-lg-6 col-10 m-auto">
+        <div className="col-md-6 col-lg-4 col-xl-4 col-8 m-auto">
           <select
             className={`form-select ${theme === 'dark' ? 'bg-dark text-light' : ''}`}
             style={{borderColor:'#555'}}
