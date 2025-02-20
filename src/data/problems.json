@@ -356,6 +356,15 @@
       "topics": ["Recursion", "Backtracking"]
     },
     {
+      "leetcodeId": "1980",
+      "title": "Find Unique Binary String",
+      "link": "https://leetcode.com/problems/find-unique-binary-string/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/k67gf1rN4TI",
+      "topics": ["Recursion", "Backtracking"],
+      "tags":["Hash Table", "Backtracking"]
+    },
+    {
       "leetcodeId": "1079",
       "title": "Letter Tile Possibilities",
       "link": "https://leetcode.com/problems/letter-tile-possibilities/",
