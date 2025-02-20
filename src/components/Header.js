@@ -33,7 +33,9 @@ const Header = ({ theme, toggleTheme }) => {
 
         {/* Theme Toggle Button - Now always visible */}
         <button className="theme-toggle-btn d-lg-none d-xl-none" onClick={toggleTheme} style={{ paddingRight: '1rem', marginLeft: 'auto', border: 'none', background: 'transparent' }}>
-          {theme === 'dark' ? <FaSun size={20} /> : <FaMoon size={20} />}
+          <div className='theme-toggle-icon m-auto'>
+            {theme === 'dark' ? <FaSun size={24} /> : <FaMoon size={24} />}
+          </div>
         </button>
 
         {/* Toggle Button for Small Screens */}
@@ -58,7 +60,7 @@ const Header = ({ theme, toggleTheme }) => {
             {/* Theme Toggle Button */}
             <li className="nav-item d-none d-lg-block d-xl-block">
               <button className="theme-toggle-btn" onClick={toggleTheme}>
-                {theme === 'dark' ? <FaSun size={20} /> : <FaMoon size={20} />}
+                {theme === 'dark' ? <FaSun size={24} /> : <FaMoon size={24} />}
               </button>
             </li>
 

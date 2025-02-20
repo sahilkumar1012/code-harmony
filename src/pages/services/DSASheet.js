@@ -209,7 +209,7 @@ const DSASheet = ({theme}) => {
   );
 
   return (
-    <div className={`container-fluid mt-5 ${theme === 'dark' ? 'dark-theme' : ''}`}>
+    <div className={`container-fluid col-lg-10 mt-5 ${theme === 'dark' ? 'dark-theme' : ''}`}>
       <div className="d-flex flex-wrap justify-content-center flex-column mb-1 align-items-center">
         
         <h1 className={`text-center mb-4 ${theme==='dark' ? 'text-white' : 'table-black' }`}>DSA Essentials Sheet</h1>
