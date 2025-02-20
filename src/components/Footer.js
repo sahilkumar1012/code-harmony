@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaLinkedin, FaYoutube, FaDiscord, FaInstagram, FaWhatsapp, FaTelegramPlane } from 'react-icons/fa'; // Import Instagram icon
+import { FaLinkedin, FaYoutube, FaDiscord, FaInstagram, FaWhatsapp, FaTelegramPlane, FaLinkedinIn } from 'react-icons/fa'; // Import Instagram icon
 import "./Footer.css";
 import { FaXTwitter } from 'react-icons/fa6';
 import {whatsappLink} from './WhatsAppButton';
@@ -51,7 +51,7 @@ const Footer = ({theme}) => {
           className="icon"
           style={{ ...iconStyle, color: '#0077B5' }}
         >
-          <FaLinkedin />
+          <FaLinkedinIn />
         </a>
 
         {/* Twitter Icon */}
@@ -99,7 +99,7 @@ const Footer = ({theme}) => {
         </a>
 
         {/* WhatsApp Icon */}
-        <a
+        {/* <a
           href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
@@ -107,7 +107,7 @@ const Footer = ({theme}) => {
           style={{ ...iconStyle,  color:'#25d366'}}
         >
           <FaWhatsapp />
-        </a>
+        </a> */}
 
         {/* Telegram Icon */}
         <a
