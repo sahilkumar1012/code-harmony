@@ -92,3 +92,14 @@
     background-color: black;
     color: white;
   }
+
+/* Floating WhatsApp icon on the right bottom */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #25d366;
+  font-size: 35px;
+  transition: transform 0.3s ease;
+}
+

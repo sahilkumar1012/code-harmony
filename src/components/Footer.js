@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FaLinkedin, FaYoutube, FaDiscord, FaInstagram } from 'react-icons/fa'; // Import Instagram icon
+import { FaLinkedin, FaYoutube, FaDiscord, FaInstagram, FaWhatsapp, FaTelegramPlane } from 'react-icons/fa'; // Import Instagram icon
 import "./Footer.css";
 import { FaXTwitter } from 'react-icons/fa6';
+import {whatsappLink} from './WhatsAppButton';
 
 
 // Custom Tooltip Component
@@ -92,10 +93,33 @@ const Footer = ({theme}) => {
           target="_blank"
           className="icon"
           rel="noopener noreferrer"
-          style={{ ...iconStyle, ...instagramStyle }}
+          style={{ ...iconStyle, color:'#E4405F' }}
         >
           <FaInstagram />
         </a>
+
+        {/* WhatsApp Icon */}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon"
+          style={{ ...iconStyle,  color:'#25d366'}}
+        >
+          <FaWhatsapp />
+        </a>
+
+        {/* Telegram Icon */}
+        <a
+          href="https://t.me/codeharmonydev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="icon"
+          style={{ ...iconStyle,  color:'#0088cc'}}
+        >
+          <FaTelegramPlane />
+        </a>        
+
       </div>
 
         {/* Modified Contact Us Button with Custom Tooltip */}
@@ -111,6 +135,12 @@ const Footer = ({theme}) => {
       </div>
       <br></br>
       <p style={theme === 'dark' ? footerTextStyleDark : footerTextStyle}>© 2025 Code Harmony. All rights reserved.</p>
+          
+      {/* Floating WhatsApp icon on right bottom - fixed  */}
+      <a href={whatsappLink} className={ `whatsapp-float icon`}>
+        <FaWhatsapp />
+      </a>
+
     </footer>
   );
 };
@@ -142,10 +172,6 @@ const iconStyle = {
   transition: 'transform 0.3s ease-in-out', // Smooth hover effect
 };
 
-const instagramStyle = {
-  color: '#E4405F',
-  borderRadius: '35%', // Rounded corners instead of a full circle
-};
 
 const contactContainerStyle = {
   marginTop: '1rem',
