@@ -43,6 +43,8 @@ const Footer = ({theme}) => {
   return (
     <footer style={footerStyle} className={ theme == 'dark' ? 'footer-dark' : 'footer-light'}>
       <div style={iconContainerStyle}>
+
+
         {/* LinkedIn Icon */}
         <a
           href="https://www.linkedin.com/company/codeharmonydev/"
