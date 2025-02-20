@@ -191,19 +191,21 @@ const MentorshipPage = ({theme}) => {
 
 
       {/* Filter Dropdown */}
-      <div className="d-flex justify-content-center mb-4">
-        <select
-          className={`form-select w-25 ${theme === 'dark' ? 'bg-dark text-light' : ''}`}
-          style={{borderColor:'#555'}}
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-        >
-          <option value="">All Expertise</option>
-          <option value="Frontend">Frontend</option>
-          <option value="Backend">Backend</option>
-          <option value="DSA">DSA</option>
-          <option value="System Design">System Design</option>
-        </select>
+      <div className="align-items-center mb-4 col-12">
+        <div className="col-md-8 col-lg-6 col-10 m-auto">
+          <select
+            className={`form-select ${theme === 'dark' ? 'bg-dark text-light' : ''}`}
+            style={{borderColor:'#555'}}
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          >
+            <option value="">All Expertise</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="DSA">DSA</option>
+            <option value="System Design">System Design</option>
+          </select>
+        </div>
       </div>
 
       {/* Mentor Cards */}
