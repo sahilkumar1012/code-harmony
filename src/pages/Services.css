@@ -57,7 +57,7 @@
 }
 
 .card-dark {
-  /* background-color: #111; */
+  background-color: #111;
   color: #fff;
   box-shadow: 2px 6px 10px rgba(229, 226, 226, 0.253);
 }
