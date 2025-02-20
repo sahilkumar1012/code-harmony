@@ -14,6 +14,7 @@ import DSASheet from './pages/services/DSASheet';
 import OnboardMentorForm from './mentorship/OnboardMentorForm';
 import MentorOnboardingRequests from './mentorship/MentorOnboardingRequests';
 import './App.css';
+import DSA from './pages/DSA';
 
 function AppContent() {
   const location = useLocation();
@@ -50,6 +51,8 @@ function AppContent() {
           <Route path="/login" element={
             user ? <Home /> : <GoogleLogin onLogin={login} theme={theme}/>
           } />
+
+          <Route path="/dsa" element={<DSA />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
