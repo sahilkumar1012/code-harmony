@@ -4,10 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Videos = ({theme}) => {
   const navigate = useNavigate();
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseEnter = () => setHovered(true);
-  const handleMouseLeave = () => setHovered(false);
 
   const videos = [
     { id: "l8DxsxO9q7g", title: "Start your LeetCode Journey!" },
@@ -37,12 +33,8 @@ const Videos = ({theme}) => {
           rel="noopener noreferrer"
           style={{
             ...buttonStyle,
-            backgroundColor: hovered ? '#FF0000' : '#E60000', // Hover effect on color
-            transform: hovered ? 'scale(1.05)' : 'scale(1)', // Scale effect on hover
           }}
-          className="visitYoutubeButton"
-          onMouseEnter={handleMouseEnter} // Handle hover
-          onMouseLeave={handleMouseLeave} // Handle hover
+          className={`visitYoutubeButton ${theme} ? ${theme} : ''`}
         >
           Visit Our YouTube Channel
         </a>
@@ -101,7 +93,7 @@ const videoDescriptionStyle = {
 
 const buttonStyle = {
   margin: '1rem auto',
-  padding: '0.75rem 1.5rem',
+  padding: '0.8rem 2rem',
   fontSize: '1rem',
   color: '#fff',
   border: 'none',
@@ -110,7 +102,6 @@ const buttonStyle = {
   textDecoration: 'none',
   display: 'inline-block',
   fontWeight:'bold',
-  transition: 'background-color 0.3s ease, transform 0.2s ease', // Adding transition for background-color and scaling
 };
 
 const videoItemStyle = {

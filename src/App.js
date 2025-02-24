@@ -50,7 +50,7 @@ function AppContent() {
           <Route path="/login" element={
             user ? <Home /> : <GoogleLogin onLogin={login} theme={theme}/>
           } />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound theme={theme} />} />
         </Routes>
       </main>
 

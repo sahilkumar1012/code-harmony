@@ -30,3 +30,12 @@
   font-weight: bold;
   margin-bottom: 1rem;
 }
+
+.visitYoutubeButton{
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: #E60000;
+}
+.visitYoutubeButton:hover{
+  transform: scale(1.05);
+  background-color: #FF0000;
+}
