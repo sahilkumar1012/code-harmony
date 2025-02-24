@@ -59,9 +59,9 @@ table {
   border-collapse: collapse;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/* th, td {
-  border: 0.1px solid #e1e1e1aa;
-} */
+table{
+  box-shadow: 0 2px 4px rgba(169, 169, 169, 0.594);
+}
 
 
 .table-container {

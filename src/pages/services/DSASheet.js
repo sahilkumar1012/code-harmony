@@ -129,9 +129,9 @@ const DSASheet = ({theme}) => {
 
   const renderTable = (filteredProblems) => (
     <div className="table-container container-fluid">
-      <table className={`table table-striped ${theme==='dark' ? 'table-dark' : ''}`}>
+      <table className={`table table-hover table-striped ${theme==='dark' ? 'table-dark' : ''}`}>
         <thead>
-          <tr className="bg-black">
+          <tr>
             
           <th className="problem-id">
             {theme === 'dark' ? (
@@ -209,7 +209,7 @@ const DSASheet = ({theme}) => {
   );
 
   return (
-    <div className={`container-fluid col-lg-10 mt-5 ${theme === 'dark' ? 'dark-theme' : ''}`}>
+    <div className={`container-fluid col-sm-11 mt-5 ${theme === 'dark' ? 'dark-theme' : ''}`}>
       <div className="d-flex flex-wrap justify-content-center flex-column mb-1 align-items-center">
         
         <h1 className={`text-center mb-4 ${theme==='dark' ? 'text-white' : 'table-black' }`}>DSA Essentials Sheet</h1>
