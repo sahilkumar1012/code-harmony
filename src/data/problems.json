@@ -391,7 +391,24 @@
     },
 
 
-
+    {
+      "leetcodeId": "1261",
+      "title": "Find Elements in a Contaminated Binary Tree",
+      "link": "https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/rLRrNVsOZjc",
+      "topics": ["Tree"],
+      "tags": ["Design", "Tree Traversal", "Hash Table", "DFS", "BFS"]   
+    },
+    {
+      "leetcodeId": "173",
+      "title": "Binary Search Tree Iterator",
+      "link": "https://leetcode.com/problems/binary-search-tree-iterator/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Tree"],
+      "tags": ["Design", "Tree Traversal","Stack", "BFS"]   
+    },
     {
       "leetcodeId": "2415",
       "title": "Reverse Odd Levels of Binary Tree",
@@ -408,7 +425,22 @@
       "youtubeLink": "https://youtu.be/wVZAZ-NBqQI",
       "topics": ["Tree"]          
     },
-
+    {
+      "leetcodeId": "889",
+      "title": "Construct Binary Tree from Preorder and Postorder Traversal",
+      "link": "889. Construct Binary Tree from Preorder and Postorder Traversal",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/byGrM1ttHnU",
+      "topics": ["Tree"]          
+    },    
+    {
+      "leetcodeId": "2467",
+      "title": "Most Profitable Path in a Tree",
+      "link": "https://leetcode.com/problems/most-profitable-path-in-a-tree/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/ngTRBEr7z2g",
+      "topics": ["Tree"]          
+    },
 
 
     {
