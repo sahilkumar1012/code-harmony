@@ -34,13 +34,14 @@ const Videos = ({theme}) => {
           style={{
             ...buttonStyle,
           }}
-          className={`visitYoutubeButton ${theme} ? ${theme} : ''`}
+          className={`visitYoutubeButton ${theme}`}
         >
           Visit Our YouTube Channel
         </a>
+        <br></br>
 
         {/* Videos Grid */}
-        <div className="videos-container d-flex flex-wrap justify-content-center gap-4 pt-2" >
+        <div className="videos-container d-flex flex-wrap justify-content-center gap-4 pt-4" >
           {videos.map((video, index) => (
             <div key={index} className="video-item" style={ theme==='dark' ? videoItemStyleDark : videoItemStyle}>
               <iframe
