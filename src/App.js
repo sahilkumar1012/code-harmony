@@ -52,7 +52,7 @@ function AppContent() {
             user ? <Home /> : <GoogleLogin onLogin={login} theme={theme}/>
           } />
 
-          <Route path="/dsa" element={<DSA />} />
+          <Route path="/dsa" element={<DSA theme={theme}/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
