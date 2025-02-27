@@ -1,0 +1,186 @@
+[
+  {
+    "id": "1",
+    "title": "Array",
+    "subtopics": [
+      {
+        "id": "1.1",
+        "title": "Algorithms",
+        "subtopics": [
+          { "id": "1.1.1", "title": "Kadane’s Algorithm" },
+          { "id": "1.1.2", "title": "Moore’s Voting Algorithm" },
+          { "id": "1.1.3", "title": "Dutch National Flag Algorithm" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Binary Search",
+    "subtopics": [
+      { "id": "2.1", "title": "Vanilla Binary Search" },
+      { "id": "2.2", "title": "Binary Search on Answer Space" }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Two Pointers",
+    "subtopics": [
+      { "id": "3.1", "title": "Sliding Window" },
+      { "id": "3.2", "title": "Fixed Size Sliding Window" },
+      { "id": "3.3", "title": "Variable Size Sliding Window" }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Prefix Sum",
+    "subtopics": [
+      { "id": "4.1", "title": "Prefix Sum Array" },
+      { "id": "4.2", "title": "2D Prefix Sum" }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Sorting",
+    "subtopics": [
+      { "id": "5.1", "title": "Bubble Sort" },
+      { "id": "5.2", "title": "Selection Sort" },
+      { "id": "5.3", "title": "Insertion Sort" },
+      { "id": "5.4", "title": "Merge Sort (Divide & Conquer)" },
+      { "id": "5.5", "title": "Quick Sort (Divide & Conquer)" }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Mathematical Algorithms",
+    "subtopics": [
+      { "id": "6.1", "title": "Euclidean Algorithm" },
+      { "id": "6.2", "title": "Sieve of Eratosthenes" }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Stack",
+    "subtopics": [
+      { "id": "7.1", "title": "Basic Stack Operations" },
+      { "id": "7.2", "title": "Monotonic Stack" }
+    ]
+  },
+  {
+    "id": "8",
+    "title": "Queue",
+    "subtopics": [
+      { "id": "8.1", "title": "Basic Queue Operations" },
+      { "id": "8.2", "title": "Applications of Queue" },
+      { "id": "8.3", "title": "Monotonic Queue" }
+    ]
+  },
+  {
+    "id": "9",
+    "title": "Linked List",
+    "subtopics": [
+      {
+        "id": "9.1",
+        "title": "Basic Operations",
+        "subtopics": [
+          {
+            "id": "9.2",
+            "title": "Linked List Cycle",
+            "subtopics": [
+              { "id": "9.2.1", "title": "Floyd’s Cycle Finding Algorithm" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "title": "Hash Table",
+    "subtopics": [
+      { "id": "10.1", "title": "Basics of Hash Table" },
+      { "id": "10.2", "title": "HashMap & HashSet" }
+    ]
+  },
+  {
+    "id": "11",
+    "title": "String",
+    "subtopics": [
+      { "id": "11.1", "title": "String Manipulation" },
+      {
+        "id": "11.2",
+        "title": "Pattern Matching",
+        "subtopics": [
+          { "id": "11.2.1", "title": "Naive String Matching" },
+          { "id": "11.2.2", "title": "Knuth-Morris-Pratt (KMP) Algorithm" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "title": "Graph",
+    "subtopics": [
+      { "id": "12.1", "title": "Graph Representation" },
+      { "id": "12.2", "title": "Graph Traversal" },
+      {
+        "id": "12.3",
+        "title": "Shortest Path Algorithms",
+        "subtopics": [
+          { "id": "12.3.1", "title": "Dijkstra’s Algorithm" },
+          { "id": "12.3.2", "title": "Floyd-Warshall Algorithm" },
+          {
+            "id": "12.3.3",
+            "title": "Bellman-Ford Algorithm (Handles negative weights)"
+          }
+        ]
+      },
+      { "id": "12.4", "title": "Disjoint Set Union (Union-Find)" },
+      { "id": "12.5", "title": "Cycle Detection in Graphs" },
+      {
+        "id": "12.6",
+        "title": "DAG - Directed Acyclic Graph",
+        "subtopics": [
+          { "id": "12.6.1", "title": "Topological Sorting" },
+          { "id": "12.6.2", "title": "Graph Coloring" },
+          { "id": "12.6.3", "title": "Bipartite Graph" }
+        ]
+      },
+      {
+        "id": "12.7",
+        "title": "Eulerian & Hamiltonian Paths",
+        "subtopics": [
+          {
+            "id": "12.7.1",
+            "title": "Eulerian Path & Circuit (All edges exactly once)"
+          },
+          {
+            "id": "12.7.2",
+            "title": "Hamiltonian Path & Circuit (All vertices exactly once)"
+          }
+        ]
+      },
+      {
+        "id": "12.8",
+        "title": "Minimum Spanning Tree (MST)",
+        "subtopics": [
+          { "id": "12.8.1", "title": "Prim’s Algorithm" },
+          { "id": "12.8.2", "title": "Kruskal’s Algorithm" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "title": "Dynamic Programming",
+    "subtopics": [
+      { "id": "13.1", "title": "Basics of DP" },
+      { "id": "13.2", "title": "Fibonacci" },
+      { "id": "13.3", "title": "DP on Grids" },
+      { "id": "13.4", "title": "DP on Strings" },
+      { "id": "13.5", "title": "DP on Subsequences" },
+      { "id": "13.6", "title": "Knapsack" }
+    ]
+  }
+]
+  

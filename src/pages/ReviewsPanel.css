@@ -60,7 +60,7 @@
   text-align: center;
 }
 .review-card.dark{
-  background-color: #333;
+  background-color: #333 !important;
   color: white !important;
 }
 .review-card.dark > p{
