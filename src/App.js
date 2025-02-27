@@ -53,7 +53,7 @@ function AppContent() {
           } />
 
           <Route path="/dsa" element={<DSA theme={theme}/>} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound theme={theme} />} />
         </Routes>
       </main>
 
