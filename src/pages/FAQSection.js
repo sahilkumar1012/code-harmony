@@ -10,12 +10,7 @@ const faqs = [
   {
     question: "What should be the duration of my long-term mentorship?",
     answer:
-      "The ideal duration depends on your goals, but most mentorships last from 6 months to a year.",
-  },
-  {
-    question: "How many sessions can I have with the mentor?",
-    answer:
-      "Session frequency varies, but typically, you can schedule weekly or bi-weekly sessions.",
+      "The ideal duration depends on your goals, but most mentorships last from 3 to 6 months.",
   },
   {
     question: "When is the right time to take long-term mentorship?",
@@ -23,7 +18,7 @@ const faqs = [
       "The right time is when you seek structured guidance for career, business, or personal development.",
   },
   {
-    question: "Do you provide any student discount on the long-term mentorship plan?",
+    question: "Do you provide any student discount on the mentorship plan?",
     answer: "Yes, we offer special discounts for students. Contact us for details.",
   },
 ];
@@ -41,7 +36,7 @@ const FAQSection = ({ theme = "light" }) => {
       <div className="faq-box">
         <h2 className="faq-title">Frequently Asked Questions</h2>
         <p className="faq-subtitle">
-          Find answers to commonly asked questions about Long-Term Mentorship.
+          Find answers to commonly asked questions about Mentorship.
         </p>
         <div className="faq-list">
           {faqs.map((faq, index) => {
