@@ -100,6 +100,24 @@
       "youtubeLink": "https://www.youtube.com/shorts/gU3RVu5RWQI",
       "topics": ["Array", "Two Pointers"]      
     },
+
+
+    {
+      "leetcodeId": "1838",
+      "title": "Frequency of the Most Frequent Element",
+      "link": "https://leetcode.com/problems/frequency-of-the-most-frequent-element/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/ddB7V8HU6cE",
+      "topics": ["Array", "Sliding Window"]
+    },    
+    {
+      "leetcodeId": "1358",
+      "title": "Number of Substrings Containing All Three Characters",
+      "link": "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/",
+      "difficulty": "Medium",
+      "youtubeLink": "https://youtu.be/DAVhYDAKCRc",
+      "topics": ["Array", "Sliding Window"]
+    },            
     {
       "leetcodeId": "2762",
       "title": "Continuous Subarrays",
