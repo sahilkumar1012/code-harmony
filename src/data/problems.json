@@ -204,7 +204,16 @@
       "link": "https://leetcode.com/problems/reverse-linked-list/",
       "difficulty": "Easy",
       "youtubeLink": "",
-      "topics": ["Linked List"]
+      "topics": ["Linked List", "Recursion"]
+    },
+    {
+      "leetcodeId": "19",
+      "title": "Remove Nth Node From End of List",
+      "link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+      "difficulty": "Medium",
+      "youtubeLink": "",
+      "topics": ["Linked List"],
+      "tags": ["Linked List", "Sliding Window", "Two Pointers"]
     },
     {
       "leetcodeId": "141",
@@ -222,8 +231,17 @@
       "difficulty": "Medium",
       "youtubeLink": "",
       "topics": ["Linked List"],
-      "tags": ["Linked List", "Two Pointers", "Hash Table"]
+      "tags": ["Linked List", "Two Pointers", "Hash Table", "Floyd's Cycle Finding Algorithm"]
     },
+    {
+      "leetcodeId": "23",
+      "title": "Merge k Sorted Lists",
+      "link": "23. Merge k Sorted Lists",
+      "difficulty": "Hard",
+      "youtubeLink": "",
+      "topics": ["Linked List"],
+      "tags": ["Linked List", "Heap"]
+    },    
 
 
 
