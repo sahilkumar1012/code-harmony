@@ -414,14 +414,13 @@ const DSASheet = ({theme}) => {
             </div>
           </div>
           {/* Leaderboard Button */}
-          <div className="text-center col-auto mb-4 ms-auto ms-auto">
-            <Button
-              variant="danger"
+          <div className="text-center col-auto mb-3">
+            <a
               className="leaderboard-btn"
               onClick={() => setShowLeaderboard(true)}
             >
-              <FaTrophy className="me-2" />Leaderboard 
-            </Button>
+               🏆
+            </a>
           </div>
         </div>
 

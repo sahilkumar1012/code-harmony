@@ -267,16 +267,20 @@ table td a {
 
 /* Leaderboard Button */
 .leaderboard-btn {
-  font-size: 1.2rem;
-  padding: 10px 15px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  /* background-color: #d9481c ; */
   display: flex;
   align-items: center;
   border-radius: 8px;
+  border: none;
   transition: all 0.3s ease-in-out;
 }
 
 .leaderboard-btn:hover {
   transform: scale(1.1);
+  /* background-color: #d9481c; */
 }
 
 /* Disclaimer Note */
@@ -320,8 +324,8 @@ table td a {
 
 /* Hover effect */
 .leaderboard-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 2px 2px rgba(255, 255, 255, 0.2);
+  /* transform: scale(1.05); */
+  /* box-shadow: 0px 2px 2px rgba(255, 255, 255, 0.2); */
 }
 
 /* Rank Number or Medal */
