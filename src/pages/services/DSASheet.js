@@ -339,14 +339,6 @@ const DSASheet = ({theme}) => {
               </Button>
             </div>
           )}
-
-
-          {/* <div className="text-center mt-3">
-            <Button variant="danger" className="close-btn" onClick={() => setShowLeaderboard(false)}>
-              <FaTimesCircle className="me-2" /> Close
-            </Button>
-          </div> */}
-
         </Modal.Body>
       </Modal>
       </div>
