@@ -267,19 +267,20 @@ const DSASheet = ({theme}) => {
 
         <div className="container-fluid">
           {/* Leaderboard Modal */}
-          <Modal show={showLeaderboard} onHide={() => setShowLeaderboard(false)} centered className="leaderboard-modal">
-            <Modal.Body className="bg-dark text-light p-4 rounded">
-              {/* Close Button at Top Right */}
-          <div className="close-icon" onClick={() => setShowLeaderboard(false)}>
-            <FaTimes />
-          </div>
+              <Modal show={showLeaderboard} onHide={() => setShowLeaderboard(false)} centered className="leaderboard-modal">
+                <Modal.Body className="leaderboard text-light p-4 rounded">
+                  {/* Close Button at Top Right */}
+              <div className="close-icon" onClick={() => setShowLeaderboard(false)}>
+                <FaTimes />
+              </div>
               <h3 className="text-center leaderboard-title">🏆 Leaderboard</h3>
               <p className="disclaimer text-center d-none">
                 ⚠️ Note: Submissions are **not verified** for correctness. This leaderboard only tracks the number of attempts.
               </p>
+
               <div className="leaderboard-container">
                 {leaderboardData.length === 0 ? (
-                  <p className="text-center no-data">No students have solved a problem yet! 🤷‍♂️</p>
+                  <p className="text-center text-white no-data">No students have solved a problem yet! 🤷‍♂️</p>
                 ) : (
                   displayedStudents.map((user, index) => {
                     const globalIndex = startIndex + index;
@@ -288,7 +289,7 @@ const DSASheet = ({theme}) => {
                         key={globalIndex}
                         className={`leaderboard-card`}
                         style={{
-                          background:"rgba(255, 255, 255, 0.1)",
+                          background:"#222",
                         }}
                       >
                         <span className="leaderboard-rank">
