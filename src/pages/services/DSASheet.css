@@ -367,7 +367,7 @@ table td a {
 }
 
 /* Top 3 Backgrounds */
-.top-1 {
+/* .top-1 {
   background: linear-gradient(135deg, gold, #ffcc00);
 }
 
@@ -377,7 +377,7 @@ table td a {
 
 .top-3 {
   background: linear-gradient(135deg, #cd7f32, #b87333);
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -402,5 +402,6 @@ table td a {
 @media (max-width: 768px) {
   .leaderboard-modal .modal-dialog {
     max-width: 80%;
+    
   }
 }

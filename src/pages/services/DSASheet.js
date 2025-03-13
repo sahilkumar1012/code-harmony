@@ -34,7 +34,6 @@ const DSASheet = ({theme}) => {
 
   // Medal icons for top 3
   const medalIcons = ["🥇", "🥈", "🥉"];
-  const medalColors = ["gold", "silver", "#cd7f32"]; // Colors for top 3 medals
   const studentsPerPage = 10; // Show 10 students per page
 
 
@@ -275,7 +274,7 @@ const DSASheet = ({theme}) => {
             <FaTimes />
           </div>
               <h3 className="text-center leaderboard-title">🏆 Leaderboard</h3>
-              <p className="disclaimer text-center">
+              <p className="disclaimer text-center d-none">
                 ⚠️ Note: Submissions are **not verified** for correctness. This leaderboard only tracks the number of attempts.
               </p>
               <div className="leaderboard-container">
@@ -287,9 +286,9 @@ const DSASheet = ({theme}) => {
                     return (
                       <div
                         key={globalIndex}
-                        className={`leaderboard-card ${globalIndex < 3 ? `top-${globalIndex + 1}` : ""}`}
+                        className={`leaderboard-card`}
                         style={{
-                          background: globalIndex < 3 ? medalColors[globalIndex] : "rgba(255, 255, 255, 0.1)",
+                          background:"rgba(255, 255, 255, 0.1)",
                         }}
                       >
                         <span className="leaderboard-rank">
