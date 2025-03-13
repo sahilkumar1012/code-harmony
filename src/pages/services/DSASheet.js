@@ -260,7 +260,7 @@ const DSASheet = ({theme}) => {
         
         <h1 className={`text-center mb-4 ${theme==='dark' ? 'text-white' : 'table-black' }`}>DSA Essentials Sheet</h1>
         <p className={`text-center col-10 col-md-8 ${theme==='dark' ? 'text-light' : 'table-muted' }`}>
-          This sheet is designed to help you strengthen your core DSA concepts while solving interview-friendly problems. 
+          This sheet is designed to help you strengthen your <a href="/dsa" class="text-decoration-none ">core DSA concepts</a> while solving interview-friendly problems. 
           These problems are frequently asked in top tech companies like <strong>Google, Amazon, Microsoft, and Meta</strong>, 
           ensuring you build a strong foundation in problem-solving to crack their technical interviews.
         </p>
