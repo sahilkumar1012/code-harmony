@@ -3,9 +3,11 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import { FaYoutube, FaSort } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove, collection, getDocs } from "firebase/firestore";
 import { FaSearch, FaTimes } from "react-icons/fa";
 
 import problemsData from '../../data/problems.json';
@@ -14,6 +16,8 @@ import { app } from '../../firebaseConfig';
 import './DSASheet.css';
 import RenderTags from "./RenderTags";
 import leetcodeLogo from "../../../src/assets/leetcode-icon.png";
+import { FaTrophy, FaTimesCircle, FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Trophy icon for leaderboard
+
 
 const DSASheet = ({theme}) => {
   const { user, storeRedirectUrl } = useUser();
@@ -27,6 +31,16 @@ const DSASheet = ({theme}) => {
 
   const db = getFirestore(app);
   const completedProblemsKey = "completedProblems";
+
+  // Medal icons for top 3
+  const medalIcons = ["🥇", "🥈", "🥉"];
+  const studentsPerPage = 10; // Show 10 students per page
+
+
+  // State for leaderboard modal visibility and data
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [leaderboardData, setLeaderboardData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchCompletedProblems = async () => {
@@ -65,6 +79,38 @@ const DSASheet = ({theme}) => {
       setCompletedProblemsSet((prevSet) => new Set(prevSet.add(problemId)));
     }
   };
+
+   // Fetch leaderboard data from Firebase
+  useEffect(() => {
+    const fetchLeaderboardData = async () => {
+      const usersRef = collection(db, "users"); // Reference to 'users' collection
+      const querySnapshot = await getDocs(usersRef); // Fetch all users
+      const leaderboard = [];
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        if (data.completedProblems && data.completedProblems.length > 0) { // Only add students who solved at least 1 problem
+        leaderboard.push({
+          name: data.name || "Anonymous", // Default name if missing
+          profilePic: data.profilePicture || "https://via.placeholder.com/50", // Default avatar if missing
+          completedProblems: data.completedProblems.length, // Count problems solved
+        });
+      }
+      });
+
+      leaderboard.sort((a, b) => b.completedProblems - a.completedProblems); // Sort by problems solved
+      setLeaderboardData(leaderboard);
+      setCurrentPage(1); // Reset to first page when opening
+    };
+
+    if (showLeaderboard) fetchLeaderboardData();
+  }, [showLeaderboard, db]);
+
+  // Paginate leaderboard
+  const totalPages = Math.ceil(leaderboardData.length / studentsPerPage);
+  const startIndex = (currentPage - 1) * studentsPerPage;
+  const endIndex = startIndex + studentsPerPage;
+  const displayedStudents = leaderboardData.slice(startIndex, endIndex);
 
   const getDifficultyClass = (difficulty) => {
     switch (difficulty) {
@@ -219,6 +265,85 @@ const DSASheet = ({theme}) => {
           ensuring you build a strong foundation in problem-solving to crack their technical interviews.
         </p>
 
+        <div className="container-fluid">
+          {/* Leaderboard Modal */}
+              <Modal show={showLeaderboard} onHide={() => setShowLeaderboard(false)} centered className="leaderboard-modal p-auto">
+                <Modal.Body className="leaderboard text-light p-4 rounded">
+                  {/* Close Button at Top Right */}
+              <div className="close-icon" onClick={() => setShowLeaderboard(false)}>
+                <FaTimes />
+              </div>
+              <h3 className="text-center leaderboard-title">🏆 Leaderboard</h3>
+              <p className="disclaimer text-center d-none">
+                ⚠️ Note: Submissions are **not verified** for correctness. This leaderboard only tracks the number of attempts.
+              </p>
+
+              <div className="leaderboard-container">
+                {leaderboardData.length === 0 ? (
+                  <p className="text-center text-white no-data">No students have solved a problem yet! 🤷‍♂️</p>
+                ) : (
+                  displayedStudents.map((user, index) => {
+                    const globalIndex = startIndex + index;
+                    return (
+                      <div
+                        key={globalIndex}
+                        className={`leaderboard-card`}
+                        style={{
+                          background:"#222",
+                        }}
+                      >
+                        <span className="leaderboard-rank">
+                          {globalIndex < 3 ? medalIcons[globalIndex] : `#${globalIndex + 1}`}
+                        </span>
+
+                      <img
+                        src={user.profilePic}
+                        alt="Profile"
+                        className="leaderboard-profile-pic"
+                        onError={(e) => (e.target.src = "https://via.placeholder.com/50")} // Handle broken images
+                      />
+
+                      <div className="leaderboard-info">
+                        <h5 className="leaderboard-name">{user.name}</h5>
+                        <p className="leaderboard-score">Problems Solved: {user.completedProblems}</p>
+                      </div>
+                    </div>
+                    );
+                  })
+                )}
+              </div>
+
+           {/* Pagination Controls */}
+           {totalPages > 1 && (
+            <div className="pagination-controls">
+              <Button
+                variant="outline-light"
+                className="pagination-btn"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage((prev) => prev - 1)}
+              >
+                <FaChevronLeft />
+              </Button>
+
+              <span className="pagination-text">
+                {currentPage} / {totalPages}
+              </span>
+
+              <Button
+                variant="outline-light"
+                className="pagination-btn"
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage((prev) => prev + 1)}
+              >
+                <FaChevronRight />
+              </Button>
+            </div>
+          )}
+        </Modal.Body>
+      </Modal>
+      </div>
+
+      
         {/* Progress Bar */}
         <div className="progress-container col-10 col-md-8 col-lg-6 mb-4">
           <div className="progress" style={{ height: "20px", borderRadius: "10px", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)" }}>
@@ -279,6 +404,15 @@ const DSASheet = ({theme}) => {
                 </button>
               )}
             </div>
+          </div>
+          {/* Leaderboard Button */}
+          <div className="text-center col-auto mb-3">
+            <a
+              className="leaderboard-btn"
+              onClick={() => setShowLeaderboard(true)}
+            >
+               🏆
+            </a>
           </div>
         </div>
 
