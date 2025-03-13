@@ -50,8 +50,8 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  background: #d9481c; 
-  color: white;
+  background: #d9481c !important; 
+  color: white !important;
 }
 .btn-codeharmony-dark {
   padding: 0.8rem 2rem;
@@ -61,15 +61,15 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  background: #d9481c;
-  color: white;
+  background: #d9481c !important;
+  color: white !important;
 }
 .btn-codeharmony:hover {
   transform: scale(1.1);
-  background-color: black;
+  background-color: black !important;
 }
 .btn-codeharmony-dark:hover {
   transform: scale(1.1);
-  background-color: white;
-  color: black;
+  background-color: white !important;
+  color: black !important;
 }
