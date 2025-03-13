@@ -267,7 +267,7 @@ const DSASheet = ({theme}) => {
 
         <div className="container-fluid">
           {/* Leaderboard Modal */}
-              <Modal show={showLeaderboard} onHide={() => setShowLeaderboard(false)} centered className="leaderboard-modal">
+              <Modal show={showLeaderboard} onHide={() => setShowLeaderboard(false)} centered className="leaderboard-modal p-auto">
                 <Modal.Body className="leaderboard text-light p-4 rounded">
                   {/* Close Button at Top Right */}
               <div className="close-icon" onClick={() => setShowLeaderboard(false)}>
