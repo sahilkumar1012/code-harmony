@@ -3,9 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import linkedinlogo from "../../src/assets/linkedinlogo.png";
 import topmatelogo from "../../src/assets/topmatelogo.png";
 import googleLogo from "../../src/assets/google.png"; // Company logos
+import googleLogoDark from "../../src/assets/google-dark.png"; // Dark theme logo
 import microsoftLogo from "../../src/assets/microsoft.png";
+import microsoftLogoDark from "../../src/assets/microsoft-dark.png";
 import amazonLogo from "../../src/assets/amazon.png";
-import adobeLogo from "../../src/assets/adobe.png";
+import amazonLogoDark from "../../src/assets/amazon-dark.png";
+import adobeLogo from "../../src/assets/adobe-dark.png";
+import adobeLogoDark from "../../src/assets/adobe-dark.png";
 
 import sahilPic from "../../src/assets/mentors/sahil.jpeg";
 import piyushGiriPic from "../../src/assets/mentors/piyushgiri.jpeg";
@@ -72,7 +76,7 @@ const mentors = [
   },
 ];
 
-const MentorCard = ({ mentor }) => {
+const MentorCard = ({ mentor, theme}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   React.useEffect(() => {
@@ -82,6 +86,17 @@ const MentorCard = ({ mentor }) => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Function to get logo based on the theme
+  const getCompanyLogo = (company) => {
+    const logoMap = {
+      Google: theme === "dark" ? googleLogoDark : googleLogo,
+      Microsoft: theme === "dark" ? microsoftLogoDark : microsoftLogo,
+      Amazon: theme === "dark" ? amazonLogoDark : amazonLogo,
+      Adobe: theme === "dark" ? adobeLogoDark : adobeLogo,
+    };
+    return logoMap[company.name] || company.logo;
+  };
+
   return (
     <div
       className="col-12 col-sm-6 col-lg-4 mb-4 d-flex justify-content-center"
@@ -89,7 +104,7 @@ const MentorCard = ({ mentor }) => {
         animation: isVisible ? "fadeInUp 0.8s ease-in-out forwards" : "none",
       }}
     >
-      <div className="card shadow-sm w-100" style={{ borderRadius: "10px" }}>
+      <div className={`card shadow-lg ${theme === 'dark' ? 'bg-dark text-light' : 'bg-white'} rounded-3`}>
         <img
           src={mentor.profilePicture}
           className="card-img-top"
@@ -102,13 +117,13 @@ const MentorCard = ({ mentor }) => {
             {mentor.companies.map((company, index) => (
               <img
                 key={index}
-                src={company.logo}
+                src={getCompanyLogo(company)}
                 alt={`${company.name} logo`}
                 style={{ width: "100px", height: "50px", objectFit: "contain" }}
               />
             ))}
           </div>
-          <p className="card-text text-muted">
+          <p className={`card-text ${theme ==='dark' ? 'text-light' : ''}`}>
             Expertise: {mentor.expertise.join(", ")}
           </p>
           <div className="d-flex flex-wrap justify-content-center gap-2">
