@@ -15,6 +15,7 @@ import OnboardMentorForm from './mentorship/OnboardMentorForm';
 import MentorOnboardingRequests from './mentorship/MentorOnboardingRequests';
 import './App.css';
 import DSA from './pages/DSA';
+import Admin from './components/Admin';
 
 function AppContent() {
   const location = useLocation();
@@ -53,6 +54,7 @@ function AppContent() {
           } />
 
           <Route path="/dsa" element={<DSA theme={theme}/>} />
+          <Route path="/admin" element={<Admin/>} />
           <Route path="*" element={<NotFound theme={theme} />} />
         </Routes>
       </main>
