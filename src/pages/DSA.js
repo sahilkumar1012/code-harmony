@@ -46,7 +46,6 @@ const TopicItem = ({ topic, eventKey, checkedState, setCheckedState }) => {
         [topic.id]: allChecked,
       }));
     }
-    // We run this effect whenever any child's state changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checkedState]);
 
@@ -116,32 +115,33 @@ const TopicItem = ({ topic, eventKey, checkedState, setCheckedState }) => {
 };
 
 // theme = "dark" , ""
-const DSAPage = ({theme}) => {
+const DSAPage = ({ theme }) => {
   // This state holds the checkbox checked status for each topic by id.
   const [checkedState, setCheckedState] = useState({});
 
   return (
-    <Container fluid className={` dsa-syllabus-container py-4 ${theme}`}>
-      
+    <Container fluid className={`dsa-syllabus-container py-4 ${theme}`}>
       <div>
-        <h1 className={`text-center mb-4 ${theme==='dark' ? 'text-light' : 'text-dark'}`}>
+        <h1 className={`text-center mb-4 ${theme === 'dark' ? 'text-light' : 'text-dark'}`}>
           📌 Data Structures & Algorithms (DSA) Syllabus
         </h1>
-        <p className={`text-center ${theme==='dark' ? 'text-light' : 'text-dark'}`}>
+        <p className={`text-center ${theme === 'dark' ? 'text-light' : 'text-dark'}`}>
           Master DSA with this structured syllabus. Explore section-wise topics.
         </p>
       </div>
+
       <div className="text-center mb-4 d-lg-none">
-        <Button 
-            className={`${theme==='dark' ? 'btn-codeharmony-dark' : 'btn-codeharmony'}`} 
-            href="/resources/DSA.pdf" 
-            download="CodeHarmony_DSA_Syllabus.pdf"
-            >
+        <Button
+          className={`${theme === 'dark' ? 'btn-codeharmony-dark' : 'btn-codeharmony'}`}
+          href="/resources/DSA.pdf"
+          download="CodeHarmony_DSA_Syllabus.pdf"
+        >
           📥 Download Syllabus PDF
         </Button>
       </div>
 
-      <Accordion defaultActiveKey="0" className='d-none'>
+      {/* Keep the accordion hidden if you’re only showing the PDF */}
+      <Accordion defaultActiveKey="0" className="d-none">
         {syllabusData.map((topic, index) => (
           <TopicItem
             key={topic.id}
@@ -153,16 +153,20 @@ const DSAPage = ({theme}) => {
         ))}
       </Accordion>
 
-        {/* view dsa syllabus pdf document */}
-      <div className={`view-dsa-syllabus-container d-none d-lg-block d-xl-block col-10 m-auto`}>
-        {/* <h3 className="mt-5 text-center">📖 View Syllabus PDF</h3> */}
-        <div className="embed-responsive embed-responsive-16by9 mt-3 ">
+      {/* View DSA syllabus PDF - responsive height */}
+      <div className="view-dsa-syllabus-container d-none d-lg-block d-xl-block col-10 m-auto">
+        <div className="embed-responsive embed-responsive-16by9 mt-3">
           <iframe
             className="embed-responsive-item w-100"
             src="/resources/DSA.pdf"
-            height="700px"
             title="DSA Syllabus"
-            style={{ border: 'none' }}
+            // Responsive: 80% of viewport height, with a sensible min/max
+            style={{
+              border: 'none',
+              height: '80vh',
+              minHeight: '480px',
+              maxHeight: '92vh',
+            }}
           ></iframe>
         </div>
       </div>
