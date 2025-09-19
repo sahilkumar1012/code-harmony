@@ -10,12 +10,27 @@ import amazonLogo from "../../src/assets/amazon.png";
 import amazonLogoDark from "../../src/assets/amazon-dark.png";
 import adobeLogo from "../../src/assets/adobe-dark.png";
 import adobeLogoDark from "../../src/assets/adobe-dark.png";
+import walmartLogo from "../../src/assets/walmart.jpeg";
+import walmartLogoDark from "../../src/assets/walmart.jpeg";
+import jpmcLogo from "../../src/assets/jpmc.jpeg";
+import jpmcLogoDark from "../../src/assets/jpmc.jpeg";
+import geLogo from "../../src/assets/ge.jpeg";
+import geLogoDark from "../../src/assets/ge.jpeg";
+import paypalLogo from "../../src/assets/paypal.png";
+import sdLogo from "../../src/assets/sd.png";
+import goldmanLogo from "../../src/assets/goldman.png";
+
+
+
 
 import sahilPic from "../../src/assets/mentors/sahil.jpeg";
 import piyushGiriPic from "../../src/assets/mentors/piyushgiri.jpeg";
 import mkvPic from "../../src/assets/mentors/mkv.jpeg";
 import chiragPic from "../../src/assets/mentors/chirag.jpeg";
 import manikyaPic from "../../src/assets/mentors/manikya.jpeg";
+import siddarthPic from "../../src/assets/mentors/siddarth.png";
+import asmaPic from "../../src/assets/mentors/asma.jpg";
+
 
 import "./MentorshipPage.css";
 
@@ -73,6 +88,30 @@ const mentors = [
     linkedIn: "https://www.linkedin.com/in/manikya-sabharwal/",
     topmate: "https://topmate.io/manikya",
     expertise: ["DSA"],
+  },
+  {
+    name: "Siddarth Pai",
+    profilePicture: siddarthPic,
+    companies: [
+      { name: "Walmart", logo: walmartLogo },
+      { name: "jpmc", logo: jpmcLogo },
+      { name: "ge", logo: geLogo },
+    ],
+    linkedIn: "https://www.linkedin.com/in/siddarthpaim/",
+    topmate: "https://www.linkedin.com/in/siddarthpaim/",
+    expertise: ["Product Management"],
+  },
+  {
+    name: "Asma Shaikh",
+    profilePicture: asmaPic,
+    companies: [
+      { name: "Goldman Sachs", logo: goldmanLogo },
+      { name: "Standard chartered", logo: sdLogo },
+      { name: "Paypal", logo: paypalLogo },
+    ],
+    linkedIn: "https://www.linkedin.com/in/asma-s-411137b1/",
+    topmate: "https://www.linkedin.com/in/asma-s-411137b1/",
+    expertise: ["Backend", "DSA"],
   },
 ];
 
