@@ -97,6 +97,8 @@ const mentors = [
       { name: "ge", logo: geLogo },
     ],
     linkedIn: "https://www.linkedin.com/in/siddarthpaim/",
+    topmate: "https://topmate.io/Siddarthpaim",
+
     expertise: ["Product Management"],
   },
   {
