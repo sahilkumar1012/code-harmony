@@ -10,8 +10,7 @@ import amazonLogo from "../../src/assets/amazon.png";
 import amazonLogoDark from "../../src/assets/amazon-dark.png";
 import adobeLogo from "../../src/assets/adobe-dark.png";
 import adobeLogoDark from "../../src/assets/adobe-dark.png";
-import walmartLogo from "../../src/assets/walmart.jpeg";
-import walmartLogoDark from "../../src/assets/walmart.jpeg";
+import walmartLogo from "../../src/assets/Walmart Logo.png";
 import jpmcLogo from "../../src/assets/jpmc.jpeg";
 import jpmcLogoDark from "../../src/assets/jpmc.jpeg";
 import geLogo from "../../src/assets/ge.jpeg";
@@ -98,7 +97,6 @@ const mentors = [
       { name: "ge", logo: geLogo },
     ],
     linkedIn: "https://www.linkedin.com/in/siddarthpaim/",
-    topmate: "https://www.linkedin.com/in/siddarthpaim/",
     expertise: ["Product Management"],
   },
   {
@@ -110,7 +108,6 @@ const mentors = [
       { name: "Paypal", logo: paypalLogo },
     ],
     linkedIn: "https://www.linkedin.com/in/asma-s-411137b1/",
-    topmate: "https://www.linkedin.com/in/asma-s-411137b1/",
     expertise: ["Backend", "DSA"],
   },
 ];
