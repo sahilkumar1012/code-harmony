@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FaBriefcase, FaEnvelope, FaGraduationCap, FaHeart, FaLinkedin, FaPaperPlane, FaPhone, FaRocket, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+import { arrayUnion, doc, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { app } from '../firebaseConfig';
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion, setDoc } from 'firebase/firestore';
 
 import './OnboardMentorForm.css';
 
@@ -19,7 +20,6 @@ const OnboardMentorForm = ({theme}) => {
     motivation: "", // Added motivation field
   });
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
   const db = getFirestore(app);
 
   const validateField = (name, value) => {
@@ -99,55 +99,94 @@ const OnboardMentorForm = ({theme}) => {
     setErrors({});
   };
 
-  return (
-    <div className="container bg-white">
-      <div className="row justify-content-center">
-        <div className="col-12 col-md-10 col-lg-8 p-4">
-          <h2 className="text-center mb-4">Become a Mentor at Code Harmony</h2>
-          <p className="text-center mb-4">
-            Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers. Share your expertise and help aspiring programmers grow!
-          </p>
-          <form onSubmit={handleSubmit} className="shadow p-4 rounded bg-light">
-            {Object.entries(formData).map(([key, value]) => (
-              <div className="mb-3" key={key}>
-                <label className="form-label">{key.charAt(0).toUpperCase() + key.slice(1)} {key=="mobile" ? " (Optional)" : ""}</label>
-                {key === "experience" || key === "expertise" || key === "motivation" ? (
-                  <textarea
-                    name={key}
-                    className={`form-control ${errors[key] ? "border border-danger" : ""}`}
-                    value={value}
-                    onChange={handleChange}
-                    rows="2" 
-                    placeholder={
-                      key === "experience" ? "e.g., 5+ years in Software Development, experience leading teams" :
-                      key === "expertise" ? "e.g., DSA, Backend Development, React, Node.js, Agile methodologies" :
-                      key === "motivation" ? "e.g., Passionate about sharing knowledge, helping others grow, and contributing to the community" : ""
-                    } 
-                  />
-                ) : (
-                  <input
-                    type={key === "email" ? "email" : key === "linkedIn" || key === "topmate" ? "url" : "text"}
-                    name={key}
-                    className={`form-control ${errors[key] ? "border border-danger" : ""}`}
-                    value={value}
-                    onChange={handleChange}
-                  />
-                )}
-                {errors[key] && <small className="text-danger">{errors[key]}</small>}
-              </div>
-            ))}
-            <br></br>
+  // Get field icon
+  const getFieldIcon = (fieldName) => {
+    const iconMap = {
+      name: <FaUser className="field-icon" />,
+      email: <FaEnvelope className="field-icon" />,
+      mobile: <FaPhone className="field-icon" />,
+      linkedIn: <FaLinkedin className="field-icon" />,
+      topmate: <FaGraduationCap className="field-icon" />,
+      experience: <FaBriefcase className="field-icon" />,
+      expertise: <FaRocket className="field-icon" />,
+      motivation: <FaHeart className="field-icon" />
+    };
+    return iconMap[fieldName] || <FaUser className="field-icon" />;
+  };
 
-            <div className="d-flex justify-content-between">
-              <button type="button" className="btn btn-secondary mentor-form-cancel-btn" onClick={() => navigate("/mentorship")}>
-                Cancel
-              </button>
-              <button type="submit" className="btn mentor-form-submit-btn">
-                Submit
-              </button>
+  return (
+    <div className={`mentor-form-page ${theme === 'dark' ? 'mentor-form-page-dark' : 'mentor-form-page-light'}`}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-10 col-lg-8">
+            {/* Enhanced Header */}
+            <div className="mentor-form-header text-center mb-5">
+              <div className="header-icon-container mb-3">
+                <FaGraduationCap className="header-icon" />
+              </div>
+              <h1 className={`mentor-form-title ${theme === 'dark' ? 'text-light' : 'text-dark'}`}>
+                Become a Mentor at Code Harmony
+              </h1>
+              <p className={`mentor-form-subtitle ${theme === 'dark' ? 'text-light' : 'text-muted'}`}>
+                Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers.
+                Share your expertise and help aspiring programmers grow!
+              </p>
             </div>
 
-          </form>
+            {/* Enhanced Form */}
+            <form onSubmit={handleSubmit} className={`mentor-form ${theme === 'dark' ? 'mentor-form-dark' : 'mentor-form-light'}`}>
+              {Object.entries(formData).map(([key, value]) => (
+                <div className="form-group" key={key}>
+                  <label className={`form-label ${theme === 'dark' ? 'text-light' : 'text-dark'}`}>
+                    {getFieldIcon(key)}
+                    {key.charAt(0).toUpperCase() + key.slice(1)}
+                    {key === "mobile" ? " (Optional)" : ""}
+                  </label>
+                  <div className="input-container">
+                    {key === "experience" || key === "expertise" || key === "motivation" ? (
+                      <textarea
+                        name={key}
+                        className={`form-control ${theme === 'dark' ? 'form-control-dark' : 'form-control-light'} ${errors[key] ? "error" : ""}`}
+                        value={value}
+                        onChange={handleChange}
+                        rows="3"
+                        placeholder={
+                          key === "experience" ? "e.g., 5+ years in Software Development, experience leading teams" :
+                          key === "expertise" ? "e.g., DSA, Backend Development, React, Node.js, Agile methodologies" :
+                          key === "motivation" ? "e.g., Passionate about sharing knowledge, helping others grow, and contributing to the community" : ""
+                        }
+                      />
+                    ) : (
+                      <input
+                        type={key === "email" ? "email" : key === "linkedIn" || key === "topmate" ? "url" : "text"}
+                        name={key}
+                        className={`form-control ${theme === 'dark' ? 'form-control-dark' : 'form-control-light'} ${errors[key] ? "error" : ""}`}
+                        value={value}
+                        onChange={handleChange}
+                      />
+                    )}
+                    {errors[key] && <div className="error-message">{errors[key]}</div>}
+                  </div>
+                </div>
+              ))}
+
+              {/* Enhanced Action Buttons */}
+              <div className="form-actions">
+                <button
+                  type="button"
+                  className="mentor-form-cancel-btn"
+                  onClick={() => navigate("/mentorship")}
+                >
+                  <FaRocket className="me-2" />
+                  Cancel
+                </button>
+                <button type="submit" className="mentor-form-submit-btn">
+                  <FaPaperPlane className="me-2" />
+                  Submit Application
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
