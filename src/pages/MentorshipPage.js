@@ -81,6 +81,7 @@ const mentors = [
     name: "Manikya Sabharwal",
     profilePicture: manikyaPic,
     companies: [
+      { name: "Google", logo: googleLogo },
       { name: "Microsoft", logo: microsoftLogo },
       { name: "Amazon", logo: amazonLogo },
     ],
