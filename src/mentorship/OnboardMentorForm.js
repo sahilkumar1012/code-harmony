@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { arrayUnion, doc, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { app } from '../firebaseConfig';
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion, setDoc } from 'firebase/firestore';
 
 import './OnboardMentorForm.css';
 
@@ -100,54 +100,120 @@ const OnboardMentorForm = ({theme}) => {
   };
 
   return (
-    <div className="container bg-white">
+    <div className="container-fluid" style={{
+      backgroundColor: theme === 'dark' ? '#000000' : '#ffffff',
+      minHeight: '100vh',
+      paddingTop: '2rem',
+      paddingBottom: '2rem'
+    }}>
       <div className="row justify-content-center">
-        <div className="col-12 col-md-10 col-lg-8 p-4">
-          <h2 className="text-center mb-4">Become a Mentor at Code Harmony</h2>
-          <p className="text-center mb-4">
-            Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers. Share your expertise and help aspiring programmers grow!
-          </p>
-          <form onSubmit={handleSubmit} className="shadow p-4 rounded bg-light">
+        <div className="col-12 col-md-8 col-lg-6">
+          <div className="text-center mb-4">
+            <div className="mb-3">
+              <span style={{ fontSize: '2.5rem', color: '#d9481c' }}>🎓</span>
+            </div>
+            <h2 className="mb-3" style={{ color: '#d9481c', fontWeight: '600', fontSize: '1.8rem' }}>
+              Become a Mentor at Code Harmony
+            </h2>
+            <p className="mb-4" style={{
+              color: theme === 'dark' ? '#ecf0f1' : '#666666',
+              fontSize: '0.9rem',
+              lineHeight: '1.5'
+            }}>
+              Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers. Share your expertise and help aspiring programmers grow!
+            </p>
+          </div>
+          <div style={{
+            backgroundColor: theme === 'dark' ? '#000000' : '#f8f9fa',
+            borderRadius: '12px',
+            padding: '2rem',
+            border: theme === 'dark' ? '1px solid #333333' : '1px solid #e9ecef',
+            boxShadow: theme === 'dark' ? 'none' : '0 0 20px rgba(0, 0, 0, 0.1)'
+          }}>
+            <form onSubmit={handleSubmit}>
             {Object.entries(formData).map(([key, value]) => (
-              <div className="mb-3" key={key}>
-                <label className="form-label">{key.charAt(0).toUpperCase() + key.slice(1)} {key=="mobile" ? " (Optional)" : ""}</label>
+              <div className="mb-4" key={key}>
+                <label className={`form-label ${theme === 'dark' ? 'text-white-dark' : 'text-dark-light'}`} style={{
+                  fontWeight: '500',
+                  marginBottom: '0.5rem'
+                }}>
+                  {key.charAt(0).toUpperCase() + key.slice(1)} {key=="mobile" ? " (Optional)" : ""}
+                </label>
                 {key === "experience" || key === "expertise" || key === "motivation" ? (
                   <textarea
                     name={key}
-                    className={`form-control ${errors[key] ? "border border-danger" : ""}`}
+                    className={`form-control ${theme === 'dark' ? 'form-control-dark' : 'form-control-light'} ${errors[key] ? "border-danger" : ""}`}
+                    style={{
+                      borderRadius: '6px',
+                      padding: '12px',
+                      fontSize: '0.95rem',
+                      transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
+                    }}
                     value={value}
                     onChange={handleChange}
-                    rows="2" 
+                    rows="3"
                     placeholder={
                       key === "experience" ? "e.g., 5+ years in Software Development, experience leading teams" :
                       key === "expertise" ? "e.g., DSA, Backend Development, React, Node.js, Agile methodologies" :
                       key === "motivation" ? "e.g., Passionate about sharing knowledge, helping others grow, and contributing to the community" : ""
-                    } 
+                    }
                   />
                 ) : (
                   <input
                     type={key === "email" ? "email" : key === "linkedIn" || key === "topmate" ? "url" : "text"}
                     name={key}
-                    className={`form-control ${errors[key] ? "border border-danger" : ""}`}
+                    className={`form-control ${theme === 'dark' ? 'form-control-dark' : 'form-control-light'} ${errors[key] ? "border-danger" : ""}`}
+                    style={{
+                      borderRadius: '6px',
+                      padding: '12px',
+                      fontSize: '0.95rem',
+                      transition: 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out'
+                    }}
                     value={value}
                     onChange={handleChange}
                   />
                 )}
-                {errors[key] && <small className="text-danger">{errors[key]}</small>}
+                {errors[key] && <small className="text-danger" style={{ fontSize: '0.85rem' }}>{errors[key]}</small>}
               </div>
             ))}
-            <br></br>
-
-            <div className="d-flex justify-content-between">
-              <button type="button" className="btn btn-secondary mentor-form-cancel-btn" onClick={() => navigate("/mentorship")}>
+            <div className="d-flex justify-content-between gap-3 mt-4">
+              <button
+                type="button"
+                className="btn mentor-form-cancel-btn"
+                onClick={() => navigate("/mentorship")}
+                style={{
+                  backgroundColor: theme === 'dark' ? '#6c757d' : '#6c757d',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  padding: '12px 24px',
+                  fontWeight: '500',
+                  fontSize: '0.95rem',
+                  transition: 'all 0.2s ease'
+                }}
+              >
                 Cancel
               </button>
-              <button type="submit" className="btn mentor-form-submit-btn">
-                Submit
+              <button
+                type="submit"
+                className="btn mentor-form-submit-btn"
+                style={{
+                  backgroundColor: '#d9481c',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  padding: '12px 24px',
+                  fontWeight: '500',
+                  fontSize: '0.95rem',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                Submit Application
               </button>
             </div>
 
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

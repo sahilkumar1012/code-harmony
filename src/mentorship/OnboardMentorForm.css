@@ -1,21 +1,110 @@
+/* Form input focus effects */
+.form-control:focus {
+    border-color: #d9481c !important;
+    box-shadow: 0 0 0 0.2rem rgba(217, 72, 28, 0.25) !important;
+}
+
+/* Submit button styling */
 .mentor-form-submit-btn {
-    background: #d9481c; /* Bright blue background */
-    color: white;
-    font-weight: bold;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    /* animation: fadeInButton 2s ease-in-out forwards; */
+    background: #d9481c !important;
+    color: white !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
 }
 
 .mentor-form-submit-btn:hover {
-    transform: scale(1.1);
-    background-color: black ; 
-    color: white ;
+    background-color: #c23616 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(217, 72, 28, 0.3);
+    color: white !important;
 }
 
-.mentor-form-cancel-btn{
-    font-weight: bold;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+/* Cancel button styling */
+.mentor-form-cancel-btn {
+    background: #6c757d !important;
+    color: white !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
 }
-.mentor-form-cancel-btn:hover{
-    transform: scale(1.1);
+
+.mentor-form-cancel-btn:hover {
+    background-color: #5a6268 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+    color: white !important;
+}
+
+/* Form container styling */
+.bg-white {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Label styling for theme-aware colors */
+.text-white-dark {
+    color: #ffffff !important;
+}
+
+.text-dark-light {
+    color: #333333 !important;
+}
+
+/* Input field styling for dark theme */
+.form-control-dark {
+    background-color: #f8f9fa !important;
+    border: 1px solid #555555 !important;
+    color: #333333 !important;
+}
+
+.form-control-dark::placeholder {
+    color: #6c757d !important;
+    opacity: 1;
+}
+
+.form-control-dark:focus {
+    background-color: #f8f9fa !important;
+    border-color: #d9481c !important;
+    color: #333333 !important;
+    box-shadow: 0 0 0 0.2rem rgba(217, 72, 28, 0.25) !important;
+}
+
+/* Input field styling for light theme */
+.form-control-light {
+    background-color: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    color: #333333 !important;
+}
+
+.form-control-light::placeholder {
+    color: #6c757d !important;
+    opacity: 1;
+}
+
+.form-control-light:focus {
+    background-color: #ffffff !important;
+    border-color: #d9481c !important;
+    color: #333333 !important;
+    box-shadow: 0 0 0 0.2rem rgba(217, 72, 28, 0.25) !important;
+}
+
+/* Form control styles removed to allow inline styles to work */
+
+/* Error state */
+.border-danger {
+    border-color: #dc3545 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .mentor-form-cancel-btn,
+    .mentor-form-submit-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
