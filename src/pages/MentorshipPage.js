@@ -1,34 +1,32 @@
-import React, { useState } from "react";  
 import "bootstrap/dist/css/bootstrap.min.css";
-import linkedinlogo from "../../src/assets/linkedinlogo.png";
-import topmatelogo from "../../src/assets/topmatelogo.png";
-import googleLogo from "../../src/assets/google.png"; // Company logos
-import googleLogoDark from "../../src/assets/google-dark.png"; // Dark theme logo
-import microsoftLogo from "../../src/assets/microsoft.png";
-import microsoftLogoDark from "../../src/assets/microsoft-dark.png";
-import amazonLogo from "../../src/assets/amazon.png";
+import React, { useState } from "react";
+import { FaGraduationCap } from "react-icons/fa";
+import { default as adobeLogo, default as adobeLogoDark } from "../../src/assets/adobe-dark.png";
 import amazonLogoDark from "../../src/assets/amazon-dark.png";
-import adobeLogo from "../../src/assets/adobe-dark.png";
-import adobeLogoDark from "../../src/assets/adobe-dark.png";
-import walmartLogo from "../../src/assets/Walmart Logo.png";
-import jpmcLogo from "../../src/assets/jpmc.jpeg";
-import jpmcLogoDark from "../../src/assets/jpmc.jpeg";
+import amazonLogo from "../../src/assets/amazon.png";
 import geLogo from "../../src/assets/ge.jpeg";
-import geLogoDark from "../../src/assets/ge.jpeg";
+import goldmanLogo from "../../src/assets/goldman.png";
+import googleLogoDark from "../../src/assets/google-dark.png"; // Dark theme logo
+import googleLogo from "../../src/assets/google.png"; // Company logos
+import jpmcLogo from "../../src/assets/jpmc.jpeg";
+import linkedinlogo from "../../src/assets/linkedinlogo.png";
+import microsoftLogoDark from "../../src/assets/microsoft-dark.png";
+import microsoftLogo from "../../src/assets/microsoft.png";
 import paypalLogo from "../../src/assets/paypal.png";
 import sdLogo from "../../src/assets/sd.png";
-import goldmanLogo from "../../src/assets/goldman.png";
+import topmatelogo from "../../src/assets/topmatelogo.png";
+import walmartLogo from "../../src/assets/Walmart Logo.png";
 
 
 
 
-import sahilPic from "../../src/assets/mentors/sahil.jpeg";
-import piyushGiriPic from "../../src/assets/mentors/piyushgiri.jpeg";
-import mkvPic from "../../src/assets/mentors/mkv.jpeg";
+import asmaPic from "../../src/assets/mentors/asma.jpg";
 import chiragPic from "../../src/assets/mentors/chirag.jpeg";
 import manikyaPic from "../../src/assets/mentors/manikya.jpeg";
+import mkvPic from "../../src/assets/mentors/mkv.jpeg";
+import piyushGiriPic from "../../src/assets/mentors/piyushgiri.jpeg";
+import sahilPic from "../../src/assets/mentors/sahil.jpeg";
 import siddarthPic from "../../src/assets/mentors/siddarth.png";
-import asmaPic from "../../src/assets/mentors/asma.jpg";
 
 
 import "./MentorshipPage.css";
@@ -227,6 +225,14 @@ const MentorCard = ({ mentor, theme}) => {
 
 const MentorshipPage = ({theme}) => {
   const [filter, setFilter] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filteredMentors = mentors.filter((mentor) =>
     filter ? mentor.expertise.includes(filter) : true
@@ -236,10 +242,85 @@ const MentorshipPage = ({theme}) => {
     <div className={`container mt-5 position-relative ${theme === 'dark' ? 'dark bg-black' : ''} `}>
       {/* Header Section */}
       <div className={`mb-4 text-center ${theme ==='dark' ? 'text-light' : ''}`}>
-        <h1 className="mb-3">Mentorship</h1>
-        <p>
-          Connect with experienced mentors from top tech companies to accelerate your career.
-        </p>
+        <div className={`mentorship-header text-center mb-3 ${isLoaded ? 'header-loaded' : ''}`}>
+          <div className="header-icon-container mb-3">
+            <FaGraduationCap className="header-icon" style={{ color: '#d9481c', fontSize: '2rem' }} />
+          </div>
+          <h1 className="mentorship-title" style={{
+            background: 'linear-gradient(45deg, #d9481c, #ff6b35)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            marginBottom: '1rem'
+          }}>
+            Expert Mentorship Program
+          </h1>
+          <p className="mentorship-subtitle" style={{
+            color: theme === 'dark' ? '#ffffff' : '#6c757d',
+            fontSize: '1.1rem',
+            marginBottom: '1.5rem'
+          }}>
+            Connect with industry leaders from top tech companies and accelerate your career journey
+          </p>
+          <div className="header-stats d-flex justify-content-center gap-4 mt-3">
+            <div className="stat-item">
+              <div className="stat-number" style={{
+                color: theme === 'dark' ? '#ffffff' : '#d9481c',
+                fontSize: '2rem',
+                fontWeight: 'bold',
+                marginBottom: '0.5rem'
+              }}>
+                {mentors.length}+
+              </div>
+              <div className="stat-label" style={{
+                color: theme === 'dark' ? '#ffffff' : '#6c757d',
+                fontSize: '0.9rem',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}>
+                Expert Mentors
+              </div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number" style={{
+                color: theme === 'dark' ? '#ffffff' : '#d9481c',
+                fontSize: '2rem',
+                fontWeight: 'bold',
+                marginBottom: '0.5rem'
+              }}>
+                50+
+              </div>
+              <div className="stat-label" style={{
+                color: theme === 'dark' ? '#ffffff' : '#6c757d',
+                fontSize: '0.9rem',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}>
+                Companies
+              </div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number" style={{
+                color: theme === 'dark' ? '#ffffff' : '#d9481c',
+                fontSize: '2rem',
+                fontWeight: 'bold',
+                marginBottom: '0.5rem'
+              }}>
+                500+
+              </div>
+              <div className="stat-label" style={{
+                color: theme === 'dark' ? '#ffffff' : '#6c757d',
+                fontSize: '0.9rem',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}>
+                Success Stories
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
 
