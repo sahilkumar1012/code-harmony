@@ -27,6 +27,8 @@ import mkvPic from "../../src/assets/mentors/mkv.jpeg";
 import piyushGiriPic from "../../src/assets/mentors/piyushgiri.jpeg";
 import sahilPic from "../../src/assets/mentors/sahil.jpeg";
 import siddarthPic from "../../src/assets/mentors/siddarth.png";
+import asmaPic from "../../src/assets/mentors/Asma.jpeg";
+import shyamPic from "../../src/assets/mentors/Shyam.jpeg";
 
 
 import "./MentorshipPage.css";
@@ -108,6 +110,19 @@ const mentors = [
       { name: "Paypal", logo: paypalLogo },
     ],
     linkedIn: "https://www.linkedin.com/in/asma-s-411137b1/",
+    expertise: ["Backend", "DSA"],
+  },
+  {
+    name: "Shyam Vaghela",
+    profilePicture: shyamPic,
+    companies: [
+      { name: "Linkdin", logo: linkedinlogo },
+      { name: "Amazon", logo: amazonLogo },
+      { name: "Goldman Sachs", logo: goldmanLogo },
+      
+    ],
+    linkedIn: "https://www.linkedin.com/in/shyam-vaghela/",
+    topmate: "https://topmate.io/shyam_vaghela/",
     expertise: ["Backend", "DSA"],
   },
 ];
