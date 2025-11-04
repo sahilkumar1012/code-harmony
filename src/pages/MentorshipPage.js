@@ -20,7 +20,6 @@ import walmartLogo from "../../src/assets/Walmart Logo.png";
 
 
 
-import asmaPic from "../../src/assets/mentors/asma.jpg";
 import chiragPic from "../../src/assets/mentors/chirag.jpeg";
 import manikyaPic from "../../src/assets/mentors/manikya.jpeg";
 import mkvPic from "../../src/assets/mentors/mkv.jpeg";
@@ -262,7 +261,7 @@ const MentorshipPage = ({theme}) => {
             <FaGraduationCap className="header-icon" style={{ color: '#d9481c', fontSize: '2rem' }} />
           </div>
           <h1 className="mentorship-title" style={{
-            background: 'linear-gradient(45deg, #d9481c, #ff6b35)',
+            backgroundColor: '#d9481c',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -273,7 +272,7 @@ const MentorshipPage = ({theme}) => {
             Expert Mentorship Program
           </h1>
           <p className="mentorship-subtitle" style={{
-            color: theme === 'dark' ? '#ffffff' : '#6c757d',
+            color: theme === 'dark' ? '#ffffff' : '#000000ff',
             fontSize: '1.1rem',
             marginBottom: '1.5rem'
           }}>
@@ -282,7 +281,7 @@ const MentorshipPage = ({theme}) => {
           <div className="header-stats d-flex justify-content-center gap-4 mt-3">
             <div className="stat-item">
               <div className="stat-number" style={{
-                color: theme === 'dark' ? '#ffffff' : '#d9481c',
+                color: theme === 'dark' ? '#ffffff' : '#000',
                 fontSize: '2rem',
                 fontWeight: 'bold',
                 marginBottom: '0.5rem'
@@ -290,7 +289,7 @@ const MentorshipPage = ({theme}) => {
                 {mentors.length}+
               </div>
               <div className="stat-label" style={{
-                color: theme === 'dark' ? '#ffffff' : '#6c757d',
+                color: theme === 'dark' ? '#ffffff' : '#000',
                 fontSize: '0.9rem',
                 textTransform: 'uppercase',
                 letterSpacing: '1px'
@@ -300,7 +299,7 @@ const MentorshipPage = ({theme}) => {
             </div>
             <div className="stat-item">
               <div className="stat-number" style={{
-                color: theme === 'dark' ? '#ffffff' : '#d9481c',
+                color: theme === 'dark' ? '#ffffff' : '#000',
                 fontSize: '2rem',
                 fontWeight: 'bold',
                 marginBottom: '0.5rem'
@@ -308,7 +307,7 @@ const MentorshipPage = ({theme}) => {
                 50+
               </div>
               <div className="stat-label" style={{
-                color: theme === 'dark' ? '#ffffff' : '#6c757d',
+                color: theme === 'dark' ? '#ffffff' : '#000',
                 fontSize: '0.9rem',
                 textTransform: 'uppercase',
                 letterSpacing: '1px'
@@ -318,7 +317,7 @@ const MentorshipPage = ({theme}) => {
             </div>
             <div className="stat-item">
               <div className="stat-number" style={{
-                color: theme === 'dark' ? '#ffffff' : '#d9481c',
+                color: theme === 'dark' ? '#ffffff' : '#000',
                 fontSize: '2rem',
                 fontWeight: 'bold',
                 marginBottom: '0.5rem'
@@ -326,7 +325,7 @@ const MentorshipPage = ({theme}) => {
                 500+
               </div>
               <div className="stat-label" style={{
-                color: theme === 'dark' ? '#ffffff' : '#6c757d',
+                color: theme === 'dark' ? '#ffffff' : '#000',
                 fontSize: '0.9rem',
                 textTransform: 'uppercase',
                 letterSpacing: '1px'
