@@ -17,27 +17,35 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
-  const login = (userData) => {
+  // login now accepts an optional redirectPath; if provided it takes precedence
+  const login = (userData, redirectPath = null) => {
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData)); // Save user data to localStorage
 
-    // After login, navigate to the return URL or home page
-    const redirectUrl = localStorage.getItem('redirectUrl') || '/'; // Default to home if no redirect URL is found
-    localStorage.removeItem('redirectUrl'); // Clear the redirect URL after redirecting
-    navigate(redirectUrl);
+    // Prefer explicit redirectPath, otherwise fall back to stored value or '/'
+    let to = '/';
+    if (redirectPath) {
+      to = redirectPath;
+    } else {
+      const stored = localStorage.getItem('redirectUrl');
+      if (stored) {
+        to = stored;
+        localStorage.removeItem('redirectUrl');
+      }
+    }
+    console.log('UserContext.login navigating to', to, ' (redirectPath prop was', redirectPath, ')');
+    navigate(to);
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user'); // Remove user data from localStorage
+    // do not navigate here; component invoking logout can choose to change location
   };
 
-  const storeRedirectUrl = (url) => {
-    localStorage.setItem('redirectUrl', url); // Store the URL to redirect after login
-  };
 
   return (
-    <UserContext.Provider value={{ user, login, logout, storeRedirectUrl }}>
+    <UserContext.Provider value={{ user, login, logout }}>
       {children}
     </UserContext.Provider>
   );

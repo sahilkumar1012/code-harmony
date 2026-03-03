@@ -12,8 +12,12 @@ const Header = ({ theme, toggleTheme }) => {
   const location = useLocation();
   const { user, logout } = useUser();
 
+  const navigate = useNavigate();
   const handleLogin = () => {
-    window.location.href = "/login";
+    // persist the current path before sending user to the login page
+    // this ensures the redirect survives a full page reload
+    localStorage.setItem('redirectUrl', location.pathname);
+    navigate('/login', { state: { from: location.pathname } });
   };
 
   const isActive = (path) => (location.pathname === path ? "active-tab" : "");
@@ -78,7 +82,7 @@ const Header = ({ theme, toggleTheme }) => {
                 </div>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <a className="dropdown-item" href="/" onClick={logout}>Logout</a>
+                    <button className="dropdown-item" onClick={() => { logout(); /* stay on same path */ }}>Logout</button>
                   </li>
                 </ul>
               </li>
