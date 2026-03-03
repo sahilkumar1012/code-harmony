@@ -1,6 +1,5 @@
 /* Dark theme styles for form labels and text */
 .dark-mode {
-  background-color: #000000 !important;
   color: #ffffff !important;
 }
 
@@ -54,9 +53,7 @@
     background: #d9481c !important;
     color: white !important;
     font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 20px;
+
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -66,16 +63,12 @@
 }
 
 .mentor-form-cancel-btn {
-    background: transparent !important;
     color: #ffffff !important;
-    border: 1px solid #ffffff !important;
     font-weight: bold;
-    border-radius: 6px;
-    padding: 10px 20px;
+
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .mentor-form-cancel-btn:hover {
     transform: scale(1.05);
-    background-color: #30363d !important;
 }
