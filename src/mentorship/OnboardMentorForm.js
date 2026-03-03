@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { arrayUnion, doc, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { app } from '../firebaseConfig';
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion, setDoc } from 'firebase/firestore';
 
 import './OnboardMentorForm.css';
 
@@ -100,14 +100,37 @@ const OnboardMentorForm = ({theme}) => {
   };
 
   return (
-    <div className="container bg-white">
-      <div className="row justify-content-center">
-        <div className="col-12 col-md-10 col-lg-8 p-4">
-          <h2 className="text-center mb-4">Become a Mentor at Code Harmony</h2>
-          <p className="text-center mb-4">
-            Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers. Share your expertise and help aspiring programmers grow!
-          </p>
-          <form onSubmit={handleSubmit} className="shadow p-4 rounded bg-light">
+    <div className={`container mentor-form-container ${theme === "dark" ? "dark-mode" : ""}`}>
+  <div className="row justify-content-center">
+    <div className="col-12 col-md-10 col-lg-8 p-4">
+      <h2
+        className="text-center mb-4"
+        style={theme === "dark" ? {
+          color: '#ffffff !important',
+          background: 'none !important',
+          backgroundImage: 'none !important',
+          WebkitBackgroundClip: 'initial !important',
+          WebkitTextFillColor: '#ffffff !important',
+          backgroundClip: 'initial !important'
+        } : {}}
+      >
+        Become a Mentor at Code Harmony
+      </h2>
+      <p
+        className="text-center mb-4"
+        style={theme === "dark" ? {
+          color: '#ffffff !important',
+          background: 'none !important',
+          backgroundImage: 'none !important',
+          WebkitBackgroundClip: 'initial !important',
+          WebkitTextFillColor: '#ffffff !important',
+          backgroundClip: 'initial !important'
+        } : {}}
+      >
+        Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers. Share your expertise and help aspiring programmers grow!
+      </p>
+      <form onSubmit={handleSubmit} className={`shadow p-4 rounded ${theme === "dark" ? "dark-form" : "bg-light"}`}>
+
             {Object.entries(formData).map(([key, value]) => (
               <div className="mb-3" key={key}>
                 <label className="form-label">{key.charAt(0).toUpperCase() + key.slice(1)} {key=="mobile" ? " (Optional)" : ""}</label>

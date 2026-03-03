@@ -1,21 +1,73 @@
+/* Dark theme styles for form labels and text */
+.dark-mode {
+  color: #ffffff !important;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode label,
+.dark-mode .form-label {
+  color: #ffffff !important;
+}
+
+/* Dark form styling */
+.dark-form {
+  background-color: #1a1a1a !important;
+  border: 1px solid #444 !important;
+  color: #ffffff !important;
+}
+
+.dark-form label,
+.dark-form .form-label {
+  color: #ffffff !important;
+}
+
+.dark-form input,
+.dark-form textarea {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: 1px solid #555 !important;
+}
+
+.dark-form input::placeholder,
+.dark-form textarea::placeholder {
+  color: #aaa !important;
+}
+
+.dark-form input:focus,
+.dark-form textarea:focus {
+  border-color: #d9481c !important;
+  box-shadow: 0 0 5px rgba(217, 72, 28, 0.5) !important;
+  outline: none;
+}
+
+.dark-form .text-danger {
+  color: #ff6b6b !important;
+}
+
+/* Button styles */
 .mentor-form-submit-btn {
-    background: #d9481c; /* Bright blue background */
-    color: white;
+    background: #d9481c !important;
+    color: white !important;
     font-weight: bold;
+
     transition: transform 0.3s ease, background-color 0.3s ease;
-    /* animation: fadeInButton 2s ease-in-out forwards; */
 }
 
 .mentor-form-submit-btn:hover {
-    transform: scale(1.1);
-    background-color: black ; 
-    color: white ;
+    transform: scale(1.05);
+    background-color: #f36c2b !important;
 }
 
-.mentor-form-cancel-btn{
+.mentor-form-cancel-btn {
+    color: #ffffff !important;
     font-weight: bold;
+
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
-.mentor-form-cancel-btn:hover{
-    transform: scale(1.1);
+
+.mentor-form-cancel-btn:hover {
+    transform: scale(1.05);
 }
