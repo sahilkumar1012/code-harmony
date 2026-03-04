@@ -20,7 +20,7 @@ import { FaTrophy, FaTimesCircle, FaChevronLeft, FaChevronRight } from "react-ic
 
 
 const DSASheet = ({theme}) => {
-  const { user, storeRedirectUrl } = useUser();
+  const { user } = useUser();
   const navigate = useNavigate();
 
   const [problems, setProblems] = useState(problemsData);
@@ -57,8 +57,9 @@ const DSASheet = ({theme}) => {
 
   const handleToggleCompletion = async (problemId) => {
     if (!user || !user.id) {
-      storeRedirectUrl(window.location.pathname);
-      navigate('/login');
+      // remember where we were heading so login can return us here
+      localStorage.setItem('redirectUrl', window.location.pathname);
+      navigate('/login', { state: { from: window.location.pathname } });
       return;
     }
 
