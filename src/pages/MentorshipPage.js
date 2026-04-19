@@ -135,7 +135,7 @@ const mentors = [
     ],
     linkedIn: "https://www.linkedin.com/in/abhishek-malviya-192457152/",
     topmate: "https://topmate.io/abhishek_malviya11/",
-    expertise: ["DSA", "Fullstack", "System Design(LLD,HLD)"],
+    expertise: ["DSA", "Fullstack", "System Design"],
   },
 ];
 
