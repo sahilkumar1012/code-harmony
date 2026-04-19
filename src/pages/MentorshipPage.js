@@ -110,6 +110,7 @@ const mentors = [
       { name: "Paypal", logo: paypalLogo },
     ],
     linkedIn: "https://www.linkedin.com/in/asma-s-411137b1/",
+    topmate: "https://topmate.io/asma_shaikh/",
     expertise: ["Backend", "DSA"],
   },
   {
