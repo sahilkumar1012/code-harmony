@@ -28,6 +28,7 @@ import sahilPic from "../../src/assets/mentors/sahil.jpeg";
 import siddarthPic from "../../src/assets/mentors/siddarth.png";
 import asmaPic from "../../src/assets/mentors/Asma.jpeg";
 import shyamPic from "../../src/assets/mentors/Shyam.jpeg";
+import abhishekPic from "../../src/assets/mentors/abhishek.jpeg";
 
 
 import "./MentorshipPage.css";
@@ -123,6 +124,17 @@ const mentors = [
     linkedIn: "https://www.linkedin.com/in/shyam-vaghela/",
     topmate: "https://topmate.io/shyam_vaghela/",
     expertise: ["Backend", "DSA"],
+  },
+  {
+    name: "Abhishek Malviya",
+    profilePicture: abhishekPic,
+    companies: [
+      { name: "Linkdin", logo: microsoftLogo },
+      { name: "Amazon", logo: amazonLogo },      
+    ],
+    linkedIn: "https://www.linkedin.com/in/abhishek-malviya-192457152/",
+    topmate: "https://topmate.io/abhishek_malviya11/",
+    expertise: ["DSA", "Fullstack", "System Design(LLD,HLD)"],
   },
 ];
 
