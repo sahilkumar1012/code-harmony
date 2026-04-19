@@ -130,7 +130,7 @@ const mentors = [
     name: "Abhishek Malviya",
     profilePicture: abhishekPic,
     companies: [
-      { name: "Linkdin", logo: microsoftLogo },
+      { name: "Microsoft", logo: microsoftLogo },
       { name: "Amazon", logo: amazonLogo },      
     ],
     linkedIn: "https://www.linkedin.com/in/abhishek-malviya-192457152/",
