@@ -103,3 +103,13 @@
   transition: transform 0.3s ease;
 }
 
+/* Floating Telegram icon on the right bottom */
+.telegram-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #0088cc;
+  font-size: 35px;
+  transition: transform 0.3s ease;
+}
+
