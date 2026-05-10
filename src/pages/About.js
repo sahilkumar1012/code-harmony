@@ -64,8 +64,9 @@ const keyframes = `
 `;
 
 // Dynamically inject keyframes into the page
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+const _kfStyle = document.createElement('style');
+_kfStyle.textContent = keyframes;
+document.head.appendChild(_kfStyle);
 
 // Styles
 const aboutSectionStyle = {

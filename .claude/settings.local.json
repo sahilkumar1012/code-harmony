@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:\\\\Users\\\\anilb\\\\codeharmony\\\\code-harmony\" branch -a)",
+      "Bash(python -c \"import zipfile; z = zipfile.ZipFile\\('Code harmony.zip'\\); print\\('\\\\n'.join\\(z.namelist\\(\\)\\)\\)\")",
+      "Bash(npm run *)"
+    ]
+  }
+}

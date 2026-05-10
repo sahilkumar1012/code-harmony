@@ -1,427 +1,205 @@
-// Import necessary React hooks
-import React, { useEffect } from "react";
-import { useState } from "react";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import { FaYoutube, FaSort } from "react-icons/fa";
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove, collection, getDocs } from "firebase/firestore";
-import { FaSearch, FaTimes } from "react-icons/fa";
-
-import problemsData from '../../data/problems.json';
-import { useUser } from "../../UserContext";
+import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { app } from '../../firebaseConfig';
-import './DSASheet.css';
-import RenderTags from "./RenderTags";
-import leetcodeLogo from "../../../src/assets/leetcode-icon.png";
-import { FaTrophy, FaTimesCircle, FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Trophy icon for leaderboard
+import { FadeIn } from '../../components/Animations';
+import { CompanyBadge } from '../../components/Companies';
+import { useUser } from '../../UserContext';
+import problemsData from '../../data/problems.json';
 
+const db = getFirestore(app);
 
-const DSASheet = ({theme}) => {
-  const { user, storeRedirectUrl } = useUser();
+const ALL_TOPICS = ['All', 'Array', 'String', 'Binary Search', 'Dynamic Programming', 'Two Pointers', 'Sliding Window', 'Stack', 'Hash Table', 'Tree', 'Linked List', 'Graph'];
+
+const diffColor = d => d === 'Easy' ? '#22c55e' : d === 'Medium' ? '#f59e0b' : '#ef4444';
+
+export default function DSASheet() {
   const navigate = useNavigate();
-
-  const [problems, setProblems] = useState(problemsData);
-  const [searchQuery, setSearchQuery] = useState(""); // State for the search query
-  const [selectedTopic, setSelectedTopic] = useState("All Topics");
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
-  const [completedProblemsSet, setCompletedProblemsSet] = useState(new Set());
-
-  const db = getFirestore(app);
-  const completedProblemsKey = "completedProblems";
-
-  // Medal icons for top 3
-  const medalIcons = ["🥇", "🥈", "🥉"];
-  const studentsPerPage = 10; // Show 10 students per page
-
-
-  // State for leaderboard modal visibility and data
-  const [showLeaderboard, setShowLeaderboard] = useState(false);
-  const [leaderboardData, setLeaderboardData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const { user, storeRedirectUrl } = useUser();
+  const [filter, setFilter] = useState('All');
+  const [search, setSearch] = useState('');
+  const [done, setDone] = useState({});
 
   useEffect(() => {
-    const fetchCompletedProblems = async () => {
-      if (!user) return;
-      const userDoc = doc(db, 'users', user.id);
-      const userData = await getDoc(userDoc);
-      if (userData.exists()) {
-        const completedProblems = userData.data()[completedProblemsKey] || [];
-        setCompletedProblemsSet(new Set(completedProblems));
-      }
-    };
-    fetchCompletedProblems();
-  }, [user, db]);
+    if (user) {
+      const fetchCompleted = async () => {
+        const userDoc = doc(db, 'users', user.id);
+        const snap = await getDoc(userDoc);
+        if (snap.exists()) {
+          const arr = snap.data().completedProblems || [];
+          const map = {};
+          arr.forEach(id => { map[id] = true; });
+          setDone(map);
+        }
+      };
+      fetchCompleted();
+    } else {
+      try {
+        const stored = JSON.parse(localStorage.getItem('ch-dsa-done') || '{}');
+        setDone(stored);
+      } catch { setDone({}); }
+    }
+  }, [user]);
 
-  const handleToggleCompletion = async (problemId) => {
-    if (!user || !user.id) {
-      storeRedirectUrl(window.location.pathname);
-      navigate('/login');
+  const toggleDone = async (problemId) => {
+    if (!user) {
+      const next = { ...done, [problemId]: !done[problemId] };
+      if (!next[problemId]) delete next[problemId];
+      setDone(next);
+      localStorage.setItem('ch-dsa-done', JSON.stringify(next));
       return;
     }
-
     const userDoc = doc(db, 'users', user.id);
-    if (completedProblemsSet.has(problemId)) {
-      await updateDoc(userDoc, {
-        [completedProblemsKey]: arrayRemove(problemId),
-      });
-      setCompletedProblemsSet((prevSet) => {
-        const updatedSet = new Set(prevSet);
-        updatedSet.delete(problemId);
-        return updatedSet;
-      });
+    if (done[problemId]) {
+      await updateDoc(userDoc, { completedProblems: arrayRemove(problemId) });
+      setDone(prev => { const n = { ...prev }; delete n[problemId]; return n; });
     } else {
-      await updateDoc(userDoc, {
-        [completedProblemsKey]: arrayUnion(problemId),
-      });
-      setCompletedProblemsSet((prevSet) => new Set(prevSet.add(problemId)));
+      await updateDoc(userDoc, { completedProblems: arrayUnion(problemId) });
+      setDone(prev => ({ ...prev, [problemId]: true }));
     }
   };
 
-   // Fetch leaderboard data from Firebase
-  useEffect(() => {
-    const fetchLeaderboardData = async () => {
-      const usersRef = collection(db, "users"); // Reference to 'users' collection
-      const querySnapshot = await getDocs(usersRef); // Fetch all users
-      const leaderboard = [];
+  const filtered = problemsData.filter(p => {
+    const topics = p.topics || p.tags || [];
+    const matchesTopic = filter === 'All' || topics.includes(filter);
+    const matchesSearch = !search || p.title.toLowerCase().includes(search.toLowerCase());
+    return matchesTopic && matchesSearch;
+  });
 
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        if (data.completedProblems && data.completedProblems.length > 0) { // Only add students who solved at least 1 problem
-        leaderboard.push({
-          name: data.name || "Anonymous", // Default name if missing
-          profilePic: data.profilePicture || "https://via.placeholder.com/50", // Default avatar if missing
-          completedProblems: data.completedProblems.length, // Count problems solved
-        });
-      }
-      });
-
-      leaderboard.sort((a, b) => b.completedProblems - a.completedProblems); // Sort by problems solved
-      setLeaderboardData(leaderboard);
-      setCurrentPage(1); // Reset to first page when opening
-    };
-
-    if (showLeaderboard) fetchLeaderboardData();
-  }, [showLeaderboard, db]);
-
-  // Paginate leaderboard
-  const totalPages = Math.ceil(leaderboardData.length / studentsPerPage);
-  const startIndex = (currentPage - 1) * studentsPerPage;
-  const endIndex = startIndex + studentsPerPage;
-  const displayedStudents = leaderboardData.slice(startIndex, endIndex);
-
-  const getDifficultyClass = (difficulty) => {
-    switch (difficulty) {
-      case "Easy":
-        return "text-success";
-      case "Medium":
-        return "text-warning";
-      case "Hard":
-        return "text-danger";
-      default:
-        return "";
-    }
-  };
-
-  const handleSort = (key) => {
-    const direction =
-      sortConfig.key === key && sortConfig.direction === "asc" ? "desc" : "asc";
-    setSortConfig({ key, direction });
-
-    const sortedProblems = [...problems].sort((a, b) => {
-      if (key === "difficulty") {
-        const order = { Easy: 1, Medium: 2, Hard: 3 };
-        return direction === "asc"
-          ? order[a.difficulty] - order[b.difficulty]
-          : order[b.difficulty] - order[a.difficulty];
-      }
-      if (key === "completed") {
-        const isACompleted = completedProblemsSet.has(a.leetcodeId);
-        const isBCompleted = completedProblemsSet.has(b.leetcodeId);
-
-        return direction === "asc"
-          ? Number(isACompleted) - Number(isBCompleted)
-          : Number(isBCompleted) - Number(isACompleted);
-      }
-      return 0;
-    });
-
-    setProblems(sortedProblems);
-  };
-
-  const filterProblems = () => {
-    return problems.filter((problem) =>
-      (selectedTopic === "All Topics" || problem.topics.includes(selectedTopic)) &&
-      (problem.title.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
-  };
-
-  const clearSearch = () => {
-    setSearchQuery("");
-  };
-
-  const uniqueTopics = [
-    "All Topics",
-    ...new Set(problems.flatMap((problem) => problem.topics)),
-  ];
-
-  const filteredProblems = filterProblems();
-  const completedCount = filteredProblems.filter(problem => completedProblemsSet.has(problem.leetcodeId)).length;
-  const totalProblems = problems.length;
-  const completionPercentage = Math.round((completedProblemsSet.size / totalProblems) * 100);
-
-
-  const renderTable = (filteredProblems) => (
-    <div className="table-container container-fluid">
-      <table className={`table table-hover table-striped ${theme==='dark' ? 'table-dark' : ''}`}>
-        <thead>
-          <tr>
-            
-          <th className="problem-id">
-            {theme === 'dark' ? (
-              <span>#</span> // Display '#' in dark theme
-            ) : (
-              <img
-                src={leetcodeLogo}
-                alt="LeetCode Logo"
-                style={{ height: '25px', verticalAlign: 'middle' }}
-              />
-            )}
-          </th>
-
-            <th className="problem-title">Problem Title</th>
-            <th onClick={() => handleSort("difficulty")} style={{ cursor: "pointer" }}>
-              Difficulty<FaSort />
-            </th>
-            <th className="text-center explanation-column">Explanation</th>
-            <th className="text-center tags-column">Tags</th>
-            <th
-              onClick={() => handleSort("completed")}
-              style={{ cursor: "pointer" }}
-              className="text-center"
-            >
-              Done ({completedCount}/{filteredProblems.length}) <FaSort />
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredProblems.map((problem) => (
-            <tr key={problem.leetcodeId}>
-              <td>
-                <a href={problem.link} target="_blank" rel="noopener noreferrer">
-                  {problem.leetcodeId}
-                </a>
-              </td>
-              <td>
-                <a href={problem.link} target="_blank" rel="noopener noreferrer">
-                  {problem.title}
-                </a>
-              </td>
-              <td className={getDifficultyClass(problem.difficulty)}>
-                {problem.difficulty}
-              </td>
-              <td className="text-center youtube-link">
-                {problem.youtubeLink && (
-                  <a
-                    href={problem.youtubeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="youtube-icon"
-                  >
-                    <FaYoutube />
-                  </a>
-                )}
-              </td>
-              <td>
-                <RenderTags theme={theme} problem={problem}/>
-              </td>
-              <td className="text-center">
-                <label className="fancy-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={completedProblemsSet.has(problem.leetcodeId)}
-                    onChange={() => handleToggleCompletion(problem.leetcodeId)}
-                  />
-                  <span className="checkmark"></span>
-                </label>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+  const doneCount = Object.keys(done).length;
+  const pct = Math.round((doneCount / problemsData.length) * 100);
 
   return (
-    <div className={`container-fluid col-sm-11 mt-5 ${theme === 'dark' ? 'dark-theme' : ''}`}>
-      <div className="d-flex flex-wrap justify-content-center flex-column mb-1 align-items-center">
-        
-        <h1 className={`text-center mb-4 ${theme==='dark' ? 'text-white' : 'table-black' }`}>DSA Essentials Sheet</h1>
-        <p className={`text-center col-10 col-md-8 ${theme==='dark' ? 'text-light' : 'table-muted' }`}>
-          This sheet is designed to help you strengthen your <a href="/dsa" class="text-decoration-none ">core DSA concepts</a> while solving interview-friendly problems. 
-          These problems are frequently asked in top tech companies like <strong>Google, Amazon, Microsoft, and Meta</strong>, 
-          ensuring you build a strong foundation in problem-solving to crack their technical interviews.
-        </p>
+    <div style={{ paddingTop: 100 }}>
+      <div className="ch-section" style={{ padding: '40px 24px 80px' }}>
+        <FadeIn>
+          <h1 style={{ fontSize: 38, fontWeight: 800, textAlign: 'center', marginBottom: 10, marginTop: 0, fontFamily: 'var(--font)' }}>
+            DSA Essentials Sheet
+          </h1>
+          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', maxWidth: 600, margin: '0 auto 12px', fontSize: 15, lineHeight: 1.6, fontFamily: 'var(--font)' }}>
+            Problems frequently asked at <strong style={{ color: 'var(--text-primary)' }}>Google, Amazon, Microsoft, and Meta</strong> — build a strong problem-solving foundation.
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 28, flexWrap: 'wrap' }}>
+            {['Google','Microsoft','Amazon','Meta','Adobe'].map(c => <CompanyBadge key={c} name={c} />)}
+          </div>
+        </FadeIn>
 
-        <div className="container-fluid">
-          {/* Leaderboard Modal */}
-              <Modal show={showLeaderboard} onHide={() => setShowLeaderboard(false)} centered className="leaderboard-modal p-auto">
-                <Modal.Body className="leaderboard text-light p-4 rounded">
-                  {/* Close Button at Top Right */}
-              <div className="close-icon" onClick={() => setShowLeaderboard(false)}>
-                <FaTimes />
-              </div>
-              <h3 className="text-center leaderboard-title">🏆 Leaderboard</h3>
-              <p className="disclaimer text-center d-none">
-                ⚠️ Note: Submissions are **not verified** for correctness. This leaderboard only tracks the number of attempts.
-              </p>
+        {/* Progress bar */}
+        <FadeIn delay={0.1}>
+          <div className="glass" style={{ borderRadius: 100, padding: 5, maxWidth: 500, margin: '0 auto 28px', height: 34, position: 'relative' }}>
+            <div style={{
+              height: '100%', borderRadius: 100,
+              background: 'linear-gradient(90deg, var(--accent), #9333ea)',
+              width: `${pct}%`, transition: 'width 0.5s ease',
+              minWidth: doneCount > 0 ? 34 : 0,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              {doneCount > 0 && <span style={{ color: '#fff', fontSize: 11, fontWeight: 700, fontFamily: 'var(--font)' }}>{doneCount}/{problemsData.length}</span>}
+            </div>
+            <span style={{ position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)', fontSize: 12, fontWeight: 600, color: 'var(--text-secondary)', fontFamily: 'var(--font)' }}>{pct}%</span>
+          </div>
+        </FadeIn>
 
-              <div className="leaderboard-container">
-                {leaderboardData.length === 0 ? (
-                  <p className="text-center text-white no-data">No students have solved a problem yet! 🤷‍♂️</p>
-                ) : (
-                  displayedStudents.map((user, index) => {
-                    const globalIndex = startIndex + index;
-                    return (
-                      <div
-                        key={globalIndex}
-                        className={`leaderboard-card`}
-                        style={{
-                          background:"#222",
-                        }}
-                      >
-                        <span className="leaderboard-rank">
-                          {globalIndex < 3 ? medalIcons[globalIndex] : `#${globalIndex + 1}`}
-                        </span>
+        {/* Topic filters */}
+        <div style={{ display: 'flex', gap: 6, marginBottom: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
+          {ALL_TOPICS.map(t => (
+            <button key={t} onClick={() => setFilter(t)} style={{
+              padding: '7px 14px', borderRadius: 100, border: 'none', cursor: 'pointer',
+              fontFamily: 'var(--font)', fontSize: 12, fontWeight: 600,
+              background: filter === t ? 'linear-gradient(135deg, var(--accent), #9333ea)' : 'rgba(255,255,255,0.45)',
+              color: filter === t ? '#fff' : 'var(--text-secondary)',
+              backdropFilter: 'blur(8px)', transition: 'all 0.2s',
+            }}>{t}</button>
+          ))}
+        </div>
 
-                      <img
-                        src={user.profilePic}
-                        alt="Profile"
-                        className="leaderboard-profile-pic"
-                        onError={(e) => (e.target.src = "https://via.placeholder.com/50")} // Handle broken images
-                      />
+        {/* Search */}
+        <div style={{ maxWidth: 420, margin: '0 auto 24px' }}>
+          <input
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Search problems..."
+            style={{
+              width: '100%', padding: '11px 20px', borderRadius: 100,
+              border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(255,255,255,0.4)',
+              backdropFilter: 'blur(12px)', fontFamily: 'var(--font)', fontSize: 14, outline: 'none',
+              color: 'var(--text-primary)',
+            }}
+          />
+        </div>
 
-                      <div className="leaderboard-info">
-                        <h5 className="leaderboard-name">{user.name}</h5>
-                        <p className="leaderboard-score">Problems Solved: {user.completedProblems}</p>
-                      </div>
-                    </div>
-                    );
-                  })
-                )}
-              </div>
+        {/* Login prompt for Firebase sync */}
+        {!user && (
+          <div style={{ textAlign: 'center', marginBottom: 20 }}>
+            <span style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font)' }}>
+              <button onClick={() => { storeRedirectUrl('/dsasheet'); navigate('/login'); }} style={{ background: 'none', border: 'none', color: 'var(--accent)', fontWeight: 600, cursor: 'pointer', fontFamily: 'var(--font)', fontSize: 13 }}>
+                Sign in
+              </button>
+              {' '}to sync your progress across devices
+            </span>
+          </div>
+        )}
 
-           {/* Pagination Controls */}
-           {totalPages > 1 && (
-            <div className="pagination-controls">
-              <Button
-                variant="outline-light"
-                className="pagination-btn"
-                disabled={currentPage === 1}
-                onClick={() => setCurrentPage((prev) => prev - 1)}
-              >
-                <FaChevronLeft />
-              </Button>
+        {/* Table */}
+        <div className="glass" style={{ overflow: 'hidden' }}>
+          {/* Header row */}
+          <div style={{ display: 'grid', gridTemplateColumns: '60px 1fr 90px 1fr 48px', padding: '12px 20px', fontSize: 12, fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.06em', borderBottom: '1px solid rgba(0,0,0,0.06)', fontFamily: 'var(--font)' }}>
+            <span>#</span>
+            <span>Problem</span>
+            <span>Difficulty</span>
+            <span className="ch-dsa-header-tags">Tags</span>
+            <span style={{ textAlign: 'center' }}>✓</span>
+          </div>
 
-              <span className="pagination-text">
-                {currentPage} / {totalPages}
-              </span>
-
-              <Button
-                variant="outline-light"
-                className="pagination-btn"
-                disabled={currentPage === totalPages}
-                onClick={() => setCurrentPage((prev) => prev + 1)}
-              >
-                <FaChevronRight />
-              </Button>
+          {filtered.length === 0 && (
+            <div style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text-secondary)', fontFamily: 'var(--font)' }}>
+              No problems match your search.
             </div>
           )}
-        </Modal.Body>
-      </Modal>
-      </div>
 
-      
-        {/* Progress Bar */}
-        <div className="progress-container col-10 col-md-8 col-lg-6 mb-4">
-          <div className="progress" style={{ height: "20px", borderRadius: "10px", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)" }}>
-            <div
-              className="progress-bar progress-bar-success progress-bar-animated"
-              role="progressbar"
-              style={{
-                width: `${completionPercentage}%`,
-                // background: "linear-gradient(90deg, #4caf50, #2196f3)",
-                transition: "width 0.6s ease-in-out",
-                borderRadius: "10px",
-                minWidth:"3ch"
+          {filtered.map((p, idx) => {
+            const id = p.leetcodeId || String(p.id);
+            const isDone = !!done[id];
+            const tags = p.tags || p.topics || [];
+            return (
+              <div key={id} style={{
+                display: 'grid', gridTemplateColumns: '60px 1fr 90px 1fr 48px',
+                padding: '13px 20px', alignItems: 'center',
+                borderBottom: '1px solid rgba(0,0,0,0.03)',
+                transition: 'background 0.15s',
+                background: isDone ? 'rgba(34,197,94,0.04)' : 'transparent',
+                animation: `slideInLeft 0.3s ease ${idx * 0.01}s both`,
               }}
-            >
-              {completionPercentage}%
-            </div>
-          </div>
-        </div>
-
-        <div className="row justify-content-center align-items-center">
-          {/* Dropdown */}
-          <div className="col-auto mb-3">
-            <select
-              className={`form-select ${theme === 'dark' ? 'bg-dark text-light' : ''}`}
-              value={selectedTopic}
-              onChange={(e) => setSelectedTopic(e.target.value)}
-              style={{ minWidth: "200px" }} // Ensure dropdown is not too narrow
-            >
-              {uniqueTopics.map((topic) => (
-                <option key={topic} value={topic}>
-                  {topic}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Search Bar */}
-          <div className="col-auto mb-3">
-            <div className="input-group">
-              <span className={`input-group-text ${theme === 'dark' ? 'bg-dark text-light' : ''}`}>
-                <FaSearch />
-              </span>
-              <input
-                type="text"
-                className={`form-control ${theme === 'dark' ? 'bg-dark text-light' : ''}`} 
-                placeholder="Search problems by title..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{ width: "250px", color: "#212529" }}
-              />
-              {searchQuery && (
-                <button
-                  className={`btn btn-outline-secondary ${theme === 'dark' ? 'btn-dark' : ''}`} 
-                  type="button"
-                  onClick={clearSearch}
+                onMouseEnter={e => { if (!isDone) e.currentTarget.style.background = 'rgba(255,255,255,0.3)'; }}
+                onMouseLeave={e => { if (!isDone) e.currentTarget.style.background = 'transparent'; }}>
+                <span style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--mono)' }}>{p.leetcodeId}</span>
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: 14, fontWeight: 600, color: 'var(--accent)', textDecoration: isDone ? 'line-through' : 'none', opacity: isDone ? 0.6 : 1, fontFamily: 'var(--font)' }}
                 >
-                  <FaTimes />
-                </button>
-              )}
-            </div>
-          </div>
-          {/* Leaderboard Button */}
-          <div className="text-center col-auto mb-3">
-            <a
-              className="leaderboard-btn"
-              onClick={() => setShowLeaderboard(true)}
-            >
-               🏆
-            </a>
-          </div>
+                  {p.title}
+                </a>
+                <span style={{ fontSize: 12, fontWeight: 700, color: diffColor(p.difficulty), fontFamily: 'var(--font)' }}>{p.difficulty}</span>
+                <div className="ch-dsa-tags" style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
+                  {tags.slice(0, 2).map(t => (
+                    <span key={t} style={{ fontSize: 10, padding: '2px 8px', borderRadius: 100, background: 'rgba(0,0,0,0.04)', fontWeight: 500, color: 'var(--text-secondary)', fontFamily: 'var(--font)' }}>{t}</span>
+                  ))}
+                </div>
+                <label style={{ display: 'flex', justifyContent: 'center', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={isDone}
+                    onChange={() => toggleDone(id)}
+                    style={{ width: 18, height: 18, accentColor: 'var(--accent)', cursor: 'pointer' }}
+                  />
+                </label>
+              </div>
+            );
+          })}
         </div>
-
-
       </div>
-
-      {renderTable(filterProblems())}
     </div>
   );
-};
-
-export default DSASheet;
+}

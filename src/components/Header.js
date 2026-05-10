@@ -1,99 +1,97 @@
-import React from 'react';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { useUser } from '../UserContext';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useUser } from '../UserContext';
+import logoDark from '../assets/header/logo-dark.png';
+import logoLight from '../assets/header/logo-light.png';
 
-import logolight from '../assets/header/logo-dark.png';
-import logodark from '../assets/header/logo-light.png';
-
-import './Header.css';
-
-const Header = ({ theme, toggleTheme }) => {
+export default function Header({ theme, toggleTheme }) {
+  const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
   const { user, logout } = useUser();
 
-  const handleLogin = () => {
-    window.location.href = "/login";
-  };
+  useEffect(() => {
+    const h = () => setScrolled(window.scrollY > 30);
+    window.addEventListener('scroll', h);
+    return () => window.removeEventListener('scroll', h);
+  }, []);
 
-  const isActive = (path) => (location.pathname === path ? "active-tab" : "");
+  const links = [
+    { path: '/', label: 'Home' },
+    { path: '/dsasheet', label: 'DSA Sheet' },
+    { path: '/mentorship', label: 'Mentors' },
+  ];
+
+  const active = links.find(l => l.path === location.pathname)?.path || '/';
 
   return (
-    <div className="container">
-      <nav className={`navbar navbar-expand-lg py-0 ${theme === 'dark' ? 'navbar-dark bg-black' : 'navbar-light bg-white'}`} id="navbar">
+    <nav style={{
+      position: 'fixed', top: 14, left: '50%', transform: 'translateX(-50%)',
+      width: 'min(94%, 880px)', zIndex: 200, borderRadius: 100,
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      padding: '10px 10px 10px 22px',
+      background: scrolled ? 'var(--glass-bg-strong)' : 'var(--glass-bg)',
+      backdropFilter: `blur(${scrolled ? 32 : 20}px)`,
+      WebkitBackdropFilter: `blur(${scrolled ? 32 : 20}px)`,
+      border: `1px solid var(--glass-border)`,
+      boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.1)' : '0 4px 20px rgba(0,0,0,0.05)',
+      transition: 'all 0.35s ease',
+    }}>
+      <div
+        style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+        onClick={() => navigate('/')}
+      >
+        <img
+          src={theme === 'dark' ? logoLight : logoDark}
+          alt="Code Harmony"
+          style={{ height: 36, width: 'auto' }}
+        />
+      </div>
 
-        {/* Brand Logo */}
-        <a className="navbar-brand d-flex align-items-center" href="/" style={{ height:'70px', width: '160px', overflow: 'hidden' }}>
-          <img 
-            src={theme === 'dark' ? logodark : logolight} 
-            alt="Code Harmony Logo" 
-            style={{ maxWidth: '100%', height: 'auto', objectFit: 'cover' }} 
-          />
-        </a>
-
-        {/* Theme Toggle Button - Now always visible */}
-        <button className="theme-toggle-btn d-lg-none d-xl-none" onClick={toggleTheme} style={{ paddingRight: '1rem', marginLeft: 'auto', border: 'none', background: 'transparent' }}>
-          <div className='theme-toggle-icon m-auto'>
-            {theme === 'dark' ? <FaSun size={24} /> : <FaMoon size={24} />}
+      <div className="ch-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        {links.map(l => (
+          <button key={l.path} onClick={() => navigate(l.path)} style={{
+            background: active === l.path ? 'rgba(232,81,61,0.1)' : 'transparent',
+            border: 'none', padding: '8px 16px', borderRadius: 100, cursor: 'pointer',
+            fontWeight: active === l.path ? 600 : 500, fontSize: 14, fontFamily: 'var(--font)',
+            color: active === l.path ? 'var(--accent)' : 'var(--text-secondary)',
+            transition: 'all 0.2s',
+          }}>
+            {l.label}
+          </button>
+        ))}
+        <button onClick={toggleTheme} title="Toggle theme" style={{
+          background: 'none', border: 'none', cursor: 'pointer', padding: '8px', borderRadius: 100,
+          fontSize: 16, lineHeight: 1, color: 'var(--text-secondary)', transition: 'color 0.2s',
+          display: 'flex', alignItems: 'center',
+        }}>
+          {theme === 'dark' ? '☀️' : '🌙'}
+        </button>
+        <div style={{ width: 1, height: 20, background: 'rgba(0,0,0,0.08)', margin: '0 6px' }} />
+        {user ? (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', fontFamily: 'var(--font)' }}>
+              {user.name?.split(' ')[0]}
+            </span>
+            <button onClick={logout} style={{
+              background: 'rgba(0,0,0,0.06)', border: 'none', padding: '8px 16px', borderRadius: 100,
+              cursor: 'pointer', fontWeight: 600, fontSize: 13, fontFamily: 'var(--font)',
+              color: 'var(--text-secondary)', transition: 'all 0.25s',
+            }}>
+              Sign out
+            </button>
           </div>
-        </button>
-
-        {/* Toggle Button for Small Screens */}
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        {/* Navbar Links */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto align-items-center">
-            <li className="nav-item">
-              <a className={`nav-link px-3 ${isActive('/')} ${theme === 'dark' ? 'text-light' : 'text-dark'}`} href="/">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link px-3 ${isActive('/dsasheet')} ${theme === 'dark' ? 'text-light' : 'text-dark'}`} href="/dsasheet">
-                DSA Sheet
-              </a>
-            </li>
-
-            {/* Theme Toggle Button */}
-            <li className="nav-item d-none d-lg-block d-xl-block">
-              <button className="theme-toggle-btn" onClick={toggleTheme}>
-                {theme === 'dark' ? <FaSun size={24} /> : <FaMoon size={24} />}
-              </button>
-            </li>
-
-            <li className="nav-item">
-              <button className="btn btn-dark text-white mentor-btn" onClick={() => window.location.href = "/mentorship"}>
-                Find My Mentor →
-              </button>
-            </li>
-
-            {/* Conditional Rendering for Login/Logout */}
-            {user ? (
-              <li className="nav-item dropdown">
-                <div className="nav-link dropdown-toggle text-dark" id="userDropdown" data-bs-toggle="dropdown">
-                  <img src={user.profilePicture} alt="" className="profile-img" /> {user.name}
-                </div>
-                <ul className="dropdown-menu dropdown-menu-end">
-                  <li>
-                    <a className="dropdown-item" href="/" onClick={logout}>Logout</a>
-                  </li>
-                </ul>
-              </li>
-            ) : (
-              <li className="nav-item nav-login">
-                <button className="nav-link text-dark px-3 login-btn" onClick={handleLogin}>
-                  Login
-                </button>
-              </li>
-            )}
-          </ul>
-        </div>
-      </nav>
-    </div>
+        ) : (
+          <button onClick={() => navigate('/mentorship')} style={{
+            background: 'linear-gradient(135deg, var(--accent), #c44dff)',
+            border: 'none', padding: '8px 20px', borderRadius: 100, cursor: 'pointer',
+            fontWeight: 600, fontSize: 13, fontFamily: 'var(--font)', color: '#fff',
+            boxShadow: '0 2px 12px var(--accent-glow)', transition: 'all 0.25s',
+          }}>
+            Find Mentor →
+          </button>
+        )}
+      </div>
+    </nav>
   );
-};
-
-export default Header;
+}

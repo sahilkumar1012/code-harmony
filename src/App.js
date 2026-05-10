@@ -1,69 +1,57 @@
-// App.js
-import React, { useEffect, useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { useUser } from './UserContext';
-import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './pages/Home';
 import MentorshipPage from './pages/MentorshipPage';
+import OnboardMentorForm from './mentorship/OnboardMentorForm';
+import DSASheet from './pages/services/DSASheet';
 import NotFound from './components/NotFound';
 import ContactPage from './pages/ContactPage';
 import GoogleLogin from './components/auth/GoogleLogin';
 import About from './pages/About';
-import DSASheet from './pages/services/DSASheet';
-import OnboardMentorForm from './mentorship/OnboardMentorForm';
 import MentorOnboardingRequests from './mentorship/MentorOnboardingRequests';
-import './App.css';
 import DSA from './pages/DSA';
+import './styles.css';
 
-function AppContent() {
-  const location = useLocation();
-  const mainClassName = 'main-content';
+export default function App() {
   const { user, login } = useUser();
-
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(() => localStorage.getItem('ch-theme') || 'light');
 
   useEffect(() => {
-    document.body.classList.toggle('theme-dark', theme === 'dark');
-    document.body.classList.toggle('theme-light', theme === 'light');
-    localStorage.setItem('theme', theme);
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('ch-theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+  const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light');
 
   return (
-    <div className={`app-container ${theme}`}>
+    <>
+      <div className="ch-blob" style={{ width: 400, height: 400, background: 'rgba(232,81,61,0.2)', top: -100, left: -100 }} />
+      <div className="ch-blob" style={{ width: 350, height: 350, background: 'rgba(100,160,255,0.2)', top: '40%', right: -80, animationDelay: '7s' }} />
+      <div className="ch-blob" style={{ width: 300, height: 300, background: 'rgba(170,120,255,0.15)', bottom: -50, left: '30%', animationDelay: '14s' }} />
+
       <Header theme={theme} toggleTheme={toggleTheme} />
 
-      <main className={mainClassName}>
+      <main style={{ minHeight: '100vh' }}>
         <Routes>
-          <Route path="/" element={<Home theme={theme} />} />
-          <Route path="/index.html" element={<Home theme={theme} />} />
-          
-          <Route path="/mentorship" element={<MentorshipPage theme={theme}/>} />
-          <Route path="/mentorship/onboard" element={<OnboardMentorForm theme={theme}/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/index.html" element={<Home />} />
+          <Route path="/mentorship" element={<MentorshipPage />} />
+          <Route path="/mentorship/onboard" element={<OnboardMentorForm />} />
           <Route path="/mentorship/onboard/requests" element={
-            user ? <MentorOnboardingRequests user={user} /> : <GoogleLogin onLogin={login} theme={theme}/>
+            user ? <MentorOnboardingRequests user={user} /> : <GoogleLogin onLogin={login} />
           } />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/dsasheet" element={<DSASheet theme={theme} />} />
+          <Route path="/dsasheet" element={<DSASheet />} />
+          <Route path="/dsa" element={<DSA />} />
           <Route path="/login" element={
-            user ? <Home /> : <GoogleLogin onLogin={login} theme={theme}/>
+            user ? <Home /> : <GoogleLogin onLogin={login} />
           } />
-
-          <Route path="/dsa" element={<DSA theme={theme}/>} />
-          <Route path="*" element={<NotFound theme={theme} />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-
-      <Footer theme={theme} />
-    </div>
+    </>
   );
 }
-
-function App() {
-  return <AppContent />;
-}
-
-export default App;

@@ -99,20 +99,20 @@ const keyframes = `
 `;
 
 // Dynamically inject keyframes into the page
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+const _kfStyle = document.createElement('style');
+_kfStyle.textContent = keyframes;
+document.head.appendChild(_kfStyle);
 
 // Contact Page Container Style
 const contactPageContainerStyle = {
-  maxWidth: '900px',
+  maxWidth: '800px',
   margin: '0 auto',
   padding: '1.5rem',
   borderRadius: '10px',
   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
   backgroundColor: '#fff',
-  maxWidth: '800px',
   border: '0',
-  opacity: 0, // Start as invisible
+  opacity: 0,
 };
 
 export default ContactPage;

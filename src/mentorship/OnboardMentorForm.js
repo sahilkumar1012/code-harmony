@@ -1,180 +1,125 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { arrayUnion, doc, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { app } from '../firebaseConfig';
+import { FadeIn } from '../components/Animations';
 
-import './OnboardMentorForm.css';
+const db = getFirestore(app);
 
-const OnboardMentorForm = ({theme}) => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    linkedIn: "",
-    topmate: "",
-    experience: "", // Added experience field
-    expertise: "",  // Added expertise field
-    motivation: "", // Added motivation field
-  });
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const db = getFirestore(app);
-
-  const validateField = (name, value) => {
-    if (!value && name !== "mobile") {
-      return "This field is required";
-    }
-    if (name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-      return "Invalid email format";
-    }
-    if ((name === "linkedIn" || name === "topmate") && !/^https?:\/\//.test(value)) {
-      return "Must be a valid URL starting with http:// or https://";
-    }
-    return "";
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: validateField(name, value) }));
-  };
-
-
-  const addMentorOnboardingRequest = async (formData) => {
-    const mentorOnboardingDoc = doc(db, "requests", "mentorOnboarding");
-
-    try {
-      const docSnap = await getDoc(mentorOnboardingDoc);
-
-      const mentorData = {
-        ...formData,
-        status: "new",
-        createdAt: new Date(),
-      };
-
-      if (!docSnap.exists()) {
-        await setDoc(mentorOnboardingDoc, {
-          mentorOnboarding: [mentorData],
-        });
-        console.log("Document created and request added.");
-      } else {
-        await updateDoc(mentorOnboardingDoc, {
-          mentorOnboarding: arrayUnion(mentorData),
-        });
-        console.log("Mentor onboarding request added successfully!");
-      }
-    } catch (error) {
-      console.error("Error adding mentor onboarding request:", error);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
-    Object.keys(formData).forEach((key) => {
-      const error = validateField(key, formData[key]);
-      if (error) newErrors[key] = error;
-    });
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    const isConfirmed = window.confirm("Are you ready to submit the mentor onboarding request?");
-    if (!isConfirmed) return;
-
-    // TODO save data in the database 
-    addMentorOnboardingRequest(formData);
-
-    // TODO send an email to codeharmony mentor onboarding team. ( codeharmonyofficial@gmail.com )
-    // mentorOnboardingRequestEmail(formData);
-
-    console.log("Form Data Submitted:", formData);
-    alert("Mentor onboarding request sent.");
-
-    setFormData({ name: "", email: "", mobile: "", linkedIn: "", topmate: "" });
-    setErrors({});
-  };
-
-  return (
-    <div className={`container mentor-form-container ${theme === "dark" ? "dark-mode" : ""}`}>
-  <div className="row justify-content-center">
-    <div className="col-12 col-md-10 col-lg-8 p-4">
-      <h2
-        className="text-center mb-4"
-        style={theme === "dark" ? {
-          color: '#ffffff !important',
-          background: 'none !important',
-          backgroundImage: 'none !important',
-          WebkitBackgroundClip: 'initial !important',
-          WebkitTextFillColor: '#ffffff !important',
-          backgroundClip: 'initial !important'
-        } : {}}
-      >
-        Become a Mentor at Code Harmony
-      </h2>
-      <p
-        className="text-center mb-4"
-        style={theme === "dark" ? {
-          color: '#ffffff !important',
-          background: 'none !important',
-          backgroundImage: 'none !important',
-          WebkitBackgroundClip: 'initial !important',
-          WebkitTextFillColor: '#ffffff !important',
-          backgroundClip: 'initial !important'
-        } : {}}
-      >
-        Fill out this form to submit a request to become a mentor at Code Harmony and guide future developers. Share your expertise and help aspiring programmers grow!
-      </p>
-      <form onSubmit={handleSubmit} className={`shadow p-4 rounded ${theme === "dark" ? "dark-form" : "bg-light"}`}>
-
-            {Object.entries(formData).map(([key, value]) => (
-              <div className="mb-3" key={key}>
-                <label className="form-label">{key.charAt(0).toUpperCase() + key.slice(1)} {key=="mobile" ? " (Optional)" : ""}</label>
-                {key === "experience" || key === "expertise" || key === "motivation" ? (
-                  <textarea
-                    name={key}
-                    className={`form-control ${errors[key] ? "border border-danger" : ""}`}
-                    value={value}
-                    onChange={handleChange}
-                    rows="2" 
-                    placeholder={
-                      key === "experience" ? "e.g., 5+ years in Software Development, experience leading teams" :
-                      key === "expertise" ? "e.g., DSA, Backend Development, React, Node.js, Agile methodologies" :
-                      key === "motivation" ? "e.g., Passionate about sharing knowledge, helping others grow, and contributing to the community" : ""
-                    } 
-                  />
-                ) : (
-                  <input
-                    type={key === "email" ? "email" : key === "linkedIn" || key === "topmate" ? "url" : "text"}
-                    name={key}
-                    className={`form-control ${errors[key] ? "border border-danger" : ""}`}
-                    value={value}
-                    onChange={handleChange}
-                  />
-                )}
-                {errors[key] && <small className="text-danger">{errors[key]}</small>}
-              </div>
-            ))}
-            <br></br>
-
-            <div className="d-flex justify-content-between">
-              <button type="button" className="btn btn-secondary mentor-form-cancel-btn" onClick={() => navigate("/mentorship")}>
-                Cancel
-              </button>
-              <button type="submit" className="btn mentor-form-submit-btn">
-                Submit
-              </button>
-            </div>
-
-          </form>
-        </div>
-      </div>
-    </div>
-  );
+const fieldStyle = {
+  width: '100%', padding: '12px 16px', borderRadius: 'var(--radius-xs)',
+  border: '1px solid rgba(0,0,0,0.08)', background: 'rgba(255,255,255,0.5)',
+  backdropFilter: 'blur(8px)', fontFamily: 'var(--font)', fontSize: 14, outline: 'none',
+  transition: 'border 0.2s', boxSizing: 'border-box',
 };
 
-export default OnboardMentorForm;
+export default function OnboardMentorForm() {
+  const navigate = useNavigate();
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', linkedin: '', company: '', experience: '', motivation: '' });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const ref = doc(db, 'mentorRequests', form.email);
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        await updateDoc(ref, { requests: arrayUnion({ ...form, submittedAt: new Date().toISOString() }) });
+      } else {
+        await setDoc(ref, { requests: [{ ...form, submittedAt: new Date().toISOString() }] });
+      }
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div style={{ paddingTop: 110, minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <FadeIn>
+          <div className="glass-strong" style={{ padding: 48, textAlign: 'center', maxWidth: 420 }}>
+            <div style={{ fontSize: 48, marginBottom: 16 }}>🎉</div>
+            <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8, marginTop: 0, fontFamily: 'var(--font)' }}>Application Submitted!</h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.6, marginBottom: 24, fontFamily: 'var(--font)' }}>
+              Thanks for your interest. We'll review your application and get back to you soon.
+            </p>
+            <button className="btn-accent" onClick={() => navigate('/')}>Back to Home</button>
+          </div>
+        </FadeIn>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ paddingTop: 110, minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '110px 24px 60px' }}>
+      <FadeIn>
+        <div className="glass-strong" style={{ padding: 48, maxWidth: 520, width: '100%' }}>
+          <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 6, marginTop: 0, fontFamily: 'var(--font)' }}>Become a Mentor</h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.6, marginBottom: 32, fontFamily: 'var(--font)' }}>
+            Share your expertise and guide aspiring developers. Fill out this form to apply.
+          </p>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {[
+              { key: 'name', label: 'Name', type: 'text', placeholder: 'Your full name' },
+              { key: 'email', label: 'Email', type: 'email', placeholder: 'you@company.com' },
+              { key: 'linkedin', label: 'LinkedIn', type: 'url', placeholder: 'https://linkedin.com/in/...' },
+              { key: 'company', label: 'Current Company', type: 'text', placeholder: 'e.g., Google, Amazon' },
+            ].map(f => (
+              <div key={f.key}>
+                <label style={{ fontSize: 13, fontWeight: 600, display: 'block', marginBottom: 6, fontFamily: 'var(--font)' }}>{f.label}</label>
+                <input
+                  type={f.type}
+                  placeholder={f.placeholder}
+                  required
+                  value={form[f.key]}
+                  onChange={e => setForm(prev => ({ ...prev, [f.key]: e.target.value }))}
+                  style={fieldStyle}
+                  onFocus={e => e.target.style.borderColor = 'var(--accent)'}
+                  onBlur={e => e.target.style.borderColor = 'rgba(0,0,0,0.08)'}
+                />
+              </div>
+            ))}
+            <div>
+              <label style={{ fontSize: 13, fontWeight: 600, display: 'block', marginBottom: 6, fontFamily: 'var(--font)' }}>Experience & Expertise</label>
+              <textarea
+                placeholder="e.g., 5+ years in Backend, DSA, System Design..."
+                required
+                rows={3}
+                value={form.experience}
+                onChange={e => setForm(prev => ({ ...prev, experience: e.target.value }))}
+                style={{ ...fieldStyle, resize: 'vertical' }}
+                onFocus={e => e.target.style.borderColor = 'var(--accent)'}
+                onBlur={e => e.target.style.borderColor = 'rgba(0,0,0,0.08)'}
+              />
+            </div>
+            <div>
+              <label style={{ fontSize: 13, fontWeight: 600, display: 'block', marginBottom: 6, fontFamily: 'var(--font)' }}>Motivation</label>
+              <textarea
+                placeholder="Why do you want to mentor?"
+                rows={3}
+                value={form.motivation}
+                onChange={e => setForm(prev => ({ ...prev, motivation: e.target.value }))}
+                style={{ ...fieldStyle, resize: 'vertical' }}
+                onFocus={e => e.target.style.borderColor = 'var(--accent)'}
+                onBlur={e => e.target.style.borderColor = 'rgba(0,0,0,0.08)'}
+              />
+            </div>
+            <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
+              <button type="submit" className="btn-accent" style={{ flex: 1, justifyContent: 'center' }} disabled={loading}>
+                {loading ? 'Submitting...' : 'Submit Application'}
+              </button>
+              <button type="button" className="btn-glass" onClick={() => navigate('/')} style={{ justifyContent: 'center' }}>
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </FadeIn>
+    </div>
+  );
+}
