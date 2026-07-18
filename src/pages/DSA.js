@@ -37,17 +37,20 @@ const TopicItem = ({ topic, eventKey, checkedState, setCheckedState }) => {
   };
 
   // When any subtopic's checkbox changes, update parent's checkbox.
+  // Avoid an infinite render loop by only updating state if the parent's
+  // checked value actually differs from the computed value.
   useEffect(() => {
-    if (hasSubtopics) {
-      const leafIds = getLeafIds(topic);
-      const allChecked = leafIds.every((id) => checkedState[id]);
+    if (!hasSubtopics) return;
+    const leafIds = getLeafIds(topic);
+    const allChecked = leafIds.every((id) => checkedState[id]);
+    const parentChecked = !!checkedState[topic.id];
+    if (allChecked !== parentChecked) {
       setCheckedState((prevState) => ({
         ...prevState,
         [topic.id]: allChecked,
       }));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [checkedState]);
+  }, [checkedState, hasSubtopics, topic.id]);
 
   const renderTitle = () => (
     <span>

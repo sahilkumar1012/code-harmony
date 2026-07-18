@@ -1,6 +1,6 @@
 // App.js
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useUser } from './UserContext';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -48,9 +48,10 @@ function AppContent() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/dsasheet" element={<DSASheet theme={theme} />} />
-          <Route path="/login" element={
-            user ? <Home /> : <GoogleLogin onLogin={login} theme={theme}/>
-          } />
+          <Route
+            path="/login"
+            element={<GoogleLogin onLogin={login} theme={theme} />}
+          />
 
           <Route path="/dsa" element={<DSA theme={theme}/>} />
           <Route path="*" element={<NotFound theme={theme} />} />
