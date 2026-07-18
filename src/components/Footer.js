@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaLinkedin, FaYoutube, FaDiscord, FaInstagram, FaWhatsapp, FaTelegramPlane, FaLinkedinIn } from 'react-icons/fa'; // Import Instagram icon
 import "./Footer.css";
 import { FaXTwitter } from 'react-icons/fa6';
-import {whatsappLink} from './WhatsAppButton';
+import {telegramLink} from './TelegramButton';
 
 
 // Custom Tooltip Component
@@ -138,9 +138,9 @@ const Footer = ({theme}) => {
       <br></br>
       <p style={theme === 'dark' ? footerTextStyleDark : footerTextStyle}>© 2025 Code Harmony. All rights reserved.</p>
           
-      {/* Floating WhatsApp icon on right bottom - fixed  */}
-      <a href={whatsappLink} className={ `whatsapp-float icon`}>
-        <FaWhatsapp />
+      {/* Floating Telegram icon on right bottom - fixed  */}
+      <a href={telegramLink} className="telegram-float icon" style={{ color: '#0088cc' }}>
+        <FaTelegramPlane />
       </a>
 
     </footer>
