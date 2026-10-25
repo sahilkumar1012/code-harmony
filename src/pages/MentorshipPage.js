@@ -29,6 +29,7 @@ import siddarthPic from "../../src/assets/mentors/siddarth.png";
 import asmaPic from "../../src/assets/mentors/Asma.jpeg";
 import shyamPic from "../../src/assets/mentors/Shyam.jpeg";
 import abhishekPic from "../../src/assets/mentors/abhishek.jpeg";
+import nikhilPic from "../../src/assets/mentors/NikhilSachan.png";
 
 
 import "./MentorshipPage.css";
@@ -137,6 +138,17 @@ const mentors = [
     topmate: "https://topmate.io/abhishek_malviya11/",
     expertise: ["DSA", "Fullstack", "System Design"],
   },
+  {
+    name: "Nikhil Sachan",
+    profilePicture: nikhilPic,
+    companies: [
+      { name: "Microsoft", logo: microsoftLogo },
+      { name: "Adobe", logo: adobeLogo },
+    ],
+    linkedIn: "https://www.linkedin.com/in/nikhil-sachan-1b32b3148/",
+    topmate: "https://topmate.io/nikhil_sachan11/",
+    expertise: ["DSA"],
+  }
 ];
 
 const MentorCard = ({ mentor, theme}) => {
